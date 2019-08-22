@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Achal Neupane</title>
+    <link>achalneupane.github.io/authors/</link>
+      <atom:link href="achalneupane.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 30 Jul 2019 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>achalneupane.github.io/img/icon-192.png</url>
+      <title>Authors</title>
+      <link>achalneupane.github.io/authors/</link>
+    </image>
+    
+    <item>
+      <title>**Achal Neupane**</title>
+      <link>achalneupane.github.io/authors/achal-neupane/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/achal-neupane/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chenchen Feng</title>
+      <link>achalneupane.github.io/authors/chenchen-feng/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/chenchen-feng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Huma Saleem</title>
+      <link>achalneupane.github.io/authors/huma-saleem/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/huma-saleem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pauline K. Mochama</title>
+      <link>achalneupane.github.io/authors/pauline-k.-mochama/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/pauline-k.-mochama/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shin-Yi Lee Marzano</title>
+      <link>achalneupane.github.io/authors/shin-yi-lee-marzano/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/shin-yi-lee-marzano/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>achalneupane.github.io/authors/admin/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>achalneupane.github.io/authors/admin/</guid>
+      <description>&lt;p&gt;I have been working on bioinformatics and statistical genetics focused projects. I have extensive experience in academic, clinical and industry collaborations with researchers in the US and Australia. I have gained key expertise in the analysis of large clinically focused datasets (mostly Cancer genomes). The goals of these research were to characterise and understand the genetic origin of disease and to translate these findings into clinical practice. In the past, I had analyzed a cohort of 150 clinically characterized acute myeloid leukemia (AML) sequenced with whole exome and whole genome sequencing, and a cohort of 900 control exomes and 600 whole genomes to validate and compare genotyping algorithms and sequencing technologies, and to perform gene discovery for both somatic and germline risk variants using
+sophisticated statistical genetics algorithms that identify both protective and deleterious variants. I used several variant calling methods to characterize germline, copy number and structural variants in AML. I also developed several algorithms (in R) for these studies, including to detect sample contamination, identity and ethnicity for quality control of Next Generation Sequencing (NGS) data. I have also studied and compared pathology, cytogenetic and Sequenom genotyping data to refine and calibrate these algorithms.&lt;/p&gt;
+
+&lt;p&gt;Recently, I have studied the effects of hypovirulence-associated DNA virus 1(SsHADV-1) and Sclerotinia sclerotiorum hypovirus 2 Lactuca (SsHV2L) on white mold fungus pathogen &lt;em&gt;Sclerotinia sclerotiorum&lt;/em&gt; using smallRNAseq and RNAseq data. Over the years, I have worked on human (Cancer), plants, insects, fungal and Viral genome datasets.&lt;/p&gt;
+
+&lt;p&gt;I am intereted in big data analysis, algorithm development, scientific computing, including analysis of biological (NGS)/non-biological datasets. During my graduate studies, I had taken several graduate level courses in Statistics, Computer science and Biological sciences to prepare myself for highly interdisciplinary fields, such as computational biology, including datascience.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Anne Fennell</title>
+      <link>achalneupane.github.io/authors/anne-fennell/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/anne-fennell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ethan J Andersen</title>
+      <link>achalneupane.github.io/authors/ethan-j-andersen/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/ethan-j-andersen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Madhav P Nepal</title>
+      <link>achalneupane.github.io/authors/madhav-p-nepal/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/madhav-p-nepal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruanbao Zhou</title>
+      <link>achalneupane.github.io/authors/ruanbao-zhou/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/ruanbao-zhou/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sarah E Schweitzer</title>
+      <link>achalneupane.github.io/authors/sarah-e-schweitzer/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/sarah-e-schweitzer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Surendra Neupane</title>
+      <link>achalneupane.github.io/authors/surendra-neupane/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/surendra-neupane/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arjun Kafle</title>
+      <link>achalneupane.github.io/authors/arjun-kafle/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/arjun-kafle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heike Bücking</title>
+      <link>achalneupane.github.io/authors/heike-bucking/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/heike-bucking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jiuhuan Feng</title>
+      <link>achalneupane.github.io/authors/jiuhuan-feng/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/jiuhuan-feng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leslie Domier</title>
+      <link>achalneupane.github.io/authors/leslie-domier/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/leslie-domier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ethan J. Andersen</title>
+      <link>achalneupane.github.io/authors/ethan-j.-andersen/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/ethan-j.-andersen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Madhav P. Nepal</title>
+      <link>achalneupane.github.io/authors/madhav-p.-nepal/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/madhav-p.-nepal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pauline Mochama</title>
+      <link>achalneupane.github.io/authors/pauline-mochama/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/pauline-mochama/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prajakta Jadhav</title>
+      <link>achalneupane.github.io/authors/prajakta-jadhav/</link>
+      <pubDate>Wed, 18 Apr 2018 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/prajakta-jadhav/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gary E. Larson</title>
+      <link>achalneupane.github.io/authors/gary-e.-larson/</link>
+      <pubDate>Sat, 22 Feb 2014 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/gary-e.-larson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jack L. Butler</title>
+      <link>achalneupane.github.io/authors/jack-l.-butler/</link>
+      <pubDate>Sat, 22 Feb 2014 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/jack-l.-butler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sarbottam Piya</title>
+      <link>achalneupane.github.io/authors/sarbottam-piya/</link>
+      <pubDate>Sat, 22 Feb 2014 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/sarbottam-piya/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Benjamin V Benson</title>
+      <link>achalneupane.github.io/authors/benjamin-v-benson/</link>
+      <pubDate>Mon, 02 Dec 2013 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/benjamin-v-benson/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenton J macArthur</title>
+      <link>achalneupane.github.io/authors/kenton-j-macarthur/</link>
+      <pubDate>Mon, 02 Dec 2013 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/authors/kenton-j-macarthur/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jai S Rohila</title>
+      <link>achalneupane.github.io/authors/jai-s-rohila/</link>
+      <pubDate>Sun, 22 Sep 2013 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/jai-s-rohila/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Neil Reese</title>
+      <link>achalneupane.github.io/authors/r-neil-reese/</link>
+      <pubDate>Sun, 22 Sep 2013 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/r-neil-reese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Senthil Subramanian</title>
+      <link>achalneupane.github.io/authors/senthil-subramanian/</link>
+      <pubDate>Sun, 22 Sep 2013 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/authors/senthil-subramanian/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
