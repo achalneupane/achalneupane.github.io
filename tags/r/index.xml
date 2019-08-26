@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R | Achal Neupane</title>
+    <link>/achalneupane.github.io/tags/r/</link>
+      <atom:link href="/achalneupane.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <description>R</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>R</title>
+      <link>/achalneupane.github.io/tags/r/</link>
+    </image>
+    
+    <item>
+      <title>Arrays</title>
+      <link>/achalneupane.github.io/post/arrays/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/achalneupane.github.io/post/arrays/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;div id=&#34;exercise-1.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 1.&lt;/h1&gt;
+&lt;div id=&#34;part-a.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part a.&lt;/h3&gt;
+&lt;p&gt;We will calculate a number of required replicates for a range of mean differences, comparable to calories per serving estimates found in Wansink, Table 1.&lt;/p&gt;
+&lt;p&gt;Let &lt;span class=&#34;math inline&#34;&gt;\(m_1\)&lt;/span&gt; be a sequence of means from 320-420, incremented by 10. Let &lt;span class=&#34;math inline&#34;&gt;\(m_2\)&lt;/span&gt; be 270. Assume a pooled standard deviation of 150.&lt;/p&gt;
+&lt;p&gt;Calculate Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; for the pairs of means &lt;span class=&#34;math inline&#34;&gt;\({320 - 270, 330 - 270, ...., 420 - 270}\)&lt;/span&gt;, letting &lt;span class=&#34;math inline&#34;&gt;\(s_i = s_j = s_{pooled}\)&lt;/span&gt;. Calculate the required replicates for these same pairs of means. You may reuse code or functions from previous homework at your discretion.&lt;/p&gt;
+&lt;p&gt;To show your results, either create and print a matrix with one colum for effect size and one column for replicates, or plot required replicates versus effect size (effect size will be the independent variable). What does this tell you about the number of observations required to detect medium-size effects? You may include reference lines in your plot to illustrate.&lt;/p&gt;
+&lt;p&gt;Since we know that &lt;span class=&#34;math inline&#34;&gt;\(s_{pooled} = \sqrt{(s_1^2 + s_2^2)/2}\)&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;options(warn=-1)
+
+# Creating a function with constant m2, pooled sd, alpha and beta.
+combined &amp;lt;- function (m1,m2 = 270, s_pooled = 150, alpha = 0.05, beta = 0.2){
+  cv &amp;lt;- (s_pooled)/((m1+m2)/2)
+  percent.diff &amp;lt;- ((m1-m2)/((m1+m2)/2))
+  cohens_d &amp;lt;-(abs(m1-m2)/(s_pooled))
+  n &amp;lt;- 2*(((cv/percent.diff)^2)*(qnorm((1-alpha/2)) + qnorm((1-beta)))^2) 
+  n &amp;lt;- round(n,0)
+  value &amp;lt;- (list(CV = cv, PercentDiff= percent.diff, RequiredReplicates = round(n,0), EffectSize = cohens_d))
+  return(value)
+  }
+
+
+m1 &amp;lt;- seq(320,420,10)
+m1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 320 330 340 350 360 370 380 390 400 410 420&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- combined(m1 = m1)
+# cal.lm &amp;lt;- lm(data$RequiredReplicates ~ data$EffectSize)
+# or even quadratic term
+# cal.lm &amp;lt;- lm(data$RequiredReplicates ~ poly(data$EffectSize, 3, raw = TRUE))
+plot(data$EffectSize, data$RequiredReplicates)
+# abline(cal.lm)
+# As per rule of thumb for medium-size effect, we can choose v= 0.5 as medium-size effects
+# http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
+# Also, http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
+abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note: Cohen suggested that d = 0.2 be considered a ‘small’ effect size, 0.5 represents a ‘medium’ effect size and 0.8 a ‘large’ effect size. This means that if two groups’ means don’t differ by 0.2 standard deviations or more, the difference is trivial, even if it is statistically signficant. This plot tells us that with the increasing effect-size, we need fewer replicates. Since effect-size of |0.5| or (v= 0.5) is intersects with the abline at approximately 78 replicates in the plot, it also tells us that for medium-size effect we need about 78 replicates.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-2&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 2&lt;/h1&gt;
+&lt;p&gt;Create a table to show the required replicates for a range of combinations of &lt;span class=&#34;math inline&#34;&gt;\(\%Diff\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(CV\)&lt;/span&gt;. Do this in steps as follows:&lt;/p&gt;
+&lt;div id=&#34;part-a.-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part a.&lt;/h3&gt;
+&lt;p&gt;Define two matrices, one for &lt;code&gt;CV&lt;/code&gt; and one for &lt;code&gt;Diff&lt;/code&gt;. Each will matrix will be 5 rows by 6 columns. Let the rows in CV be the sequence &lt;span class=&#34;math inline&#34;&gt;\(8, 12, ..., 28\)&lt;/span&gt; and let the columns of &lt;code&gt;Diff&lt;/code&gt; be the squence &lt;span class=&#34;math inline&#34;&gt;\(5,10, ... , 25\)&lt;/span&gt;. The matrices should look like:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{aligned} 
+ CV &amp;amp; = \left\{
+ \begin{array}{cccccc}
+     8 &amp;amp; 12 &amp;amp; 16 &amp;amp; 20 &amp;amp; 24 &amp;amp; 28  \\
+     8 &amp;amp; 12 &amp;amp; 16 &amp;amp; 20 &amp;amp; 24 &amp;amp; 28  \\
+     \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots  &amp;amp; \vdots \\
+     8 &amp;amp; 12 &amp;amp; 16 &amp;amp; 20 &amp;amp; 24 &amp;amp; 28  \\
+   \end{array}
+   \right\} \\
+   &amp;amp; \\
+ \%Diff &amp;amp; = \left\{
+ \begin{array}{ccccc}
+     5 &amp;amp; 5 &amp;amp; 5 &amp;amp; 5 &amp;amp; 5  \\
+     10 &amp;amp; 10 &amp;amp; 10 &amp;amp; 10 &amp;amp; 10 \\
+     \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots \\
+     25 &amp;amp; 25 &amp;amp; 25 &amp;amp; 25 &amp;amp; 25 \\
+   \end{array}
+   \right\}
+\end{aligned} 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Define and print your matrices in the code below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create sequence data and then matrix for CV
+rep.cv &amp;lt;- rep(seq(8,28,4),5)
+rep.cv&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  8 12 16 20 24 28  8 12 16 20 24 28  8 12 16 20 24 28  8 12 16 20 24
+## [24] 28  8 12 16 20 24 28&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv &amp;lt;- matrix(rep.cv, nrow = 5, ncol = 6, byrow = TRUE)
+cv&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    8   12   16   20   24   28
+## [2,]    8   12   16   20   24   28
+## [3,]    8   12   16   20   24   28
+## [4,]    8   12   16   20   24   28
+## [5,]    8   12   16   20   24   28&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# create sequence data and then matrix for %Diff
+rep.Diff &amp;lt;- rep(seq(5,25,5), 6)
+rep.Diff&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  5 10 15 20 25  5 10 15 20 25  5 10 15 20 25  5 10 15 20 25  5 10 15
+## [24] 20 25  5 10 15 20 25&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Diff &amp;lt;- matrix(rep.Diff, nrow = 5, ncol = 6, byrow = FALSE)
+Diff&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    5    5    5    5    5    5
+## [2,]   10   10   10   10   10   10
+## [3,]   15   15   15   15   15   15
+## [4,]   20   20   20   20   20   20
+## [5,]   25   25   25   25   25   25&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part b.&lt;/h3&gt;
+&lt;p&gt;Calculate require replicates for each combination of &lt;code&gt;CV&lt;/code&gt; and &lt;code&gt;Diff&lt;/code&gt;. Use the same values for &lt;span class=&#34;math inline&#34;&gt;\(z_\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(z_\beta\)&lt;/span&gt; as from Homework 2 and 3. You should be able to reuse coce from previous exercises, and you should not use iteration.&lt;/p&gt;
+&lt;p&gt;Print the result below. The result should be a &lt;span class=&#34;math inline&#34;&gt;\(5 \times 6\)&lt;/span&gt; matrix.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now vectorize the matrices CV and %Diff from above
+cv.vector &amp;lt;- as.vector(cv) 
+cv.vector&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  8  8  8  8  8 12 12 12 12 12 16 16 16 16 16 20 20 20 20 20 24 24 24
+## [24] 24 24 28 28 28 28 28&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Diff.vector &amp;lt;- as.vector(Diff)
+Diff.vector&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  5 10 15 20 25  5 10 15 20 25  5 10 15 20 25  5 10 15 20 25  5 10 15
+## [24] 20 25  5 10 15 20 25&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We can then use the function in exercise 1 by slightly modifying it as:
+combined &amp;lt;- function (cv, percent.diff, alpha = 0.05, beta = 0.2){
+  cv &amp;lt;- cv
+  percent.diff &amp;lt;- percent.diff
+  n &amp;lt;- 2*(((cv/percent.diff)^2)*(qnorm((1-alpha/2)) + qnorm((1-beta)))^2) 
+  n &amp;lt;- round(n,0)
+  value &amp;lt;- list(CV = cv, PercentDiff= percent.diff, RequiredReplicates = round(n,0))
+  return(value)
+}
+value &amp;lt;- combined(cv = cv.vector, percent.diff = Diff.vector)
+
+RequiredReplicates &amp;lt;- matrix(value$RequiredReplicates, nrow = 5, ncol = 6, byrow = FALSE)
+RequiredReplicates&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]   40   90  161  251  362  492
+## [2,]   10   23   40   63   90  123
+## [3,]    4   10   18   28   40   55
+## [4,]    3    6   10   16   23   31
+## [5,]    2    4    6   10   14   20&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To check your work, repeat the calculations using the rule of thumb from the previous exercises. What is largest deviation of the rule of thumb from the exact calculation?&lt;/p&gt;
+&lt;p&gt;For this, first we can simplify the equations as follows:
+first for CV,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(CV = \frac{sd_{pooled}}{(m_1 + m_2)/2}\)&lt;/span&gt;
+&lt;span class=&#34;math inline&#34;&gt;\((m_1 + m_2)/2) = \frac{sd_{pooled}}{CV/2}\)&lt;/span&gt;
+&lt;span class=&#34;math inline&#34;&gt;\((m_1 + m_2)/2) = {2} \times\frac{sd_{pooled}}{CV}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;then, for &lt;span class=&#34;math inline&#34;&gt;\(\%diff\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\%Diff = \frac{m_1 - m_2}{(m_1 + m_2)/2}\)&lt;/span&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(\%Diff\times\frac{(m_1 + m_2)}{2} = m_1-m_2\)&lt;/span&gt;
+&lt;span class=&#34;math inline&#34;&gt;\(m_1-m_2 = \frac{\%Diff}{2}\times(m_1 + m_2)\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now, if we replace &lt;span class=&#34;math inline&#34;&gt;\(m_1 + m_2\)&lt;/span&gt;, we get:
+&lt;span class=&#34;math inline&#34;&gt;\(m_1-m_2 = \frac{\%Diff}{2}\times ({2} \times\frac{sd_{pooled}}{CV})\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Or, &lt;span class=&#34;math inline&#34;&gt;\(m_1-m_2 = \frac{{\%Diff } \ \times\ {sd_{pooled}}}{CV}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This will give us delta (&lt;span class=&#34;math inline&#34;&gt;\(\triangle\)&lt;/span&gt;):
+&lt;span class=&#34;math inline&#34;&gt;\(\triangle = \frac{m_1-m_2}{sd_{pooled}} = \frac{1}{sd_{pooled}} \times \frac{{\%Diff } \ \times\ {sd_{pooled}}}{CV} = \frac{\%Diff}{CV}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now we can use, rule of thumb as:
+&lt;span class=&#34;math inline&#34;&gt;\(n = \frac{16}{\triangle^2}\)&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# As stated in rule of thumb: http://www.nrcse.washington.edu/research/struts/chapter2.pdf
+# We can then use the simplified equation
+rule.of.thumb.n &amp;lt;- function (cv, percent.diff){
+  cv &amp;lt;- cv
+  percent.diff &amp;lt;- percent.diff
+  delta &amp;lt;- percent.diff/cv
+  n &amp;lt;- (16/(delta^2))
+  value &amp;lt;- list(CV = cv, PercentDiff= percent.diff, RequiredReplicates = round(n,0))
+  return(value)
+}
+
+value &amp;lt;- rule.of.thumb.n(cv= cv.vector, percent.diff = Diff.vector)
+Rule.of.Thumb.matrix &amp;lt;- matrix(value$RequiredReplicates, nrow = 5, ncol = 6, byrow = FALSE)
+colnames(Rule.of.Thumb.matrix) &amp;lt;- paste0(&amp;quot;CV&amp;quot;,unique(value$CV))
+rownames(Rule.of.Thumb.matrix) &amp;lt;- paste0(&amp;quot;Diff&amp;quot;,unique(value$PercentDiff))
+# This matrix gives you the combination of all pairs of CV and %Diff for rule of thumb
+Rule.of.Thumb.matrix&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        CV8 CV12 CV16 CV20 CV24 CV28
+## Diff5   41   92  164  256  369  502
+## Diff10  10   23   41   64   92  125
+## Diff15   5   10   18   28   41   56
+## Diff20   3    6   10   16   23   31
+## Diff25   2    4    7   10   15   20&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We can then compare the matrix from exact calculation and required replicates
+# calculated using rule of thumb method by calculating the percent difference of
+# two data matrices
+percent_difference_between_two_df &amp;lt;- data.frame((abs(RequiredReplicates-Rule.of.Thumb.matrix)/(abs(RequiredReplicates+Rule.of.Thumb.matrix)/2))*100)
+percent_difference_between_two_df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                   CV8         CV12           CV16          CV20
+## Diff5   2.46913580247 2.1978021978  1.84615384615 1.97238658777
+## Diff10  0.00000000000 0.0000000000  2.46913580247 1.57480314961
+## Diff15 22.22222222222 0.0000000000  0.00000000000 0.00000000000
+## Diff20  0.00000000000 0.0000000000  0.00000000000 0.00000000000
+## Diff25  0.00000000000 0.0000000000 15.38461538462 0.00000000000
+##                 CV24          CV28
+## Diff5  1.91518467852 2.01207243461
+## Diff10 2.19780219780 1.61290322581
+## Diff15 2.46913580247 1.80180180180
+## Diff20 0.00000000000 0.00000000000
+## Diff25 6.89655172414 0.00000000000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Therefore, %Diff of 15 and CV of 8 has the highest deviation of 22.22% between calculated vs rule of thumb method for required replicates.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 3&lt;/h1&gt;
+&lt;p&gt;In this exercise, we’ll use your &lt;code&gt;norm.pdf&lt;/code&gt; function to illustrate how the formula for required replicates finds a compromise between Type I and Type II error rates. This is also a way to test your normal probability function over a range of arguments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Do not print the vectors you create for this exercise in the final typeset submission&lt;/strong&gt; We will check the results by examining the plots, and printing the vectors themselves will unnecessarily clutter your report. If you get stuck, use the built normal functions to create your plots.&lt;/p&gt;
+&lt;div id=&#34;part-a.-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part a.&lt;/h3&gt;
+&lt;p&gt;Generate a squence of values from &lt;span class=&#34;math inline&#34;&gt;\(-3,...,4\)&lt;/span&gt; incremented by &lt;span class=&#34;math inline&#34;&gt;\(0.1\)&lt;/span&gt;; let this be &lt;code&gt;x&lt;/code&gt;.
+Calculate the probability of each value of &lt;code&gt;x&lt;/code&gt; using the &lt;code&gt;norm.pdf&lt;/code&gt; function from Homework 3, letting &lt;code&gt;mu = 0&lt;/code&gt; and &lt;code&gt;sd = 1&lt;/code&gt;. Name the result &lt;code&gt;p.null&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Calculate the effect size for 1936 versus 2006, calories per serving, as in Homework 2 and 3. Repeat the calculation for the probability of &lt;code&gt;x&lt;/code&gt;, but this time use &lt;code&gt;mean=&lt;/code&gt; effect size. Name this result &lt;code&gt;p.alt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The results will be the distribution of the expected value of the difference between means; the first is the expectation under the null hypothesis (the true effect size is 0) while the second is the expectation assuming the measured &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; is the true &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Function to calcuate the values for log liklihood.
+# First, we define the values for sigma as variance, 
+# mu as mean of a normal population to be used for a liklihood of a x observation.
+norm.pdf &amp;lt;- function(x,mu = 0,sigma = 1){
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}
+
+x &amp;lt;- seq(-3, 4, 0.1)
+p.null &amp;lt;- norm.pdf(x)
+
+#calculating effect size to be used as &amp;#39;mean= &amp;#39; for the analysis below
+combined &amp;lt;- function (m1,m2,s1,s2, alpha = 0.05, beta = 0.2){
+  cohens_d &amp;lt;-(abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+  value &amp;lt;- (list(EffectSize = cohens_d))
+}
+
+#calculate the effect size for 1936 vs 2006, calories per serving
+m1 = 268.1
+m2 = 384.4
+s1 = 124.8
+s2 = 168.3
+value &amp;lt;- combined(m1 = m1, m2 = m2, s1 = s1, s2 = s2)
+value$EffectSize&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.784987603959&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# now repeating the calculation 
+mean = value$EffectSize
+mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.784987603959&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p.alt &amp;lt;- norm.pdf(x, mu = mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b.-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part b.&lt;/h3&gt;
+&lt;p&gt;Repeat the calculations of &lt;code&gt;p.null&lt;/code&gt; and &lt;code&gt;p.alt&lt;/code&gt;, but this time let &lt;code&gt;sigma =&lt;/code&gt; &lt;span class=&#34;math inline&#34;&gt;\(\sqrt{2/n}\)&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(n = 10\)&lt;/span&gt;. Name these &lt;code&gt;p.null.10&lt;/code&gt; and &lt;code&gt;p.alt.10&lt;/code&gt;. These calculations narrow the distribbutions by an amount proportional to standard error.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n &amp;lt;- 10
+norm.pdf &amp;lt;- function(x, n, mu = 0){
+  sigma = (sqrt(2/n))
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}
+
+x &amp;lt;- seq(-3, 4, 0.1)
+p.null.10 &amp;lt;- norm.pdf(x = x, n = n)
+
+mean = value$EffectSize
+mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.784987603959&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p.alt.10 &amp;lt;- norm.pdf(x = x, n = n, mu = mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-c.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part c.&lt;/h3&gt;
+&lt;p&gt;Repeat the calculations of &lt;code&gt;p.null&lt;/code&gt; and &lt;code&gt;p.alt&lt;/code&gt;, but this time let &lt;code&gt;sigma =&lt;/code&gt; &lt;span class=&#34;math inline&#34;&gt;\(\sqrt{2/n}\)&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is the minimun mumber of replicates for calories per recipe, 1936 versus 2006, as calculated previously. Call these &lt;code&gt;p.null.req&lt;/code&gt; and &lt;code&gt;p.alt.req&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Re-using the function to calculate minimum required replicates
+required.replicates &amp;lt;- function (m1,m2, s1,s2, alpha = 0.05, beta = 0.2){
+  n &amp;lt;- 2* ((((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * (qnorm((1-alpha/2)) + qnorm((1-beta)))^2) 
+  return(round(n,0))
+}
+
+m1 = 268.1
+m2 = 384.4
+s1 = 124.8
+s2 = 168.3
+
+n &amp;lt;- required.replicates(m1 = m1, m2 = m2, s1 = s1, s2 = s2)
+n.min.replicates &amp;lt;- n
+n.min.replicates&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norm.pdf &amp;lt;- function(x, n, mu = 0){
+  sigma = (sqrt(2/n))
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}
+
+x &amp;lt;- seq(-3, 4, 0.1)
+p.null.req &amp;lt;- norm.pdf(x = x, n = n)
+
+
+mean = value$EffectSize
+mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.784987603959&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p.alt.req &amp;lt;- norm.pdf(x = x, n = n, mu = mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-d.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part d.&lt;/h3&gt;
+&lt;p&gt;Plot &lt;code&gt;p.null&lt;/code&gt; versus &lt;code&gt;x&lt;/code&gt; as a black line and in the same plot add &lt;code&gt;p.alt&lt;/code&gt; vs &lt;code&gt;x&lt;/code&gt; as a red line. Add a green vertical line at &lt;span class=&#34;math inline&#34;&gt;\(z_\alpha\)&lt;/span&gt; and a blue vertical line at &lt;span class=&#34;math inline&#34;&gt;\(z_\beta\)&lt;/span&gt;, using values as in previous exercises. The green line represents the critical value for Type I error, and the error under the black curve to the left of the green line is the probability of that error (97.5%). The area under the red curve, to the left of the green line, represents the achieved Type II error rate, the blue line represents the desired Type II rate.&lt;/p&gt;
+&lt;p&gt;Repeat the plot with &lt;code&gt;p.null.10&lt;/code&gt; and &lt;code&gt;p.alt.10&lt;/code&gt;, but this time add vertical lines at &lt;span class=&#34;math inline&#34;&gt;\(z_\alpha \times \sqrt{2/10}\)&lt;/span&gt; and at &lt;span class=&#34;math inline&#34;&gt;\(z_\beta \times \sqrt{2/10}\)&lt;/span&gt;. The lines representing critical values for Type I and Type II error should move closer as the distributions narrow.&lt;/p&gt;
+&lt;p&gt;Repeat the plot with &lt;code&gt;p.null.req&lt;/code&gt; and &lt;code&gt;p.alt.req&lt;/code&gt;, but this time add vertical lines at &lt;span class=&#34;math inline&#34;&gt;\(z_\alpha \times \sqrt{2/n}\)&lt;/span&gt; and at &lt;span class=&#34;math inline&#34;&gt;\(z_\beta \times \sqrt{2/n}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is the minimum replicates. Do the lines for Type I and Type II error overlap?&lt;/p&gt;
+&lt;p&gt;It will improve the readability of the three plots if you plot all three in the chunk below. The arguments inside the braces specify the dimensions of the plot, while &lt;code&gt;par(mfrow = c(3,1))&lt;/code&gt; combines three plots into one graph.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow = c(3,1))
+# using base plot function part A
+alpha = 0.05; beta = 0.2
+Zalpha &amp;lt;- qnorm(1-alpha/2)
+Zbeta &amp;lt;- qnorm(1-beta)
+plot(x,p.null,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x,p.alt,col=&amp;quot;red&amp;quot;)
+abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
+abline(v = value$EffectSize-Zbeta, col= &amp;#39;blue&amp;#39;)
+
+### using ggplot
+# plot1 &amp;lt;- ggplot()+
+#   geom_line(aes(x = x, y = p.null), color = &amp;quot;black&amp;quot; ) +
+#   geom_line(aes(x = x, y =  p.alt), color = &amp;quot;red&amp;quot;) +
+#   geom_vline(xintercept = Zalpha, color = &amp;quot;green&amp;quot;)+
+#   geom_vline(xintercept = value$EffectSize - Zbeta, color = &amp;quot;blue&amp;quot;)
+# plot1
+
+# using base plot function Part B
+alpha = 0.05; beta = 0.2; n &amp;lt;- 10
+Zalpha &amp;lt;- qnorm(1-alpha/2)
+Zalpha &amp;lt;- Zalpha * sqrt(2/n)
+Zbeta &amp;lt;- qnorm(1-beta)
+Zbeta &amp;lt;- Zbeta * sqrt(2/n)
+plot(x,p.null.10,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x,p.alt.10,col=&amp;quot;red&amp;quot;)
+abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
+abline(v = (value$EffectSize-Zbeta), col= &amp;#39;blue&amp;#39;)
+
+## Using ggplot
+# plot2 &amp;lt;- ggplot()+
+#   geom_line(aes(x = x, y = p.null.10), color = &amp;quot;black&amp;quot; ) +
+#   geom_line(aes(x = x, y =  p.alt.10), color = &amp;quot;red&amp;quot;) +
+#   geom_vline(xintercept = Zalpha, color = &amp;quot;green&amp;quot;) +
+#   geom_vline(xintercept = value$EffectSize - Zbeta, color = &amp;quot;blue&amp;quot;)
+# plot2
+
+# using base plot function Part C
+alpha = 0.05; beta = 0.2; n &amp;lt;- n.min.replicates
+Zalpha &amp;lt;- qnorm(1-alpha/2)
+Zalpha &amp;lt;- Zalpha * sqrt(2/n)
+Zbeta &amp;lt;- qnorm(1-beta)
+Zbeta &amp;lt;- Zbeta * sqrt(2/n)
+plot(x,p.null.req,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x,p.alt.req,col=&amp;quot;red&amp;quot;)
+abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
+abline(v = value$EffectSize-Zbeta, col= &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Using ggplot
+# plot3 &amp;lt;- ggplot()+
+#   geom_line(aes(x = x, y = p.null.req), color = &amp;quot;black&amp;quot; ) +
+#   geom_line(aes(x = x, y =  p.alt.req), color = &amp;quot;red&amp;quot;) +
+#   geom_vline(xintercept = Zalpha, color = &amp;quot;green&amp;quot;) +
+#   geom_vline(xintercept = value$EffectSize - Zbeta, color = &amp;quot;blue&amp;quot;)
+# plot3
+
+# # Then merge all ggplots:
+# library(grid)
+# library(gridExtra)
+# grid.newpage()
+# grid.draw(arrangeGrob(plot1, plot2, plot3, heights = c(1/3, 1/3, 1/3)) )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, The lines representing critical values for Type I and Type II error move closer as the distributions narrow. Yes, the lines for Type I and Type II error overlap.&lt;/p&gt;
+&lt;p&gt;Note: z_beta should be plotted relative to the alternative hypothesis value (in this case, d), since z_beta is the critical value to control for Type II error, where we would (fail to reject)* the null hypothesis and miss a true effect. Thus, the line for z_beta needs to be plotted relative to d, and it needs to be offset to the left, so you should be plotting a line at d-z_beta, etc. The alternative hypothesis is that the effect size we measured, d, is the true effect size.
+Perhaps another way to phrase this is, the right-hand distribution illustrates values of the true effect size d that are consistent with a measured effect size. There’s a big debate in statistics on the use of null hypothesis tests. Perhaps a better visualization would be to demonstrate how narrowing the distributions (2, 10, n) changes likelihood ratio or Bayes factor.&lt;/p&gt;
+&lt;p&gt;If you choose to solve this with SAS, I’ve included code in the SAS template to create the graphs, since combining plots in IML is not as easy as in R.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-4&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 4&lt;/h1&gt;
+&lt;p&gt;In this, we compare the normal and Poisson distributions, using the functions you’ve written previously. This is also a way to test your normal and Poisson functions over a range of arguments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Do not print the vectors you create for this exercise in the final typeset submission&lt;/strong&gt; We will check the results by examining the plots, and printing the vectors themselves will unnecessarily clutter your report. If you get stuck, use the built functions to create your plots. However, the final submission must call your functions.&lt;/p&gt;
+&lt;div id=&#34;part-a&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part a&lt;/h3&gt;
+&lt;p&gt;Create a sequence of &lt;span class=&#34;math inline&#34;&gt;\(x_a\)&lt;/span&gt; from &lt;span class=&#34;math inline&#34;&gt;\(( -5 ... 5 )\)&lt;/span&gt;, incremented by 0.1. Calculate the normal likelihood for each &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, assuming &lt;span class=&#34;math inline&#34;&gt;\(\mu = 0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\sigma = 1\)&lt;/span&gt;. Also calculate Poisson probability of each &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; given a &lt;code&gt;lambda = 1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;NOTE: The Poisson parameter Lambda (λ) is the total number of events (k) divided by the number of units (n) in the data (λ = k/n)&lt;/p&gt;
+&lt;p&gt;Plot both sets of probablities against &lt;code&gt;x&lt;/code&gt; as lines, using a different color for each curve. Make sure that both curves fit in the plot; you may need to determine minimum and maximum values and set these as graphic parameters (see &lt;code&gt;ylim&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Warning: if you do this in SAS, you may have to adjust the lower bound of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Suppressing warnings that may be generated by Poisson function for negative values
+# options(warn=-1)
+
+x_a &amp;lt;- seq(-5, 5, 0.1)
+x_a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   [1] -5.0 -4.9 -4.8 -4.7 -4.6 -4.5 -4.4 -4.3 -4.2 -4.1 -4.0 -3.9 -3.8 -3.7
+##  [15] -3.6 -3.5 -3.4 -3.3 -3.2 -3.1 -3.0 -2.9 -2.8 -2.7 -2.6 -2.5 -2.4 -2.3
+##  [29] -2.2 -2.1 -2.0 -1.9 -1.8 -1.7 -1.6 -1.5 -1.4 -1.3 -1.2 -1.1 -1.0 -0.9
+##  [43] -0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2 -0.1  0.0  0.1  0.2  0.3  0.4  0.5
+##  [57]  0.6  0.7  0.8  0.9  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9
+##  [71]  2.0  2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3
+##  [85]  3.4  3.5  3.6  3.7  3.8  3.9  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7
+##  [99]  4.8  4.9  5.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norm.pdf &amp;lt;- function(x,mu=0,sigma=1){
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}
+normal.liklihood.x_a &amp;lt;- norm.pdf(x_a)
+
+
+# The function to calculate probability mass function for poisson 
+# data with a mean and variance lambda = 1. 
+pois.pmf &amp;lt;- function(x, lambda){
+  poisson.d &amp;lt;- exp(-lambda)*(1/(factorial(round(x,0))))*exp(round(x,0)*(log(lambda)))
+  return(poisson.d)
+}
+lambda &amp;lt;- 1
+poisson.probability.x_a &amp;lt;- pois.pmf(x=x_a, lambda = lambda)
+
+plot(x_a,normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x_a,poisson.probability.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Does this graph tell you if your Normal PDF function behaves properly? Does your Poisson handle negative or non-integer values as expected?&lt;/p&gt;
+&lt;p&gt;No, based on this plot, the normal pdf does behave properly, but not the poisson as there NAs inserted for negative and non-integer values.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part b&lt;/h3&gt;
+&lt;p&gt;Create a sequence of &lt;span class=&#34;math inline&#34;&gt;\(x_b = \left \lfloor{\mu - 5 \times \sigma } \right \rfloor , \dots, \left \lceil{\mu+ 5 \times \sigma } \right \rceil\)&lt;/span&gt; using mean and standard deviation for servings per recipe from 1936.&lt;/p&gt;
+&lt;p&gt;Calculate the normal and Poission probability for each &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; as in part a, again using mean and standard deviation from servings per recipe, 1936. The length of this vector should be the same length as the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; vector as in part a (&lt;span class=&#34;math inline&#34;&gt;\(\pm 1\)&lt;/span&gt;), so you will need to calculate an interval based on the range &lt;code&gt;x_b&lt;/code&gt; and the number of elements in &lt;code&gt;x_a&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Show the the length of both &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; vectors are similar by calling &lt;code&gt;length&lt;/code&gt; for each.&lt;/p&gt;
+&lt;p&gt;Repeat the plot from part a with this sequence.&lt;/p&gt;
+&lt;p&gt;If you choose to solve this with SAS, I’ve included code in the SAS template to create the graphs, since combining plots in IML is not as easy as in R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using mean and standard deviation for servings per recipe from 1936:
+mu = 12.9; sigma = 13.3
+
+# Now we find the upper and lower bounds as:
+x.lower &amp;lt;- floor(mu-5*sigma)
+x.upper &amp;lt;- ceiling(mu+5*sigma)
+
+# Now taking the length of x_a as a reference, we create the equeally spaced
+# sequence from lower to upper bound as followed:
+spacer &amp;lt;- (x.upper - x.lower)/(length(x_a) - 1)
+
+x_b &amp;lt;- seq(x.lower, x.upper, spacer)
+# To show both x_a and x_b &amp;#39;s lenghts are equal:
+length(x_a)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 101&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(x_b)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 101&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norm.pdf &amp;lt;- function(x, mu = 12.9, sigma = 13.3){
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}
+normal.liklihood.x_b &amp;lt;- norm.pdf(x_b)
+
+
+# The function to calculate probability mass function for poisson 
+# data with a mean and variance lambda = 12. 
+pois.pmf &amp;lt;- function(x, lambda){
+  poisson.d &amp;lt;- exp(-lambda)*(1/(factorial(round(x,0))))*exp(round(x,0)*(log(lambda)))
+  return(poisson.d)
+}
+
+#using sigma = 13.3 to compare the difference with the first plot
+poisson.probability.x_b &amp;lt;- pois.pmf(x=x_b, lambda = 12)
+
+# plot
+plot(x_b,normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x_b,poisson.probability.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To check you work, duplicate the plots by calling built in normal and Poisson functions. Does the system Poisson function handle negative &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; differently than your function?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part a  
+base.normal.liklihood.x_a &amp;lt;- dnorm(x_a,0, 1)
+base.poiss.x_a &amp;lt;- dpois(x=x_a, lambda = lambda)
+
+plot(x_a,base.normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x_a,base.poiss.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part b
+base.normal.liklihood.x_b &amp;lt;- dnorm(x_b,0, 1)
+base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)
+
+plot(x_b,base.normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
+lines(x_b,base.poiss.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Yes, the system Poisson function handles negative values and non-integers differently (inserts zero’s) whereas the function we wrote inserts NAs for negative and non-integer values.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-5&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 5&lt;/h1&gt;
+&lt;p&gt;Consider the table:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Rate&lt;/th&gt;
+&lt;th&gt;23000&lt;/th&gt;
+&lt;th&gt;24000&lt;/th&gt;
+&lt;th&gt;25000&lt;/th&gt;
+&lt;th&gt;26000&lt;/th&gt;
+&lt;th&gt;27000&lt;/th&gt;
+&lt;th&gt;28000&lt;/th&gt;
+&lt;th&gt;29000&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Yield&lt;/td&gt;
+&lt;td&gt;111.4216&lt;/td&gt;
+&lt;td&gt;155.0326&lt;/td&gt;
+&lt;td&gt;181.1176&lt;/td&gt;
+&lt;td&gt;227.5800&lt;/td&gt;
+&lt;td&gt;233.4623&lt;/td&gt;
+&lt;td&gt;242.1753&lt;/td&gt;
+&lt;td&gt;231.3890&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Suppose we wish to determine the linear relationship between per Rate and Yield. We can determine this by solving a system of linear equations, of the form&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{aligned}
+111.4216 &amp;amp; = \beta_1 + \beta_2 \times 23000 \\
+155.0326 &amp;amp; = \beta_1 + \beta_2 \times 24000  \\
+\vdots &amp;amp; = \vdots \\
+231.3890 &amp;amp; = \beta_1 + \beta_2 \times 29000 \\
+\end{aligned}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We write this in matrix notation as&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\left(\begin{array}{c}
+111.4216 \\
+155.0326 \\
+\vdots \\
+231.3890 
+ \end{array}\right) 
+ =
+ \left(\begin{array}{rr}
+ 1 &amp;amp; 23000 \\
+ 1 &amp;amp; 24000  \\
+\vdots &amp;amp; \vdots \\
+ 1 &amp;amp; 29000
+ \end{array}\right) 
+ \left(\begin{array}{c}
+ \beta_1 \\
+ \beta_2
+ \end{array}\right)^t
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We might write this as&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mathbf{y} = \mathbf{X} \mathbf{\beta}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;and find a solution by computing &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{\hat{\beta}} = \mathbf{X}^{- 1}\mathbf{y}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;However, an exact solution for the inverse, &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^{- 1}\)&lt;/span&gt; require square matrices, so commonly we use the &lt;em&gt;normal&lt;/em&gt; equations,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \mathbf{X}^{t}  \mathbf{y} = \mathbf{X}^{t} \mathbf{X}  \mathbf{\beta} \]&lt;/span&gt;
+(where &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^{t}\)&lt;/span&gt; is the transpose of &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}\)&lt;/span&gt;). We then find &lt;span class=&#34;math inline&#34;&gt;\(\hat{\mathbf{\beta}} = \mathbf{X}^{t} \mathbf{X} ^{-1} \mathbf{X}^{t} \mathbf{y}\)&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;answer&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Answer&lt;/h3&gt;
+&lt;p&gt;Define appropriate &lt;code&gt;X&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; matrices (&lt;code&gt;y&lt;/code&gt; can be a vector in R) in the chunk below.&lt;/p&gt;
+&lt;p&gt;Multiply the transpose of &lt;code&gt;X&lt;/code&gt; by &lt;code&gt;X&lt;/code&gt;, then use &lt;code&gt;solve&lt;/code&gt; (R) or &lt;code&gt;inv&lt;/code&gt; (IML) to find the inverse. Multiply this by the product of transpose &lt;code&gt;X&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; to find &lt;code&gt;hat.beta&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Print your &lt;code&gt;hat.beta&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- matrix( c(111.4216, 155.0326, 181.1176, 227.5800, 233.4623, 242.1753, 231.3890), byrow = FALSE)
+y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          [,1]
+## [1,] 111.4216
+## [2,] 155.0326
+## [3,] 181.1176
+## [4,] 227.5800
+## [5,] 233.4623
+## [6,] 242.1753
+## [7,] 231.3890&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#creating a matrix for bias term
+bias=rep(1:1, length.out=length(y))
+bias&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1 1 1 1 1 1 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cx &amp;lt;- c(23000, 24000, 25000, 26000 , 27000, 28000, 29000)
+X=matrix(c(bias,cx), ncol = 2)
+X&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]  [,2]
+## [1,]    1 23000
+## [2,]    1 24000
+## [3,]    1 25000
+## [4,]    1 26000
+## [5,]    1 27000
+## [6,]    1 28000
+## [7,]    1 29000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#multplication of transpose of x and x
+tX=t(X)
+tX&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       [,1]  [,2]  [,3]  [,4]  [,5]  [,6]  [,7]
+## [1,]     1     1     1     1     1     1     1
+## [2,] 23000 24000 25000 26000 27000 28000 29000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Xm=tX%*%X
+Xm&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        [,1]     [,2]
+## [1,]      7 1.82e+05
+## [2,] 182000 4.76e+09&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;A=solve(Xm)
+
+hat.beta=A%*%(tX%*%y)
+hat.beta&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    [,1]
+## [1,] -347.1830785714119
+## [2,]    0.0209475821429&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To check your work, calculate the values predicted by your statistical model. Compute &lt;code&gt;hat.y&lt;/code&gt; by multiplying &lt;code&gt;X&lt;/code&gt; and &lt;code&gt;hat.beta&lt;/code&gt;,
+&lt;span class=&#34;math display&#34;&gt;\[\hat{y} = \mathbf{X}  \hat{\beta}\]&lt;/span&gt;
+Plot &lt;code&gt;y&lt;/code&gt; vs the independent variable (the second column of &lt;code&gt;X&lt;/code&gt;) as points, and &lt;code&gt;hat.y&lt;/code&gt; vs independent variable as a line, preferably a different colors. The &lt;code&gt;hat.y&lt;/code&gt; values should fall a straight line that interpolates &lt;code&gt;y&lt;/code&gt; values.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# compute hat.y 
+hat.y &amp;lt;- X %*% hat.beta
+# plot
+plot(X[,2], y, type = &amp;#39;l&amp;#39;, col = &amp;quot;black&amp;quot;)
+lines(X[,2], hat.y, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can also compare your result to the R function (set &lt;code&gt;eval = TRUE&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y~X))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = y ~ X)
+## 
+## Residuals:
+##             1             2             3             4             5 
+## -23.189710714  -0.526292857   4.611125000  30.125942857  15.060660714 
+##             6             7 
+##   2.826078571 -28.907803571 
+## 
+## Coefficients: (1 not defined because of singularities)
+##                    Estimate      Std. Error  t value  Pr(&amp;gt;|t|)   
+## (Intercept) -3.47183079e+02  1.11014646e+02 -3.12736 0.0260348 * 
+## X1                       NA              NA       NA        NA   
+## X2           2.09475821e-02  4.25721732e-03  4.92049 0.0043956 **
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 22.5270766 on 5 degrees of freedom
+## Multiple R-squared:  0.828832727,    Adjusted R-squared:  0.794599272 
+## F-statistic: 24.2111915 on 1 and 5 DF,  p-value: 0.00439564802&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Based on my calculation the beta estimates are similar to the beta estimates from the liner model&lt;/p&gt;
+&lt;div id=&#34;alternative-methods&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Alternative methods&lt;/h4&gt;
+&lt;p&gt;You can also compute &lt;span class=&#34;math inline&#34;&gt;\(\hat{\beta}\)&lt;/span&gt; by passing both &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^{t} \mathbf{X} ^{-1}\)&lt;/span&gt; and
+&lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^{t} \mathbf{y}\)&lt;/span&gt; as arguments to &lt;code&gt;solve&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can install the &lt;code&gt;MASS&lt;/code&gt; library and use &lt;code&gt;ginv&lt;/code&gt; to compute a generalized inverse &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^{- 1}\)&lt;/span&gt;. Use this to compute &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{\hat{\beta}} = \mathbf{X}^-\mathbf{y}\)&lt;/span&gt; in the chunk below:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(MASS)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-6&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 6&lt;/h1&gt;
+&lt;p&gt;Given a vector of mean estimates &lt;span class=&#34;math inline&#34;&gt;\(x = x_1, x_2, \dots, x_k\)&lt;/span&gt;, a vector of standard deviations &lt;span class=&#34;math inline&#34;&gt;\(s = s_1, s_2, \dots, s_k\)&lt;/span&gt; and a vector of sample sizes &lt;span class=&#34;math inline&#34;&gt;\(n = n_1, n_2, \dots, n_k\)&lt;/span&gt;, we can calculate a one-way analysis of variance by&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+MSB = \frac{n_1(x_1-\bar{x})^2 + n_2(x_2-\bar{x})^2 + \dots + n_k(x_k-\bar{x})^2} {k-1} = \frac{\sum_i n_i(x_i-\bar{x})^2}{k-1}
+\]&lt;/span&gt;
+and&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+MSW = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2 + \dots (n_k-1)s_k^2 }{N-k} = \frac{\sum_i (n_i-1)s_i^2}{N-k}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\bar{x}\)&lt;/span&gt; is the mean of &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(N = \sum_i n_i\)&lt;/span&gt;. The test statistic is &lt;span class=&#34;math inline&#34;&gt;\(F = \frac{MSB}{MSW}\)&lt;/span&gt; which is distributed as &lt;span class=&#34;math inline&#34;&gt;\(F_{\alpha,k-1,N-k}\)&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;part-a-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part a&lt;/h3&gt;
+&lt;p&gt;Calculate MSW and MSB for Calories per Serving from Wansink Table 1. You can use the variables &lt;code&gt;CaloriesPerServingMean&lt;/code&gt; and &lt;code&gt;CaloriesPerServingSD&lt;/code&gt; defined below. Let &lt;span class=&#34;math inline&#34;&gt;\(n_1 = n_2 ... = n_k = 18\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Use array functions and arithmetic for your calculations, you should not need iteration (for loops). Do not hard code values for &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;, calculate these from the &lt;code&gt;CaloriesPerServingMean&lt;/code&gt; or &lt;code&gt;CaloriesPerServingSD&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Print both MSB and MSW.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CaloriesPerServingMean &amp;lt;- c(268.1, 271.1, 280.9, 294.7, 285.6, 288.6, 384.4)
+CaloriesPerServingSD &amp;lt;- c(124.8, 124.2, 116.2, 117.7, 118.3, 122.0, 168.3)
+#mean for servingperrecipe
+mean = mean(CaloriesPerServingMean)
+mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 296.2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- length(CaloriesPerServingMean)
+k&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We have 18 samples in each year group; so our N is:
+n &amp;lt;- rep(18, k)
+N &amp;lt;- sum(n)
+#calculating MSB 
+mean.CaloriesPerServingMean &amp;lt;- mean(CaloriesPerServingMean)
+MSB = (sum(n*(CaloriesPerServingMean-mean.CaloriesPerServingMean)^2))/(k-1)
+MSB&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 28815.96&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;MSW &amp;lt;- sum((n-1) * CaloriesPerServingSD^2)/(N-k)
+MSW&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 16508.5985714&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Part b&lt;/h3&gt;
+&lt;p&gt;Calculate an F-ratio and a &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; for this &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt;, using the &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; distribution with &lt;span class=&#34;math inline&#34;&gt;\(k-1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(N-k\)&lt;/span&gt; degrees of freedom. Use &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 0.05\)&lt;/span&gt;. Compare these values to the corresponding values reported in Wansink Table 1.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Calculating F.ratio
+F.ratio &amp;lt;- MSB/MSW
+df1 &amp;lt;- k-1
+df2 &amp;lt;- N-k
+p.value &amp;lt;- pf(F.ratio, df1, df2, lower.tail = FALSE)
+p.value&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.116313264501&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can check your results by entering appropriate values in an online calculator like &lt;a href=&#34;http://statpages.info/anova1sm.html&#34; class=&#34;uri&#34;&gt;http://statpages.info/anova1sm.html&lt;/a&gt; .&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Group Name     N(count)   Mean         Std.Dev
+Group1         18         268.1         124.8
+Group2         18         271.1         124.2
+Group3         18         280.9         116.2
+.
+.
+.
+Group7         18         384.4         168.3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then set desired confidence level for post-hoc confidence intervals: 5&lt;/p&gt;
+&lt;p&gt;Finally, cross-check your answers!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>/achalneupane.github.io/post/functions/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/achalneupane.github.io/post/functions/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;div id=&#34;exercise-1&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 1&lt;/h1&gt;
+&lt;p&gt;Implement Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; as a function of&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+d = f(m_1, s_1, m_2, s_2) = \frac{|m_1-m_2|}{s_{pooled}}
+\]&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(s_{pooled}\)&lt;/span&gt; is a pooled standard deviation. Use the formula &lt;span class=&#34;math inline&#34;&gt;\(s_{pooled} = \sqrt{(s_1^2 + s_2^2)/2}\)&lt;/span&gt;. You may implement pooled standard deviation as a function as well.&lt;/p&gt;
+&lt;p&gt;Calculate the effect size &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; for the differences among calories per serving, 1936 versus 2006, 1936 vs 1997 and 1997 vs 2006. Use the values from Wansink, Table 1 as given in Homework 1 or in the course outline. Name this function &lt;code&gt;cohen.d&lt;/code&gt; (or similar if using SAS)&lt;/p&gt;
+&lt;div id=&#34;answer&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# Variables m1 and m2 are means, and s1 and s2 are standard deviations
+# for two dates of comparison among calories per serving we are interested in, respectively. 
+cohen.d &amp;lt;- function(m1,s1,m2,s2){
+  cohens_d &amp;lt;-(abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+  return(cohens_d)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;versus-2006&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+cohen.d(m1=m1,s1=s1,m2=m2,s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.784987603959&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-1997&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 1997&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+cohen.d(m1=m1,s1=s1,m2=m2,s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.166115727787&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-2006-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1997 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+cohen.d(m1=m1,s1=s1,m2=m2,s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.651769377713&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check your work by comparing with the previous homework.
+-Answers match with previous homework!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 2.&lt;/h1&gt;
+&lt;p&gt;Implement the required replicates calculation as a function of &lt;span class=&#34;math inline&#34;&gt;\(m_1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(s_1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(m_2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(s_2\)&lt;/span&gt; as required parameters, and &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; as optional parameters. Let &lt;code&gt;alpha=0.05&lt;/code&gt; and &lt;code&gt;beta=0.2&lt;/code&gt;, so you’ll need to compute quantiles for &lt;code&gt;1-alpha/2&lt;/code&gt; and &lt;code&gt;1-beta&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Your function should return an integer &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, such that&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+n \ge 2\times \left( \frac{CV}{\%Diff} \right)^2 \times \left(z_{\alpha/2}+ z_\beta \right)^2
+\]&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(\%Diff = \frac{m_1 - m_2}{(m_1 + m_2)/2}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(CV = \frac{sd_{pooled}}{(m_1 + m_2)/2}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;You may use the pooled standarad deviation function from Ex. 1 (if you defined such a function).&lt;/p&gt;
+&lt;p&gt;Name this function &lt;code&gt;required.replicates&lt;/code&gt; (or similar if using SAS)&lt;/p&gt;
+&lt;div id=&#34;answer-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# Variables m1 and m2 are means, and s1 and s2 are standard deviations
+# for two dates of comparison among calories per serving we are interested in, respectively. 
+required.replicates &amp;lt;- function (m1,m2, s1,s2, alpha=0.05, beta=0.2){
+  n &amp;lt;- 2* ((((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * (qnorm((1-alpha/2)) + qnorm((1-beta)))^2) 
+  return(round(n,0))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;versus-2006-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+required.replicates(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-1997-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 1997&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+required.replicates(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 569&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-2006-3&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1997 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+required.replicates(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 37&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check your work by comparing with the previous homework.
+-Answers match with previous homework!&lt;/p&gt;
+&lt;p&gt;Note:
+for Alpha=0.05 , we can use the r function qnorm(1-alpha/2) assuming u=0 and sd=1,
+As for Beta, we need additional information.
+z-score is the a standardized value of the value the hypothesized x.
+and alpha is about rejecting the value x when its true.
+but beta is about x failing to reject in when it is false… which means there is other value of x which we don’t have in the formula z=(x-u)/sd.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 3&lt;/h1&gt;
+&lt;p&gt;Implement the likelihood formula as a function or macro.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+L (x ; \mu, \sigma^2) = \frac{1}{\sigma \sqrt{2 \pi}^{}} e^{- \frac{(x - \mu)^2}{2 \sigma^2}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Define &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; as optional parameters, taking values &lt;code&gt;mu=0&lt;/code&gt; and &lt;code&gt;sigma=1&lt;/code&gt;. Name this function &lt;code&gt;norm.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;div id=&#34;answer-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# Function to calcuate the values for log liklihood from above equation.
+# First, we define the values for sigma as variance, 
+# mu as mean of a normal population to be used for a liklihood of a x observation.
+norm.pdf &amp;lt;- function(x,mu=0,sigma=1){
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;x-0.1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=-0.1\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x=-0.1
+norm.pdf(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.396952547477&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x0.0&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=0.0\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x=0.0
+norm.pdf(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.398942280401&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x0.1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=0.1\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x=0.1
+norm.pdf(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.396952547477&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check your work by comparing with the previous homework.
+-Answers match with previous homework!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-4&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 4&lt;/h1&gt;
+&lt;p&gt;The probability mass function for value &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; from Poisson data with a mean and variance &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; is given by&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(x;\lambda) = \frac{e^{-\lambda} \lambda^x}{x!} = exp(-\lambda)(\frac{1}{x!}) exp[x\times log(\lambda)]
+\]&lt;/span&gt;
+Write a function &lt;code&gt;pois.pmf&lt;/code&gt; that accepts two parameters, &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;lambda&lt;/code&gt;. Use the built in &lt;code&gt;factorial&lt;/code&gt; function for &lt;span class=&#34;math inline&#34;&gt;\(x!\)&lt;/span&gt;. Note that &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; should be an integer value, so call a rounding function inside your function.
+Test your function with &lt;span class=&#34;math inline&#34;&gt;\(\lambda = 12\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(x = 8,12,16\)&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;answer-3&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# The function to calculate probability mass function for poisson 
+# data with a mean and variance lambda. 
+  pois.pmf &amp;lt;- function(x, lambda){
+    poisson.d &amp;lt;- exp(-lambda)*(1/(factorial(round(x,0))))*exp(round(x,0)*(log(lambda)))
+  return(poisson.d)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;x4&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=4\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lambda=12
+x=4
+pois.pmf(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00530859947328&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x12&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=12\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lambda=12
+x=12
+pois.pmf(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.114367915509&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x20&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=20\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lambda=12
+x=20
+pois.pmf(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00968203216822&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can check your work against the built in Poisson distribution functions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using built-in function &amp;#39;dpois&amp;#39;, we can check our answers:
+# for x=4
+x= 4
+lambda=12
+dpois(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00530859947328&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# #or
+# ppois(x,lambda)-ppois(x-1,lambda)
+
+# for x =12
+x= 12
+lambda=12
+dpois(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.114367915509&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# for x=20
+x= 20
+lambda=12
+dpois(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00968203216822&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# which was correct for all three x&amp;#39;s&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Something to ponder. Note that there are two formula given. Can you implement both forms in R/IML/Macro language? Would there be a difference in computational speed or efficiency?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Implementation of the first formula
+pois.pmf.first &amp;lt;- function (x, lambda){
+  poisson.d &amp;lt;- (exp(-lambda)*((lambda^(round(x,0))))/(factorial(round(x,0))))
+  return(poisson.d)
+}
+# To test the execution time of two formulas:
+library(microbenchmark)
+lambda =12
+x=20
+
+mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.first(x=x, lambda = lambda), 
+                      &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
+mbm&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Unit: microseconds
+##                  expr   min     lq     mean median     uq      max neval
+##   Using first formula 1.767 1.8195 60.49865 1.8595 1.9075 5835.505   100
+##  Using second formula 1.929 1.9905  2.07908 2.0165 2.0695    5.418   100
+##  cld
+##    a
+##    a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions/index_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-5&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 5&lt;/h1&gt;
+&lt;p&gt;Write a function, &lt;code&gt;stat.power&lt;/code&gt; that combines calculations from Exercises 1 and 2. This function should accept &lt;span class=&#34;math inline&#34;&gt;\(m_1, s_1, m_2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(s_2\)&lt;/span&gt; as required parameters, and &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; as optional parameters. This function must return a list with named elements &lt;code&gt;CV&lt;/code&gt;, &lt;code&gt;PercentDiff&lt;/code&gt;, &lt;code&gt;EffectSize&lt;/code&gt; and &lt;code&gt;RequiredReplicates&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you choose to do this exercise in SAS, you will need to write a subroutine that accepts the same parameters as the R function, but also accepts output parameters &lt;code&gt;CV&lt;/code&gt;, &lt;code&gt;PercentDiff&lt;/code&gt;, &lt;code&gt;EffectSize&lt;/code&gt; and &lt;code&gt;RequiredReplicates&lt;/code&gt;. See &lt;a href=&#34;https://blogs.sas.com/content/iml/2012/08/20/how-to-return-multiple-values-from-a-sasiml-function.html&#34; class=&#34;uri&#34;&gt;https://blogs.sas.com/content/iml/2012/08/20/how-to-return-multiple-values-from-a-sasiml-function.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Another option for SAS is to package the calculations in a macro and create a data table, using the code from
+Course Outline SAS Source (under Course Outline &amp;gt; Outline Source and Output Files), about line 320.&lt;/p&gt;
+&lt;div id=&#34;answer-4&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, the call the function with appropriate parameters in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+combined &amp;lt;- function (m1,m2, s1,s2, alpha=0.05, beta=0.2){
+  n &amp;lt;- 2* ((((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * (qnorm((1-alpha/2)) + qnorm((1-beta)))^2)
+  cohens_d &amp;lt;-(abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+  cv &amp;lt;- (sqrt((s1^2+s2^2)/2))/((m1+m2)/2)
+  percentdiff &amp;lt;- ((m1-m2)/((m1+m2)/2))
+  tt &amp;lt;- (list(CV=cv, PercentDiff= percentdiff, RequiredReplicates=round(n,0), EffectSize=cohens_d))
+  # attributes(tt)
+  # names(tt)
+  attr(tt, &amp;quot;class&amp;quot;) &amp;lt;- &amp;quot;stat.power&amp;quot; #Setting a new class
+  print.stat.power(tt) #use print.stat.power function below
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you define the &lt;code&gt;class&lt;/code&gt; of the list returned by your function as &lt;code&gt;stat.power&lt;/code&gt;, this function should work automatically; you shouln’t need to call the function explicity.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print.stat.power &amp;lt;- function(value) {
+  cat(paste(&amp;quot;Coefficient of Variation :&amp;quot;,value$CV*100,&amp;quot;\n&amp;quot;))
+  cat(paste(&amp;quot;Percent Difference :&amp;quot;,value$PercentDiff*100,&amp;quot;\n&amp;quot;))
+  cat(paste(&amp;quot;Effect Size :&amp;quot;,value$EffectSize,&amp;quot;\n&amp;quot;))
+  cat(paste(&amp;quot;Required Replicates :&amp;quot;,value$RequiredReplicates,&amp;quot;\n&amp;quot;))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;versus-2006-4&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient of Variation : 45.4115573274988 
+## Percent Difference : -35.647509578544 
+## Effect Size : 0.784987603958648 
+## Required Replicates : 25&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-1997-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 1997&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient of Variation : 44.3355277160504 
+## Percent Difference : -7.36482845338602 
+## Effect Size : 0.166115727787307 
+## Required Replicates : 569&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-2006-5&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1997 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient of Variation : 43.6803881088188 
+## Percent Difference : -28.4695393759287 
+## Effect Size : 0.651769377712577 
+## Required Replicates : 37&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
