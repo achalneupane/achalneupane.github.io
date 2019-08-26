@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gary Larson | Achal Neupane</title>
+    <link>/achalneupane.github.io/authors/gary-larson/</link>
+      <atom:link href="/achalneupane.github.io/authors/gary-larson/index.xml" rel="self" type="application/rss+xml" />
+    <description>Gary Larson</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 11 Jul 2012 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>Gary Larson</title>
+      <link>/achalneupane.github.io/authors/gary-larson/</link>
+    </image>
+    
+    <item>
+      <title>Population Genetics of *Falcaria vulgaris* (Sickleweed) in North America</title>
+      <link>/achalneupane.github.io/talk/piya_bsa/</link>
+      <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/piya_bsa/</guid>
+      <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
+
+&lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction history and spread of Falcaria vulgaris Bernh. (Apiaceae) in the United States based on herbarium records</title>
+      <link>/achalneupane.github.io/talk/piya_sd_academy/</link>
+      <pubDate>Fri, 13 Apr 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/piya_sd_academy/</guid>
+      <description>&lt;p&gt;Location: Vermillion, SD, USA&lt;/p&gt;
+
+&lt;p&gt;Event: South Dakota Academy of Science, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
