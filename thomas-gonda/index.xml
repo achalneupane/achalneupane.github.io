@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thomas Gonda | Achal Neupane</title>
+    <link>/achalneupane.github.io/authors/thomas-gonda/</link>
+      <atom:link href="/achalneupane.github.io/authors/thomas-gonda/index.xml" rel="self" type="application/rss+xml" />
+    <description>Thomas Gonda</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 21 Aug 2016 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>Thomas Gonda</title>
+      <link>/achalneupane.github.io/authors/thomas-gonda/</link>
+    </image>
+    
+    <item>
+      <title>Gene Discovery in Acute Myeloid Leukaemia: somatic and germline mutations.</title>
+      <link>/achalneupane.github.io/talk/leo_et_al/</link>
+      <pubDate>Sun, 21 Aug 2016 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/leo_et_al/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;
+:&lt;/p&gt;
+
+&lt;p&gt;Gene and mutation discovery in cancers is typically performed by sequencing somatic and germline samples from the same individuals and subtracting germline mutations.
+However, in biobanked acute myeloid leukaemia (AML) samples, matched germline DNA is
+frequently unavailable. When germline samples a
+re available, sequencing both germline and
+somatic samples for each patient significantly increases costs. This study explores whether it is possible to utilise unrelated germline controls to identify ocogenic drivers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Methods&lt;/strong&gt;
+:&lt;/p&gt;
+
+&lt;p&gt;Whole exome sequencing was performed on somatic samples from 188 adults and children with AML (n=144 and n=44 respectively) and 429 control germline samples. The discovery process includes a rigorous statistical genetics approach whereby the AML cases and controls are age and ethnically matched. Residual population stratification is controlled by appropriate covariates. Burden tests are performed to detect mutations enriched in somatic samples compared to the unrelated germline controls. Statistical significance is determined by Q-Q plots against the null hypothesis.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt;
+:&lt;/p&gt;
+
+&lt;p&gt;Burden tests that included damaging protein coding mutations identified genes
+previously described with recurrent mutations in AML (e.g.
+NPM1, DNMT3A, IDH2, NRAS,
+RUNX1, FLT3, IDH1, TET2, ASXL1
+) thus validating th
+is bioinformatics approach.
+Furthermore, this methodology resulted in the detection of several additional novel genes not previously identified in AML.
+These mutations are currently undergoing conventional validation by Sanger sequencing, as well as bioinformatic validation using whole genome sequencing data from 128 of the same AML samples sequenced using the Complete Genomics platform.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Discussion&lt;/strong&gt;
+:&lt;/p&gt;
+
+&lt;p&gt;We demonstrate that this methodology can:
+1) Identify technical artefacts from sequencing and alignment.
+2) Enable statistical modelling of allele frequencies that can identify low frequency clones which are undetectable using standard genotyping approaches.
+3) Provide a purely statistical approach to gene discovery, agnostic to mutation type
+(synonymous, coding, non-coding etc).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusions&lt;/strong&gt;
+:&lt;/p&gt;
+
+&lt;p&gt;In summary, we have performed whole exome and whole genome sequencing on the largest cohort of AML samples in Australia. Innovative bioinformatic analysis has detected all previously identified, somatically mutated AML genes and has discovered a number of potentially significant novel mutations. The functional and prognostic impact of these events and the subsequent functional investigations will be discussed.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
