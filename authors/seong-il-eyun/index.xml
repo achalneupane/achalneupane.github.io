@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Seong-il Eyun | Achal Neupane</title>
-    <link>/achalneupane.github.io/authors/seong-il-eyun/</link>
-      <atom:link href="/achalneupane.github.io/authors/seong-il-eyun/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/authors/seong-il-eyun/</link>
+      <atom:link href="achalneupane.github.io/authors/seong-il-eyun/index.xml" rel="self" type="application/rss+xml" />
     <description>Seong-il Eyun</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Mon, 14 Apr 2014 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Seong-il Eyun</title>
-      <link>/achalneupane.github.io/authors/seong-il-eyun/</link>
+      <link>achalneupane.github.io/authors/seong-il-eyun/</link>
     </image>
     
     <item>
       <title>Transcriptome analysis of western corn rootworm larvae and eggs</title>
-      <link>/achalneupane.github.io/talk/wcr_neupane/</link>
+      <link>achalneupane.github.io/talk/wcr_neupane/</link>
       <pubDate>Mon, 14 Apr 2014 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/wcr_neupane/</guid>
+      <guid>achalneupane.github.io/talk/wcr_neupane/</guid>
       <description>&lt;p&gt;Location: Chicago, USA&lt;/p&gt;
 
 &lt;p&gt;Event: The International Working Group on Ostrinia and other Maize Pests (IWGO), 2014&lt;/p&gt;

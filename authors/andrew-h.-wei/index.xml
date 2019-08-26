@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Andrew H. Wei | Achal Neupane</title>
-    <link>/achalneupane.github.io/authors/andrew-h.-wei/</link>
-      <atom:link href="/achalneupane.github.io/authors/andrew-h.-wei/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/authors/andrew-h.-wei/</link>
+      <atom:link href="achalneupane.github.io/authors/andrew-h.-wei/index.xml" rel="self" type="application/rss+xml" />
     <description>Andrew H. Wei</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Thu, 10 Sep 2015 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Andrew H. Wei</title>
-      <link>/achalneupane.github.io/authors/andrew-h.-wei/</link>
+      <link>achalneupane.github.io/authors/andrew-h.-wei/</link>
     </image>
     
     <item>
       <title>Sensitivity of Whole Exome Sequencing for the Detection of FLT3-ITD and NPM1 Mutations in Acute Myeloid Leukaemia</title>
-      <link>/achalneupane.github.io/talk/esh_2015_buddapest/</link>
+      <link>achalneupane.github.io/talk/esh_2015_buddapest/</link>
       <pubDate>Thu, 10 Sep 2015 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/esh_2015_buddapest/</guid>
+      <guid>achalneupane.github.io/talk/esh_2015_buddapest/</guid>
       <description>&lt;p&gt;Location: Buddapest, Hungary&lt;/p&gt;
 
 &lt;p&gt;Event: European School of Hematology (ESH), 2015&lt;/p&gt;

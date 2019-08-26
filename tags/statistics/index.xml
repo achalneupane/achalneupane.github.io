@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistics | Achal Neupane</title>
-    <link>/achalneupane.github.io/tags/statistics/</link>
-      <atom:link href="/achalneupane.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/tags/statistics/</link>
+      <atom:link href="achalneupane.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     <description>Statistics</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Thu, 15 Aug 2019 17:26:23 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Statistics</title>
-      <link>/achalneupane.github.io/tags/statistics/</link>
+      <link>achalneupane.github.io/tags/statistics/</link>
     </image>
     
     <item>
       <title>Arrays</title>
-      <link>/achalneupane.github.io/post/arrays/</link>
+      <link>achalneupane.github.io/post/arrays/</link>
       <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
-      <guid>/achalneupane.github.io/post/arrays/</guid>
+      <guid>achalneupane.github.io/post/arrays/</guid>
       <description>
 
 
@@ -58,7 +58,7 @@ plot(data$EffectSize, data$RequiredReplicates)
 # http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 # Also, http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note: Cohen suggested that d = 0.2 be considered a ‘small’ effect size, 0.5 represents a ‘medium’ effect size and 0.8 a ‘large’ effect size. This means that if two groups’ means don’t differ by 0.2 standard deviations or more, the difference is trivial, even if it is statistically signficant. This plot tells us that with the increasing effect-size, we need fewer replicates. Since effect-size of |0.5| or (v= 0.5) is intersects with the abline at approximately 78 replicates in the plot, it also tells us that for medium-size effect we need about 78 replicates.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -354,7 +354,7 @@ plot(x,p.null.req,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x,p.alt.req,col=&amp;quot;red&amp;quot;)
 abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
 abline(v = value$EffectSize-Zbeta, col= &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Using ggplot
 # plot3 &amp;lt;- ggplot()+
 #   geom_line(aes(x = x, y = p.null.req), color = &amp;quot;black&amp;quot; ) +
@@ -415,7 +415,7 @@ poisson.probability.x_a &amp;lt;- pois.pmf(x=x_a, lambda = lambda)
 
 plot(x_a,normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,poisson.probability.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Does this graph tell you if your Normal PDF function behaves properly? Does your Poisson handle negative or non-integer values as expected?&lt;/p&gt;
 &lt;p&gt;No, based on this plot, the normal pdf does behave properly, but not the poisson as there NAs inserted for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
@@ -463,7 +463,7 @@ poisson.probability.x_b &amp;lt;- pois.pmf(x=x_b, lambda = 12)
 # plot
 plot(x_b,normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,poisson.probability.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;To check you work, duplicate the plots by calling built in normal and Poisson functions. Does the system Poisson function handle negative &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; differently than your function?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part a  
 base.normal.liklihood.x_a &amp;lt;- dnorm(x_a,0, 1)
@@ -471,14 +471,14 @@ base.poiss.x_a &amp;lt;- dpois(x=x_a, lambda = lambda)
 
 plot(x_a,base.normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,base.poiss.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part b
 base.normal.liklihood.x_b &amp;lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)
 
 plot(x_b,base.normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,base.poiss.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Yes, the system Poisson function handles negative values and non-integers differently (inserts zero’s) whereas the function we wrote inserts NAs for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -604,7 +604,7 @@ hat.y &amp;lt;- X %*% hat.beta
 # plot
 plot(X[,2], y, type = &amp;#39;l&amp;#39;, col = &amp;quot;black&amp;quot;)
 lines(X[,2], hat.y, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;You can also compare your result to the R function (set &lt;code&gt;eval = TRUE&lt;/code&gt;).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y~X))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -686,14 +686,14 @@ p.value &amp;lt;- pf(F.ratio, df1, df2, lower.tail = FALSE)
 p.value&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.116313264501&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can check your results by entering appropriate values in an online calculator like &lt;a href=&#34;http://statpages.info/anova1sm.html&#34; class=&#34;uri&#34;&gt;http://statpages.info/anova1sm.html&lt;/a&gt; .&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Group Name     N(count)   Mean         Std.Dev
-Group1         18         268.1         124.8
-Group2         18         271.1         124.2
-Group3         18         280.9         116.2
-.
-.
-.
-Group7         18         384.4         168.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Group Name     N(count)   Mean         Std.Dev
+# Group1         18         268.1         124.8
+# Group2         18         271.1         124.2
+# Group3         18         280.9         116.2
+# .
+# .
+# .
+# Group7         18         384.4         168.3&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Then set desired confidence level for post-hoc confidence intervals: 5&lt;/p&gt;
 &lt;p&gt;Finally, cross-check your answers!&lt;/p&gt;
 &lt;/div&gt;
@@ -703,9 +703,9 @@ Group7         18         384.4         168.3&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Data tables</title>
-      <link>/achalneupane.github.io/post/data_tables/</link>
+      <link>achalneupane.github.io/post/data_tables/</link>
       <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
-      <guid>/achalneupane.github.io/post/data_tables/</guid>
+      <guid>achalneupane.github.io/post/data_tables/</guid>
       <description>
 
 
@@ -776,7 +776,7 @@ M.table&lt;/code&gt;&lt;/pre&gt;
 plot(M.table$RequiredReplicates ~ M.table$EffectSize)
 # abline(cal.lm)
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2&#34; class=&#34;section level1&#34;&gt;
@@ -886,7 +886,7 @@ legend(&amp;quot;topleft&amp;quot;,
        text.col = &amp;quot;black&amp;quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Percent diff vs Required replicates
 plot(Diff, Moderate, col = &amp;quot;black&amp;quot;, type = &amp;#39;b&amp;#39;,pch = 8, xlab=&amp;quot;Percent diff&amp;quot;, ylab=&amp;quot;Required replicates&amp;quot;, ylim = c(min(Moderate, Conservative, Liberal),max(Moderate, Conservative, Liberal)))
 points(Diff, Conservative, type = &amp;#39;b&amp;#39;, pch = 2,  col = &amp;quot;red&amp;quot;)
@@ -901,7 +901,7 @@ legend(&amp;quot;topright&amp;quot;,
        text.col = &amp;quot;black&amp;quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Plot &lt;code&gt;Conservative&lt;/code&gt; vs &lt;code&gt;Moderate&lt;/code&gt; and &lt;code&gt;Liberal&lt;/code&gt; vs &lt;code&gt;Moderate&lt;/code&gt;, including a line with slope 1 and intercept 0.&lt;/li&gt;
 &lt;/ul&gt;
@@ -912,11 +912,11 @@ legend(&amp;quot;topright&amp;quot;,
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Conservative Vs Moderate
 plot(Conservative ~ Moderate, type = &amp;#39;b&amp;#39;, col = &amp;quot;black&amp;quot;)
 abline(a=1, b = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Liberal Vs Moderate
 plot(Liberal ~ Moderate, type = &amp;#39;b&amp;#39;, col = &amp;quot;black&amp;quot;)
 abline(a=1, b = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -956,11 +956,11 @@ print(summary(pumpkins))&lt;/code&gt;&lt;/pre&gt;
 ## 
 ##     Class, Month, Price, Size, Week&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Price ~ Week, main = &amp;quot;**Continuous vs Continuous**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Price ~ Class, main = &amp;quot;**Continuous vs Categorical**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Size ~ Class, main = &amp;quot;**Categorical vs Categorical**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From these plots, you should be able to answer these questions:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Are some Weeks missing Price observations?
@@ -1363,7 +1363,7 @@ contingency.table&lt;/code&gt;&lt;/pre&gt;
 # Also, plot
 attach(elo.dat)
 plot(ActualFinish ~ ExpectedFinish)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the contingency table, &lt;code&gt;E[AA]&lt;/code&gt; &lt;code&gt;AA&lt;/code&gt; are associated 57 times&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Does this data set include non-qualifiers? (The NCAA tournament only allows 33 wreslers per weight class).&lt;/li&gt;
@@ -1379,9 +1379,9 @@ Based on the contingency table, &lt;code&gt;E[AA]&lt;/code&gt; &lt;code&gt;AA&lt
     
     <item>
       <title>Functions</title>
-      <link>/achalneupane.github.io/post/functions/</link>
+      <link>achalneupane.github.io/post/functions/</link>
       <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
-      <guid>/achalneupane.github.io/post/functions/</guid>
+      <guid>achalneupane.github.io/post/functions/</guid>
       <description>
 
 
@@ -1607,16 +1607,16 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
                       &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                  expr   min    lq     mean median     uq      max neval
-##   Using first formula 1.931 2.090 76.05066 2.4165 4.7145 7208.262   100
-##  Using second formula 2.150 2.225  5.41144 2.4010 4.3675  217.916   100
+##                  expr   min     lq     mean median    uq      max neval
+##   Using first formula 1.781 1.8625 59.61273 1.9000 1.988 5731.251   100
+##  Using second formula 1.910 1.9750  2.18537 2.0085 2.099   11.344   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

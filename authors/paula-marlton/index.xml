@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paula Marlton | Achal Neupane</title>
-    <link>/achalneupane.github.io/authors/paula-marlton/</link>
-      <atom:link href="/achalneupane.github.io/authors/paula-marlton/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/authors/paula-marlton/</link>
+      <atom:link href="achalneupane.github.io/authors/paula-marlton/index.xml" rel="self" type="application/rss+xml" />
     <description>Paula Marlton</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 21 Aug 2016 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Paula Marlton</title>
-      <link>/achalneupane.github.io/authors/paula-marlton/</link>
+      <link>achalneupane.github.io/authors/paula-marlton/</link>
     </image>
     
     <item>
       <title>Gene Discovery in Acute Myeloid Leukaemia: somatic and germline mutations.</title>
-      <link>/achalneupane.github.io/talk/leo_et_al/</link>
+      <link>achalneupane.github.io/talk/leo_et_al/</link>
       <pubDate>Sun, 21 Aug 2016 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/leo_et_al/</guid>
+      <guid>achalneupane.github.io/talk/leo_et_al/</guid>
       <description>&lt;p&gt;Location: Melbourne, Australia&lt;/p&gt;
 
 &lt;p&gt;Event: International Congress of Immunology, 2016&lt;/p&gt;
@@ -67,9 +67,9 @@ These mutations are currently undergoing conventional validation by Sanger seque
     
     <item>
       <title>Sensitivity of Whole Exome Sequencing for the Detection of FLT3-ITD and NPM1 Mutations in Acute Myeloid Leukaemia</title>
-      <link>/achalneupane.github.io/talk/esh_2015_buddapest/</link>
+      <link>achalneupane.github.io/talk/esh_2015_buddapest/</link>
       <pubDate>Thu, 10 Sep 2015 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/esh_2015_buddapest/</guid>
+      <guid>achalneupane.github.io/talk/esh_2015_buddapest/</guid>
       <description>&lt;p&gt;Location: Buddapest, Hungary&lt;/p&gt;
 
 &lt;p&gt;Event: European School of Hematology (ESH), 2015&lt;/p&gt;

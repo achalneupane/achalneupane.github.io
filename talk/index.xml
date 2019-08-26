@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks/Presentations | Achal Neupane</title>
-    <link>/achalneupane.github.io/talk/</link>
-      <atom:link href="/achalneupane.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/talk/</link>
+      <atom:link href="achalneupane.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Talks/Presentations</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 24 Jul 2019 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Talks/Presentations</title>
-      <link>/achalneupane.github.io/talk/</link>
+      <link>achalneupane.github.io/talk/</link>
     </image>
     
     <item>
       <title>Profiling the Classes of the RNA Editing in Virus-derived small RNAs in White Mold Sclerotinia sclerotiorum</title>
-      <link>/achalneupane.github.io/talk/asv_2019/</link>
+      <link>achalneupane.github.io/talk/asv_2019/</link>
       <pubDate>Wed, 24 Jul 2019 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/asv_2019/</guid>
+      <guid>achalneupane.github.io/talk/asv_2019/</guid>
       <description>&lt;p&gt;Location: Minneapolis, USA&lt;/p&gt;
 
 &lt;p&gt;Event: American Society for Virology&lt;/p&gt;
@@ -61,9 +61,9 @@ of dsRNA and mycoviruses as disease control agents.&lt;/p&gt;
     
     <item>
       <title>Roles of Dicers and Argonautes on Sclerotinia sclerotiorum Antiviral Small RNA Processing</title>
-      <link>/achalneupane.github.io/talk/pag_2019/</link>
+      <link>achalneupane.github.io/talk/pag_2019/</link>
       <pubDate>Sat, 12 Jan 2019 00:00:00 -0600</pubDate>
-      <guid>/achalneupane.github.io/talk/pag_2019/</guid>
+      <guid>achalneupane.github.io/talk/pag_2019/</guid>
       <description>&lt;p&gt;Location: San Diego, USA&lt;/p&gt;
 
 &lt;p&gt;Event: Plant and Animal Genome Conference, XXVII&lt;/p&gt;
@@ -76,9 +76,9 @@ of dsRNA and mycoviruses as disease control agents.&lt;/p&gt;
     
     <item>
       <title>Gene Discovery in Acute Myeloid Leukaemia: somatic and germline mutations.</title>
-      <link>/achalneupane.github.io/talk/leo_et_al/</link>
+      <link>achalneupane.github.io/talk/leo_et_al/</link>
       <pubDate>Sun, 21 Aug 2016 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/leo_et_al/</guid>
+      <guid>achalneupane.github.io/talk/leo_et_al/</guid>
       <description>&lt;p&gt;Location: Melbourne, Australia&lt;/p&gt;
 
 &lt;p&gt;Event: International Congress of Immunology, 2016&lt;/p&gt;
@@ -129,9 +129,9 @@ These mutations are currently undergoing conventional validation by Sanger seque
     
     <item>
       <title>MEK inhibitor resistance in acute myeloid leukaemia</title>
-      <link>/achalneupane.github.io/talk/mek_brisbane_2016/</link>
+      <link>achalneupane.github.io/talk/mek_brisbane_2016/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/mek_brisbane_2016/</guid>
+      <guid>achalneupane.github.io/talk/mek_brisbane_2016/</guid>
       <description>&lt;p&gt;Location: Peppers Noosa, Australia&lt;/p&gt;
 
 &lt;p&gt;Event: New Direction in Leukaemia Research, 2016&lt;/p&gt;
@@ -168,9 +168,9 @@ lead to cross-resistance to other compounds targeting MEK.&lt;/p&gt;
     
     <item>
       <title>Sensitivity of Whole Exome Sequencing for the Detection of FLT3-ITD and NPM1 Mutations in Acute Myeloid Leukaemia</title>
-      <link>/achalneupane.github.io/talk/esh_2015_buddapest/</link>
+      <link>achalneupane.github.io/talk/esh_2015_buddapest/</link>
       <pubDate>Thu, 10 Sep 2015 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/esh_2015_buddapest/</guid>
+      <guid>achalneupane.github.io/talk/esh_2015_buddapest/</guid>
       <description>&lt;p&gt;Location: Buddapest, Hungary&lt;/p&gt;
 
 &lt;p&gt;Event: European School of Hematology (ESH), 2015&lt;/p&gt;
@@ -188,9 +188,9 @@ In conclusion, we have performed WES on one of the largest cohorts of adult and 
     
     <item>
       <title>Transcriptome analysis of western corn rootworm larvae and eggs</title>
-      <link>/achalneupane.github.io/talk/wcr_neupane/</link>
+      <link>achalneupane.github.io/talk/wcr_neupane/</link>
       <pubDate>Mon, 14 Apr 2014 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/wcr_neupane/</guid>
+      <guid>achalneupane.github.io/talk/wcr_neupane/</guid>
       <description>&lt;p&gt;Location: Chicago, USA&lt;/p&gt;
 
 &lt;p&gt;Event: The International Working Group on Ostrinia and other Maize Pests (IWGO), 2014&lt;/p&gt;
@@ -203,9 +203,9 @@ In conclusion, we have performed WES on one of the largest cohorts of adult and 
     
     <item>
       <title>Identification of Mitogen Activated Protein Kinase Family Members in Soybean</title>
-      <link>/achalneupane.github.io/talk/bsa_neupane/</link>
+      <link>achalneupane.github.io/talk/bsa_neupane/</link>
       <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/bsa_neupane/</guid>
+      <guid>achalneupane.github.io/talk/bsa_neupane/</guid>
       <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
 
 &lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
@@ -218,9 +218,9 @@ In conclusion, we have performed WES on one of the largest cohorts of adult and 
     
     <item>
       <title>Population Genetics of *Falcaria vulgaris* (Sickleweed) in North America</title>
-      <link>/achalneupane.github.io/talk/piya_bsa/</link>
+      <link>achalneupane.github.io/talk/piya_bsa/</link>
       <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/piya_bsa/</guid>
+      <guid>achalneupane.github.io/talk/piya_bsa/</guid>
       <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
 
 &lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
@@ -231,9 +231,9 @@ In conclusion, we have performed WES on one of the largest cohorts of adult and 
     
     <item>
       <title>Introduction history and spread of Falcaria vulgaris Bernh. (Apiaceae) in the United States based on herbarium records</title>
-      <link>/achalneupane.github.io/talk/piya_sd_academy/</link>
+      <link>achalneupane.github.io/talk/piya_sd_academy/</link>
       <pubDate>Fri, 13 Apr 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/piya_sd_academy/</guid>
+      <guid>achalneupane.github.io/talk/piya_sd_academy/</guid>
       <description>&lt;p&gt;Location: Vermillion, SD, USA&lt;/p&gt;
 
 &lt;p&gt;Event: South Dakota Academy of Science, 2012&lt;/p&gt;
@@ -244,9 +244,9 @@ In conclusion, we have performed WES on one of the largest cohorts of adult and 
     
     <item>
       <title>A Nomenclatural Conundrum: Applying Existing Nomenclature to the Identification of Soybean (*Glycine max*) MAP Kinase Genes</title>
-      <link>/achalneupane.github.io/talk/neupane_aspb/</link>
+      <link>achalneupane.github.io/talk/neupane_aspb/</link>
       <pubDate>Sat, 24 Mar 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/neupane_aspb/</guid>
+      <guid>achalneupane.github.io/talk/neupane_aspb/</guid>
       <description>&lt;p&gt;Location: Nebraska, USA&lt;/p&gt;
 
 &lt;p&gt;Event: American Society of Plant Biologists, Midwestern Sectional Society, 2012&lt;/p&gt;
@@ -257,9 +257,9 @@ In conclusion, we have performed WES on one of the largest cohorts of adult and 
     
     <item>
       <title>Anticancer Activity of Novel Ionic Triorganotin Derivatives against MDA-MB 231 Breast Cancer Cells</title>
-      <link>/achalneupane.github.io/talk/hbcu_neupane/</link>
+      <link>achalneupane.github.io/talk/hbcu_neupane/</link>
       <pubDate>Thu, 29 Oct 2009 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/hbcu_neupane/</guid>
+      <guid>achalneupane.github.io/talk/hbcu_neupane/</guid>
       <description>&lt;p&gt;Location: Washington DC, USA&lt;/p&gt;
 
 &lt;p&gt;Event: HBCU-UP National Research Conference, 2009&lt;/p&gt;

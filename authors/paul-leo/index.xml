@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paul Leo | Achal Neupane</title>
-    <link>/achalneupane.github.io/authors/paul-leo/</link>
-      <atom:link href="/achalneupane.github.io/authors/paul-leo/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/authors/paul-leo/</link>
+      <atom:link href="achalneupane.github.io/authors/paul-leo/index.xml" rel="self" type="application/rss+xml" />
     <description>Paul Leo</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 21 Aug 2016 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Paul Leo</title>
-      <link>/achalneupane.github.io/authors/paul-leo/</link>
+      <link>achalneupane.github.io/authors/paul-leo/</link>
     </image>
     
     <item>
       <title>Gene Discovery in Acute Myeloid Leukaemia: somatic and germline mutations.</title>
-      <link>/achalneupane.github.io/talk/leo_et_al/</link>
+      <link>achalneupane.github.io/talk/leo_et_al/</link>
       <pubDate>Sun, 21 Aug 2016 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/leo_et_al/</guid>
+      <guid>achalneupane.github.io/talk/leo_et_al/</guid>
       <description>&lt;p&gt;Location: Melbourne, Australia&lt;/p&gt;
 
 &lt;p&gt;Event: International Congress of Immunology, 2016&lt;/p&gt;

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Amanda M. Smith | Achal Neupane</title>
-    <link>/achalneupane.github.io/authors/amanda-m.-smith/</link>
-      <atom:link href="/achalneupane.github.io/authors/amanda-m.-smith/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/authors/amanda-m.-smith/</link>
+      <atom:link href="achalneupane.github.io/authors/amanda-m.-smith/index.xml" rel="self" type="application/rss+xml" />
     <description>Amanda M. Smith</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 16 Mar 2016 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Amanda M. Smith</title>
-      <link>/achalneupane.github.io/authors/amanda-m.-smith/</link>
+      <link>achalneupane.github.io/authors/amanda-m.-smith/</link>
     </image>
     
     <item>
       <title>MEK inhibitor resistance in acute myeloid leukaemia</title>
-      <link>/achalneupane.github.io/talk/mek_brisbane_2016/</link>
+      <link>achalneupane.github.io/talk/mek_brisbane_2016/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/mek_brisbane_2016/</guid>
+      <guid>achalneupane.github.io/talk/mek_brisbane_2016/</guid>
       <description>&lt;p&gt;Location: Peppers Noosa, Australia&lt;/p&gt;
 
 &lt;p&gt;Event: New Direction in Leukaemia Research, 2016&lt;/p&gt;
@@ -53,9 +53,9 @@ lead to cross-resistance to other compounds targeting MEK.&lt;/p&gt;
     
     <item>
       <title>Sensitivity of Whole Exome Sequencing for the Detection of FLT3-ITD and NPM1 Mutations in Acute Myeloid Leukaemia</title>
-      <link>/achalneupane.github.io/talk/esh_2015_buddapest/</link>
+      <link>achalneupane.github.io/talk/esh_2015_buddapest/</link>
       <pubDate>Thu, 10 Sep 2015 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/esh_2015_buddapest/</guid>
+      <guid>achalneupane.github.io/talk/esh_2015_buddapest/</guid>
       <description>&lt;p&gt;Location: Buddapest, Hungary&lt;/p&gt;
 
 &lt;p&gt;Event: European School of Hematology (ESH), 2015&lt;/p&gt;
