@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Caedyn L. Stinson | Achal Neupane</title>
+    <link>achalneupane.github.io/authors/caedyn-l.-stinson/</link>
+      <atom:link href="achalneupane.github.io/authors/caedyn-l.-stinson/index.xml" rel="self" type="application/rss+xml" />
+    <description>Caedyn L. Stinson</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 16 Mar 2016 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>achalneupane.github.io/img/icon-192.png</url>
+      <title>Caedyn L. Stinson</title>
+      <link>achalneupane.github.io/authors/caedyn-l.-stinson/</link>
+    </image>
+    
+    <item>
+      <title>MEK inhibitor resistance in acute myeloid leukaemia</title>
+      <link>achalneupane.github.io/talk/mek_brisbane_2016/</link>
+      <pubDate>Wed, 16 Mar 2016 00:00:00 -0500</pubDate>
+      <guid>achalneupane.github.io/talk/mek_brisbane_2016/</guid>
+      <description>&lt;p&gt;Location: Peppers Noosa, Australia&lt;/p&gt;
+
+&lt;p&gt;Event: New Direction in Leukaemia Research, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mutations of the RAS family of genes are frequent events in AML, occurring in 10% of children and 10-20% of adults.
+NRASmutations promote proliferation through activation of the Ras/Raf/MEK/ERK signalling pathway. Several MEK
+inhibitors have shown promising pre-clinical activity in AML, with a number of compounds currently in adult phase I/II
+clinical trials, including AZD6244, GSK1120212 and AS703026. Given not all patients respond to MEK inhibitor
+treatment we undertook a comprehensive preclinical evaluation of MEK inhibitors in AML and developed a clinically
+relevant model of resistance.
+The in vitroefficacy of 7 MEK inhibitors was determined using a diverse panel of 6 paediatric and 5 adult AML cell lines
+(Table 1). All AML cell lines were sensitive to at least one MEK inhibitor with the exception of the Down syndrome
+associated AML line, CMK, and the adult erythroblastic line, HEL, that showed overt resistance (IC50 &amp;gt;20μM) to MEK
+inhibition (Table 1). In sensitive cell lines, the reduced proliferation was associated with apoptosis, as assessed by
+Annexin V+ staining. To confirm mechanism of action, inhibition of MEK phosphorylation as well as the downstream
+kinase, pERK, were assessed by immunoblotting. The level of basal MEK activation was variable across the cell line
+panel and pMEK was increased upon exposure to active MEK inhibitors. In contrast, levels of pERK were reduced
+suggesting that MEK inhibitors may disrupt the interaction of MEK with its downstream transducers rather than a direct
+inhibition of MEK phosphorylation.
+Molecular and clinical resistance to kinase inhibitors is well described for targets such as FLT3 and BCR-ABL1. Since
+clinical responses to MEK inhibitors have been variable, we investigated the potential mechanisms of resistance to
+MEK inhibitors in vitro. Long-term culture of THP-1 cells (MLL-rearranged, NRASmutated) with AZD6244 and
+AS703026, resulted in high-level resistance. Importantly, cells displayed cross-resistance not only to these two
+compounds but also a third MEK inhibitor, GSK1120212 (Table 2). Resistance was associated with reduced basal
+pMEK expression. In order to establish the mechanism of resistance we performed comprehensive mutation and gene
+expression analyses utilising whole-exome sequencing and RNAseq respectively. These data revealed a spectrum of
+acquired molecular aberrations common to both resistant cell lines compared to the parental THP1 cells. Together,
+these data indicate that whilst MEK inhibition is a promising strategy to treat AML, resistance to one MEK inhibitor may
+lead to cross-resistance to other compounds targeting MEK.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heike Bücking | Achal Neupane</title>
+    <link>achalneupane.github.io/authors/heike-bucking/</link>
+      <atom:link href="achalneupane.github.io/authors/heike-bucking/index.xml" rel="self" type="application/rss+xml" />
+    <description>Heike Bücking</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 12 Dec 2018 00:00:00 -0600</lastBuildDate>
+    <image>
+      <url>achalneupane.github.io/img/icon-192.png</url>
+      <title>Heike Bücking</title>
+      <link>achalneupane.github.io/authors/heike-bucking/</link>
+    </image>
+    
+    <item>
+      <title>Metatranscriptomic analysis and in silico approach identified mycoviruses in the arbuscular mycorrhizal fungus Rhizophagus spp.</title>
+      <link>achalneupane.github.io/publication/neupane_etal_viruses_2018/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 -0600</pubDate>
+      <guid>achalneupane.github.io/publication/neupane_etal_viruses_2018/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Arbuscular mycorrhizal fungi (AMF), including Rhizophagus spp., can play important roles in nutrient cycling of the rhizosphere. However, the effect of virus infection on AMF’s role in nutrient cycling cannot be determined without first knowing the diversity of the mycoviruses in AMF. Therefore, in this study, we sequenced the R. irregularis isolate-09 due to its previously demonstrated high efficiency in increasing the N/P uptake of the plant. We identified one novel mitovirus contig of 3685 bp, further confirmed by reverse transcription-PCR. Also, publicly available Rhizophagus spp. RNA-Seq data were analyzed to recover five partial virus sequences from family Narnaviridae, among which four were from R. diaphanum MUCL-43196 and one was from R. irregularis strain-C2 that was similar to members of the Mitovirus genus. These contigs coded genomes larger than the regular mitoviruses infecting pathogenic fungi and can be translated by either a mitochondrial translation code or a cytoplasmic translation code, which was also reported in previously found mitoviruses infecting mycorrhizae. The five newly identified virus sequences are comprised of functionally conserved RdRp motifs and formed two separate subclades with mitoviruses infecting Gigaspora margarita and Rhizophagus clarus, further supporting virus-host co-evolution theory. This study expands our understanding of virus diversity. Even though AMF is notably hard to investigate due to its biotrophic nature, this study demonstrates the utility of whole root metatranscriptome.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
