@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functions | Achal Neupane</title>
+    <link>/achalneupane.github.io/tags/functions/</link>
+      <atom:link href="/achalneupane.github.io/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    <description>Functions</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>Functions</title>
+      <link>/achalneupane.github.io/tags/functions/</link>
+    </image>
+    
+    <item>
+      <title>Functions</title>
+      <link>/achalneupane.github.io/post/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/achalneupane.github.io/post/functions/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;div id=&#34;general-instructions.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;General instructions.&lt;/h1&gt;
+&lt;p&gt;There are five exercises below. You are required to provide solutions for at least four of the five. You are required to solve at least one exercise in R, and at least one in SAS. You are required to provide five solutions, each solution will be worth 10 points. Thus, you may choose to provide both R and SAS solutions for a single exercise, or you may solve all five problems, mixing the languages as you wish. The first three exercises refer back to Homework 2 and you should produce the same values for this set of exercises.&lt;/p&gt;
+&lt;div id=&#34;experimental&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Experimental&lt;/h4&gt;
+&lt;p&gt;Again, you will be allowed to provide one solution using Python. Elaborate on the similarities and differences between Ptyhon function definitions and R or IML or Macro language.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-1&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 1&lt;/h1&gt;
+&lt;p&gt;Implement Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; as a function of&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+d = f(m_1, s_1, m_2, s_2) = \frac{|m_1-m_2|}{s_{pooled}}
+\]&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(s_{pooled}\)&lt;/span&gt; is a pooled standard deviation. Use the formula &lt;span class=&#34;math inline&#34;&gt;\(s_{pooled} = \sqrt{(s_1^2 + s_2^2)/2}\)&lt;/span&gt;. You may implement pooled standard deviation as a function as well.&lt;/p&gt;
+&lt;p&gt;Calculate the effect size &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; for the differences among calories per serving, 1936 versus 2006, 1936 vs 1997 and 1997 vs 2006. Use the values from Wansink, Table 1 as given in Homework 1 or in the course outline. Name this function &lt;code&gt;cohen.d&lt;/code&gt; (or similar if using SAS)&lt;/p&gt;
+&lt;div id=&#34;answer&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# Variables m1 and m2 are means, and s1 and s2 are standard deviations
+# for two dates of comparison among calories per serving we are interested in, respectively. 
+cohen.d &amp;lt;- function(m1,s1,m2,s2){
+  cohens_d &amp;lt;-(abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+  return(cohens_d)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;versus-2006&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+cohen.d(m1=m1,s1=s1,m2=m2,s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.784987603959&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-1997&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 1997&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+cohen.d(m1=m1,s1=s1,m2=m2,s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.166115727787&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-2006-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1997 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+cohen.d(m1=m1,s1=s1,m2=m2,s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.651769377713&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check your work by comparing with the previous homework.
+-Answers match with previous homework!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 2.&lt;/h1&gt;
+&lt;p&gt;Implement the required replicates calculation as a function of &lt;span class=&#34;math inline&#34;&gt;\(m_1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(s_1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(m_2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(s_2\)&lt;/span&gt; as required parameters, and &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; as optional parameters. Let &lt;code&gt;alpha=0.05&lt;/code&gt; and &lt;code&gt;beta=0.2&lt;/code&gt;, so you’ll need to compute quantiles for &lt;code&gt;1-alpha/2&lt;/code&gt; and &lt;code&gt;1-beta&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Your function should return an integer &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, such that&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+n \ge 2\times \left( \frac{CV}{\%Diff} \right)^2 \times \left(z_{\alpha/2}+ z_\beta \right)^2
+\]&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(\%Diff = \frac{m_1 - m_2}{(m_1 + m_2)/2}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(CV = \frac{sd_{pooled}}{(m_1 + m_2)/2}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;You may use the pooled standarad deviation function from Ex. 1 (if you defined such a function).&lt;/p&gt;
+&lt;p&gt;Name this function &lt;code&gt;required.replicates&lt;/code&gt; (or similar if using SAS)&lt;/p&gt;
+&lt;div id=&#34;answer-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# Variables m1 and m2 are means, and s1 and s2 are standard deviations
+# for two dates of comparison among calories per serving we are interested in, respectively. 
+required.replicates &amp;lt;- function (m1,m2, s1,s2, alpha=0.05, beta=0.2){
+  n &amp;lt;- 2* ((((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * (qnorm((1-alpha/2)) + qnorm((1-beta)))^2) 
+  return(round(n,0))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;versus-2006-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+required.replicates(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 25&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-1997-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 1997&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+required.replicates(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 569&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-2006-3&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1997 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+required.replicates(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 37&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check your work by comparing with the previous homework.
+-Answers match with previous homework!&lt;/p&gt;
+&lt;p&gt;Note:
+for Alpha=0.05 , we can use the r function qnorm(1-alpha/2) assuming u=0 and sd=1,
+As for Beta, we need additional information.
+z-score is the a standardized value of the value the hypothesized x.
+and alpha is about rejecting the value x when its true.
+but beta is about x failing to reject in when it is false… which means there is other value of x which we don’t have in the formula z=(x-u)/sd.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 3&lt;/h1&gt;
+&lt;p&gt;Implement the likelihood formula as a function or macro.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+L (x ; \mu, \sigma^2) = \frac{1}{\sigma \sqrt{2 \pi}^{}} e^{- \frac{(x - \mu)^2}{2 \sigma^2}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Define &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; as optional parameters, taking values &lt;code&gt;mu=0&lt;/code&gt; and &lt;code&gt;sigma=1&lt;/code&gt;. Name this function &lt;code&gt;norm.pdf&lt;/code&gt;&lt;/p&gt;
+&lt;div id=&#34;answer-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# Function to calcuate the values for log liklihood from above equation.
+# First, we define the values for sigma as variance, 
+# mu as mean of a normal population to be used for a liklihood of a x observation.
+norm.pdf &amp;lt;- function(x,mu=0,sigma=1){
+  l&amp;lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
+  return(l)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;x-0.1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=-0.1\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x=-0.1
+norm.pdf(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.396952547477&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x0.0&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=0.0\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x=0.0
+norm.pdf(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.398942280401&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x0.1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=0.1\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x=0.1
+norm.pdf(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.396952547477&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check your work by comparing with the previous homework.
+-Answers match with previous homework!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-4&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 4&lt;/h1&gt;
+&lt;p&gt;The probability mass function for value &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; from Poisson data with a mean and variance &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; is given by&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+f(x;\lambda) = \frac{e^{-\lambda} \lambda^x}{x!} = exp(-\lambda)(\frac{1}{x!}) exp[x\times log(\lambda)]
+\]&lt;/span&gt;
+Write a function &lt;code&gt;pois.pmf&lt;/code&gt; that accepts two parameters, &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;lambda&lt;/code&gt;. Use the built in &lt;code&gt;factorial&lt;/code&gt; function for &lt;span class=&#34;math inline&#34;&gt;\(x!\)&lt;/span&gt;. Note that &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; should be an integer value, so call a rounding function inside your function.
+Test your function with &lt;span class=&#34;math inline&#34;&gt;\(\lambda = 12\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(x = 8,12,16\)&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;answer-3&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, then call the function with appropriate arguments in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+# The function to calculate probability mass function for poisson 
+# data with a mean and variance lambda. 
+  pois.pmf &amp;lt;- function(x, lambda){
+    poisson.d &amp;lt;- exp(-lambda)*(1/(factorial(round(x,0))))*exp(round(x,0)*(log(lambda)))
+  return(poisson.d)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;x4&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=4\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lambda=12
+x=4
+pois.pmf(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00530859947328&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x12&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=12\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lambda=12
+x=12
+pois.pmf(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.114367915509&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;x20&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=20\)&lt;/span&gt;&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lambda=12
+x=20
+pois.pmf(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00968203216822&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can check your work against the built in Poisson distribution functions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using built-in function &amp;#39;dpois&amp;#39;, we can check our answers:
+# for x=4
+x= 4
+lambda=12
+dpois(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00530859947328&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# #or
+# ppois(x,lambda)-ppois(x-1,lambda)
+
+# for x =12
+x= 12
+lambda=12
+dpois(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.114367915509&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# for x=20
+x= 20
+lambda=12
+dpois(x=x, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.00968203216822&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# which was correct for all three x&amp;#39;s&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Something to ponder. Note that there are two formula given. Can you implement both forms in R/IML/Macro language? Would there be a difference in computational speed or efficiency?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Implementation of the first formula
+pois.pmf.first &amp;lt;- function (x, lambda){
+  poisson.d &amp;lt;- (exp(-lambda)*((lambda^(round(x,0))))/(factorial(round(x,0))))
+  return(poisson.d)
+}
+# To test the execution time of two formulas:
+library(microbenchmark)
+lambda =12
+x=20
+
+mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.first(x=x, lambda = lambda), 
+                      &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
+mbm&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Unit: microseconds
+##                  expr   min     lq     mean median     uq      max neval
+##   Using first formula 1.870 1.9970 60.47862 2.0830 2.3465 5772.852   100
+##  Using second formula 2.022 2.1005  2.86323 2.2485 2.5275   26.313   100
+##  cld
+##    a
+##    a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercise-5&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 5&lt;/h1&gt;
+&lt;p&gt;Write a function, &lt;code&gt;stat.power&lt;/code&gt; that combines calculations from Exercises 1 and 2. This function should accept &lt;span class=&#34;math inline&#34;&gt;\(m_1, s_1, m_2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(s_2\)&lt;/span&gt; as required parameters, and &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; as optional parameters. This function must return a list with named elements &lt;code&gt;CV&lt;/code&gt;, &lt;code&gt;PercentDiff&lt;/code&gt;, &lt;code&gt;EffectSize&lt;/code&gt; and &lt;code&gt;RequiredReplicates&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you choose to do this exercise in SAS, you will need to write a subroutine that accepts the same parameters as the R function, but also accepts output parameters &lt;code&gt;CV&lt;/code&gt;, &lt;code&gt;PercentDiff&lt;/code&gt;, &lt;code&gt;EffectSize&lt;/code&gt; and &lt;code&gt;RequiredReplicates&lt;/code&gt;. See &lt;a href=&#34;https://blogs.sas.com/content/iml/2012/08/20/how-to-return-multiple-values-from-a-sasiml-function.html&#34; class=&#34;uri&#34;&gt;https://blogs.sas.com/content/iml/2012/08/20/how-to-return-multiple-values-from-a-sasiml-function.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Another option for SAS is to package the calculations in a macro and create a data table, using the code from
+Course Outline SAS Source (under Course Outline &amp;gt; Outline Source and Output Files), about line 320.&lt;/p&gt;
+&lt;div id=&#34;answer-4&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Answer&lt;/h2&gt;
+&lt;p&gt;Define your function(s) in the code chunk below, the call the function with appropriate parameters in the following sections&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function definition
+combined &amp;lt;- function (m1,m2, s1,s2, alpha=0.05, beta=0.2){
+  n &amp;lt;- 2* ((((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * (qnorm((1-alpha/2)) + qnorm((1-beta)))^2)
+  cohens_d &amp;lt;-(abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+  cv &amp;lt;- (sqrt((s1^2+s2^2)/2))/((m1+m2)/2)
+  percentdiff &amp;lt;- ((m1-m2)/((m1+m2)/2))
+  tt &amp;lt;- (list(CV=cv, PercentDiff= percentdiff, RequiredReplicates=round(n,0), EffectSize=cohens_d))
+  # attributes(tt)
+  # names(tt)
+  attr(tt, &amp;quot;class&amp;quot;) &amp;lt;- &amp;quot;stat.power&amp;quot; #Setting a new class
+  print.stat.power(tt) #use print.stat.power function below
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you define the &lt;code&gt;class&lt;/code&gt; of the list returned by your function as &lt;code&gt;stat.power&lt;/code&gt;, this function should work automatically; you shouln’t need to call the function explicity.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print.stat.power &amp;lt;- function(value) {
+  cat(paste(&amp;quot;Coefficient of Variation :&amp;quot;,value$CV*100,&amp;quot;\n&amp;quot;))
+  cat(paste(&amp;quot;Percent Difference :&amp;quot;,value$PercentDiff*100,&amp;quot;\n&amp;quot;))
+  cat(paste(&amp;quot;Effect Size :&amp;quot;,value$EffectSize,&amp;quot;\n&amp;quot;))
+  cat(paste(&amp;quot;Required Replicates :&amp;quot;,value$RequiredReplicates,&amp;quot;\n&amp;quot;))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;versus-2006-4&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient of Variation : 45.4115573274988 
+## Percent Difference : -35.647509578544 
+## Effect Size : 0.784987603958648 
+## Required Replicates : 25&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-1997-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1936 versus 1997&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient of Variation : 44.3355277160504 
+## Percent Difference : -7.36482845338602 
+## Effect Size : 0.166115727787307 
+## Required Replicates : 569&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;versus-2006-5&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;1997 versus 2006&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient of Variation : 43.6803881088188 
+## Percent Difference : -28.4695393759287 
+## Effect Size : 0.651769377712577 
+## Required Replicates : 37&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

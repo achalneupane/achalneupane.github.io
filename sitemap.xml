@@ -18,33 +18,6 @@
   </url>
   
   <url>
-    <loc>achalneupane.github.io/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/post/firstpost/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/post/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/posts/firstpost/</loc>
-    <lastmod>2019-08-15T17:21:43-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/posts/</loc>
-    <lastmod>2019-08-15T17:21:43-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>achalneupane.github.io/authors/achal-neupane/</loc>
     <lastmod>2019-07-30T00:00:00-05:00</lastmod>
     <priority>0</priority>
@@ -52,6 +25,12 @@
   
   <url>
     <loc>achalneupane.github.io/publication_types/2/</loc>
+    <lastmod>2019-07-30T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/</loc>
     <lastmod>2019-07-30T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -92,17 +71,7 @@
   </url>
   
   <url>
-    <loc>achalneupane.github.io/talk/</loc>
-    <lastmod>2019-07-30T00:00:00-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>achalneupane.github.io/publication/neupane_etal_2019_frontiers/</loc>
-    <lastmod>2019-07-30T00:00:00-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/talk/talk_copy/</loc>
     <lastmod>2019-07-30T00:00:00-05:00</lastmod>
   </url>
   
@@ -113,18 +82,13 @@
   </url>
   
   <url>
-    <loc>achalneupane.github.io/post/writing-technical-content/</loc>
-    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/talk/asv_2019/</loc>
+    <lastmod>2019-07-24T00:00:00-05:00</lastmod>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/authors/admin/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/post/jupyter/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/talk/</loc>
+    <lastmod>2019-07-24T00:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -180,6 +144,11 @@
   </url>
   
   <url>
+    <loc>achalneupane.github.io/talk/pag_2019/</loc>
+    <lastmod>2019-01-12T00:00:00-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>achalneupane.github.io/authors/arjun-kafle/</loc>
     <lastmod>2018-12-12T00:00:00-06:00</lastmod>
     <priority>0</priority>
@@ -211,11 +180,6 @@
   <url>
     <loc>achalneupane.github.io/publication/marzano_etal_viruses_2018/</loc>
     <lastmod>2018-12-10T00:00:00-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/talk/talk/</loc>
-    <lastmod>2018-07-30T00:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -253,25 +217,86 @@
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/deep-learning/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/authors/amanda-smith/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/demo/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/authors/andrew-moore/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/project/external-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/authors/felicity-newell/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/project/internal-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/talk/leo_et_al/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/gregory-boxall/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/mahmoud-bassal/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/matthew-brown/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/megan-ellis/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/paul-leo/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/paula-marlton/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/richard-dandrea/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/russell-saal/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/thomas-gonda/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/zeya-kyaw-maung/</loc>
+    <lastmod>2016-08-21T00:00:00-05:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -281,61 +306,149 @@
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/project/statistical-programming/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/amanda-m.-smith/</loc>
+    <lastmod>2016-03-16T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/authors/andrew-s.-moore/</loc>
+    <lastmod>2016-03-16T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/post/getting-started/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/categories/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/authors/caedyn-l.-stinson/</loc>
+    <lastmod>2016-03-16T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/categories/demo/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <loc>achalneupane.github.io/talk/mek_brisbane_2016/</loc>
+    <lastmod>2016-03-16T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/rachel-burow/</loc>
+    <lastmod>2016-03-16T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>achalneupane.github.io/categories/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>achalneupane.github.io/authors/sadia-afrin/</loc>
+    <lastmod>2016-03-16T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>achalneupane.github.io/authors/andrew-h.-wei/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>achalneupane.github.io/authors/anna-l.-brown/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>achalneupane.github.io/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>achalneupane.github.io/authors/bik-to/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/gregory-boxal/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/ian-d.-lewis/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/lisa-anderson1/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/matthew-a.-brown/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/mhairi-s.-marshall/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/nik-cummings/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/paul-j.-leo/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/richard-j.-dandrea/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/talk/esh_2015_buddapest/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/thomas-j.-gonda/</loc>
+    <lastmod>2015-09-10T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/blair-d.-siegfried/</loc>
+    <lastmod>2014-04-14T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/etsuko-n.-moriyama/</loc>
+    <lastmod>2014-04-14T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/haichuan-wang/</loc>
+    <lastmod>2014-04-14T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/seong-il-eyun/</loc>
+    <lastmod>2014-04-14T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/talk/wcr_neupane/</loc>
+    <lastmod>2014-04-14T00:00:00-05:00</lastmod>
   </url>
   
   <url>
@@ -402,12 +515,127 @@
   </url>
   
   <url>
+    <loc>achalneupane.github.io/authors/gary-larson/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/talk/bsa_neupane/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/jack-butler/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/jai-rohila/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/madhav-nepal/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/neil-reese/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/talk/piya_bsa/</loc>
+    <lastmod>2012-07-11T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/talk/piya_sd_academy/</loc>
+    <lastmod>2012-04-13T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/talk/neupane_aspb/</loc>
+    <lastmod>2012-03-24T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/jai-s.-rohila/</loc>
+    <lastmod>2012-03-24T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>achalneupane.github.io/publication/piya_et_al_proceedings_sd/</loc>
     <lastmod>2012-02-22T00:00:00-06:00</lastmod>
   </url>
   
   <url>
+    <loc>achalneupane.github.io/talk/hbcu_neupane/</loc>
+    <lastmod>2009-10-29T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/chezaray-anjorin/</loc>
+    <lastmod>2009-10-29T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/deepak-kumar/</loc>
+    <lastmod>2009-10-29T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/xueqing-song/</loc>
+    <lastmod>2009-10-29T00:00:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/authors/admin/</loc>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/post/arrays/</loc>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>achalneupane.github.io/courses/</loc>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/post/functions/</loc>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/post/</loc>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/tags/r/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/tags/statistics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>achalneupane.github.io/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

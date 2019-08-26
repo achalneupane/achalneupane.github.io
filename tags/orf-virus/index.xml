@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Orf Virus | Achal Neupane</title>
+    <link>/achalneupane.github.io/tags/orf-virus/</link>
+      <atom:link href="/achalneupane.github.io/tags/orf-virus/index.xml" rel="self" type="application/rss+xml" />
+    <description>Orf Virus</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 27 May 2018 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>Orf Virus</title>
+      <link>/achalneupane.github.io/tags/orf-virus/</link>
+    </image>
+    
+    <item>
+      <title>Vectored-vaccine development</title>
+      <link>/achalneupane.github.io/project/statistical-programming/</link>
+      <pubDate>Sun, 27 May 2018 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/project/statistical-programming/</guid>
+      <description>&lt;p&gt;We have developed Orf virus, which is parapox virus, as a vaccine delivery platfrom. We are using well-characterized immunomudolatory loci present in the genome of Orf virus to insert heterologous genes to develop receombinant viruses that can be used as a vaccine. We have already shown high level of protection against PEDV using &lt;a href=&#34;https://lokfiles.netlify.com/orfv-pedv.pdf&#34; target=&#34;_blank&#34;&gt;recombinant Orf virus expressing Spike gene of PEDV&lt;/a&gt;. This recombinant virus also protects piglets born to our recombinant virus immunized sows &lt;a href=&#34;https://lokfiles.netlify.com/pedv-passive-immunity.pdf&#34; target=&#34;_blank&#34;&gt;(Check paper here)&lt;/a&gt;. Our goal is to develop Orf virus as a vaccine delivery platform for many other infectious disease of swine and other livestock species.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
