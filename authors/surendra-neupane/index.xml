@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Surendra Neupane | Achal Neupane</title>
+    <link>/achalneupane.github.io/authors/surendra-neupane/</link>
+      <atom:link href="/achalneupane.github.io/authors/surendra-neupane/index.xml" rel="self" type="application/rss+xml" />
+    <description>Surendra Neupane</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 22 Jan 2019 00:00:00 -0600</lastBuildDate>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>Surendra Neupane</title>
+      <link>/achalneupane.github.io/authors/surendra-neupane/</link>
+    </image>
+    
+    <item>
+      <title>Identification and Characterization of Mitogen-Activated Protein Kinase (MAPK) Genes in Sunflower (Helianthus annuus L.)</title>
+      <link>/achalneupane.github.io/publication/surendra_et_al_2019_plants/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
+      <guid>/achalneupane.github.io/publication/surendra_et_al_2019_plants/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mitogen-Activated Protein Kinase (MAPK) genes encode proteins that regulate biotic and abiotic stresses in plants through signaling cascades comprised of three major subfamilies: MAP Kinase (MPK), MAPK Kinase (MKK), and MAPKK Kinase (MKKK). The main objectives of this research were to conduct genome-wide identification of MAPK genes in Helianthus annuus and examine functional divergence of these genes in relation to those in nine other plant species (Amborella trichopoda, Aquilegia coerulea, Arabidopsis thaliana, Daucus carota, Glycine max, Oryza sativa, Solanum lycopersicum, Sphagnum fallax, and Vitis vinifera), representing diverse taxonomic groups of the Plant Kingdom. A Hidden Markov Model (HMM) profile of the MAPK genes utilized reference sequences from A. thaliana and G. max, yielding a total of 96 MPKs and 37 MKKs in the genomes of A. trichopoda, A. coerulea, C. reinhardtii, D. carota, H. annuus, S. lycopersicum, and S. fallax. Among them, 28 MPKs and eight MKKs were confirmed in H. annuus. Phylogenetic analyses revealed four clades within each subfamily. Transcriptomic analyses showed that at least 19 HaMPK and seven HaMKK genes were induced in response to salicylic acid (SA), sodium chloride (NaCl), and polyethylene glycol (Peg) in leaves and roots. Of the seven published sunflower microRNAs, five microRNA families are involved in targeting eight MPKs. Additionally, we discussed the need for using MAP Kinase nomenclature guidelines across plant species. Our identification and characterization of MAP Kinase genes would have implications in sunflower crop improvement, and in advancing our knowledge of the diversity and evolution of MAPK genes in the Plant Kingdom.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Genome-Wide Identification of NBS-Encoding Resistance Genes in Sunflower (Helianthus annuus L.)</title>
+      <link>/achalneupane.github.io/publication/surendra_et_al_2018_july_genes/</link>
+      <pubDate>Sat, 30 Jun 2018 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/publication/surendra_et_al_2018_july_genes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nucleotide Binding Site-Leucine-Rich Repeat (NBS-LRR) genes encode disease resistance proteins involved in plants&amp;rsquo; defense against their pathogens. Although sunflower is affected by many diseases, only a few molecular details have been uncovered regarding pathogenesis and resistance mechanisms. Recent availability of sunflower whole genome sequences in publicly accessible databases allowed us to accomplish a genome-wide identification of Toll-interleukin-1 receptor-like Nucleotide-binding site Leucine-rich repeat (TNL), Coiled Coil (CC)-NBS-LRR (CNL), Resistance to powdery mildew 8 (RPW8)-NBS-LRR (RNL) and NBS-LRR (NL) protein encoding genes. Hidden Markov Model (HMM) profiling of 52,243 putative protein sequences from sunflower resulted in 352 NBS-encoding genes, among which 100 genes belong to CNL group including 64 genes with RX_CC like domain, 77 to TNL, 13 to RNL, and 162 belong to NL group. We also identified signal peptides and nuclear localization signals present in the identified genes and their homologs. We found that NBS genes were located on all chromosomes and formed 75 gene clusters, one-third of which were located on chromosome 13. Phylogenetic analyses between sunflower and Arabidopsis NBS genes revealed a clade-specific nesting pattern in CNLs, with RNLs nested in the CNL-A clade, and species-specific nesting pattern for TNLs. Surprisingly, we found a moderate bootstrap support (BS = 50%) for CNL-A clade being nested within TNL clade making both the CNL and TNL clades paraphyletic. Arabidopsis and sunflower showed 87 syntenic blocks with 1049 high synteny hits between chromosome 5 of Arabidopsis and chromosome 6 of sunflower. Expression data revealed functional divergence of the NBS genes with basal level tissue-specific expression. This study represents the first genome-wide identification of NBS genes in sunflower paving avenues for functional characterization and potential crop improvement.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

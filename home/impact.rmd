@@ -1,0 +1,58 @@
+---
+title: "Impact/Awards"
+author: "Achal Neupane"
+date: 2018-07-23T21:13:14-05:00
+categories: ["R"]
+tags: ["Citations", "Research", "Awards"]
+weight : 30
+---
+
+***
+```{r eval=TRUE, echo=F, warning=FALSE,error=FALSE,message=FALSE}
+# library (ggplot2)
+library(plotly)
+# install.packages("scholar")
+library("scholar")
+# google scholar ID
+df <- get_citation_history("p1ky6LcAAAAJ")
+data <- df[!is.na(df$year),]
+# Year= c(2015,2016,2017,2018,2019)
+# Citations =c(4,6,32,46,47)
+# data= data.frame(Year, Citations)
+p=ggplot(data,aes(x=year,y=cites))+
+  geom_bar(stat = 'identity',color="black",fill="red",alpha=0.5)
+# p+ggtitle(paste0("Citations per year", " (total citations: ", sum(data$cites) , "; total articles: ", get_num_articles("p1ky6LcAAAAJ"),")"))  + 
+p+ggtitle("Citations per Year (source: Google Scholar)")  + 
+     theme(plot.title = element_text(lineheight=.5, face="bold", size = 16), text = element_text(size=16)) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black")) + 
+  scale_x_continuous("Year", labels = as.character(data$year), breaks = data$year) +
+  ylab("Citations")
+  
+```
+
+
+### Awards
+
+***
+**Research Grants**
+
+•	University of Nebraska-Lincoln travel grants ($1500, FY 2014)
+
+•	Center for Excellence in Drought Tolerance Research (CEDTR)-USDA/NIFA
+(#SA1100029): Identification and characterization of mitogen-activated protein
+kinases (MAPKs) involved in root nodulation in Glycine max. ($4000, FY
+2012/2013).
+
+• MERCK/ AAAS: Anticancer activity of novel ionic triorganotin derivatives
+against MDA-MB 231 breast cancer cells. ($5000, FY2009).
+
+**Awards**
+
+•	Sigma Xi Masters Research Paper, South Dakota State University,	(2012)
+
+•	Dean’s List Honoree, University of the District of Columbia, (2006-2009)
+
+•	United Nations Mission in Nepal (UNMIN) Scholarship (2002)
+
+***
