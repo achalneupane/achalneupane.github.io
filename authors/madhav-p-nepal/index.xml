@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Madhav P Nepal | Achal Neupane</title>
-    <link>/achalneupane.github.io/authors/madhav-p-nepal/</link>
-      <atom:link href="/achalneupane.github.io/authors/madhav-p-nepal/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/authors/madhav-p-nepal/</link>
+      <atom:link href="achalneupane.github.io/authors/madhav-p-nepal/index.xml" rel="self" type="application/rss+xml" />
     <description>Madhav P Nepal</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 22 Jan 2019 00:00:00 -0600</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>Madhav P Nepal</title>
-      <link>/achalneupane.github.io/authors/madhav-p-nepal/</link>
+      <link>achalneupane.github.io/authors/madhav-p-nepal/</link>
     </image>
     
     <item>
       <title>Identification and Characterization of Mitogen-Activated Protein Kinase (MAPK) Genes in Sunflower (Helianthus annuus L.)</title>
-      <link>/achalneupane.github.io/publication/surendra_et_al_2019_plants/</link>
+      <link>achalneupane.github.io/publication/surendra_et_al_2019_plants/</link>
       <pubDate>Tue, 22 Jan 2019 00:00:00 -0600</pubDate>
-      <guid>/achalneupane.github.io/publication/surendra_et_al_2019_plants/</guid>
+      <guid>achalneupane.github.io/publication/surendra_et_al_2019_plants/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Mitogen-Activated Protein Kinase (MAPK) genes encode proteins that regulate biotic and abiotic stresses in plants through signaling cascades comprised of three major subfamilies: MAP Kinase (MPK), MAPK Kinase (MKK), and MAPKK Kinase (MKKK). The main objectives of this research were to conduct genome-wide identification of MAPK genes in Helianthus annuus and examine functional divergence of these genes in relation to those in nine other plant species (Amborella trichopoda, Aquilegia coerulea, Arabidopsis thaliana, Daucus carota, Glycine max, Oryza sativa, Solanum lycopersicum, Sphagnum fallax, and Vitis vinifera), representing diverse taxonomic groups of the Plant Kingdom. A Hidden Markov Model (HMM) profile of the MAPK genes utilized reference sequences from A. thaliana and G. max, yielding a total of 96 MPKs and 37 MKKs in the genomes of A. trichopoda, A. coerulea, C. reinhardtii, D. carota, H. annuus, S. lycopersicum, and S. fallax. Among them, 28 MPKs and eight MKKs were confirmed in H. annuus. Phylogenetic analyses revealed four clades within each subfamily. Transcriptomic analyses showed that at least 19 HaMPK and seven HaMKK genes were induced in response to salicylic acid (SA), sodium chloride (NaCl), and polyethylene glycol (Peg) in leaves and roots. Of the seven published sunflower microRNAs, five microRNA families are involved in targeting eight MPKs. Additionally, we discussed the need for using MAP Kinase nomenclature guidelines across plant species. Our identification and characterization of MAP Kinase genes would have implications in sunflower crop improvement, and in advancing our knowledge of the diversity and evolution of MAPK genes in the Plant Kingdom.&lt;/p&gt;
@@ -25,9 +25,9 @@
     
     <item>
       <title>Evolutionary history of mitogen-activated protein kinase (MAPK) genes in Lotus, Medicago, and Phaseolus</title>
-      <link>/achalneupane.github.io/publication/mapk_legume/</link>
+      <link>achalneupane.github.io/publication/mapk_legume/</link>
       <pubDate>Mon, 02 Dec 2013 00:00:00 -0600</pubDate>
-      <guid>/achalneupane.github.io/publication/mapk_legume/</guid>
+      <guid>achalneupane.github.io/publication/mapk_legume/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Mitogen-Activated Protein Kinase (MAPK) genes encode proteins that mediate various signaling pathways associated with biotic and abiotic stress responses in eukaryotes. The MAPK genes form a 3-tier signal transduction cascade between cellular stimuli and physiological responses. Recent identification of soybean MAPKs and availability of genome sequences from other legume species allowed us to identify their MAPK genes. The main objectives of this study were to identify MAPKs in 3 legume species, Lotus japonicus, Medicago truncatula, and Phaseolus vulgaris, and to assess their phylogenetic relationships. We used approaches in comparative genomics for MAPK gene identification and named the newly identified genes following Arabidopsis MAPK nomenclature model. We identified 19, 18, and 15 MAPKs and 7, 4, and 9 MAPKKs in the genome of Lotus japonicus, Medicago truncatula, and Phaseolus vulgaris, respectively. Within clade placement of MAPKs and MAPKKs in the 3 legume species were consistent with those in soybean and Arabidopsis. Among 5 clades of MAPKs, 4 founder clades were consistent to MAPKs of other plant species and orthologs of MAPK genes in the fifth clade-&amp;ldquo;Clade E&amp;rdquo; were consistent with those in soybean. Our results also indicated that some gene duplication events might have occurred prior to eudicot-monocot divergence. Highly diversified MAPKs in soybean relative to those in 3 other legume species are attributable to the polyploidization events in soybean. The identification of the MAPK genes in the legume species is important for the legume crop improvement; and evolutionary relationships and functional divergence of these gene members provide insights into plant genome evolution.&lt;/p&gt;
@@ -36,9 +36,9 @@
     
     <item>
       <title>Identification, Nomenclature, and Evolutionary Relationships of Mitogen-Activated Protein Kinase (MAPK) Genes in Soybean</title>
-      <link>/achalneupane.github.io/publication/mapk_soybean/</link>
+      <link>achalneupane.github.io/publication/mapk_soybean/</link>
       <pubDate>Sun, 22 Sep 2013 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/publication/mapk_soybean/</guid>
+      <guid>achalneupane.github.io/publication/mapk_soybean/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Mitogen-activated protein kinase (MAPK) genes in eukaryotes regulate various developmental and physiological processes

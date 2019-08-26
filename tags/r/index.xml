@@ -2,30 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R | Achal Neupane</title>
-    <link>/achalneupane.github.io/tags/r/</link>
-      <atom:link href="/achalneupane.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <link>achalneupane.github.io/tags/r/</link>
+      <atom:link href="achalneupane.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Thu, 15 Aug 2019 17:26:23 -0500</lastBuildDate>
     <image>
-      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <url>achalneupane.github.io/img/icon-192.png</url>
       <title>R</title>
-      <link>/achalneupane.github.io/tags/r/</link>
+      <link>achalneupane.github.io/tags/r/</link>
     </image>
     
     <item>
       <title>Data tables</title>
-      <link>/achalneupane.github.io/post/data_tables/</link>
+      <link>achalneupane.github.io/post/data_tables/</link>
       <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
-      <guid>/achalneupane.github.io/post/data_tables/</guid>
+      <guid>achalneupane.github.io/post/data_tables/</guid>
       <description>
 
 
 &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
 &lt;/script&gt;
-&lt;div id=&#34;experimental&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Experimental&lt;/h4&gt;
-&lt;p&gt;Again, you will be allowed to provide one solution using Python. Elaborate on the similarities and differences between Ptyhon function definitions and R or IML or Macro language.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div id=&#34;exercise-1.&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Exercise 1.&lt;/h1&gt;
 &lt;p&gt;This exercise will repeat Exercise 1 from Homework 4, but using a data table.&lt;/p&gt;
@@ -87,7 +83,7 @@ M.table&lt;/code&gt;&lt;/pre&gt;
 plot(M.table$RequiredReplicates ~ M.table$EffectSize)
 # abline(cal.lm)
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2&#34; class=&#34;section level1&#34;&gt;
@@ -197,7 +193,7 @@ legend(&amp;quot;topleft&amp;quot;,
        text.col = &amp;quot;black&amp;quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Percent diff vs Required replicates
 plot(Diff, Moderate, col = &amp;quot;black&amp;quot;, type = &amp;#39;b&amp;#39;,pch = 8, xlab=&amp;quot;Percent diff&amp;quot;, ylab=&amp;quot;Required replicates&amp;quot;, ylim = c(min(Moderate, Conservative, Liberal),max(Moderate, Conservative, Liberal)))
 points(Diff, Conservative, type = &amp;#39;b&amp;#39;, pch = 2,  col = &amp;quot;red&amp;quot;)
@@ -212,7 +208,7 @@ legend(&amp;quot;topright&amp;quot;,
        text.col = &amp;quot;black&amp;quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Plot &lt;code&gt;Conservative&lt;/code&gt; vs &lt;code&gt;Moderate&lt;/code&gt; and &lt;code&gt;Liberal&lt;/code&gt; vs &lt;code&gt;Moderate&lt;/code&gt;, including a line with slope 1 and intercept 0.&lt;/li&gt;
 &lt;/ul&gt;
@@ -223,11 +219,11 @@ legend(&amp;quot;topright&amp;quot;,
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Conservative Vs Moderate
 plot(Conservative ~ Moderate, type = &amp;#39;b&amp;#39;, col = &amp;quot;black&amp;quot;)
 abline(a=1, b = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Liberal Vs Moderate
 plot(Liberal ~ Moderate, type = &amp;#39;b&amp;#39;, col = &amp;quot;black&amp;quot;)
 abline(a=1, b = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -267,11 +263,11 @@ print(summary(pumpkins))&lt;/code&gt;&lt;/pre&gt;
 ## 
 ##     Class, Month, Price, Size, Week&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Price ~ Week, main = &amp;quot;**Continuous vs Continuous**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Price ~ Class, main = &amp;quot;**Continuous vs Categorical**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Size ~ Class, main = &amp;quot;**Categorical vs Categorical**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From these plots, you should be able to answer these questions:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Are some Weeks missing Price observations?
@@ -674,7 +670,7 @@ contingency.table&lt;/code&gt;&lt;/pre&gt;
 # Also, plot
 attach(elo.dat)
 plot(ActualFinish ~ ExpectedFinish)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the contingency table, &lt;code&gt;E[AA]&lt;/code&gt; &lt;code&gt;AA&lt;/code&gt; are associated 57 times&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Does this data set include non-qualifiers? (The NCAA tournament only allows 33 wreslers per weight class).&lt;/li&gt;
@@ -690,9 +686,9 @@ Based on the contingency table, &lt;code&gt;E[AA]&lt;/code&gt; &lt;code&gt;AA&lt
     
     <item>
       <title>Functions</title>
-      <link>/achalneupane.github.io/post/functions/</link>
+      <link>achalneupane.github.io/post/functions/</link>
       <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
-      <guid>/achalneupane.github.io/post/functions/</guid>
+      <guid>achalneupane.github.io/post/functions/</guid>
       <description>
 
 
@@ -919,15 +915,15 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
 ##                  expr   min     lq     mean median     uq      max neval
-##   Using first formula 1.773 1.8465 73.63193 1.8915 1.9955 7128.303   100
-##  Using second formula 1.903 1.9455  2.13620 1.9735 2.0290    9.460   100
+##   Using first formula 1.878 1.9350 61.48143  1.959 2.0165 5929.279   100
+##  Using second formula 1.970 2.0165  2.54380  2.051 2.1015   40.581   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
