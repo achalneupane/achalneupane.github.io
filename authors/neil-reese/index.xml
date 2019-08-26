@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neil Reese | Achal Neupane</title>
+    <link>/achalneupane.github.io/authors/neil-reese/</link>
+      <atom:link href="/achalneupane.github.io/authors/neil-reese/index.xml" rel="self" type="application/rss+xml" />
+    <description>Neil Reese</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 11 Jul 2012 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/achalneupane.github.io/img/icon-192.png</url>
+      <title>Neil Reese</title>
+      <link>/achalneupane.github.io/authors/neil-reese/</link>
+    </image>
+    
+    <item>
+      <title>Identification of Mitogen Activated Protein Kinase Family Members in Soybean</title>
+      <link>/achalneupane.github.io/talk/bsa_neupane/</link>
+      <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/bsa_neupane/</guid>
+      <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
+
+&lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mitogen Activated Protein Kinases (MAPKs) are serine/threonine specific kinases that are induced by various extracellular and intracellular stimuli, and are involved in signaling pathways in all eukaryotes. In plants, MAPKs are known to regulate various signal transduction pathways including those associated with biotic and abiotic stresses. The MAPK gene members belong to three functionally linked gene families called MAPKs, MAPKKs (MAPK Kinases) and MAPKKKs (MAPKK Kinases). Although, MAPKs of model plants such as &lt;em&gt;Arabidopsis&lt;/em&gt; and &lt;em&gt;Oryza&lt;/em&gt; have been identified and characterized, these genes in soybean (&lt;em&gt;Glycine max&lt;/em&gt;) are yet to be identified. In this study, we used approaches in comparative genomics and bioinformatics for the genome-wide identification of MAPKs, MAPKKs and MAPKKKs in soybean. &lt;em&gt;Arabidopsis&lt;/em&gt; reference sequences were used in protein BLAST to search the putative MAPKs of soybean from publicly available databases. In our in-silico analysis, the redundant sequences were removed to perform unbiased and rigorous phylogenetic analyses. We verified the presence of unique conserved domains and active sites in each putative MAPK gene member manually and by using Geneious and Pfam programs. From our three different confirmatory analyses, we identified 38 MAP Kinases, 11 MAPK Kinases and 115 MAPKK Kinases in soybean. &lt;em&gt;Arabidopsis&lt;/em&gt; nomenclature model was followed to assign numeric subscript to MAPK sequences grouped with &lt;em&gt;Arabidopsis&lt;/em&gt; sequences in phylogenetic tree. Lack of effective code of nomenclature lead us to a conundrum, which will be discussed in the meeting. Universal codes of gene nomenclature are crucial for understanding various signaling pathways. Therefore, an effective code of gene nomenclature is warranted. The results from this study will help us characterize soybean MAP Kinases paving avenue for the functional analyses of different cellular and physiological pathways in the order these genes function.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
