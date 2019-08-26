@@ -3,6 +3,50 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/achalneupane.github.io/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/arrays/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/data_tables/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/functions/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/r/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/statistics/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/</loc>
+    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/achalneupane.github.io/authors/achal-neupane/</loc>
     <lastmod>2019-07-30T00:00:00-05:00</lastmod>
     <priority>0</priority>
@@ -10,12 +54,6 @@
   
   <url>
     <loc>/achalneupane.github.io/publication_types/2/</loc>
-    <lastmod>2019-07-30T00:00:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/</loc>
     <lastmod>2019-07-30T00:00:00-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -587,34 +625,7 @@
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/post/arrays/</loc>
-  </url>
-  
-  <url>
     <loc>/achalneupane.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/functions/</loc>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/</loc>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/tags/r/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/tags/statistics/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
