@@ -5,7 +5,7 @@
     <link>/achalneupane.github.io/tags/</link>
       <atom:link href="/achalneupane.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright>
     <image>
       <url>/achalneupane.github.io/img/icon-192.png</url>
       <title>Tags</title>
@@ -15,7 +15,7 @@
     <item>
       <title>R</title>
       <link>/achalneupane.github.io/tags/r/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/achalneupane.github.io/tags/r/</guid>
       <description></description>
     </item>
@@ -23,7 +23,7 @@
     <item>
       <title>Statistics</title>
       <link>/achalneupane.github.io/tags/statistics/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/achalneupane.github.io/tags/statistics/</guid>
       <description></description>
     </item>

@@ -284,40 +284,7 @@
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/post/arrays/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/functions/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/achalneupane.github.io/project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/tags/r/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/tags/statistics/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/tags/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -620,7 +587,34 @@
   </url>
   
   <url>
+    <loc>/achalneupane.github.io/post/arrays/</loc>
+  </url>
+  
+  <url>
     <loc>/achalneupane.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/functions/</loc>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/</loc>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/r/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/statistics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   

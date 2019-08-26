@@ -212,9 +212,243 @@ These mutations are currently undergoing conventional validation by Sanger seque
     </item>
     
     <item>
+      <title>Updates</title>
+      <link>/achalneupane.github.io/project/statistical-programming/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/achalneupane.github.io/project/statistical-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MEK inhibitor resistance in acute myeloid leukaemia</title>
+      <link>/achalneupane.github.io/talk/mek_brisbane_2016/</link>
+      <pubDate>Wed, 16 Mar 2016 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/mek_brisbane_2016/</guid>
+      <description>&lt;p&gt;Location: Peppers Noosa, Australia&lt;/p&gt;
+
+&lt;p&gt;Event: New Direction in Leukaemia Research, 2016&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mutations of the RAS family of genes are frequent events in AML, occurring in 10% of children and 10-20% of adults.
+NRASmutations promote proliferation through activation of the Ras/Raf/MEK/ERK signalling pathway. Several MEK
+inhibitors have shown promising pre-clinical activity in AML, with a number of compounds currently in adult phase I/II
+clinical trials, including AZD6244, GSK1120212 and AS703026. Given not all patients respond to MEK inhibitor
+treatment we undertook a comprehensive preclinical evaluation of MEK inhibitors in AML and developed a clinically
+relevant model of resistance.
+The in vitroefficacy of 7 MEK inhibitors was determined using a diverse panel of 6 paediatric and 5 adult AML cell lines
+(Table 1). All AML cell lines were sensitive to at least one MEK inhibitor with the exception of the Down syndrome
+associated AML line, CMK, and the adult erythroblastic line, HEL, that showed overt resistance (IC50 &amp;gt;20μM) to MEK
+inhibition (Table 1). In sensitive cell lines, the reduced proliferation was associated with apoptosis, as assessed by
+Annexin V+ staining. To confirm mechanism of action, inhibition of MEK phosphorylation as well as the downstream
+kinase, pERK, were assessed by immunoblotting. The level of basal MEK activation was variable across the cell line
+panel and pMEK was increased upon exposure to active MEK inhibitors. In contrast, levels of pERK were reduced
+suggesting that MEK inhibitors may disrupt the interaction of MEK with its downstream transducers rather than a direct
+inhibition of MEK phosphorylation.
+Molecular and clinical resistance to kinase inhibitors is well described for targets such as FLT3 and BCR-ABL1. Since
+clinical responses to MEK inhibitors have been variable, we investigated the potential mechanisms of resistance to
+MEK inhibitors in vitro. Long-term culture of THP-1 cells (MLL-rearranged, NRASmutated) with AZD6244 and
+AS703026, resulted in high-level resistance. Importantly, cells displayed cross-resistance not only to these two
+compounds but also a third MEK inhibitor, GSK1120212 (Table 2). Resistance was associated with reduced basal
+pMEK expression. In order to establish the mechanism of resistance we performed comprehensive mutation and gene
+expression analyses utilising whole-exome sequencing and RNAseq respectively. These data revealed a spectrum of
+acquired molecular aberrations common to both resistant cell lines compared to the parental THP1 cells. Together,
+these data indicate that whilst MEK inhibition is a promising strategy to treat AML, resistance to one MEK inhibitor may
+lead to cross-resistance to other compounds targeting MEK.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sensitivity of Whole Exome Sequencing for the Detection of FLT3-ITD and NPM1 Mutations in Acute Myeloid Leukaemia</title>
+      <link>/achalneupane.github.io/talk/esh_2015_buddapest/</link>
+      <pubDate>Thu, 10 Sep 2015 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/esh_2015_buddapest/</guid>
+      <description>&lt;p&gt;Location: Buddapest, Hungary&lt;/p&gt;
+
+&lt;p&gt;Event: European School of Hematology (ESH), 2015&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Whole exome sequencing (WES) can detect a high proportion of cancer causing genetic mutations, and therefore has the potential to replace targeted molecular assays and identify additional novel, patient-specific mutations. To test the ability of WES to detect variants of clinical consequence, we compared WES findings to results for FLT3-ITD and NPM1mut obtained by routine pathology testing (high-resolution fragment analysis (HRFA) and Matrix Assisted Laser Desorption/Ionization – Time of Flight Mass Spectrometry (MALDI-TOF) respectively), and to point mutation findings in DNMT3A, IDH1/2, JAK2, KRAS, NRAS and MPL, as determined by Sequenom, across a cohort of 188 AML samples from adults (n
+= 144) and children (n = 44). All subjects provided written informed consent, and the study protocols had been approved by institutional research ethics committees. Median age at diagnosis was 51 years, (range 1-89) and median bone marrow blast percentage was 76% (range 8-100).
+A discovery phase using 96 samples developed genotype algorithms and ascertained their sensitivity. NPM1mut were reliably detected using WES, with 100% (n=25 positive) concordance with MALDI-TOF. WES and Sequenom were 99.4% concordant over the selected gene panels (1594 measurements). The FLT3-ITD false negative rate initially exceeded 50%, leading us to optimize our discovery algorithms and develop a calibration curve which specified the sequence coverage needed over the FLT3-ITD region to reliably genotype at any allelic ratio (AR). We demonstrate that our algorithms can reliably detect FLT3-ITD with AR &amp;gt; 0.05 using exome capture with less than 100x coverage over the FLT3-ITD region.
+Additionally, we tested the algorithms over another 900 germline controls with no false positive measurements.
+In a validation phase using 78 samples, all NPM1mut samples (n=20 positive) were detected, including an additional NPM1mut (type A) initially missed using MALDI-TOF. Concordance with Sequenom again exceeded 99.5% (comparable to the error rate expected in this Sequenom panel). For FLT3-ITD, &lt;sup&gt;18&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; HRFA-positive samples were detected with all 3 false-negatives falling outside the predicted sensitivity threshold; two samples with AR &amp;lt;0.01 (which would require sequencing coverage of 500x for detection) and one with AR = 0.4 but with a sequence coverage of only 38x over the FLT3-ITD.
+In conclusion, we have performed WES on one of the largest cohorts of adult and paediatric AML described to date and demonstrate that clinically relevant mutations, including FLT3-ITD and NPM1mut, can be simultaneously detected with a single exome capture platform with accuracy similar to or better than current methods.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transcriptome analysis of western corn rootworm larvae and eggs</title>
+      <link>/achalneupane.github.io/talk/wcr_neupane/</link>
+      <pubDate>Mon, 14 Apr 2014 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/wcr_neupane/</guid>
+      <description>&lt;p&gt;Location: Chicago, USA&lt;/p&gt;
+
+&lt;p&gt;Event: The International Working Group on Ostrinia and other Maize Pests (IWGO), 2014&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The     western     corn     rootworm,     Diabrotica     virgifera     virgifera(Coloeptera: Chrysomelidae), is one of the most devastating pests of corn causing nearly a billion dollars  of  financial  loss  both  in  terms  of  yield  loss  and  treatment  costs.  Although  Coleoptera  is  the  most  diverse  order  of  insects  comprising  more  than  400,000  species,  only  a  few  coleopteran  genomes  and  transcriptomes  (e.g.,  from  &lt;em&gt;Tribolium castaneum&lt;/em&gt;  and &lt;em&gt;Dendroctonus  ponderosae&lt;/em&gt;)  have  been  published  to  date.  The  genome size of haploid D. v.   virgifera is estimated to be ~2.58 GB, one of the largest among beetle species. Its complete genome sequence is currently in the draft stage. In this study, in order to identify the gene sets expressed in their larval stages (when the  most  damage  to  corn  is  caused)  and  to  contribute  to  improving  the  genome  assembly,  we  have  sequenced  and  assembled  transcriptomes  from  egg,  neonate,  and third-instar larval stages of D. v. virgifera using next-generation technologies. In total  ~700  gigabases  were  sequenced.  De  novo  transcriptome  assembly  was  performed using four different short read assemblers for individual  and  pooled  sets  of  reads.  Hybrid  assembly  using  both  Illumina  and  454  reads  was  also  performed.  After  examining  the  assembly  quality  based  on  contig  length  and  annotation  effectiveness  with  similarity  search,  we  chose  the  Trinity  assembly  from  the  pooled dataset  including  163,871  contigs  (the  average  length:  914  bp)  as  the  most  inclusive.  We  identified  and  annotated  genes  encoding  chemoreceptors,  gamma-aminobutyric  acid  (GABA)  type  A  receptor,  and  glycoside  hydrolase  families.  Compared  to  the  sequences  found  in  the  draft  genome,  we  observed  variations  in  sequences  as  well  as  in  the  number  of  introns.  We  also  examined  conservation  of  gene   structures   in   chemoreceptors   from   closely   related   insect   lineages.   Our   transcriptome sequences can contribute toward improved quality of the &lt;em&gt;D&lt;/em&gt;. &lt;em&gt;v&lt;/em&gt;. &lt;em&gt;virgiferagenome&lt;/em&gt; assembly and annotations.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Genetic diversity and population structure of sickleweed(Falcaria vulgaris; Apiaceae) in the upper Midwest USA</title>
+      <link>/achalneupane.github.io/publication/piya_et_al_biological_invasions/</link>
+      <pubDate>Sat, 22 Feb 2014 00:00:00 -0600</pubDate>
+      <guid>/achalneupane.github.io/publication/piya_et_al_biological_invasions/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sickleweed (Falcaria vulgaris), an intro-duced species native to Europe and Asia, grows as anaggressive weed in some areas of the upper Midwest inthe United States. We are reporting genetic diversityand  population  structure  of  sickleweed  populationsusing microsatellite markers and nuclear and chloro-plast   DNA   sequences.   Populations   showed   highgenetic  differentiation  but  did  not  show  significantgeographic  structure,  suggesting  random  establish-ment of different genotypes at different sites was likelydue to human mediated multiple introductions. Threegenetic  clusters  revealed  by  microsatellite  data  andpresence of six chlorotypes supported our hypothesisof multiple introductions. Chloroplast DNA sequencedata  revealed  six  chlorotypes  nested  into  two  mainlineages   suggesting   at   least   two   introductions   ofsickleweed  in  the  upper  Midwest.  Some  individualsexhibited more than two alleles at several microsatel-lite  loci suggesting  occurrence  of polyploidy, whichcould be a post-introduction development to mitigatethe  inbreeding  effects.  High  genetic  variation  in  theintroduced range attributable to multiple introductionsand  polyploidy  may  be  inducing  the  evolution  ofinvasiveness  in  sickleweed.  Results  of  this  studyprovide valuable insights into the evolution of sickle-weed and baseline data for designing proper manage-ment practices for controlling sickleweed in the UnitedStates.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Evolutionary history of mitogen-activated protein kinase (MAPK) genes in Lotus, Medicago, and Phaseolus</title>
+      <link>/achalneupane.github.io/publication/mapk_legume/</link>
+      <pubDate>Mon, 02 Dec 2013 00:00:00 -0600</pubDate>
+      <guid>/achalneupane.github.io/publication/mapk_legume/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mitogen-Activated Protein Kinase (MAPK) genes encode proteins that mediate various signaling pathways associated with biotic and abiotic stress responses in eukaryotes. The MAPK genes form a 3-tier signal transduction cascade between cellular stimuli and physiological responses. Recent identification of soybean MAPKs and availability of genome sequences from other legume species allowed us to identify their MAPK genes. The main objectives of this study were to identify MAPKs in 3 legume species, Lotus japonicus, Medicago truncatula, and Phaseolus vulgaris, and to assess their phylogenetic relationships. We used approaches in comparative genomics for MAPK gene identification and named the newly identified genes following Arabidopsis MAPK nomenclature model. We identified 19, 18, and 15 MAPKs and 7, 4, and 9 MAPKKs in the genome of Lotus japonicus, Medicago truncatula, and Phaseolus vulgaris, respectively. Within clade placement of MAPKs and MAPKKs in the 3 legume species were consistent with those in soybean and Arabidopsis. Among 5 clades of MAPKs, 4 founder clades were consistent to MAPKs of other plant species and orthologs of MAPK genes in the fifth clade-&amp;ldquo;Clade E&amp;rdquo; were consistent with those in soybean. Our results also indicated that some gene duplication events might have occurred prior to eudicot-monocot divergence. Highly diversified MAPKs in soybean relative to those in 3 other legume species are attributable to the polyploidization events in soybean. The identification of the MAPK genes in the legume species is important for the legume crop improvement; and evolutionary relationships and functional divergence of these gene members provide insights into plant genome evolution.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Identification, Nomenclature, and Evolutionary Relationships of Mitogen-Activated Protein Kinase (MAPK) Genes in Soybean</title>
+      <link>/achalneupane.github.io/publication/mapk_soybean/</link>
+      <pubDate>Sun, 22 Sep 2013 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/publication/mapk_soybean/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mitogen-activated protein kinase (MAPK) genes in eukaryotes regulate various developmental and physiological processes
+including those associated with biotic and abiotic stresses. Although MAPKs in some plant species including Arabidopsis have been
+identified, they are yet to be identified in soybean. Major objectives of this study were to identify GmMAPKs, assess their evolutionary relationships, and analyze their functional divergence. We identified a total of 38 MAPKs, eleven MAPKKs, and 150 MAPKKKs in
+soybean. Within the GmMAPK family, we also identified a new clade of six genes: four genes with TEY and two genes with TQY motifs
+requiring further investigation into possible legume-specific functions. The results indicated the expansion of the GmMAPK families
+attributable to the ancestral polyploidy events followed by chromosomal rearrangements. The GmMAPK and GmMAPKKK families
+were substantially larger than those in other plant species. The duplicated GmMAPK members presented complex evolutionary relationships and functional divergence when compared to their counterparts in Arabidopsis. We also highlighted existing nomenclatural issues,
+stressing the need for nomenclatural consistency. GmMAPK identification is vital to soybean crop improvement, and novel insights into
+the evolutionary relationships will enhance our understanding about plant genome evolution.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Identification of Mitogen Activated Protein Kinase Family Members in Soybean</title>
+      <link>/achalneupane.github.io/talk/bsa_neupane/</link>
+      <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/bsa_neupane/</guid>
+      <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
+
+&lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mitogen Activated Protein Kinases (MAPKs) are serine/threonine specific kinases that are induced by various extracellular and intracellular stimuli, and are involved in signaling pathways in all eukaryotes. In plants, MAPKs are known to regulate various signal transduction pathways including those associated with biotic and abiotic stresses. The MAPK gene members belong to three functionally linked gene families called MAPKs, MAPKKs (MAPK Kinases) and MAPKKKs (MAPKK Kinases). Although, MAPKs of model plants such as &lt;em&gt;Arabidopsis&lt;/em&gt; and &lt;em&gt;Oryza&lt;/em&gt; have been identified and characterized, these genes in soybean (&lt;em&gt;Glycine max&lt;/em&gt;) are yet to be identified. In this study, we used approaches in comparative genomics and bioinformatics for the genome-wide identification of MAPKs, MAPKKs and MAPKKKs in soybean. &lt;em&gt;Arabidopsis&lt;/em&gt; reference sequences were used in protein BLAST to search the putative MAPKs of soybean from publicly available databases. In our in-silico analysis, the redundant sequences were removed to perform unbiased and rigorous phylogenetic analyses. We verified the presence of unique conserved domains and active sites in each putative MAPK gene member manually and by using Geneious and Pfam programs. From our three different confirmatory analyses, we identified 38 MAP Kinases, 11 MAPK Kinases and 115 MAPKK Kinases in soybean. &lt;em&gt;Arabidopsis&lt;/em&gt; nomenclature model was followed to assign numeric subscript to MAPK sequences grouped with &lt;em&gt;Arabidopsis&lt;/em&gt; sequences in phylogenetic tree. Lack of effective code of nomenclature lead us to a conundrum, which will be discussed in the meeting. Universal codes of gene nomenclature are crucial for understanding various signaling pathways. Therefore, an effective code of gene nomenclature is warranted. The results from this study will help us characterize soybean MAP Kinases paving avenue for the functional analyses of different cellular and physiological pathways in the order these genes function.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Population Genetics of *Falcaria vulgaris* (Sickleweed) in North America</title>
+      <link>/achalneupane.github.io/talk/piya_bsa/</link>
+      <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/piya_bsa/</guid>
+      <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
+
+&lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction history and spread of Falcaria vulgaris Bernh. (Apiaceae) in the United States based on herbarium records</title>
+      <link>/achalneupane.github.io/talk/piya_sd_academy/</link>
+      <pubDate>Fri, 13 Apr 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/piya_sd_academy/</guid>
+      <description>&lt;p&gt;Location: Vermillion, SD, USA&lt;/p&gt;
+
+&lt;p&gt;Event: South Dakota Academy of Science, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Nomenclatural Conundrum: Applying Existing Nomenclature to the Identification of Soybean (*Glycine max*) MAP Kinase Genes</title>
+      <link>/achalneupane.github.io/talk/neupane_aspb/</link>
+      <pubDate>Sat, 24 Mar 2012 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/neupane_aspb/</guid>
+      <description>&lt;p&gt;Location: Nebraska, USA&lt;/p&gt;
+
+&lt;p&gt;Event: American Society of Plant Biologists, Midwestern Sectional Society, 2012&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Inferring Introduction History and Spread of Falcaria vulgaris Bernh.(Apiaceae) in the United States Based on Herbarium Records</title>
+      <link>/achalneupane.github.io/publication/piya_et_al_proceedings_sd/</link>
+      <pubDate>Wed, 22 Feb 2012 00:00:00 -0600</pubDate>
+      <guid>/achalneupane.github.io/publication/piya_et_al_proceedings_sd/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Herbarium records were studied to infer the introduction history and spread of the exotic Eurasian sickleweed (Falcaria vulgaris Bernh.) in the United States. The spread of the plant was reconstructed using the location of early collections as the possible sites of primary introduction, and the location of subsequent collections as potential pathways along which this species spread. Herbarium records indicate that sickleweed was first introduced no later than 1922, and independent introduction of this plant took place in the East Coast and in the Midwest of the United States. The species has spread to 37 counties of 15 states of the United States. No recent sickleweed record has been reported for the last 17 years in the US except Iowa, Nebraska and South Dakota. The plant has been characterized as an aggressive weed by experts in the latter two states, where it is already well established and has infested the Fort Pierre National Grassland and Buffalo Gap National Grassland in South Dakota, and is reported from several sites along Nebraska roadsides. It is essential to verify the existence of sickleweed in the areas from where the herbarium specimens were previously collected to help identify the areas at risk. Control strategies need to be implemented and policy should be developed to establish the participation of public lands managers, transportation departments and private land-owners to control and manage this species before it becomes a more widespread invader.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Anticancer Activity of Novel Ionic Triorganotin Derivatives against MDA-MB 231 Breast Cancer Cells</title>
+      <link>/achalneupane.github.io/talk/hbcu_neupane/</link>
+      <pubDate>Thu, 29 Oct 2009 00:00:00 -0500</pubDate>
+      <guid>/achalneupane.github.io/talk/hbcu_neupane/</guid>
+      <description>&lt;p&gt;Location: Washington DC, USA&lt;/p&gt;
+
+&lt;p&gt;Event: HBCU-UP National Research Conference, 2009&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The goal of this project was to study the responses of antibodies
+against four influenza A viruses; PR8, RV6, Swine and J1. RV6,
+Swine and J1 differ from PR8 by 1 amino acid (99.9% similarity),
+20 amino acids, and more than 100 amino acids, respectively.
+Despite several attempts of early diagnosis and chemotherapy,
+breast cancer is one of the leading causes of cancer deaths in
+United States claiming almost 40610 lives per year. Breast cancer
+is more common in white women than in African American women
+but the survival rate for 5 years for African American women is
+comparatively less which is 77% than 90 % for white women.
+Higher concentration of estrogen secretion has also been
+associated with the risk factors of breast cancer.
+These viruses resemble the different viruses that circulate in
+people and that can have varying numbers of amino acid
+differences, and we wanted to examine how these difference
+affect the ability of antibodies to bind to different viruses using
+different techniques. ELISA (Enzyme Linked Immunosorbent
+Assay) was used to determine whether a particular antibody is
+present in a blood sample and ELISPOT (ELISPOT-Enzyme-linked
+Immunospot assay) was used for enumeration of B cells secreting
+specific antibody.
+In recent studies, metal-based anticancer drugs are found to be
+very effective in the death of cancer cells proving it as a very
+useful cancer chemotherapeutic. In this study we have
+synthesized ionic triorganotin compounds with increased solubility
+due to their partially ionic characteristic and tested their anticancer activity using MDA-MB 231 breast cancer cells.
+Methods: Three compounds (1) Triphenyltin Hydroxide&lt;a href=&#34;2&#34; target=&#34;_blank&#34;&gt;parent
+compound&lt;/a&gt; CA11 and (3) CA 32 derivatives were tested.
+MDA-MB 231 cells were plated in 96-wellplate and treated with
+varying concentration (1ng to 100ug) of various triorganotin
+derivatives for 24, 48 and 72 hours. A combination of trypan blue
+dye exclusion and WST-1 cell proliferation reagent was used to&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Arrays</title>
       <link>/achalneupane.github.io/post/arrays/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/achalneupane.github.io/post/arrays/</guid>
       <description>
 
@@ -257,7 +491,7 @@ plot(data$EffectSize, data$RequiredReplicates)
 # http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 # Also, http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note: Cohen suggested that d = 0.2 be considered a ‘small’ effect size, 0.5 represents a ‘medium’ effect size and 0.8 a ‘large’ effect size. This means that if two groups’ means don’t differ by 0.2 standard deviations or more, the difference is trivial, even if it is statistically signficant. This plot tells us that with the increasing effect-size, we need fewer replicates. Since effect-size of |0.5| or (v= 0.5) is intersects with the abline at approximately 78 replicates in the plot, it also tells us that for medium-size effect we need about 78 replicates.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -553,7 +787,7 @@ plot(x,p.null.req,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x,p.alt.req,col=&amp;quot;red&amp;quot;)
 abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
 abline(v = value$EffectSize-Zbeta, col= &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Using ggplot
 # plot3 &amp;lt;- ggplot()+
 #   geom_line(aes(x = x, y = p.null.req), color = &amp;quot;black&amp;quot; ) +
@@ -614,7 +848,7 @@ poisson.probability.x_a &amp;lt;- pois.pmf(x=x_a, lambda = lambda)
 
 plot(x_a,normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,poisson.probability.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Does this graph tell you if your Normal PDF function behaves properly? Does your Poisson handle negative or non-integer values as expected?&lt;/p&gt;
 &lt;p&gt;No, based on this plot, the normal pdf does behave properly, but not the poisson as there NAs inserted for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
@@ -662,7 +896,7 @@ poisson.probability.x_b &amp;lt;- pois.pmf(x=x_b, lambda = 12)
 # plot
 plot(x_b,normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,poisson.probability.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;To check you work, duplicate the plots by calling built in normal and Poisson functions. Does the system Poisson function handle negative &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; differently than your function?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part a  
 base.normal.liklihood.x_a &amp;lt;- dnorm(x_a,0, 1)
@@ -670,14 +904,14 @@ base.poiss.x_a &amp;lt;- dpois(x=x_a, lambda = lambda)
 
 plot(x_a,base.normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,base.poiss.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part b
 base.normal.liklihood.x_b &amp;lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)
 
 plot(x_b,base.normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,base.poiss.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Yes, the system Poisson function handles negative values and non-integers differently (inserts zero’s) whereas the function we wrote inserts NAs for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -803,7 +1037,7 @@ hat.y &amp;lt;- X %*% hat.beta
 # plot
 plot(X[,2], y, type = &amp;#39;l&amp;#39;, col = &amp;quot;black&amp;quot;)
 lines(X[,2], hat.y, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;You can also compare your result to the R function (set &lt;code&gt;eval = TRUE&lt;/code&gt;).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y~X))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -903,7 +1137,7 @@ Group7         18         384.4         168.3&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Functions</title>
       <link>/achalneupane.github.io/post/functions/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/achalneupane.github.io/post/functions/</guid>
       <description>
 
@@ -1130,16 +1364,16 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
                       &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                  expr   min     lq     mean median     uq      max neval
-##   Using first formula 1.918 2.5845 74.72301 2.6540 2.7280 7191.000   100
-##  Using second formula 2.126 2.7915  3.16898 2.8425 2.9145   27.363   100
+##                  expr   min    lq     mean median     uq      max neval
+##   Using first formula 1.783 1.871 57.22386 1.8990 1.9615 5500.826   100
+##  Using second formula 1.895 1.951  2.05881 1.9925 2.0480    6.034   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions/index_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1210,240 +1444,6 @@ combined(m1=m1, m2=m2, s1=s1, s2=s2)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Updates</title>
-      <link>/achalneupane.github.io/project/statistical-programming/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/achalneupane.github.io/project/statistical-programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MEK inhibitor resistance in acute myeloid leukaemia</title>
-      <link>/achalneupane.github.io/talk/mek_brisbane_2016/</link>
-      <pubDate>Wed, 16 Mar 2016 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/mek_brisbane_2016/</guid>
-      <description>&lt;p&gt;Location: Peppers Noosa, Australia&lt;/p&gt;
-
-&lt;p&gt;Event: New Direction in Leukaemia Research, 2016&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Mutations of the RAS family of genes are frequent events in AML, occurring in 10% of children and 10-20% of adults.
-NRASmutations promote proliferation through activation of the Ras/Raf/MEK/ERK signalling pathway. Several MEK
-inhibitors have shown promising pre-clinical activity in AML, with a number of compounds currently in adult phase I/II
-clinical trials, including AZD6244, GSK1120212 and AS703026. Given not all patients respond to MEK inhibitor
-treatment we undertook a comprehensive preclinical evaluation of MEK inhibitors in AML and developed a clinically
-relevant model of resistance.
-The in vitroefficacy of 7 MEK inhibitors was determined using a diverse panel of 6 paediatric and 5 adult AML cell lines
-(Table 1). All AML cell lines were sensitive to at least one MEK inhibitor with the exception of the Down syndrome
-associated AML line, CMK, and the adult erythroblastic line, HEL, that showed overt resistance (IC50 &amp;gt;20μM) to MEK
-inhibition (Table 1). In sensitive cell lines, the reduced proliferation was associated with apoptosis, as assessed by
-Annexin V+ staining. To confirm mechanism of action, inhibition of MEK phosphorylation as well as the downstream
-kinase, pERK, were assessed by immunoblotting. The level of basal MEK activation was variable across the cell line
-panel and pMEK was increased upon exposure to active MEK inhibitors. In contrast, levels of pERK were reduced
-suggesting that MEK inhibitors may disrupt the interaction of MEK with its downstream transducers rather than a direct
-inhibition of MEK phosphorylation.
-Molecular and clinical resistance to kinase inhibitors is well described for targets such as FLT3 and BCR-ABL1. Since
-clinical responses to MEK inhibitors have been variable, we investigated the potential mechanisms of resistance to
-MEK inhibitors in vitro. Long-term culture of THP-1 cells (MLL-rearranged, NRASmutated) with AZD6244 and
-AS703026, resulted in high-level resistance. Importantly, cells displayed cross-resistance not only to these two
-compounds but also a third MEK inhibitor, GSK1120212 (Table 2). Resistance was associated with reduced basal
-pMEK expression. In order to establish the mechanism of resistance we performed comprehensive mutation and gene
-expression analyses utilising whole-exome sequencing and RNAseq respectively. These data revealed a spectrum of
-acquired molecular aberrations common to both resistant cell lines compared to the parental THP1 cells. Together,
-these data indicate that whilst MEK inhibition is a promising strategy to treat AML, resistance to one MEK inhibitor may
-lead to cross-resistance to other compounds targeting MEK.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Sensitivity of Whole Exome Sequencing for the Detection of FLT3-ITD and NPM1 Mutations in Acute Myeloid Leukaemia</title>
-      <link>/achalneupane.github.io/talk/esh_2015_buddapest/</link>
-      <pubDate>Thu, 10 Sep 2015 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/esh_2015_buddapest/</guid>
-      <description>&lt;p&gt;Location: Buddapest, Hungary&lt;/p&gt;
-
-&lt;p&gt;Event: European School of Hematology (ESH), 2015&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Whole exome sequencing (WES) can detect a high proportion of cancer causing genetic mutations, and therefore has the potential to replace targeted molecular assays and identify additional novel, patient-specific mutations. To test the ability of WES to detect variants of clinical consequence, we compared WES findings to results for FLT3-ITD and NPM1mut obtained by routine pathology testing (high-resolution fragment analysis (HRFA) and Matrix Assisted Laser Desorption/Ionization – Time of Flight Mass Spectrometry (MALDI-TOF) respectively), and to point mutation findings in DNMT3A, IDH1/2, JAK2, KRAS, NRAS and MPL, as determined by Sequenom, across a cohort of 188 AML samples from adults (n
-= 144) and children (n = 44). All subjects provided written informed consent, and the study protocols had been approved by institutional research ethics committees. Median age at diagnosis was 51 years, (range 1-89) and median bone marrow blast percentage was 76% (range 8-100).
-A discovery phase using 96 samples developed genotype algorithms and ascertained their sensitivity. NPM1mut were reliably detected using WES, with 100% (n=25 positive) concordance with MALDI-TOF. WES and Sequenom were 99.4% concordant over the selected gene panels (1594 measurements). The FLT3-ITD false negative rate initially exceeded 50%, leading us to optimize our discovery algorithms and develop a calibration curve which specified the sequence coverage needed over the FLT3-ITD region to reliably genotype at any allelic ratio (AR). We demonstrate that our algorithms can reliably detect FLT3-ITD with AR &amp;gt; 0.05 using exome capture with less than 100x coverage over the FLT3-ITD region.
-Additionally, we tested the algorithms over another 900 germline controls with no false positive measurements.
-In a validation phase using 78 samples, all NPM1mut samples (n=20 positive) were detected, including an additional NPM1mut (type A) initially missed using MALDI-TOF. Concordance with Sequenom again exceeded 99.5% (comparable to the error rate expected in this Sequenom panel). For FLT3-ITD, &lt;sup&gt;18&lt;/sup&gt;&amp;frasl;&lt;sub&gt;21&lt;/sub&gt; HRFA-positive samples were detected with all 3 false-negatives falling outside the predicted sensitivity threshold; two samples with AR &amp;lt;0.01 (which would require sequencing coverage of 500x for detection) and one with AR = 0.4 but with a sequence coverage of only 38x over the FLT3-ITD.
-In conclusion, we have performed WES on one of the largest cohorts of adult and paediatric AML described to date and demonstrate that clinically relevant mutations, including FLT3-ITD and NPM1mut, can be simultaneously detected with a single exome capture platform with accuracy similar to or better than current methods.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Transcriptome analysis of western corn rootworm larvae and eggs</title>
-      <link>/achalneupane.github.io/talk/wcr_neupane/</link>
-      <pubDate>Mon, 14 Apr 2014 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/wcr_neupane/</guid>
-      <description>&lt;p&gt;Location: Chicago, USA&lt;/p&gt;
-
-&lt;p&gt;Event: The International Working Group on Ostrinia and other Maize Pests (IWGO), 2014&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The     western     corn     rootworm,     Diabrotica     virgifera     virgifera(Coloeptera: Chrysomelidae), is one of the most devastating pests of corn causing nearly a billion dollars  of  financial  loss  both  in  terms  of  yield  loss  and  treatment  costs.  Although  Coleoptera  is  the  most  diverse  order  of  insects  comprising  more  than  400,000  species,  only  a  few  coleopteran  genomes  and  transcriptomes  (e.g.,  from  &lt;em&gt;Tribolium castaneum&lt;/em&gt;  and &lt;em&gt;Dendroctonus  ponderosae&lt;/em&gt;)  have  been  published  to  date.  The  genome size of haploid D. v.   virgifera is estimated to be ~2.58 GB, one of the largest among beetle species. Its complete genome sequence is currently in the draft stage. In this study, in order to identify the gene sets expressed in their larval stages (when the  most  damage  to  corn  is  caused)  and  to  contribute  to  improving  the  genome  assembly,  we  have  sequenced  and  assembled  transcriptomes  from  egg,  neonate,  and third-instar larval stages of D. v. virgifera using next-generation technologies. In total  ~700  gigabases  were  sequenced.  De  novo  transcriptome  assembly  was  performed using four different short read assemblers for individual  and  pooled  sets  of  reads.  Hybrid  assembly  using  both  Illumina  and  454  reads  was  also  performed.  After  examining  the  assembly  quality  based  on  contig  length  and  annotation  effectiveness  with  similarity  search,  we  chose  the  Trinity  assembly  from  the  pooled dataset  including  163,871  contigs  (the  average  length:  914  bp)  as  the  most  inclusive.  We  identified  and  annotated  genes  encoding  chemoreceptors,  gamma-aminobutyric  acid  (GABA)  type  A  receptor,  and  glycoside  hydrolase  families.  Compared  to  the  sequences  found  in  the  draft  genome,  we  observed  variations  in  sequences  as  well  as  in  the  number  of  introns.  We  also  examined  conservation  of  gene   structures   in   chemoreceptors   from   closely   related   insect   lineages.   Our   transcriptome sequences can contribute toward improved quality of the &lt;em&gt;D&lt;/em&gt;. &lt;em&gt;v&lt;/em&gt;. &lt;em&gt;virgiferagenome&lt;/em&gt; assembly and annotations.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Genetic diversity and population structure of sickleweed(Falcaria vulgaris; Apiaceae) in the upper Midwest USA</title>
-      <link>/achalneupane.github.io/publication/piya_et_al_biological_invasions/</link>
-      <pubDate>Sat, 22 Feb 2014 00:00:00 -0600</pubDate>
-      <guid>/achalneupane.github.io/publication/piya_et_al_biological_invasions/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Sickleweed (Falcaria vulgaris), an intro-duced species native to Europe and Asia, grows as anaggressive weed in some areas of the upper Midwest inthe United States. We are reporting genetic diversityand  population  structure  of  sickleweed  populationsusing microsatellite markers and nuclear and chloro-plast   DNA   sequences.   Populations   showed   highgenetic  differentiation  but  did  not  show  significantgeographic  structure,  suggesting  random  establish-ment of different genotypes at different sites was likelydue to human mediated multiple introductions. Threegenetic  clusters  revealed  by  microsatellite  data  andpresence of six chlorotypes supported our hypothesisof multiple introductions. Chloroplast DNA sequencedata  revealed  six  chlorotypes  nested  into  two  mainlineages   suggesting   at   least   two   introductions   ofsickleweed  in  the  upper  Midwest.  Some  individualsexhibited more than two alleles at several microsatel-lite  loci suggesting  occurrence  of polyploidy, whichcould be a post-introduction development to mitigatethe  inbreeding  effects.  High  genetic  variation  in  theintroduced range attributable to multiple introductionsand  polyploidy  may  be  inducing  the  evolution  ofinvasiveness  in  sickleweed.  Results  of  this  studyprovide valuable insights into the evolution of sickle-weed and baseline data for designing proper manage-ment practices for controlling sickleweed in the UnitedStates.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Evolutionary history of mitogen-activated protein kinase (MAPK) genes in Lotus, Medicago, and Phaseolus</title>
-      <link>/achalneupane.github.io/publication/mapk_legume/</link>
-      <pubDate>Mon, 02 Dec 2013 00:00:00 -0600</pubDate>
-      <guid>/achalneupane.github.io/publication/mapk_legume/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Mitogen-Activated Protein Kinase (MAPK) genes encode proteins that mediate various signaling pathways associated with biotic and abiotic stress responses in eukaryotes. The MAPK genes form a 3-tier signal transduction cascade between cellular stimuli and physiological responses. Recent identification of soybean MAPKs and availability of genome sequences from other legume species allowed us to identify their MAPK genes. The main objectives of this study were to identify MAPKs in 3 legume species, Lotus japonicus, Medicago truncatula, and Phaseolus vulgaris, and to assess their phylogenetic relationships. We used approaches in comparative genomics for MAPK gene identification and named the newly identified genes following Arabidopsis MAPK nomenclature model. We identified 19, 18, and 15 MAPKs and 7, 4, and 9 MAPKKs in the genome of Lotus japonicus, Medicago truncatula, and Phaseolus vulgaris, respectively. Within clade placement of MAPKs and MAPKKs in the 3 legume species were consistent with those in soybean and Arabidopsis. Among 5 clades of MAPKs, 4 founder clades were consistent to MAPKs of other plant species and orthologs of MAPK genes in the fifth clade-&amp;ldquo;Clade E&amp;rdquo; were consistent with those in soybean. Our results also indicated that some gene duplication events might have occurred prior to eudicot-monocot divergence. Highly diversified MAPKs in soybean relative to those in 3 other legume species are attributable to the polyploidization events in soybean. The identification of the MAPK genes in the legume species is important for the legume crop improvement; and evolutionary relationships and functional divergence of these gene members provide insights into plant genome evolution.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Identification, Nomenclature, and Evolutionary Relationships of Mitogen-Activated Protein Kinase (MAPK) Genes in Soybean</title>
-      <link>/achalneupane.github.io/publication/mapk_soybean/</link>
-      <pubDate>Sun, 22 Sep 2013 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/publication/mapk_soybean/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Mitogen-activated protein kinase (MAPK) genes in eukaryotes regulate various developmental and physiological processes
-including those associated with biotic and abiotic stresses. Although MAPKs in some plant species including Arabidopsis have been
-identified, they are yet to be identified in soybean. Major objectives of this study were to identify GmMAPKs, assess their evolutionary relationships, and analyze their functional divergence. We identified a total of 38 MAPKs, eleven MAPKKs, and 150 MAPKKKs in
-soybean. Within the GmMAPK family, we also identified a new clade of six genes: four genes with TEY and two genes with TQY motifs
-requiring further investigation into possible legume-specific functions. The results indicated the expansion of the GmMAPK families
-attributable to the ancestral polyploidy events followed by chromosomal rearrangements. The GmMAPK and GmMAPKKK families
-were substantially larger than those in other plant species. The duplicated GmMAPK members presented complex evolutionary relationships and functional divergence when compared to their counterparts in Arabidopsis. We also highlighted existing nomenclatural issues,
-stressing the need for nomenclatural consistency. GmMAPK identification is vital to soybean crop improvement, and novel insights into
-the evolutionary relationships will enhance our understanding about plant genome evolution.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Identification of Mitogen Activated Protein Kinase Family Members in Soybean</title>
-      <link>/achalneupane.github.io/talk/bsa_neupane/</link>
-      <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/bsa_neupane/</guid>
-      <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
-
-&lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Mitogen Activated Protein Kinases (MAPKs) are serine/threonine specific kinases that are induced by various extracellular and intracellular stimuli, and are involved in signaling pathways in all eukaryotes. In plants, MAPKs are known to regulate various signal transduction pathways including those associated with biotic and abiotic stresses. The MAPK gene members belong to three functionally linked gene families called MAPKs, MAPKKs (MAPK Kinases) and MAPKKKs (MAPKK Kinases). Although, MAPKs of model plants such as &lt;em&gt;Arabidopsis&lt;/em&gt; and &lt;em&gt;Oryza&lt;/em&gt; have been identified and characterized, these genes in soybean (&lt;em&gt;Glycine max&lt;/em&gt;) are yet to be identified. In this study, we used approaches in comparative genomics and bioinformatics for the genome-wide identification of MAPKs, MAPKKs and MAPKKKs in soybean. &lt;em&gt;Arabidopsis&lt;/em&gt; reference sequences were used in protein BLAST to search the putative MAPKs of soybean from publicly available databases. In our in-silico analysis, the redundant sequences were removed to perform unbiased and rigorous phylogenetic analyses. We verified the presence of unique conserved domains and active sites in each putative MAPK gene member manually and by using Geneious and Pfam programs. From our three different confirmatory analyses, we identified 38 MAP Kinases, 11 MAPK Kinases and 115 MAPKK Kinases in soybean. &lt;em&gt;Arabidopsis&lt;/em&gt; nomenclature model was followed to assign numeric subscript to MAPK sequences grouped with &lt;em&gt;Arabidopsis&lt;/em&gt; sequences in phylogenetic tree. Lack of effective code of nomenclature lead us to a conundrum, which will be discussed in the meeting. Universal codes of gene nomenclature are crucial for understanding various signaling pathways. Therefore, an effective code of gene nomenclature is warranted. The results from this study will help us characterize soybean MAP Kinases paving avenue for the functional analyses of different cellular and physiological pathways in the order these genes function.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Population Genetics of *Falcaria vulgaris* (Sickleweed) in North America</title>
-      <link>/achalneupane.github.io/talk/piya_bsa/</link>
-      <pubDate>Wed, 11 Jul 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/piya_bsa/</guid>
-      <description>&lt;p&gt;Location: Ohio, USA&lt;/p&gt;
-
-&lt;p&gt;Event: Botanical Society of America Conference, 2012&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Introduction history and spread of Falcaria vulgaris Bernh. (Apiaceae) in the United States based on herbarium records</title>
-      <link>/achalneupane.github.io/talk/piya_sd_academy/</link>
-      <pubDate>Fri, 13 Apr 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/piya_sd_academy/</guid>
-      <description>&lt;p&gt;Location: Vermillion, SD, USA&lt;/p&gt;
-
-&lt;p&gt;Event: South Dakota Academy of Science, 2012&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A Nomenclatural Conundrum: Applying Existing Nomenclature to the Identification of Soybean (*Glycine max*) MAP Kinase Genes</title>
-      <link>/achalneupane.github.io/talk/neupane_aspb/</link>
-      <pubDate>Sat, 24 Mar 2012 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/neupane_aspb/</guid>
-      <description>&lt;p&gt;Location: Nebraska, USA&lt;/p&gt;
-
-&lt;p&gt;Event: American Society of Plant Biologists, Midwestern Sectional Society, 2012&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Inferring Introduction History and Spread of Falcaria vulgaris Bernh.(Apiaceae) in the United States Based on Herbarium Records</title>
-      <link>/achalneupane.github.io/publication/piya_et_al_proceedings_sd/</link>
-      <pubDate>Wed, 22 Feb 2012 00:00:00 -0600</pubDate>
-      <guid>/achalneupane.github.io/publication/piya_et_al_proceedings_sd/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Herbarium records were studied to infer the introduction history and spread of the exotic Eurasian sickleweed (Falcaria vulgaris Bernh.) in the United States. The spread of the plant was reconstructed using the location of early collections as the possible sites of primary introduction, and the location of subsequent collections as potential pathways along which this species spread. Herbarium records indicate that sickleweed was first introduced no later than 1922, and independent introduction of this plant took place in the East Coast and in the Midwest of the United States. The species has spread to 37 counties of 15 states of the United States. No recent sickleweed record has been reported for the last 17 years in the US except Iowa, Nebraska and South Dakota. The plant has been characterized as an aggressive weed by experts in the latter two states, where it is already well established and has infested the Fort Pierre National Grassland and Buffalo Gap National Grassland in South Dakota, and is reported from several sites along Nebraska roadsides. It is essential to verify the existence of sickleweed in the areas from where the herbarium specimens were previously collected to help identify the areas at risk. Control strategies need to be implemented and policy should be developed to establish the participation of public lands managers, transportation departments and private land-owners to control and manage this species before it becomes a more widespread invader.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Anticancer Activity of Novel Ionic Triorganotin Derivatives against MDA-MB 231 Breast Cancer Cells</title>
-      <link>/achalneupane.github.io/talk/hbcu_neupane/</link>
-      <pubDate>Thu, 29 Oct 2009 00:00:00 -0500</pubDate>
-      <guid>/achalneupane.github.io/talk/hbcu_neupane/</guid>
-      <description>&lt;p&gt;Location: Washington DC, USA&lt;/p&gt;
-
-&lt;p&gt;Event: HBCU-UP National Research Conference, 2009&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The goal of this project was to study the responses of antibodies
-against four influenza A viruses; PR8, RV6, Swine and J1. RV6,
-Swine and J1 differ from PR8 by 1 amino acid (99.9% similarity),
-20 amino acids, and more than 100 amino acids, respectively.
-Despite several attempts of early diagnosis and chemotherapy,
-breast cancer is one of the leading causes of cancer deaths in
-United States claiming almost 40610 lives per year. Breast cancer
-is more common in white women than in African American women
-but the survival rate for 5 years for African American women is
-comparatively less which is 77% than 90 % for white women.
-Higher concentration of estrogen secretion has also been
-associated with the risk factors of breast cancer.
-These viruses resemble the different viruses that circulate in
-people and that can have varying numbers of amino acid
-differences, and we wanted to examine how these difference
-affect the ability of antibodies to bind to different viruses using
-different techniques. ELISA (Enzyme Linked Immunosorbent
-Assay) was used to determine whether a particular antibody is
-present in a blood sample and ELISPOT (ELISPOT-Enzyme-linked
-Immunospot assay) was used for enumeration of B cells secreting
-specific antibody.
-In recent studies, metal-based anticancer drugs are found to be
-very effective in the death of cancer cells proving it as a very
-useful cancer chemotherapeutic. In this study we have
-synthesized ionic triorganotin compounds with increased solubility
-due to their partially ionic characteristic and tested their anticancer activity using MDA-MB 231 breast cancer cells.
-Methods: Three compounds (1) Triphenyltin Hydroxide&lt;a href=&#34;2&#34; target=&#34;_blank&#34;&gt;parent
-compound&lt;/a&gt; CA11 and (3) CA 32 derivatives were tested.
-MDA-MB 231 cells were plated in 96-wellplate and treated with
-varying concentration (1ng to 100ug) of various triorganotin
-derivatives for 24, 48 and 72 hours. A combination of trypan blue
-dye exclusion and WST-1 cell proliferation reagent was used to&lt;/p&gt;
 </description>
     </item>
     

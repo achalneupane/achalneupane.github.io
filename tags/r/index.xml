@@ -5,7 +5,7 @@
     <link>/achalneupane.github.io/tags/r/</link>
       <atom:link href="/achalneupane.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright>
     <image>
       <url>/achalneupane.github.io/img/icon-192.png</url>
       <title>R</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Arrays</title>
       <link>/achalneupane.github.io/post/arrays/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/achalneupane.github.io/post/arrays/</guid>
       <description>
 
@@ -58,7 +58,7 @@ plot(data$EffectSize, data$RequiredReplicates)
 # http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 # Also, http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note: Cohen suggested that d = 0.2 be considered a ‘small’ effect size, 0.5 represents a ‘medium’ effect size and 0.8 a ‘large’ effect size. This means that if two groups’ means don’t differ by 0.2 standard deviations or more, the difference is trivial, even if it is statistically signficant. This plot tells us that with the increasing effect-size, we need fewer replicates. Since effect-size of |0.5| or (v= 0.5) is intersects with the abline at approximately 78 replicates in the plot, it also tells us that for medium-size effect we need about 78 replicates.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -354,7 +354,7 @@ plot(x,p.null.req,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x,p.alt.req,col=&amp;quot;red&amp;quot;)
 abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
 abline(v = value$EffectSize-Zbeta, col= &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Using ggplot
 # plot3 &amp;lt;- ggplot()+
 #   geom_line(aes(x = x, y = p.null.req), color = &amp;quot;black&amp;quot; ) +
@@ -415,7 +415,7 @@ poisson.probability.x_a &amp;lt;- pois.pmf(x=x_a, lambda = lambda)
 
 plot(x_a,normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,poisson.probability.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Does this graph tell you if your Normal PDF function behaves properly? Does your Poisson handle negative or non-integer values as expected?&lt;/p&gt;
 &lt;p&gt;No, based on this plot, the normal pdf does behave properly, but not the poisson as there NAs inserted for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
@@ -463,7 +463,7 @@ poisson.probability.x_b &amp;lt;- pois.pmf(x=x_b, lambda = 12)
 # plot
 plot(x_b,normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,poisson.probability.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;To check you work, duplicate the plots by calling built in normal and Poisson functions. Does the system Poisson function handle negative &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; differently than your function?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part a  
 base.normal.liklihood.x_a &amp;lt;- dnorm(x_a,0, 1)
@@ -471,14 +471,14 @@ base.poiss.x_a &amp;lt;- dpois(x=x_a, lambda = lambda)
 
 plot(x_a,base.normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,base.poiss.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part b
 base.normal.liklihood.x_b &amp;lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)
 
 plot(x_b,base.normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,base.poiss.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Yes, the system Poisson function handles negative values and non-integers differently (inserts zero’s) whereas the function we wrote inserts NAs for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -604,7 +604,7 @@ hat.y &amp;lt;- X %*% hat.beta
 # plot
 plot(X[,2], y, type = &amp;#39;l&amp;#39;, col = &amp;quot;black&amp;quot;)
 lines(X[,2], hat.y, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;You can also compare your result to the R function (set &lt;code&gt;eval = TRUE&lt;/code&gt;).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y~X))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -704,7 +704,7 @@ Group7         18         384.4         168.3&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Functions</title>
       <link>/achalneupane.github.io/post/functions/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/achalneupane.github.io/post/functions/</guid>
       <description>
 
@@ -931,16 +931,16 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
                       &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                  expr   min     lq     mean median     uq      max neval
-##   Using first formula 1.918 2.5845 74.72301 2.6540 2.7280 7191.000   100
-##  Using second formula 2.126 2.7915  3.16898 2.8425 2.9145   27.363   100
+##                  expr   min    lq     mean median     uq      max neval
+##   Using first formula 1.783 1.871 57.22386 1.8990 1.9615 5500.826   100
+##  Using second formula 1.895 1.951  2.05881 1.9925 2.0480    6.034   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions/index_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

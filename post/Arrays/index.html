@@ -132,9 +132,7 @@
   <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2016-04-27T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2016-04-27T00:00:00&#43;00:00">
   
 
   
@@ -376,8 +374,8 @@
 
 
 
-<meta content="2016-04-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2016-04-27 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="" itemprop="datePublished">
+<meta content="" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -390,7 +388,7 @@
     
       
     
-    <time>Apr 27, 2016</time>
+    <time>Jan 1, 0001</time>
   </span>
   
 
@@ -565,7 +563,7 @@ plot(data$EffectSize, data$RequiredReplicates)
 # http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 # Also, http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 abline(v = 0.5, col= &#39;red&#39;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Note: Cohen suggested that d = 0.2 be considered a ‘small’ effect size, 0.5 represents a ‘medium’ effect size and 0.8 a ‘large’ effect size. This means that if two groups’ means don’t differ by 0.2 standard deviations or more, the difference is trivial, even if it is statistically signficant. This plot tells us that with the increasing effect-size, we need fewer replicates. Since effect-size of |0.5| or (v= 0.5) is intersects with the abline at approximately 78 replicates in the plot, it also tells us that for medium-size effect we need about 78 replicates.</p>
 </div>
 </div>
@@ -861,7 +859,7 @@ plot(x,p.null.req,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x,p.alt.req,col=&quot;red&quot;)
 abline(v = Zalpha, col= &#39;green&#39;)
 abline(v = value$EffectSize-Zbeta, col= &#39;blue&#39;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
 <pre class="r"><code>## Using ggplot
 # plot3 &lt;- ggplot()+
 #   geom_line(aes(x = x, y = p.null.req), color = &quot;black&quot; ) +
@@ -922,7 +920,7 @@ poisson.probability.x_a &lt;- pois.pmf(x=x_a, lambda = lambda)
 
 plot(x_a,normal.liklihood.x_a,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_a,poisson.probability.x_a,col=&quot;red&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Does this graph tell you if your Normal PDF function behaves properly? Does your Poisson handle negative or non-integer values as expected?</p>
 <p>No, based on this plot, the normal pdf does behave properly, but not the poisson as there NAs inserted for negative and non-integer values.</p>
 </div>
@@ -970,7 +968,7 @@ poisson.probability.x_b &lt;- pois.pmf(x=x_b, lambda = 12)
 # plot
 plot(x_b,normal.liklihood.x_b,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_b,poisson.probability.x_b,col=&quot;red&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>To check you work, duplicate the plots by calling built in normal and Poisson functions. Does the system Poisson function handle negative <span class="math inline">\(x\)</span> differently than your function?</p>
 <pre class="r"><code># Using base functions for part a  
 base.normal.liklihood.x_a &lt;- dnorm(x_a,0, 1)
@@ -978,14 +976,14 @@ base.poiss.x_a &lt;- dpois(x=x_a, lambda = lambda)
 
 plot(x_a,base.normal.liklihood.x_a,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_a,base.poiss.x_a,col=&quot;red&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <pre class="r"><code># Using base functions for part b
 base.normal.liklihood.x_b &lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &lt;- dpois(x=x_b, lambda = 12)
 
 plot(x_b,base.normal.liklihood.x_b,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_b,base.poiss.x_b,col=&quot;red&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
 <p>Yes, the system Poisson function handles negative values and non-integers differently (inserts zero’s) whereas the function we wrote inserts NAs for negative and non-integer values.</p>
 </div>
 </div>
@@ -1111,7 +1109,7 @@ hat.y &lt;- X %*% hat.beta
 # plot
 plot(X[,2], y, type = &#39;l&#39;, col = &quot;black&quot;)
 lines(X[,2], hat.y, col = &quot;blue&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/Arrays/index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>You can also compare your result to the R function (set <code>eval = TRUE</code>).</p>
 <pre class="r"><code>summary(lm(y~X))</code></pre>
 <pre><code>## 
