@@ -1013,7 +1013,7 @@ ggplot(EffectSize.Plot, aes(x=EffectSize, y=RequiredReplicates)) +
   theme(axis.title = element_text(size=14,face=&quot;bold&quot;), axis.text = element_text(size=10), 
         plot.title = element_text(hjust = 0.5, face = &quot;bold&quot;)) +
   facet_wrap(~id)</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Based on the plot we just plotted above, RequiredReplicates inccrease significantly with decreasing Effect Size.</p>
 <p>Additionally, after running all these <code>ControlRateInterval</code>, I noticed that the Required replicates decrease for the higher ControlRate intervals. The reason I did not include this in my report is because it gives lots of output. SO, if we consider taking the ControlRate intervals of only 1000 and get the field mean and field SD for each field as below.</p>
 <p>Now, I will only limit my analysis for all fields (merged) for the Control Rates interval of 1000.</p>
@@ -1026,7 +1026,7 @@ fieldA.data &lt;-
   calculate_field_mean_SD_and_get_RR_EffSize(
     field = fieldA, intervals = ControlRateInterval, printplot = TRUE
     )</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <pre class="r"><code>fieldA.data</code></pre>
 <pre><code>## $field.mean
 ##   ControlRate      Mean
@@ -1072,7 +1072,7 @@ fieldB.data &lt;-
   calculate_field_mean_SD_and_get_RR_EffSize(
     field = fieldB, interval = ControlRateInterval, printplot = TRUE
     )</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <pre class="r"><code>fieldB.data</code></pre>
 <pre><code>## $field.mean
 ##   ControlRate     Mean
@@ -1114,7 +1114,7 @@ fieldC.data &lt;-
   calculate_field_mean_SD_and_get_RR_EffSize(
     field = fieldC, interval = ControlRateInterval, printplot = TRUE
     )</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <pre class="r"><code>fieldC.data</code></pre>
 <pre><code>## $field.mean
 ##   ControlRate     Mean
@@ -1155,7 +1155,7 @@ fieldC.data &lt;-
 fieldD.data &lt;- calculate_field_mean_SD_and_get_RR_EffSize(
   field = fieldD, interval = ControlRateInterval, printplot = TRUE
   )</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre class="r"><code>fieldD.data</code></pre>
 <pre><code>## $field.mean
 ##   ControlRate     Mean
@@ -1285,7 +1285,7 @@ Mean_SD_Count_merged_for_all_four_plots$ControlRate.Levels &lt;-
 Mean_SD_Count_merged_for_all_four_plots$ControlRate
 
 get_my_box_plot(Mean_SD_Count_merged_for_all_four_plots, plot_name = &quot;all four fields&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>Based on this plot, from all fields, we can tell that, Control Rates of seeding of 23000-25000 has significantly less Mean yield as compared to 26000-29000. It looks like Control Rates of Seeding between 27000 and 28000 has the highest Mean yield.</p>
 <p>We now calculate pooled SD for merged 4 plots <code>Mean_SD_Count.dat</code> to calculate Effect Size and Required Replicates for all fields (combined analysis) using pooled SD.</p>
 <pre class="r"><code>pooled.dat &lt;- Mean_SD_Count.dat
@@ -1399,7 +1399,7 @@ RequiredReplicates_for_all_fields</code></pre>
   axis.text = element_text(size = 10),
   plot.title = element_text(hjust = 0.5, face = &quot;bold&quot;)
   )</code></pre>
-<p><img src="/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>Based on the combined effect size (from all four fields), we can see that the Effect size is inversely proportional to Required Replicates. We also see that for the small effect of ~0.2, we need exponentially larger replicates, for medium effect (~0.5), we need about 80 replicates and for larger effect (more than 0.8), we only need about 20 or fewer replicates. Our analysis from all fields also indicates that we have highest mean yeild for controlRates of Seeding og 27000-29000.</p>
 <p>Final discussion and suggestion:</p>
 <p>Based on the results we saw above, if we take individual field (one at a time), we would need thousands of replicates for low effect size. However, for moderate and large effect size, the required replicates number signficantly decreases even if we use individual field data separately. On the other hand, when we combine all four fields, our required replictes decreases for all low, moderate and large effect sizes (Figure: Effect size Vs Required replicates for all fields data (Combined Effect)) as compared to individual fields (Figure: Effect size Vs Required replicates for each field data). I also found that the required replicates decreases for lower rates of seeding (control Rates of 23000 Vs 24000).

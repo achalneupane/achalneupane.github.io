@@ -761,16 +761,16 @@ mbm &lt;- microbenchmark(&quot;Using first formula&quot; = pois.pmf.first(x=x, l
                       &quot;Using second formula&quot; = pois.pmf(x=x, lambda = lambda))
 mbm</code></pre>
 <pre><code>## Unit: microseconds
-##                  expr   min     lq     mean median     uq      max neval
-##   Using first formula 2.478 2.5830 66.55456 2.6430 2.6945 6367.856   100
-##  Using second formula 2.687 2.7335  2.84033 2.7675 2.8175    6.687   100
+##                  expr   min     lq     mean median    uq      max neval
+##   Using first formula 1.795 1.8655 56.83257  1.897 1.963 5463.788   100
+##  Using second formula 1.786 1.8755  2.02457  1.912 1.970    8.547   100
 ##  cld
 ##    a
 ##    a</code></pre>
 <pre class="r"><code>library(ggplot2)
 autoplot(mbm)</code></pre>
 <pre><code>## Coordinate system already present. Adding new coordinate system, which will replace the existing one.</code></pre>
-<p><img src="/achal.github.io/post/Functions_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<p><img src="/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 Based on the execution time, looks like using the first formula takes a bit longer time to execute.</p>
 </div>
 </div>

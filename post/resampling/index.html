@@ -649,11 +649,11 @@ jackknife.stderr.mean</code></pre>
   # bootstrap estimate of the mean
   star.bar.theta &lt;- mean (star.theta.rep)
   star.bar.theta</code></pre>
-<pre><code>## [1] 0.08609793</code></pre>
+<pre><code>## [1] 0.08608051</code></pre>
 <pre class="r"><code>  # BS estimate of standard error for mean
   se.boot.mean &lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean</code></pre>
-<pre><code>## [1] 0.0006879024</code></pre>
+<pre><code>## [1] 0.0006771068</code></pre>
 <pre class="r"><code>  bstraps &lt;- c()
   for (i in 1:1000) {
     bsample &lt;- sample(y, length(y), replace=T)
@@ -666,7 +666,7 @@ jackknife.stderr.mean</code></pre>
 <pre class="r"><code>  # BS estimate of standard error for mean
   se.boot.median &lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median</code></pre>
-<pre><code>## [1] 0.0006879024</code></pre>
+<pre><code>## [1] 0.0006771068</code></pre>
 </div>
 <div id="part-d." class="section level3">
 <h3>Part d.</h3>
@@ -689,9 +689,9 @@ jackknife.stderr.mean</code></pre>
 <pre class="r"><code>jackknife.stderr.median</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>se.boot.mean</code></pre>
-<pre><code>## [1] 0.0006879024</code></pre>
+<pre><code>## [1] 0.0006771068</code></pre>
 <pre class="r"><code>se.boot.median</code></pre>
-<pre><code>## [1] 0.0006879024</code></pre>
+<pre><code>## [1] 0.0006771068</code></pre>
 </div>
 </div>
 <div id="exercise-2." class="section level1">
@@ -753,13 +753,13 @@ Calculate jackknife and bootstrap estimates for <span class="math inline">\(\wid
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] 7.696709e-05
+## [1] -9.36847e-05
 ## 
 ## $cv
-## [1] 0.012534
+## [1] -0.01587837
 ## 
 ## $standard_error_bootstrap
-## [1] 0.006140666</code></pre>
+## [1] 0.005900146</code></pre>
 </div>
 </div>
 <div id="exercise-3" class="section level1">
@@ -914,11 +914,11 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]</code></pre>
-<pre><code>##  [1] 2.0607382 0.3019736 0.3944886 1.8049371 9.4249732 0.5467785 0.6190417
-##  [8] 4.1575200 0.8452027 1.1795127</code></pre>
+<pre><code>##  [1] 1.43087234 1.09603973 0.83167909 1.24208721 0.76151170 0.80077058
+##  [7] 0.05306075 2.48599063 0.77230077 0.81066476</code></pre>
 <pre class="r"><code># Distribution of F-ratio
 hist(F_ratio)</code></pre>
-<p><img src="/achal.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <pre class="r"><code># how many $F$ are greater than the $F$ from part a
 sum(F_ratio &gt; tt[[1]][[&quot;F value&quot;]][1])</code></pre>
 <pre><code>## [1] 0</code></pre>
@@ -945,11 +945,11 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]</code></pre>
-<pre><code>##  [1] 0.7431674 2.1164829 0.2572306 0.2782830 0.7235510 0.3795191 2.1433168
-##  [8] 0.9127464 0.3869931 0.9630900</code></pre>
+<pre><code>##  [1] 1.1779284 0.8629830 1.1665347 0.9735838 1.5209630 2.7914202 0.5355803
+##  [8] 3.2634736 0.3702484 2.8597514</code></pre>
 <pre class="r"><code># Distribution of F-ratio
 hist(F_ratio)</code></pre>
-<p><img src="/achal.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <pre class="r"><code>tt &lt;- summary(aov(Price ~ Class + as.factor(Week), data = pumpkins.dat))
 sum(F_ratio &gt; tt[[1]][[&quot;F value&quot;]][1])</code></pre>
 <pre><code>## [1] 0</code></pre>

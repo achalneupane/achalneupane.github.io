@@ -1165,7 +1165,7 @@ max(range_table$days_number)
 # to check if any of the data were planted/harvested within one day range
 geom_hline(yintercept = 1) +
 geom_text((aes(3, 1, label = &quot;Within 1 day (24 hours margin)&quot;, vjust = -1)))</code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Based on this plot, we can see that SeedA, seedB, seedC and seedD were all
 planted within 24 hours span. We can also check the <code>range_table</code> above to get
 the exact timeframe for this. However, if want to see if they were planted or
@@ -1190,7 +1190,7 @@ ggplot(range_table, aes(x = data, y = elapsed.dates.each.field)) +
 geom_hline(yintercept = 1) +
   geom_hline(yintercept = 0, color=&quot;blue&quot;, linetype=&quot;dashed&quot;) +
 geom_text((aes(3, 1, label = &quot;Margin outside the \&quot;same\&quot; date&quot;, vjust = -1)))</code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>This plot above shows that seedA and seedD were planted on the same date, and
 harvestB was harvested also on the same date. Rest of the field data were
 harvested/planted for multiple dates. Bubbles within the black solid line
@@ -1215,7 +1215,7 @@ ggplot(plot.new.data, aes(x = group, y = time.spent.in.hours)) +
         panel.background = element_blank()) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
   theme(text = element_text(size=14)) </code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Based on this above plot, it looks like only harvestC and harvestD had more than
 10 hours spent on them.</p>
 <p>Now, we can also plot start and end time for everyday record:</p>
@@ -1262,7 +1262,7 @@ geom_hline(yintercept = 1:length(tt$value), linetype = &quot;dotted&quot;) +
 labs(color = &#39;Each Day&#39;) +
 scale_color_manual(labels = c(&quot;START_time&quot;, &quot;END_time&quot;),
 values = c(&quot;blue&quot;, &quot;red&quot;)) </code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 This plot also shows similar result as with previous plot, but with both start
 and end time.</p>
 <p>We can also check the moisture level differences in the fields by date and
@@ -1316,7 +1316,7 @@ p &lt;-
   labs(color = &#39;Dates&#39;) +
   facet_grid(. ~ type)
 p + theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 8))</code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 Based on this figure above, we can see that the moisture content is very low
 from midnight to 2:00pm, but then after, it increases substantially. I don’t
 think there is so much difference in moisture in terms of harvest dates though.</p>
@@ -1527,7 +1527,7 @@ Replicates.</p>
   Mean_SD_Count_merged_for_all_four_plots$ControlRate
   
   get_my_box_plot(Mean_SD_Count_merged_for_all_four_plots, plot_name = &quot;all four fields&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Based on this plot above, from all fields, we can tell that, Control Rates of
 seeding of 23000-25000 has significantly less Mean yield as compared to
 26000-29000. It looks like Control Rates of Seeding between 27000 and 28000
@@ -1731,7 +1731,7 @@ Single.Field.Analysis = FALSE
   panel.background = element_blank()
   ) +
   labs(shape = &quot;Comparison groups&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Based on this plot above, we can tell that there is strong negative correlation
 between EffectSize and RequiredReplicates.</p>
 <p>So far, we analyzed our data for controlRates-Date pair, now we can also do the
@@ -2029,7 +2029,7 @@ panel.border = element_blank(),
 panel.background = element_blank()
 ) +
 labs(shape = &quot;Comparison groups&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <pre class="r"><code>################################ End of codes !! ################################</code></pre>
 <p>Discussion: Based on these results, I think that the fields were planted within
 24 hours margin. seedB and seedC were planted on the different dates.

@@ -561,25 +561,25 @@
 # head(ncaa2018.dat)
 # histogram
 hist(ncaa2018.dat$ELO, xlab = &quot;ELO&quot;, main = &quot;Histogram of ELO&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code># QQ plot
 qqnorm(ncaa2018.dat$ELO, main = &quot;Normal QQ plot&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
 <pre class="r"><code># box-whisker plot
 boxplot(ncaa2018.dat$ELO, main = &quot;Box-whisker of ELO&quot;, ylab = &quot;ELO&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
 <div id="part-b" class="section level3">
 <h3>Part b</h3>
 <p>A common recommendation to address issues of non-normality is to transform data to correct for skewness. One common transformation is the log transform.</p>
 <p>Transform <code>ELO</code> to <code>log(ELO)</code> and produce histograms, box-whisker and qqnorm plots of the transformed values. Are the transformed values more or less skewed than the original? (Note - the log transform is used to correct skewness, it is less useful for correcting kurtosis).</p>
 <pre class="r"><code>hist(log(ncaa2018.dat$ELO), xlab = &quot;ELO&quot;, main = &quot;Histogram of log transformed ELO&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <pre class="r"><code># QQ plot
 qqnorm(log(ncaa2018.dat$ELO), main = &quot;Normal QQ plot of log transformed ELO&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
 <pre class="r"><code># box-whisker plot
 boxplot(log(ncaa2018.dat$ELO), main = &quot;Box-whisker of log transformed ELO&quot;, ylab = &quot;ELO&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-3.png" width="672" />
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-3.png" width="672" />
 The values are less skewed now. Log transformation is a good way to display plot with skewedness in data.
 # Exercise 2.</p>
 <p>Review Exercise 4, Homework 6, where you calculated skewness and kurtosis. The reference for this exercise, <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm" class="uri">https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm</a>, gives four example statistical distributions. We will reproduce the histograms, and add qqnorm and box-whisker plots.</p>
@@ -601,28 +601,28 @@ library(moments)
 
 norm.sample.kurt &lt;- kurtosis(norm.sample, na.rm = TRUE)
 norm.sample.kurt</code></pre>
-<pre><code>## [1] 3.186137</code></pre>
+<pre><code>## [1] 2.986512</code></pre>
 <pre class="r"><code>dcauchy.1000.kurt &lt;- kurtosis(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.kurt</code></pre>
-<pre><code>## [1] 216.1207</code></pre>
+<pre><code>## [1] 607.2262</code></pre>
 <pre class="r"><code>dweibull.1000.kurt &lt;- kurtosis(dweibull.1000, na.rm = TRUE)
 dweibull.1000.kurt</code></pre>
-<pre><code>## [1] 4.464365</code></pre>
+<pre><code>## [1] 4.201574</code></pre>
 <pre class="r"><code>rexp.1000.kurt &lt;- kurtosis(rexp.1000, na.rm = TRUE)
 rexp.1000.kurt</code></pre>
-<pre><code>## [1] 5.153933</code></pre>
+<pre><code>## [1] 6.371047</code></pre>
 <pre class="r"><code>norm.sample.skew &lt;- skewness(norm.sample, na.rm = TRUE)
 norm.sample.skew</code></pre>
-<pre><code>## [1] -0.06600051</code></pre>
+<pre><code>## [1] 0.06422158</code></pre>
 <pre class="r"><code>dcauchy.1000.skew &lt;- skewness(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.skew</code></pre>
-<pre><code>## [1] -10.63517</code></pre>
+<pre><code>## [1] -23.72455</code></pre>
 <pre class="r"><code>dweibull.1000.skew &lt;- skewness(dweibull.1000, na.rm = TRUE)
 dweibull.1000.skew</code></pre>
-<pre><code>## [1] 1.108429</code></pre>
+<pre><code>## [1] 1.057125</code></pre>
 <pre class="r"><code>rexp.1000.skew &lt;- skewness(rexp.1000, na.rm = TRUE)
 rexp.1000.skew</code></pre>
-<pre><code>## [1] 0.1488806</code></pre>
+<pre><code>## [1] 0.2445158</code></pre>
 </div>
 <div id="part-b-1" class="section level2">
 <h2>Part b</h2>
@@ -632,7 +632,7 @@ hist(norm.sample, xlab = paste0(&quot;skewness = &quot;, norm.sample.skew , &quo
 hist(dcauchy.1000, xlab = paste0(&quot;skewness = &quot;, dcauchy.1000.skew , &quot;, kurtosis = &quot;, dcauchy.1000.kurt), main = &quot;Histogram of Cauchy Distribution&quot;)
 hist(dweibull.1000, xlab = paste0(&quot;skewness = &quot;, dweibull.1000.kurt , &quot;, kurtosis = &quot;, dweibull.1000.kurt), main = &quot;Histogram of Dweibull Distribution&quot;)
 hist(rexp.1000, xlab = paste0(&quot;skewness = &quot;, rexp.1000.skew , &quot;, kurtosis = &quot;, rexp.1000.kurt), main = &quot;Histogram of double Exponential Distribution&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="part-c" class="section level2">
 <h2>Part c</h2>
@@ -642,7 +642,7 @@ qqnorm(norm.sample, xlab = paste0(&quot;skewness = &quot;, norm.sample.skew , &q
 qqnorm(dcauchy.1000, xlab = paste0(&quot;skewness = &quot;, dcauchy.1000.skew , &quot;, kurtosis = &quot;, dcauchy.1000.kurt), main = &quot;QQplot of Cauchy Distribution&quot;)
 qqnorm(dweibull.1000, xlab = paste0(&quot;skewness = &quot;, dweibull.1000.kurt , &quot;, kurtosis = &quot;, dweibull.1000.kurt), main = &quot;QQplot of Dweibull Distribution&quot;)
 qqnorm(rexp.1000, xlab = paste0(&quot;skewness = &quot;, rexp.1000.skew , &quot;, kurtosis = &quot;, rexp.1000.kurt), main = &quot;QQplot of rexp Distribution&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="part-d" class="section level2">
 <h2>Part d</h2>
@@ -652,7 +652,7 @@ boxplot(norm.sample, xlab = paste0(&quot;skewness = &quot;, norm.sample.skew , &
 boxplot(dcauchy.1000, xlab = paste0(&quot;skewness = &quot;, dcauchy.1000.skew , &quot;, kurtosis = &quot;, dcauchy.1000.kurt), main = &quot;Boxplot of Cauchy Distribution&quot;)
 boxplot(dweibull.1000, xlab = paste0(&quot;skewness = &quot;, dweibull.1000.kurt , &quot;, kurtosis = &quot;, dweibull.1000.kurt), main = &quot;Boxplot of Dweibull Distribution&quot;)
 boxplot(rexp.1000, xlab = paste0(&quot;skewness = &quot;, rexp.1000.skew , &quot;, kurtosis = &quot;, rexp.1000.kurt), main = &quot;Boxplot of double rexp Distribution&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Hints for SAS. If you create the samples in IML, use</p>
 <pre><code>Normal = j(1, 1000, .);
 call randgen(Normal, &quot;NORMAL&quot;, 0, `);</code></pre>
@@ -711,9 +711,9 @@ qqnorm(rpois_values, main = &quot;Normal QQ plot for poisson&quot;)
 boxplot(rpois_values, main = paste0(&quot;Box-whisker with skewness = &quot;, rpois_skew), ylab = &quot;rpois_values&quot;)
 mu &lt;- mu*2
 }</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-1.png" width="1152" /><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-2.png" width="1152" /><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-3.png" width="1152" /><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-4.png" width="1152" /><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-5.png" width="1152" /><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-6.png" width="1152" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-1.png" width="1152" /><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-2.png" width="1152" /><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-3.png" width="1152" /><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-4.png" width="1152" /><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-5.png" width="1152" /><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-6.png" width="1152" /></p>
 <pre class="r"><code>plot(rpois_skew_collect)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-7.png" width="1152" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-7.png" width="1152" /></p>
 <p>It looks like the skewness starts to diminish significantly after mean size 32 (lambda) for poisson data.</p>
 <p>If you do this in SAS, create a data table with data columns each representing a different <span class="math inline">\(\mu\)</span>. You can see combined histogram, box-whisker and QQ-norm, for all columns, by calling</p>
 <pre><code>proc univariate data=Distributions plot;
@@ -811,7 +811,7 @@ hidalgo.dat = read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_co
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;histogram&quot;</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre><code>## $breaks
 ##  [1] 0.064 0.065 0.066 0.067 0.068 0.069 0.070 0.071 0.072 0.073 0.074
 ## [12] 0.075 0.076 0.077 0.078 0.079 0.080 0.081 0.082 0.083 0.084 0.085
@@ -1008,7 +1008,7 @@ plot(Assumption1~CaloriesPerRecipe, cex = 1.5, type = &#39;p&#39;, col = &#39;re
 abline(Assumption1.lm)
 points(Assumption2~CaloriesPerRecipe, cex = 1.5, col = &#39;blue&#39;)
 abline(Assumption2.lm)</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="part-b.-1" class="section level3">
 <h3>Part b.</h3>
@@ -1017,13 +1017,13 @@ abline(Assumption2.lm)</code></pre>
 <pre class="r"><code>par(mfrow=c(1,2))
 boxplot(residuals(Assumption1.lm), main = &quot;Boxplot for Assumption1&quot; ) 
 boxplot(residuals(Assumption2.lm), main = &quot;Boxplot for Assumption2&quot; )</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-14-1.png" width="768" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-14-1.png" width="768" /></p>
 <pre class="r"><code>par(mfrow=c(1,2))
 qqnorm(residuals(Assumption1.lm), main = &quot;QQplot for Assumption1&quot; )
 qqline(residuals(Assumption1.lm))
 qqnorm(residuals(Assumption2.lm), main = &quot;QQplot for Assumption2&quot; )
 qqline(residuals(Assumption2.lm))</code></pre>
-<p><img src="/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-15-1.png" width="768" /></p>
+<p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-15-1.png" width="768" /></p>
 <p>From these plots, which assumption is most likely correct. That is, which assumption produces a linear model that least violates assumptions of normality of the residual errors? Which assumption produces outliers in the residuals?</p>
 <p>Answer: Based on the plots, assumption1 produces a more linear model that least violates assumption of normality of the residuals errors. Assumption2 produces the outlier/s.</p>
 <p>I’ve included similar data and linear models for SAS in the SAS template. If you choose SAS, you will need to modify the PROC GLM code to produce the appropriate diagnostic plots.</p>

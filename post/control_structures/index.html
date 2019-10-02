@@ -1116,14 +1116,14 @@ normal.liklihood.x_a &lt;- norm.pdf(x_a)
 
 plot(x_a,normal.liklihood.x_a,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_a,smart.poisson.probability.x_a,col=&quot;red&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <pre class="r"><code># using base functions for norm.pdf and poisson probability for x_a
 base.normal.liklihood.x_a &lt;- dnorm(x_a,0, 1)
 base.poiss.x_a &lt;- dpois(x=x_a, lambda = lambda)
 
 plot(x_a,base.normal.liklihood.x_a,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_a,base.poiss.x_a,col=&quot;red&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
 <pre class="r"><code># Now
 # Using mean and standard deviation for servings per recipe from 1936:
 mu = 12.9; sigma = 13.3
@@ -1165,14 +1165,14 @@ for(i in 1:length(x_a)){
 # Repeating the plot from homework 4 Ex 4
 plot(x_b,normal.liklihood.x_b,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_b,smart.poisson.probability.x_b,col=&quot;red&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-3.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-3.png" width="672" /></p>
 <pre class="r"><code># Using base functions for x_b
 base.normal.liklihood.x_b &lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &lt;- dpois(x=x_b, lambda = 12)
 
 plot(x_b,base.normal.liklihood.x_b,type=&quot;l&quot;,col=&quot;black&quot;)
 lines(x_b,base.poiss.x_b,col=&quot;red&quot;)</code></pre>
-<p><img src="/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-4.png" width="672" /></p>
+<p><img src="/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-4.png" width="672" /></p>
 <pre class="r"><code># FInally, we can also check how smart.pois and dpois functions behave for the following numerical values
 # Testing three conditions with smart.pois
 smart.pois(-1, 12)</code></pre>

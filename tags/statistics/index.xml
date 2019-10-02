@@ -646,7 +646,7 @@ max(range_table$days_number)
 # to check if any of the data were planted/harvested within one day range
 geom_hline(yintercept = 1) +
 geom_text((aes(3, 1, label = &amp;quot;Within 1 day (24 hours margin)&amp;quot;, vjust = -1)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on this plot, we can see that SeedA, seedB, seedC and seedD were all
 planted within 24 hours span. We can also check the &lt;code&gt;range_table&lt;/code&gt; above to get
 the exact timeframe for this. However, if want to see if they were planted or
@@ -671,7 +671,7 @@ ggplot(range_table, aes(x = data, y = elapsed.dates.each.field)) +
 geom_hline(yintercept = 1) +
   geom_hline(yintercept = 0, color=&amp;quot;blue&amp;quot;, linetype=&amp;quot;dashed&amp;quot;) +
 geom_text((aes(3, 1, label = &amp;quot;Margin outside the \&amp;quot;same\&amp;quot; date&amp;quot;, vjust = -1)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This plot above shows that seedA and seedD were planted on the same date, and
 harvestB was harvested also on the same date. Rest of the field data were
 harvested/planted for multiple dates. Bubbles within the black solid line
@@ -696,7 +696,7 @@ ggplot(plot.new.data, aes(x = group, y = time.spent.in.hours)) +
         panel.background = element_blank()) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
   theme(text = element_text(size=14)) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on this above plot, it looks like only harvestC and harvestD had more than
 10 hours spent on them.&lt;/p&gt;
 &lt;p&gt;Now, we can also plot start and end time for everyday record:&lt;/p&gt;
@@ -743,7 +743,7 @@ geom_hline(yintercept = 1:length(tt$value), linetype = &amp;quot;dotted&amp;quot
 labs(color = &amp;#39;Each Day&amp;#39;) +
 scale_color_manual(labels = c(&amp;quot;START_time&amp;quot;, &amp;quot;END_time&amp;quot;),
 values = c(&amp;quot;blue&amp;quot;, &amp;quot;red&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;
 This plot also shows similar result as with previous plot, but with both start
 and end time.&lt;/p&gt;
 &lt;p&gt;We can also check the moisture level differences in the fields by date and
@@ -797,7 +797,7 @@ p &amp;lt;-
   labs(color = &amp;#39;Dates&amp;#39;) +
   facet_grid(. ~ type)
 p + theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 8))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;
 Based on this figure above, we can see that the moisture content is very low
 from midnight to 2:00pm, but then after, it increases substantially. I don’t
 think there is so much difference in moisture in terms of harvest dates though.&lt;/p&gt;
@@ -1008,7 +1008,7 @@ Replicates.&lt;/p&gt;
   Mean_SD_Count_merged_for_all_four_plots$ControlRate
   
   get_my_box_plot(Mean_SD_Count_merged_for_all_four_plots, plot_name = &amp;quot;all four fields&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on this plot above, from all fields, we can tell that, Control Rates of
 seeding of 23000-25000 has significantly less Mean yield as compared to
 26000-29000. It looks like Control Rates of Seeding between 27000 and 28000
@@ -1212,7 +1212,7 @@ Single.Field.Analysis = FALSE
   panel.background = element_blank()
   ) +
   labs(shape = &amp;quot;Comparison groups&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on this plot above, we can tell that there is strong negative correlation
 between EffectSize and RequiredReplicates.&lt;/p&gt;
 &lt;p&gt;So far, we analyzed our data for controlRates-Date pair, now we can also do the
@@ -1510,7 +1510,7 @@ panel.border = element_blank(),
 panel.background = element_blank()
 ) +
 labs(shape = &amp;quot;Comparison groups&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Final_assignment_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;################################ End of codes !! ################################&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Discussion: Based on these results, I think that the fields were planted within
 24 hours margin. seedB and seedC were planted on the different dates.
@@ -2009,7 +2009,7 @@ ggplot(EffectSize.Plot, aes(x=EffectSize, y=RequiredReplicates)) +
   theme(axis.title = element_text(size=14,face=&amp;quot;bold&amp;quot;), axis.text = element_text(size=10), 
         plot.title = element_text(hjust = 0.5, face = &amp;quot;bold&amp;quot;)) +
   facet_wrap(~id)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on the plot we just plotted above, RequiredReplicates inccrease significantly with decreasing Effect Size.&lt;/p&gt;
 &lt;p&gt;Additionally, after running all these &lt;code&gt;ControlRateInterval&lt;/code&gt;, I noticed that the Required replicates decrease for the higher ControlRate intervals. The reason I did not include this in my report is because it gives lots of output. SO, if we consider taking the ControlRate intervals of only 1000 and get the field mean and field SD for each field as below.&lt;/p&gt;
 &lt;p&gt;Now, I will only limit my analysis for all fields (merged) for the Control Rates interval of 1000.&lt;/p&gt;
@@ -2022,7 +2022,7 @@ fieldA.data &amp;lt;-
   calculate_field_mean_SD_and_get_RR_EffSize(
     field = fieldA, intervals = ControlRateInterval, printplot = TRUE
     )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fieldA.data&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $field.mean
 ##   ControlRate      Mean
@@ -2068,7 +2068,7 @@ fieldB.data &amp;lt;-
   calculate_field_mean_SD_and_get_RR_EffSize(
     field = fieldB, interval = ControlRateInterval, printplot = TRUE
     )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fieldB.data&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $field.mean
 ##   ControlRate     Mean
@@ -2110,7 +2110,7 @@ fieldC.data &amp;lt;-
   calculate_field_mean_SD_and_get_RR_EffSize(
     field = fieldC, interval = ControlRateInterval, printplot = TRUE
     )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fieldC.data&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $field.mean
 ##   ControlRate     Mean
@@ -2151,7 +2151,7 @@ fieldC.data &amp;lt;-
 fieldD.data &amp;lt;- calculate_field_mean_SD_and_get_RR_EffSize(
   field = fieldD, interval = ControlRateInterval, printplot = TRUE
   )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fieldD.data&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $field.mean
 ##   ControlRate     Mean
@@ -2281,7 +2281,7 @@ Mean_SD_Count_merged_for_all_four_plots$ControlRate.Levels &amp;lt;-
 Mean_SD_Count_merged_for_all_four_plots$ControlRate
 
 get_my_box_plot(Mean_SD_Count_merged_for_all_four_plots, plot_name = &amp;quot;all four fields&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on this plot, from all fields, we can tell that, Control Rates of seeding of 23000-25000 has significantly less Mean yield as compared to 26000-29000. It looks like Control Rates of Seeding between 27000 and 28000 has the highest Mean yield.&lt;/p&gt;
 &lt;p&gt;We now calculate pooled SD for merged 4 plots &lt;code&gt;Mean_SD_Count.dat&lt;/code&gt; to calculate Effect Size and Required Replicates for all fields (combined analysis) using pooled SD.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pooled.dat &amp;lt;- Mean_SD_Count.dat
@@ -2395,7 +2395,7 @@ RequiredReplicates_for_all_fields&lt;/code&gt;&lt;/pre&gt;
   axis.text = element_text(size = 10),
   plot.title = element_text(hjust = 0.5, face = &amp;quot;bold&amp;quot;)
   )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Midterm_project_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on the combined effect size (from all four fields), we can see that the Effect size is inversely proportional to Required Replicates. We also see that for the small effect of ~0.2, we need exponentially larger replicates, for medium effect (~0.5), we need about 80 replicates and for larger effect (more than 0.8), we only need about 20 or fewer replicates. Our analysis from all fields also indicates that we have highest mean yeild for controlRates of Seeding og 27000-29000.&lt;/p&gt;
 &lt;p&gt;Final discussion and suggestion:&lt;/p&gt;
 &lt;p&gt;Based on the results we saw above, if we take individual field (one at a time), we would need thousands of replicates for low effect size. However, for moderate and large effect size, the required replicates number signficantly decreases even if we use individual field data separately. On the other hand, when we combine all four fields, our required replictes decreases for all low, moderate and large effect sizes (Figure: Effect size Vs Required replicates for all fields data (Combined Effect)) as compared to individual fields (Figure: Effect size Vs Required replicates for each field data). I also found that the required replicates decreases for lower rates of seeding (control Rates of 23000 Vs 24000).
@@ -2434,25 +2434,25 @@ Based on these results, we can also conclude that the Required replicates is inv
 # head(ncaa2018.dat)
 # histogram
 hist(ncaa2018.dat$ELO, xlab = &amp;quot;ELO&amp;quot;, main = &amp;quot;Histogram of ELO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# QQ plot
 qqnorm(ncaa2018.dat$ELO, main = &amp;quot;Normal QQ plot&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# box-whisker plot
 boxplot(ncaa2018.dat$ELO, main = &amp;quot;Box-whisker of ELO&amp;quot;, ylab = &amp;quot;ELO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div id=&#34;part-b&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part b&lt;/h3&gt;
 &lt;p&gt;A common recommendation to address issues of non-normality is to transform data to correct for skewness. One common transformation is the log transform.&lt;/p&gt;
 &lt;p&gt;Transform &lt;code&gt;ELO&lt;/code&gt; to &lt;code&gt;log(ELO)&lt;/code&gt; and produce histograms, box-whisker and qqnorm plots of the transformed values. Are the transformed values more or less skewed than the original? (Note - the log transform is used to correct skewness, it is less useful for correcting kurtosis).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(log(ncaa2018.dat$ELO), xlab = &amp;quot;ELO&amp;quot;, main = &amp;quot;Histogram of log transformed ELO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# QQ plot
 qqnorm(log(ncaa2018.dat$ELO), main = &amp;quot;Normal QQ plot of log transformed ELO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# box-whisker plot
 boxplot(log(ncaa2018.dat$ELO), main = &amp;quot;Box-whisker of log transformed ELO&amp;quot;, ylab = &amp;quot;ELO&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;672&#34; /&gt;
 The values are less skewed now. Log transformation is a good way to display plot with skewedness in data.
 # Exercise 2.&lt;/p&gt;
 &lt;p&gt;Review Exercise 4, Homework 6, where you calculated skewness and kurtosis. The reference for this exercise, &lt;a href=&#34;https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm&#34; class=&#34;uri&#34;&gt;https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm&lt;/a&gt;, gives four example statistical distributions. We will reproduce the histograms, and add qqnorm and box-whisker plots.&lt;/p&gt;
@@ -2474,28 +2474,28 @@ library(moments)
 
 norm.sample.kurt &amp;lt;- kurtosis(norm.sample, na.rm = TRUE)
 norm.sample.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 3.186137&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2.986512&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy.1000.kurt &amp;lt;- kurtosis(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 216.1207&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 607.2262&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull.1000.kurt &amp;lt;- kurtosis(dweibull.1000, na.rm = TRUE)
 dweibull.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.464365&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.201574&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rexp.1000.kurt &amp;lt;- kurtosis(rexp.1000, na.rm = TRUE)
 rexp.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.153933&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6.371047&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norm.sample.skew &amp;lt;- skewness(norm.sample, na.rm = TRUE)
 norm.sample.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -0.06600051&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.06422158&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy.1000.skew &amp;lt;- skewness(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -10.63517&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -23.72455&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull.1000.skew &amp;lt;- skewness(dweibull.1000, na.rm = TRUE)
 dweibull.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.108429&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.057125&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rexp.1000.skew &amp;lt;- skewness(rexp.1000, na.rm = TRUE)
 rexp.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1488806&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.2445158&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-b-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part b&lt;/h2&gt;
@@ -2505,7 +2505,7 @@ hist(norm.sample, xlab = paste0(&amp;quot;skewness = &amp;quot;, norm.sample.ske
 hist(dcauchy.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, dcauchy.1000.skew , &amp;quot;, kurtosis = &amp;quot;, dcauchy.1000.kurt), main = &amp;quot;Histogram of Cauchy Distribution&amp;quot;)
 hist(dweibull.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, dweibull.1000.kurt , &amp;quot;, kurtosis = &amp;quot;, dweibull.1000.kurt), main = &amp;quot;Histogram of Dweibull Distribution&amp;quot;)
 hist(rexp.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, rexp.1000.skew , &amp;quot;, kurtosis = &amp;quot;, rexp.1000.kurt), main = &amp;quot;Histogram of double Exponential Distribution&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-c&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part c&lt;/h2&gt;
@@ -2515,7 +2515,7 @@ qqnorm(norm.sample, xlab = paste0(&amp;quot;skewness = &amp;quot;, norm.sample.s
 qqnorm(dcauchy.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, dcauchy.1000.skew , &amp;quot;, kurtosis = &amp;quot;, dcauchy.1000.kurt), main = &amp;quot;QQplot of Cauchy Distribution&amp;quot;)
 qqnorm(dweibull.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, dweibull.1000.kurt , &amp;quot;, kurtosis = &amp;quot;, dweibull.1000.kurt), main = &amp;quot;QQplot of Dweibull Distribution&amp;quot;)
 qqnorm(rexp.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, rexp.1000.skew , &amp;quot;, kurtosis = &amp;quot;, rexp.1000.kurt), main = &amp;quot;QQplot of rexp Distribution&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-d&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part d&lt;/h2&gt;
@@ -2525,7 +2525,7 @@ boxplot(norm.sample, xlab = paste0(&amp;quot;skewness = &amp;quot;, norm.sample.
 boxplot(dcauchy.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, dcauchy.1000.skew , &amp;quot;, kurtosis = &amp;quot;, dcauchy.1000.kurt), main = &amp;quot;Boxplot of Cauchy Distribution&amp;quot;)
 boxplot(dweibull.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, dweibull.1000.kurt , &amp;quot;, kurtosis = &amp;quot;, dweibull.1000.kurt), main = &amp;quot;Boxplot of Dweibull Distribution&amp;quot;)
 boxplot(rexp.1000, xlab = paste0(&amp;quot;skewness = &amp;quot;, rexp.1000.skew , &amp;quot;, kurtosis = &amp;quot;, rexp.1000.kurt), main = &amp;quot;Boxplot of double rexp Distribution&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Hints for SAS. If you create the samples in IML, use&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Normal = j(1, 1000, .);
 call randgen(Normal, &amp;quot;NORMAL&amp;quot;, 0, `);&lt;/code&gt;&lt;/pre&gt;
@@ -2584,9 +2584,9 @@ qqnorm(rpois_values, main = &amp;quot;Normal QQ plot for poisson&amp;quot;)
 boxplot(rpois_values, main = paste0(&amp;quot;Box-whisker with skewness = &amp;quot;, rpois_skew), ylab = &amp;quot;rpois_values&amp;quot;)
 mu &amp;lt;- mu*2
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-2.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-3.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-4.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-5.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-6.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-2.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-3.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-4.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-5.png&#34; width=&#34;1152&#34; /&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-6.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(rpois_skew_collect)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-7.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-8-7.png&#34; width=&#34;1152&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It looks like the skewness starts to diminish significantly after mean size 32 (lambda) for poisson data.&lt;/p&gt;
 &lt;p&gt;If you do this in SAS, create a data table with data columns each representing a different &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt;. You can see combined histogram, box-whisker and QQ-norm, for all columns, by calling&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;proc univariate data=Distributions plot;
@@ -2684,7 +2684,7 @@ hidalgo.dat = read.table(&amp;quot;/Users/owner1/Box/sdsu/statistical_programmin
 ## 
 ## attr(,&amp;quot;class&amp;quot;)
 ## [1] &amp;quot;histogram&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## $breaks
 ##  [1] 0.064 0.065 0.066 0.067 0.068 0.069 0.070 0.071 0.072 0.073 0.074
 ## [12] 0.075 0.076 0.077 0.078 0.079 0.080 0.081 0.082 0.083 0.084 0.085
@@ -2881,7 +2881,7 @@ plot(Assumption1~CaloriesPerRecipe, cex = 1.5, type = &amp;#39;p&amp;#39;, col =
 abline(Assumption1.lm)
 points(Assumption2~CaloriesPerRecipe, cex = 1.5, col = &amp;#39;blue&amp;#39;)
 abline(Assumption2.lm)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-b.-1&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part b.&lt;/h3&gt;
@@ -2890,13 +2890,13 @@ abline(Assumption2.lm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 boxplot(residuals(Assumption1.lm), main = &amp;quot;Boxplot for Assumption1&amp;quot; ) 
 boxplot(residuals(Assumption2.lm), main = &amp;quot;Boxplot for Assumption2&amp;quot; )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 qqnorm(residuals(Assumption1.lm), main = &amp;quot;QQplot for Assumption1&amp;quot; )
 qqline(residuals(Assumption1.lm))
 qqnorm(residuals(Assumption2.lm), main = &amp;quot;QQplot for Assumption2&amp;quot; )
 qqline(residuals(Assumption2.lm))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From these plots, which assumption is most likely correct. That is, which assumption produces a linear model that least violates assumptions of normality of the residual errors? Which assumption produces outliers in the residuals?&lt;/p&gt;
 &lt;p&gt;Answer: Based on the plots, assumption1 produces a more linear model that least violates assumption of normality of the residuals errors. Assumption2 produces the outlier/s.&lt;/p&gt;
 &lt;p&gt;I’ve included similar data and linear models for SAS in the SAS template. If you choose SAS, you will need to modify the PROC GLM code to produce the appropriate diagnostic plots.&lt;/p&gt;
@@ -2957,7 +2957,7 @@ plot(data$EffectSize, data$RequiredReplicates)
 # http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 # Also, http://staff.bath.ac.uk/pssiw/stats2/page2/page14/page14.html
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note: Cohen suggested that d = 0.2 be considered a ‘small’ effect size, 0.5 represents a ‘medium’ effect size and 0.8 a ‘large’ effect size. This means that if two groups’ means don’t differ by 0.2 standard deviations or more, the difference is trivial, even if it is statistically signficant. This plot tells us that with the increasing effect-size, we need fewer replicates. Since effect-size of |0.5| or (v= 0.5) is intersects with the abline at approximately 78 replicates in the plot, it also tells us that for medium-size effect we need about 78 replicates.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3247,7 +3247,7 @@ plot(x,p.null.req,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x,p.alt.req,col=&amp;quot;red&amp;quot;)
 abline(v = Zalpha, col= &amp;#39;green&amp;#39;)
 abline(v = value$EffectSize-Zbeta, col= &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Using ggplot
 # plot3 &amp;lt;- ggplot()+
 #   geom_line(aes(x = x, y = p.null.req), color = &amp;quot;black&amp;quot; ) +
@@ -3308,7 +3308,7 @@ poisson.probability.x_a &amp;lt;- pois.pmf(x=x_a, lambda = lambda)&lt;/code&gt;&
 &lt;pre&gt;&lt;code&gt;## Warning in gamma(x + 1): NaNs produced&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x_a,normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,poisson.probability.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Does this graph tell you if your Normal PDF function behaves properly? Does your Poisson handle negative or non-integer values as expected?&lt;/p&gt;
 &lt;p&gt;No, based on this plot, the normal pdf does behave properly, but not the poisson as there NAs inserted for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
@@ -3356,7 +3356,7 @@ poisson.probability.x_b &amp;lt;- pois.pmf(x=x_b, lambda = 12)&lt;/code&gt;&lt;/
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot
 plot(x_b,normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,poisson.probability.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;To check you work, duplicate the plots by calling built in normal and Poisson functions. Does the system Poisson function handle negative &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; differently than your function?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part a  
 base.normal.liklihood.x_a &amp;lt;- dnorm(x_a,0, 1)
@@ -3453,7 +3453,7 @@ base.poiss.x_a &amp;lt;- dpois(x=x_a, lambda = lambda)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning in dpois(x = x_a, lambda = lambda): non-integer x = 4.900000&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x_a,base.normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,base.poiss.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for part b
 base.normal.liklihood.x_b &amp;lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)&lt;/code&gt;&lt;/pre&gt;
@@ -3557,7 +3557,7 @@ base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning in dpois(x = x_b, lambda = 12): non-integer x = 78.660000&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x_b,base.normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,base.poiss.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-11-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Yes, the system Poisson function handles negative values and non-integers differently (inserts zero’s) whereas the function we wrote inserts NAs for negative and non-integer values.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3683,7 +3683,7 @@ hat.y &amp;lt;- X %*% hat.beta
 # plot
 plot(X[,2], y, type = &amp;#39;l&amp;#39;, col = &amp;quot;black&amp;quot;)
 lines(X[,2], hat.y, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Arrays_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Arrays_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;You can also compare your result to the R function (set &lt;code&gt;eval = TRUE&lt;/code&gt;).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y~X))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -4668,14 +4668,14 @@ normal.liklihood.x_a &amp;lt;- norm.pdf(x_a)
 
 plot(x_a,normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,smart.poisson.probability.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# using base functions for norm.pdf and poisson probability for x_a
 base.normal.liklihood.x_a &amp;lt;- dnorm(x_a,0, 1)
 base.poiss.x_a &amp;lt;- dpois(x=x_a, lambda = lambda)
 
 plot(x_a,base.normal.liklihood.x_a,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_a,base.poiss.x_a,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Now
 # Using mean and standard deviation for servings per recipe from 1936:
 mu = 12.9; sigma = 13.3
@@ -4717,14 +4717,14 @@ for(i in 1:length(x_a)){
 # Repeating the plot from homework 4 Ex 4
 plot(x_b,normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,smart.poisson.probability.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using base functions for x_b
 base.normal.liklihood.x_b &amp;lt;- dnorm(x_b,0, 1)
 base.poiss.x_b &amp;lt;- dpois(x=x_b, lambda = 12)
 
 plot(x_b,base.normal.liklihood.x_b,type=&amp;quot;l&amp;quot;,col=&amp;quot;black&amp;quot;)
 lines(x_b,base.poiss.x_b,col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Control_Structures_files/figure-html/unnamed-chunk-22-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# FInally, we can also check how smart.pois and dpois functions behave for the following numerical values
 # Testing three conditions with smart.pois
 smart.pois(-1, 12)&lt;/code&gt;&lt;/pre&gt;
@@ -5516,7 +5516,7 @@ M.table&lt;/code&gt;&lt;/pre&gt;
 plot(M.table$RequiredReplicates ~ M.table$EffectSize)
 # abline(cal.lm)
 abline(v = 0.5, col= &amp;#39;red&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2&#34; class=&#34;section level1&#34;&gt;
@@ -5626,7 +5626,7 @@ legend(&amp;quot;topleft&amp;quot;,
        text.col = &amp;quot;black&amp;quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Percent diff vs Required replicates
 plot(Diff, Moderate, col = &amp;quot;black&amp;quot;, type = &amp;#39;b&amp;#39;,pch = 8, xlab=&amp;quot;Percent diff&amp;quot;, ylab=&amp;quot;Required replicates&amp;quot;, ylim = c(min(Moderate, Conservative, Liberal),max(Moderate, Conservative, Liberal)))
 points(Diff, Conservative, type = &amp;#39;b&amp;#39;, pch = 2,  col = &amp;quot;red&amp;quot;)
@@ -5641,7 +5641,7 @@ legend(&amp;quot;topright&amp;quot;,
        text.col = &amp;quot;black&amp;quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Plot &lt;code&gt;Conservative&lt;/code&gt; vs &lt;code&gt;Moderate&lt;/code&gt; and &lt;code&gt;Liberal&lt;/code&gt; vs &lt;code&gt;Moderate&lt;/code&gt;, including a line with slope 1 and intercept 0.&lt;/li&gt;
 &lt;/ul&gt;
@@ -5652,11 +5652,11 @@ legend(&amp;quot;topright&amp;quot;,
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Conservative Vs Moderate
 plot(Conservative ~ Moderate, type = &amp;#39;b&amp;#39;, col = &amp;quot;black&amp;quot;)
 abline(a=1, b = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Liberal Vs Moderate
 plot(Liberal ~ Moderate, type = &amp;#39;b&amp;#39;, col = &amp;quot;black&amp;quot;)
 abline(a=1, b = 0)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -5696,11 +5696,11 @@ print(summary(pumpkins))&lt;/code&gt;&lt;/pre&gt;
 ## 
 ##     Class, Month, Price, Size, Week&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Price ~ Week, main = &amp;quot;**Continuous vs Continuous**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Price ~ Class, main = &amp;quot;**Continuous vs Categorical**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Size ~ Class, main = &amp;quot;**Categorical vs Categorical**&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From these plots, you should be able to answer these questions:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Are some Weeks missing Price observations?
@@ -6103,7 +6103,7 @@ contingency.table&lt;/code&gt;&lt;/pre&gt;
 # Also, plot
 attach(elo.dat)
 plot(ActualFinish ~ ExpectedFinish)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the contingency table, &lt;code&gt;E[AA]&lt;/code&gt; &lt;code&gt;AA&lt;/code&gt; are associated 57 times&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Does this data set include non-qualifiers? (The NCAA tournament only allows 33 wreslers per weight class).&lt;/li&gt;
@@ -6347,16 +6347,16 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
                       &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                  expr   min     lq     mean median     uq      max neval
-##   Using first formula 2.478 2.5830 66.55456 2.6430 2.6945 6367.856   100
-##  Using second formula 2.687 2.7335  2.84033 2.7675 2.8175    6.687   100
+##                  expr   min     lq     mean median    uq      max neval
+##   Using first formula 1.795 1.8655 56.83257  1.897 1.963 5463.788   100
+##  Using second formula 1.786 1.8755  2.02457  1.912 1.970    8.547   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 autoplot(mbm)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Coordinate system already present. Adding new coordinate system, which will replace the existing one.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Functions_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Functions_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;
 Based on the execution time, looks like using the first formula takes a bit longer time to execute.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6604,7 +6604,7 @@ segments(
   x1 = PlotCookingTooMuch.dat$Year,
   y1 = PlotCookingTooMuch.dat$Upper
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Getting_started_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Getting_started_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;comments&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Comments&lt;/h1&gt;
@@ -6993,7 +6993,7 @@ p + geom_text(x = 150, y = 300, label = lm_eqn(merged.dat), parse = TRUE) +
   xlab(&amp;quot;HighSchool Weight&amp;quot;) +
   ylab(&amp;quot;College Weight&amp;quot;) + 
   geom_smooth(method = &amp;#39;lm&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Processing_Text_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Processing_Text_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The relationship between highschool weight and college weight is almost linear.
 # Exercise 6&lt;/p&gt;
 &lt;p&gt;Use file &lt;code&gt;openmat2015.csv&lt;/code&gt; from Exercise 6, and use partial text matching to answer these questions. To show your results, print only the rows from the table that match the described text patterns, but to save space, print only &lt;code&gt;Name&lt;/code&gt;, &lt;code&gt;School&lt;/code&gt; and &lt;code&gt;College&lt;/code&gt;. Each of these can be answered in a single step.&lt;/p&gt;
@@ -7206,11 +7206,11 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
   # bootstrap estimate of the mean
   star.bar.theta &amp;lt;- mean (star.theta.rep)
   star.bar.theta&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.08609793&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.08608051&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.mean &amp;lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006879024&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  bstraps &amp;lt;- c()
   for (i in 1:1000) {
     bsample &amp;lt;- sample(y, length(y), replace=T)
@@ -7223,7 +7223,7 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.median &amp;lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006879024&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-d.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part d.&lt;/h3&gt;
@@ -7246,9 +7246,9 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jackknife.stderr.median&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006879024&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006879024&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
@@ -7310,13 +7310,13 @@ Calculate jackknife and bootstrap estimates for &lt;span class=&#34;math inline&
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] 7.696709e-05
+## [1] -9.36847e-05
 ## 
 ## $cv
-## [1] 0.012534
+## [1] -0.01587837
 ## 
 ## $standard_error_bootstrap
-## [1] 0.006140666&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.005900146&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -7471,11 +7471,11 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 2.0607382 0.3019736 0.3944886 1.8049371 9.4249732 0.5467785 0.6190417
-##  [8] 4.1575200 0.8452027 1.1795127&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 1.43087234 1.09603973 0.83167909 1.24208721 0.76151170 0.80077058
+##  [7] 0.05306075 2.48599063 0.77230077 0.81066476&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# how many $F$ are greater than the $F$ from part a
 sum(F_ratio &amp;gt; tt[[1]][[&amp;quot;F value&amp;quot;]][1])&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
@@ -7502,11 +7502,11 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 0.7431674 2.1164829 0.2572306 0.2782830 0.7235510 0.3795191 2.1433168
-##  [8] 0.9127464 0.3869931 0.9630900&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 1.1779284 0.8629830 1.1665347 0.9735838 1.5209630 2.7914202 0.5355803
+##  [8] 3.2634736 0.3702484 2.8597514&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achal.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tt &amp;lt;- summary(aov(Price ~ Class + as.factor(Week), data = pumpkins.dat))
 sum(F_ratio &amp;gt; tt[[1]][[&amp;quot;F value&amp;quot;]][1])&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
