@@ -602,7 +602,7 @@ M.table</code></pre>
 plot(M.table$RequiredReplicates ~ M.table$EffectSize)
 # abline(cal.lm)
 abline(v = 0.5, col= &#39;red&#39;)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 </div>
 <div id="exercise-2" class="section level1">
@@ -712,7 +712,7 @@ legend(&quot;topleft&quot;,
        text.col = &quot;black&quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code># Percent diff vs Required replicates
 plot(Diff, Moderate, col = &quot;black&quot;, type = &#39;b&#39;,pch = 8, xlab=&quot;Percent diff&quot;, ylab=&quot;Required replicates&quot;, ylim = c(min(Moderate, Conservative, Liberal),max(Moderate, Conservative, Liberal)))
 points(Diff, Conservative, type = &#39;b&#39;, pch = 2,  col = &quot;red&quot;)
@@ -727,7 +727,7 @@ legend(&quot;topright&quot;,
        text.col = &quot;black&quot;, 
        horiz = F , 
        inset = c(0.1, 0.1))</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 <ul>
 <li>Plot <code>Conservative</code> vs <code>Moderate</code> and <code>Liberal</code> vs <code>Moderate</code>, including a line with slope 1 and intercept 0.</li>
 </ul>
@@ -738,11 +738,11 @@ legend(&quot;topright&quot;,
 <pre class="r"><code>#Conservative Vs Moderate
 plot(Conservative ~ Moderate, type = &#39;b&#39;, col = &quot;black&quot;)
 abline(a=1, b = 0)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>#Liberal Vs Moderate
 plot(Liberal ~ Moderate, type = &#39;b&#39;, col = &quot;black&quot;)
 abline(a=1, b = 0)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 </div>
 <div id="exercise-3" class="section level1">
@@ -751,7 +751,7 @@ abline(a=1, b = 0)</code></pre>
 <div id="part-a" class="section level2">
 <h2>Part a</h2>
 <p>Download the file <code>pumpkins.csv</code> from D2L and read the file into a data frame. Print a summary of the table.</p>
-<pre class="r"><code>pumpkins &lt;- read.csv(&quot;/Users/owner1/Box/sdsu/statistical_programming_course/Week5/pumpkins.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+<pre class="r"><code>pumpkins &lt;- read.csv(&quot;https://raw.githubusercontent.com/achalneupane/data/master/pumpkins.csv&quot;, header = TRUE, sep = &quot;,&quot;)
 pumpkins &lt;- data.frame(pumpkins)
 attach(pumpkins)
 print(summary(pumpkins))</code></pre>
@@ -782,11 +782,11 @@ print(summary(pumpkins))</code></pre>
 ## 
 ##     Class, Month, Price, Size, Week</code></pre>
 <pre class="r"><code>plot(Price ~ Week, main = &quot;**Continuous vs Continuous**&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>plot(Price ~ Class, main = &quot;**Continuous vs Categorical**&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 <pre class="r"><code>plot(Size ~ Class, main = &quot;**Categorical vs Categorical**&quot;)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
 <p>From these plots, you should be able to answer these questions:</p>
 <ol style="list-style-type: decimal">
 <li><p>Are some Weeks missing Price observations?
@@ -807,7 +807,7 @@ No, they are of different sizes.</p></li>
 <div id="part-a-1" class="section level3">
 <h3>Part a</h3>
 <p>Find the treatment totals <span class="math inline">\(\mathbf{T} = T_1 \dots T_k\)</span> and replicates per treatment <span class="math inline">\(\mathbf{r} = r_1 \dots r_k\)</span> from the pumpkin data, using group summary functions and compute a grand total <span class="math inline">\(G\)</span> for <code>Price</code>. Print <span class="math inline">\(\mathbf{T}\)</span>, <span class="math inline">\(\mathbf{r}\)</span> and <span class="math inline">\(G\)</span> below. In SAS, you can use <code>proc summary</code> or <code>proc means</code> to compute <span class="math inline">\(T\)</span> adn <span class="math inline">\(r\)</span> and output a summary table. I find the rest is easier in IML (see <code>use</code> to access data tables in IML).</p>
-<pre class="r"><code>pumpkins.dat &lt;- read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_course/Week5/pumpkins.csv&quot;, header = TRUE, sep = &quot;,&quot;)
+<pre class="r"><code>pumpkins.dat &lt;- read.table(&quot;https://raw.githubusercontent.com/achalneupane/data/master/pumpkins.csv&quot;, header = TRUE, sep = &quot;,&quot;)
 head(pumpkins.dat)</code></pre>
 <pre><code>##       Month Week Class   Size Price
 ## 1 September    1   Pie Medium   175
@@ -950,7 +950,7 @@ p.value</code></pre>
 <h2>Part b</h2>
 <p>Edit this into a file that can be read into R or SAS, or find an appropriate function that can read the file as-is. You will need to upload the edited file to D2L along with your Rmd/SAS files. Provide a brief comment on changes you make, or assumptions about the file needed for you file to be read into R/SAS. Read the data into a data frame or data table.</p>
 <pre class="r"><code># Here we read the .dat file first skipping the 59 lines as indicated in SiRstvt.dat file.
-df &lt;- read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_course/Week5/SiRstvt.dat&quot;, header = FALSE, skip = 59)
+df &lt;- read.table(&quot;https://raw.githubusercontent.com/achalneupane/data/master/SiRstvt.dat&quot;, header = FALSE, skip = 59)
 # read file as dataframe
 df &lt;- as.data.frame(df)
 # We need to change the column names as alpha-numeric to work with ease
@@ -1032,7 +1032,7 @@ required.replicates(m1 = m1, s1 = s1, m2 = m2, s2 = s2)</code></pre>
 <h1>Exercise 6</h1>
 <p>There is a web site (<a href="https://www.wrestlestat.com/rankings/starters" class="uri">https://www.wrestlestat.com/rankings/starters</a>) that ranks college wrestlers using an ELO scoring system (<a href="https://en.wikipedia.org/wiki/Elo_rating_system" class="uri">https://en.wikipedia.org/wiki/Elo_rating_system</a>). I was curious how well the rankings predicted performance, so I gathered data from th 2018 NCAA Wrestling Championships (<a href="https://i.turner.ncaa.com/sites/default/files/external/gametool/brackets/wrestling_d1_2018.pdf" class="uri">https://i.turner.ncaa.com/sites/default/files/external/gametool/brackets/wrestling_d1_2018.pdf</a>). Part of the data are on D2L in the file <code>elo.csv</code>. You will need to download the file to your computer for this exercise.</p>
 <p>Read the dzta below and print a summary. The dzta were created by writing a data frame from R to csv (<code>write.csv</code>), so the first column is row number and does not have a header entry (the header name is an empty string).</p>
-<pre class="r"><code>elo.dat &lt;- read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_course/Week5/elo.csv&quot;, header = TRUE, row.names = 1, sep = &quot;,&quot;)
+<pre class="r"><code>elo.dat &lt;- read.table(&quot;https://raw.githubusercontent.com/achalneupane/data/master/elo.csv&quot;, header = TRUE, row.names = 1, sep = &quot;,&quot;)
 # elo.dat
 print(summary(elo.dat))</code></pre>
 <pre><code>##      Weight        Conference      ELO        ActualFinish
@@ -1189,7 +1189,7 @@ contingency.table</code></pre>
 # Also, plot
 attach(elo.dat)
 plot(ActualFinish ~ ExpectedFinish)</code></pre>
-<p><img src="/achalneupane.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<p><img src="/achal.github.io/post/data_tables_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 Based on the contingency table, <code>E[AA]</code> <code>AA</code> are associated 57 times</p>
 <ul>
 <li>Does this data set include non-qualifiers? (The NCAA tournament only allows 33 wreslers per weight class).</li>
@@ -1213,6 +1213,8 @@ Based on the contingency table, <code>E[AA]</code> <code>AA</code> are associate
   <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
   
   <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistical_programming/">Statistical_programming</a>
   
 </div>
 
@@ -1264,7 +1266,15 @@ Based on the contingency table, <code>E[AA]</code> <code>AA</code> are associate
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/achalneupane.github.io/post/functions/">Functions</a></li>
+          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/calculations/">Calculations</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/control_structures/">Control Structures</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/data_manipulation/">Data manipulation</a></li>
           
         </ul>
       </div>

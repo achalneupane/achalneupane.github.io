@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Achal Neupane">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Statistics series">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/achalneupane.github.io/post/calculations/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145752794-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/achalneupane.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/achalneupane.github.io/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/achalneupane.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="/achalneupane.github.io/post/calculations/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@achalneupane">
+  <meta property="twitter:creator" content="@achalneupane">
+  
+  <meta property="og:site_name" content="Achal Neupane">
+  <meta property="og:url" content="/achalneupane.github.io/post/calculations/">
+  <meta property="og:title" content="Calculations | Achal Neupane">
+  <meta property="og:description" content="Statistics series"><meta property="og:image" content="/achalneupane.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+    
+    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Calculations | Achal Neupane</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/achalneupane.github.io/">Achal Neupane</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#impact"><span>Impact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Calculations</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/achalneupane.github.io/authors/achal-neupane/"><strong>Achal Neupane</strong></a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 15, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/achalneupane.github.io/post/calculations/&amp;text=Calculations" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/achalneupane.github.io/post/calculations/&amp;t=Calculations" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Calculations&amp;body=/achalneupane.github.io/post/calculations/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/achalneupane.github.io/post/calculations/&amp;title=Calculations" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Calculations%20/achalneupane.github.io/post/calculations/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/achalneupane.github.io/post/calculations/&amp;title=Calculations" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<div id="general-instructions." class="section level1">
+<h1>General instructions.</h1>
+<p>There are 5 exercises below. You are required to provide solutions for at least four of the five. You are required to solve at least one exercise in R, and at least one in SAS. You are required to provide five solutions, each solution will be worth 10 points. Thus, you may choose to provide both R and SAS solutions for a single exercise, or you may solve all five problems, mixing the languages as you wish. Warning - we will be reusing the formulas from the first three exercises in later homework, so if you implement them now later exercises will be easier.</p>
+<div id="experimental" class="section level4">
+<h4>Experimental</h4>
+<p>I’ve been arguing that this course should also include Python. To explore this idea, I’ll allow one solution (10 of your 50 points) to be implemented in Python. To get full credit for a Python solution :</p>
+<ul>
+<li><p>Solve one of the first three exercises.</p></li>
+<li><p>Explain how the Python solution differs from the corresonding R or SAS solution. Note the differences in the languages. For example, does Python use the same assignment operator? Are all math operators the same as R or SAS? Are the math or statistics functions loaded by default? For the first exercise, I’ve found three important differences between R and Python.</p></li>
+<li><p>You can include Python in RMarkdown by replacing <code>r</code> with <code>python</code> in the code chunk prefix.</p></li>
+<li><p>I won’t be teaching Python this summer, but if you’re familiar with Python, this may help understand the inner workings of R or SAS.</p></li>
+</ul>
+</div>
+</div>
+<div id="exercise-1" class="section level1">
+<h1>Exercise 1</h1>
+<p>Cohen gives a formula for effect size, <span class="math inline">\(d\)</span>, for the difference between two means <span class="math inline">\(m_1\)</span> and <span class="math inline">\(m_2\)</span>, as</p>
+<p><span class="math display">\[
+d = \frac{|m_1-m_2|}{s_{pooled}}
+\]</span>
+where <span class="math inline">\(s_{pooled}\)</span> is a pooled standard deviation. Use the formula <span class="math inline">\(s_{pooled} = \sqrt{(s_1^2 + s_2^2)/2}\)</span>.</p>
+<p>Calculate the effect size <span class="math inline">\(d\)</span> for the differences among calories per serving, 1936 versus 2006, 1936 vs 1997 and 1997 vs 2006. Use the values from Wansink, Table 1 as given in Homework 1 or in the course outline.</p>
+<div id="answer" class="section level2">
+<h2>Answer</h2>
+<p>Enter the R code in the chunks below. If you choose SAS for this exercise, use the marked portion in the SAS homework template.</p>
+<div id="versus-2006" class="section level4">
+<h4>1936 versus 2006</h4>
+<pre class="r"><code>#calories per serving
+#for this calcuation, m1 and m2 are mean for calories per serving for 1936 and 2006 respectively. s1 and s2 are standard deviation for 1936 vs 2006.
+m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+d_1936_2006 &lt;- (abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+d_1936_2006</code></pre>
+<pre><code>## [1] 0.7849876</code></pre>
+</div>
+<div id="versus-1997" class="section level4">
+<h4>1936 versus 1997</h4>
+<pre class="r"><code>#calories per serving
+#for this calcuation, m1 and m2 are mean for calories per serving for 1936 and 1997 respectively. s1 and s2 are standard deviation for 1936 and 1997.
+m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+d_1936_1997 &lt;- (abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+d_1936_1997</code></pre>
+<pre><code>## [1] 0.1661157</code></pre>
+</div>
+<div id="versus-2006-1" class="section level4">
+<h4>1997 versus 2006</h4>
+<pre class="r"><code>#calories per serving
+#for this calcuation, m1 and m2 are mean for calories per serving for 1997 and 2006 respectively. s1 and s2 are standard deviation for 1997 vs 2006.
+m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+d_1997_2006 &lt;- (abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+d_1997_2006</code></pre>
+<pre><code>## [1] 0.6517694</code></pre>
+<p>To check your work, consider that Cohen recommends that <span class="math inline">\(d=0.2\)</span> be considered a small effect, <span class="math inline">\(d=0.5\)</span> a medium effect and <span class="math inline">\(d=0.8\)</span> a large effect. I don’t find any of these to be fully large effects.</p>
+<p>Here, I also found none of these to be of larger effect.</p>
+</div>
+</div>
+</div>
+<div id="exercise-2." class="section level1">
+<h1>Exercise 2.</h1>
+<p>Suppose you are planning an experiment and you want to determine how many observations you should make for each experimental condition. One simple formula (see Kuehl, “Design of Experiments : Statistical Principles of Research Design and Analysis”) for the required replicates <span class="math inline">\(n\)</span> is given by</p>
+<p><span class="math display">\[
+n \ge 2\times \left( \frac{CV}{\%Diff} \right)^2 \times \left(z_{\alpha/2}+ z_\beta \right)^2
+\]</span>
+where <span class="math inline">\(\%Diff = \frac{m_1 - m_2}{(m_1 + m_2)/2}\)</span> and <span class="math inline">\(CV = \frac{sd_{pooled}}{(m_1 + m_2)/2}\)</span>.</p>
+<p>Use this formula to calculate the number of replicates required to detect differences between calories per serving, 1936 versus 2006, 1936 vs 1997 and 1997 vs 2006. You will need to research how to use the normal distribution functions (<code>*norm</code> in R, ). Use <span class="math inline">\(\alpha=0.05\)</span> and <span class="math inline">\(\beta = 0.8\)</span> for probabilities, and let <code>mean = 0</code> and <code>sd = 1</code> (both <span class="math inline">\(z\)</span> should be positive).</p>
+<p>Since <span class="math inline">\(n\)</span> must be an integer, you will need to round up. Look up the built in functions for this.</p>
+<div id="answer-1" class="section level2">
+<h2>Answer</h2>
+<p>Enter the R code in the chunks below. If you choose SAS for this exercise, use the marked portion in the SAS homework template.</p>
+<div id="versus-2006-2" class="section level4">
+<h4>1936 versus 2006</h4>
+<pre class="r"><code>alpha = 0.05
+beta = 0.8
+m1=268.1
+m2=384.4
+s1=124.8
+s2=168.3
+z.half.alpha=abs(qnorm(alpha/2, 0, 1 ))
+z.half.alpha</code></pre>
+<pre><code>## [1] 1.959964</code></pre>
+<pre class="r"><code>z.beta=abs(qnorm(beta, 0, 1))
+z.beta</code></pre>
+<pre><code>## [1] 0.8416212</code></pre>
+<pre class="r"><code>n &lt;- 2* (((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * ((z.half.alpha + z.beta)^2)</code></pre>
+<p>```</p>
+</div>
+<div id="versus-1997-1" class="section level4">
+<h4>1936 versus 1997</h4>
+<pre class="r"><code>m1=268.1
+m2=288.6
+s1=124.8
+s2=122.0
+z.half.alpha=abs(qnorm(alpha/2, 0, 1 ))
+z.half.alpha</code></pre>
+<pre><code>## [1] 1.959964</code></pre>
+<pre class="r"><code>z.beta=abs(qnorm(beta, 0, 1))
+z.beta</code></pre>
+<pre><code>## [1] 0.8416212</code></pre>
+<pre class="r"><code>n &lt;- 2* (((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * ((z.half.alpha + z.beta)^2)</code></pre>
+</div>
+<div id="versus-2006-3" class="section level4">
+<h4>1997 versus 2006</h4>
+<pre class="r"><code>m1=288.6
+m2=384.4
+s1=122.0
+s2=168.3
+z.half.alpha=abs(qnorm(alpha/2, 0, 1 ))
+z.half.alpha</code></pre>
+<pre><code>## [1] 1.959964</code></pre>
+<pre class="r"><code>z.beta=abs(qnorm(beta, 0, 1))
+z.beta</code></pre>
+<pre><code>## [1] 0.8416212</code></pre>
+<pre class="r"><code>n &lt;- 2* (((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * ((z.half.alpha + z.beta)^2)</code></pre>
+<p>To check your work, use the rule of thumb suggested by van Belle (“Statistical Rules of Thumb”), where</p>
+<p><span class="math display">\[
+n= \frac{16}{\Delta^2}
+\]</span></p>
+<p>with <span class="math inline">\(\Delta = \frac{\mu_1 - \mu_2}{\sigma}\)</span>. How does this compare with your results? Why does this rule of thumb work? How good is this rule of thumb?</p>
+<pre class="r"><code># rule of thumb
+sigma=1
+# Here, use either s1 or s2 or pooled sd for the sake of estimating. Comment from the instructor: Can we agree that the formula given in to check your work will be an approximation, and not an exact answer? If so, then does it matter if the approximate answer is based on the larger of two sd, the smaller of two sd, or some pooled value?
+Delta=(m1 - m2)/s2
+
+n= 16/Delta^2
+n</code></pre>
+<pre><code>## [1] 49.38069</code></pre>
+</div>
+</div>
+</div>
+<div id="exercise-3" class="section level1">
+<h1>Exercise 3</h1>
+<p>The probablity of an observation <span class="math inline">\(x\)</span>, when taken from a normal population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> is calculated by</p>
+<p><span class="math display">\[
+L (x ; \mu, \sigma^2) = \frac{1}{\sigma \sqrt{2 \pi}^{}} e^{- \frac{(x - \mu)^2}{2 \sigma^2}}
+\]</span>
+For values of <span class="math inline">\(x = \{-0.1, 0.0, 0.1 \}\)</span>, write code to calculate <span class="math inline">\(L (x ; \mu = 0, \sigma = 1)\)</span>.</p>
+<div id="answer-2" class="section level2">
+<h2>Answer</h2>
+<p>Enter the R code in the chunks below. If you choose SAS for this exercise, use the marked portion in the SAS homework template.</p>
+<div id="x-0.1" class="section level4">
+<h4><span class="math inline">\(x=-0.1\)</span></h4>
+<pre class="r"><code># to calcuate the values for l_1 from above equation, first we define the values for sigma, mu and x as below and the code for the formula is shown. 
+sigma=1
+mu=0
+x=-0.1
+l_1 &lt;- 1/ (sigma*sqrt(2*pi))*exp(-(x-mu)^2/2*sigma^2)
+l_1</code></pre>
+<pre><code>## [1] 0.3969525</code></pre>
+</div>
+<div id="x0.0" class="section level4">
+<h4><span class="math inline">\(x=0.0\)</span></h4>
+<pre class="r"><code># to calcuate the values for l_2 from above equation, first we define the values for sigma, mu and x as below and the code for the formula is shown. 
+sigma=1
+mu=0
+x=0.0
+l_2 &lt;- 1/ (sigma*sqrt(2*pi))*exp(-(x-mu)^2/2*sigma^2)
+l_2</code></pre>
+<pre><code>## [1] 0.3989423</code></pre>
+</div>
+<div id="x0.1" class="section level4">
+<h4><span class="math inline">\(x=0.1\)</span></h4>
+<pre class="r"><code># to calcuate the values for l_3 from above equation, first we define the values for sigma, mu and x as below and the code for the formula is shown. 
+sigma=1
+mu=0
+x=0.1
+l_3 &lt;- 1/ (sigma*sqrt(2*pi))*exp(-(x-mu)^2/2*sigma^2)
+l_3</code></pre>
+<pre><code>## [1] 0.3969525</code></pre>
+<p>You can confirm your results using the built in normal distribution function. Look up <code>dnorm</code> in R help and use the same values for <code>x</code>, <code>mean</code> and <code>sigma</code> as above. You should get matching results to at least 12 decimal places.</p>
+<pre class="r"><code>if(abs(l_1 -dnorm(-0.1,0, 1))&lt;1e-12) {
+  print(&quot;likelihood for x = -0.1 correct&quot;)
+}else{
+  print(&quot;likelihood for x = -0.1 incorrect&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;likelihood for x = -0.1 correct&quot;</code></pre>
+<pre class="r"><code>if(abs(l_2 -dnorm(0,0, 1))&lt;1e-12) {
+  print(&quot;likelihood for x = 0.0 correct&quot;)
+}else{
+  print(&quot;likelihood for x = 0.0 incorrect&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;likelihood for x = 0.0 correct&quot;</code></pre>
+<pre class="r"><code>if(abs(l_3 -dnorm(0.1,0, 1))&lt;1e-12) {
+  print(&quot;likelihood for x = 0.1 correct&quot;)
+} else {
+  print(&quot;likelihood for x = 0.1 incorrect&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;likelihood for x = 0.1 correct&quot;</code></pre>
+<p>Thus, this shows that the matching resuls are less than 12 decimal places.</p>
+</div>
+</div>
+</div>
+<div id="exercise-4" class="section level1">
+<h1>Exercise 4</h1>
+<div id="part-a" class="section level2">
+<h2>Part a</h2>
+<p>Write code to compute</p>
+<p><span class="math display">\[7 - 1 \times 0 + 3 \div 3\]</span></p>
+<p>Type this in verbatim, using only numbers, <code>-</code>,<code>*</code> and <code>/</code>, with no parenthesis. Do you agree with the result? Explain why, one or two sentences.</p>
+<div id="answer-3" class="section level4">
+<h4>Answer</h4>
+<pre class="r"><code>a=7-1*0+3/3
+a</code></pre>
+<pre><code>## [1] 8</code></pre>
+<p>Yes I agree with the results because it follows BODMAS rule. The order of calculation should be brackets, Order, Division/Multiplication, Addition/Subtraction.</p>
+</div>
+</div>
+<div id="part-b" class="section level2">
+<h2>Part b</h2>
+<p>According to “Why Did 74% of Facebook Users Get This Wrong?” (<a href="https://profpete.com/blog/2012/11/04/why-did-74-of-facebook-users-get-this-wrong/" class="uri">https://profpete.com/blog/2012/11/04/why-did-74-of-facebook-users-get-this-wrong/</a>), most people would compute the result as 1.
+Use parenthesis <code>( )</code> to produce this result.</p>
+<div id="answer-4" class="section level4">
+<h4>Answer</h4>
+<pre class="r"><code>#For this, we can get 1 if we do the substraction at first and then the multiplication later by addition and division. Therefore, the value would be wrong as it doesnot follow the rule of calculations (BODMAS). 
+a=(7-1)*0+3/3
+a</code></pre>
+<pre><code>## [1] 1</code></pre>
+</div>
+</div>
+<div id="part-c" class="section level2">
+<h2>Part c</h2>
+<p>Several respondents to the survey cited in Part 2 gave the answer 6. Add <em>one</em> set of parenthesis to produce this result.</p>
+<div id="answer-5" class="section level4">
+<h4>Answer</h4>
+<pre class="r"><code>a=7-1*(0+3/3)
+a</code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
+</div>
+</div>
+<div id="exercise-5." class="section level1">
+<h1>Exercise 5.</h1>
+<div id="part-a-1" class="section level3">
+<h3>Part a</h3>
+<p>Quoting from Wansink and Payne</p>
+<blockquote>
+<p>Because of changes in ingredients, the mean average calories in a recipe increased by 928.1 (from
+2123.8 calories … to 3051.9 calories … ), representing a 43.7% increase.</p>
+</blockquote>
+<p>Show how 43.7% is calculated from 2123.8 and 3051.9, and confirm W&amp;P result.</p>
+<div id="answer-6" class="section level4">
+<h4>Answer</h4>
+<pre class="r"><code>#here we define the variable m1 and m2 as mean for total caloires for 1936 and 2006 respectively
+m1=2123.8
+m2=3051.9
+percentchange=(m2-m1)/m1*100
+round(percentchange, 2)</code></pre>
+<pre><code>## [1] 43.7</code></pre>
+<pre class="r"><code># 43.7</code></pre>
+<blockquote>
+<p>The resulting increase of 168.8 calories (from 268.1 calories … to 436.9 calories …) represents a 63.0% increase … in calories per serving.</p>
+</blockquote>
+</div>
+</div>
+<div id="part-b-1" class="section level3">
+<h3>Part b</h3>
+<p>Repeat the calculations from above and confirm the reported 63.0% increase in calories per serving. Why is there such a difference between the change in calories per recipe and in calories per serving?</p>
+<div id="answer-7" class="section level4">
+<h4>Answer</h4>
+<pre class="r"><code>#let m1 and m2 be the mean for calories per serving for 1936 and 2006 respectively. 
+m1=268.1
+m2=436.9
+percentchange=abs(m1-m2)/m1*100
+round(percentchange, 1)</code></pre>
+<pre><code>## [1] 63</code></pre>
+<pre class="r"><code># 63.0</code></pre>
+<p>The value for the percentage change in average calories per recipe from 1936 to 2006 is 43.7% which is lower than the percent change in average calories per serving (63.0 %) because the percent change for the year 1936 to 2006 is higher for average calories per serving compared to average calories per recipe.</p>
+</div>
+</div>
+<div id="part-c-1" class="section level3">
+<h3>Part c</h3>
+<p>Calculate an average calories per serving by dividing average calories per recipe by average servings per recipe, for years 1936 and 2006, then calculate a percent increase. Which of the two reported increases (a or b) are consistent with this result?</p>
+<div id="answer-8" class="section level4">
+<h4>Answer</h4>
+<pre class="r"><code>#Here, we divide average calories per recipe by average servings per recipe to get m1 and m2 (average calories per serving for year 1936 and 2006, respectively).
+m1=2123.8/12.9
+m2=3051.9/12.7
+percentchange=abs(m1-m2)/m1*100
+round(percentchange, 2)</code></pre>
+<pre><code>## [1] 45.96</code></pre>
+<p>The reported percent change here (45.96%) is somewhat consistent with 43.7 %. So it is somewhat consistent with a.</p>
+<p>Finally, I choose to work on exercise 1, 3, 4 and 5 using R and also excercise 1 using SAS.</p>
+</div>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistical_programming/">Statistical_programming</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/achalneupane.github.io/authors/achal-neupane/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/control_structures/">Control Structures</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/data_manipulation/">Data manipulation</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/data_tables/">Data tables</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/achalneupane.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/achalneupane.github.io/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/achalneupane.github.io/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/achalneupane.github.io/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

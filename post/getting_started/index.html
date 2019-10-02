@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Achal Neupane">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Statistics series">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/achalneupane.github.io/post/getting_started/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145752794-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/achalneupane.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/achalneupane.github.io/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/achalneupane.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="/achalneupane.github.io/post/getting_started/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@achalneupane">
+  <meta property="twitter:creator" content="@achalneupane">
+  
+  <meta property="og:site_name" content="Achal Neupane">
+  <meta property="og:url" content="/achalneupane.github.io/post/getting_started/">
+  <meta property="og:title" content="Getting Started | Achal Neupane">
+  <meta property="og:description" content="Statistics series"><meta property="og:image" content="/achalneupane.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+    
+    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Getting Started | Achal Neupane</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/achalneupane.github.io/">Achal Neupane</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#impact"><span>Impact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Getting Started</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/achalneupane.github.io/authors/achal-neupane/"><strong>Achal Neupane</strong></a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 15, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/achalneupane.github.io/post/getting_started/&amp;text=Getting%20Started" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/achalneupane.github.io/post/getting_started/&amp;t=Getting%20Started" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Getting%20Started&amp;body=/achalneupane.github.io/post/getting_started/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/achalneupane.github.io/post/getting_started/&amp;title=Getting%20Started" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Getting%20Started%20/achalneupane.github.io/post/getting_started/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/achalneupane.github.io/post/getting_started/&amp;title=Getting%20Started" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<div id="instructions" class="section level1">
+<h1>Instructions</h1>
+<p>This document runs a simple analysis of the Table 1 from <span class="citation">[@wansink2009joy]</span>. Edit the header information to show your name and the date you complete the assignment.</p>
+<p>Modify this document to analyze either Calories per Serving or Servings per Recipe. Document any changes you make in the literate portion of the file. Comment on your choice of measure to analyze.</p>
+<p>Change the name of this file to match your user name on D2L, keeping the ‘Rmd’ extension, and include week number in the title (for example, <code>Peter.Claussen.1.Rmd</code>). Upload this file to D2L. Typeset this file to Word or PDF and upload the result to D2L as well.</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<table>
+<caption>Mean and (SD) for selected recipes from “Joy of Cooking”</caption>
+<colgroup>
+<col width="16%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Measure</th>
+<th align="right">1936</th>
+<th align="right">1946</th>
+<th align="right">1951</th>
+<th align="right">1963</th>
+<th align="right">1975</th>
+<th align="right">1997</th>
+<th align="right">2006</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">calories per recipe (SD)</td>
+<td align="right">2123.8 (1050.0)</td>
+<td align="right">2122.3 (1002.3)</td>
+<td align="right">2089.9 (1009.6)</td>
+<td align="right">2250.0 (1078.6)</td>
+<td align="right">2234.2 (1089.2)</td>
+<td align="right">2249.6 (1094.8)</td>
+<td align="right">3051.9 (1496.2)</td>
+</tr>
+<tr class="even">
+<td align="left">calories per serving (SD)</td>
+<td align="right">268.1 (124.8)</td>
+<td align="right">271.1 (124.2)</td>
+<td align="right">280.9 (116.2)</td>
+<td align="right">294.7 (117.7)</td>
+<td align="right">285.6 (118.3)</td>
+<td align="right">288.6 (122.0)</td>
+<td align="right">384.4 (168.3)</td>
+</tr>
+<tr class="odd">
+<td align="left">servings per recipe (SD)</td>
+<td align="right">12.9 (13.3)</td>
+<td align="right">12.9 (13.3)</td>
+<td align="right">13.0 (14.5)</td>
+<td align="right">12.7 (14.6)</td>
+<td align="right">12.4 (14.3)</td>
+<td align="right">12.4 (14.3)</td>
+<td align="right">12.7 (13.0)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="analysis" class="section level1">
+<h1>Analysis</h1>
+<div id="enter-data" class="section level3">
+<h3>Enter data</h3>
+<pre class="r"><code>CookingTooMuch.dat &lt;- data.frame(
+  Year=c(1936, 1946, 1951, 1963, 1975, 1997, 2006),
+  CaloriesPerRecipeMean = c(2123.8, 2122.3, 2089.9, 2250.0, 2234.2, 2249.6, 3051.9),
+  CaloriesPerRecipeSD = c(1050.0, 1002.3, 1009.6, 1078.6, 1089.2, 1094.8, 1496.2),
+  CaloriesPerServingMean = c(268.1, 271.1, 280.9, 294.7, 285.6, 288.6, 384.4),
+  CaloriesPerServingSD = c(124.8, 124.2, 116.2, 117.7, 118.3, 122.0, 168.3),
+  ServingsPerRecipeMean = c(12.9, 12.9, 13.0, 12.7, 12.4, 12.4, 12.7),
+  ServingsPerRecipeSD = c(13.3, 13.3, 14.5, 14.6, 14.3, 14.3, 13.0)
+)</code></pre>
+</div>
+<div id="create-values-for-confidence-interval-plot" class="section level3">
+<h3>Create values for confidence interval plot</h3>
+<p>Wansink reports that 18 recipes were analyzed.</p>
+<pre class="r"><code>n &lt;- 18</code></pre>
+<p>Assume a significance level <span class="math inline">\(\alpha\)</span> of 5%.</p>
+<pre class="r"><code>alpha &lt;- 0.05</code></pre>
+<p>Use standard formula for standard error <span class="math inline">\(\sigma / \sqrt{n}\)</span> and confidence interval <span class="math inline">\(t_{\alpha/2} \times s.e.\)</span>.</p>
+<pre class="r"><code>StandardError &lt;- function(sigma, n) {
+  sigma/sqrt(n)
+}
+ConfidenceInterval &lt;- function(sigma, n) {
+  qt(1-alpha/2, Inf)*StandardError(sigma,n)
+}</code></pre>
+<p>Create a variable for plotting and calculate upper and lower bounds using confidence intervals.
+For this assignment, I am plotting ServingsPerRecipe.</p>
+<pre class="r"><code>PlotCookingTooMuch.dat &lt;- CookingTooMuch.dat
+PlotCookingTooMuch.dat$ServingsPerRecipe &lt;-
+  PlotCookingTooMuch.dat$ServingsPerRecipeMean
+PlotCookingTooMuch.dat$Lower &lt;-
+  PlotCookingTooMuch.dat$ServingsPerRecipe - ConfidenceInterval(CookingTooMuch.dat$ServingsPerRecipeSD, n)
+PlotCookingTooMuch.dat$Upper &lt;-
+  PlotCookingTooMuch.dat$ServingsPerRecipe + ConfidenceInterval(CookingTooMuch.dat$ServingsPerRecipeSD, n)</code></pre>
+<p>Here, we are selecting only ServingsPerRecipe variable for plotting.</p>
+<pre class="r"><code>PlotCookingTooMuch.dat &lt;-
+  PlotCookingTooMuch.dat[, c(&quot;Year&quot;, &quot;ServingsPerRecipe&quot;, &quot;Lower&quot;, &quot;Upper&quot;)]</code></pre>
+<p>Examine the values to make sure we’ve entered correctly.</p>
+<pre class="r"><code>print(PlotCookingTooMuch.dat)</code></pre>
+<pre><code>##   Year ServingsPerRecipe    Lower    Upper
+## 1 1936              12.9 6.755826 19.04417
+## 2 1946              12.9 6.755826 19.04417
+## 3 1951              13.0 6.301465 19.69854
+## 4 1963              12.7 5.955268 19.44473
+## 5 1975              12.4 5.793858 19.00614
+## 6 1997              12.4 5.793858 19.00614
+## 7 2006              12.7 6.694417 18.70558</code></pre>
+<p>Couldn’t find the confidence intervals for ServingsPerRecipe in Wanskins report
+for 1936 and 2006. So I am using the Reference CI as calculated CI using
+confidence interval function above. So here, I am using ComValues as
+ReferneceValues</p>
+<pre class="r"><code>CompValues &lt;- PlotCookingTooMuch.dat[c(1, 7), c(&quot;Lower&quot;, &quot;Upper&quot;)]
+#ReferenceValues &lt;- matrix(c(1638.7, 2608.9, 2360.7, 3743.1),nrow=2,byrow=TRUE)
+ReferenceValues &lt;- CompValues
+CompValues</code></pre>
+<pre><code>##      Lower    Upper
+## 1 6.755826 19.04417
+## 7 6.694417 18.70558</code></pre>
+<pre class="r"><code>ReferenceValues</code></pre>
+<pre><code>##      Lower    Upper
+## 1 6.755826 19.04417
+## 7 6.694417 18.70558</code></pre>
+<pre class="r"><code>any(abs(CompValues - ReferenceValues) &gt; 0.1)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>We no longer need the original data.</p>
+<pre class="r"><code>CookingTooMuch.dat &lt;- NULL</code></pre>
+</div>
+</div>
+<div id="plot-the-table" class="section level1">
+<h1>Plot the table</h1>
+<p>#Here, changed the title and y and x labels to Servings Per Recipe</p>
+<pre class="r"><code>plot(
+  ServingsPerRecipe ~ Year,
+  data = PlotCookingTooMuch.dat,
+  col = &quot;blue&quot;,
+  pch = 19,
+  main = &quot;Servings per Recipe&quot;,
+  ylab = &quot;Servings&quot;,
+  ylim = c(
+    min(PlotCookingTooMuch.dat$Lower),
+    max(PlotCookingTooMuch.dat$Upper)
+  )
+)
+lines(
+  ServingsPerRecipe ~ Year,
+  data = PlotCookingTooMuch.dat,
+  lty = &quot;dashed&quot;,
+  col = &quot;blue&quot;,
+  lend = 2
+)
+segments(
+  x0 = PlotCookingTooMuch.dat$Year,
+  y0 = PlotCookingTooMuch.dat$Lower,
+  x1 = PlotCookingTooMuch.dat$Year,
+  y1 = PlotCookingTooMuch.dat$Upper
+)</code></pre>
+<p><img src="/achal.github.io/post/Getting_started_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="comments" class="section level1">
+<h1>Comments</h1>
+<p>From this plot, it appears that average servings per recipe doesn’t seem to
+change from 1936 to 2006.</p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistical_programming/">Statistical_programming</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/achalneupane.github.io/authors/achal-neupane/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/calculations/">Calculations</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/control_structures/">Control Structures</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/data_manipulation/">Data manipulation</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/achalneupane.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/achalneupane.github.io/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/achalneupane.github.io/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/achalneupane.github.io/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

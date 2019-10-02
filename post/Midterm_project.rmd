@@ -1,0 +1,768 @@
+---
+Authors: ["**Achal Neupane**"]
+title: "Midterm data analysis"
+date: 2019-09-01T17:26:23-05:00
+draft: false
+output: html_document
+tags:
+- R
+- Statistics
+- Statistical_programming
+summary: Statistics series
+---
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+In this exercise, I will be analyzing four fields as a
+statistical consultant. This data comes from four different farm fields and we try to investigate the effects of variable seeding rates in overall yeild.
+
+The table summarizes data from four corn fields. The top row are target seeding rates, in seeds per acre, the bottom row are
+corn yields in bushels per acre.
+This table summarizes all four fields at the Control Rate interval of 1000 which was also reproduced below in my anaysis. More importantly, we are interested in exploring the EffectSize and Required Replicates for properly examining any statistical evidence for the yield and variable seeding rates relationships. 
+
+
+Rate   |    23000 |    24000 |    25000 |    26000 |    27000 |    28000 |29000
+-------|----------|----------|----------|----------|----------|----------|---------
+Yield  | 111.4216 | 155.0326 | 181.1176 | 227.5800 | 233.4623 | 242.1753 | 231.3890
+
+
+The algorithm to do this analysis is divided into several steps as described below:
+
+1. I have used some external packages like ggplot2 to make the plots.
+2. I have written several functions to analyze each individual field as well as merged field statistics that calculates cohens effect size, required replicates, and does ANOVA analysis on individual field as well as on merged data from all fields. 
+3. Function `calculate_field_mean_SD_and_get_RR_EffSize` also uses mean, sd, and counts from each field to calculate cohens d and Required replicates. It also uses pooled standard deviations and Mean (mean of Means) calculated from all four fields for different control Rates to calculate cohens d and required replicates of combined field data. I have tested this function on all four fields at ControlRate level of 500, 1000, 2000 and 3000 intervals, then based on the results (also merged the output of all four intervals to get the effectSize and Required Replicates compared), I have decided to choose 1000 intervals of ControlRates for further analysis for combined data from all four fields.
+4. I have also shown ANOVA analysis followed by TUKEY HSD test to show which ControlRates of seeding have significant effect on Yield for each field and then for all fields (combined all four fields).
+5. Lastly, I have plotted EffectSize Vs RequiredReplicates for each field and also for combined data from four fields.
+
+
+Here, we first install ond load some of the packages  ("multcompView", "ggplot2", "scales", "data.table") I will be using for this exercise.
+```{r}
+# First, install missing packages and load them
+myPackages <- c("multcompView", "ggplot2", "scales", "data.table")
+my.installed.packages<- installed.packages()
+available.packages <- myPackages %in% my.installed.packages
+if (sum(!available.packages) > 0){
+  install.packages(myPackages[!available.packages])
+}
+# Load all required packages 
+lapply(myPackages, require, character.only = TRUE)
+```
+
+We will first write and describe our function here. We will be using these function to manipulate our data, calculate Cohen's d, required replicates and also do ANOVA and TukeyHSD paired test, then finally to plot our data. 
+We can calculate EffectSize and RequiredReplicates for these data using functions from previous homework `cohen.d` and 
+`required.replicates`. These two functions are then called within another function `calculate_field_mean_SD_and_get_RR_EffSize` that analyzes each individual field and also merged data from all four fields to calculate Effect Size, Required Replictaes and then plot the results. 
+
+```{r}
+cohen.d <- function(m1, s1, m2, s2){
+  cohens_d <-(abs(m1-m2)/sqrt((s1^2+s2^2)/2))
+  return(cohens_d)
+}
+
+required.replicates <- function (m1, s1, m2, s2, alpha=0.05, beta=0.2){
+  n <- 2* ((((sqrt((s1^2 + s2^2)/2))/(m1-m2))^2) * (qnorm((1-alpha/2)) + qnorm((1-beta)))^2) 
+  return(round(n,0))
+}
+```
+
+
+We willl also perform ANOVA analysis with Tukey Test for paired comparision of mean for each field data as well as merged data at different ControlRate intervals. This function does Tukey HSD test and generates label for significant outcomes.
+
+```{r}
+# Create function to get the labels for Tukey HSD:
+generate_label_df <- function(TUKEY, variable){
+  
+  # Extract labels and factor levels from Tukey post-hoc 
+  Tukey.levels <- TUKEY[[variable]][,4]
+  Tukey.labels <- data.frame(multcompLetters(Tukey.levels)['Letters'])
+  
+  #I need to put the labels in the same order as in the boxplot :
+  Tukey.labels$treatment=rownames(Tukey.labels)
+  Tukey.labels=Tukey.labels[order(Tukey.labels$treatment) , ]
+  return(Tukey.labels)
+}
+```
+This function does ANOVA and makes boxplots with Tukey statistics for comparing Mean yield.
+
+```{r}
+get_my_box_plot <- function (field, plot_name = "the Field") {
+  model = lm(field$Yield ~ field$ControlRate.Levels)
+  ANOVA = aov(model)
+  
+  # Tukey test to study each pair of treatment :
+  TUKEY <- TukeyHSD(x = ANOVA, 'field$ControlRate.Levels', conf.level = 0.95)
+  
+  # generate labels using function
+  labels <- generate_label_df(TUKEY , "field$ControlRate.Levels")
+  
+  # rename columns for merging
+  names(labels) <- c('Letters', 'ControlRate.Levels')
+  
+  # Obtain letter positions for y axis using means
+  yvalue <- aggregate(. ~ ControlRate.Levels, data = field, mean)
+  
+  final <- merge(labels, yvalue) #merge dataframes
+  
+  p <- ggplot(field, aes(x = ControlRate.Levels, y = Yield)) +
+  geom_blank() +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank()) +
+  labs(x = 'Control Rates', y = 'Mean Yield') +
+  ggtitle(paste0("ControlRates Vs Mean yield for ", plot_name),
+  expression(atop(italic("(Anova:TukeyHSD)"), ""))) +
+  theme(plot.title = element_text(hjust = 0.5, face = 'bold')) +
+  geom_boxplot(fill = 'grey', stat = "boxplot") +
+  geom_text(
+  data = final,
+  aes(x = ControlRate.Levels, y = Yield, label = Letters),
+  vjust = -3.5,
+  hjust = -.5
+  ) +
+  geom_vline(aes(xintercept = 4.5), linetype = "dashed") +
+  theme(plot.title = element_text(vjust = -0.6))
+  print(p)
+  # print(TUKEY)
+}
+```
+
+Function to calculate mean and sd for each field for a given interval of
+ControlRate and then calculate Required Replicates and EffectSize. I have made
+one function to do all that so I can just use this function to analyze all
+four fields. To analyze single field set `Single.Field.Analysis = TRUE`, and to analyze all four field together, set `Single.Field.Analysis = FALSE`,
+
+```{r}
+calculate_field_mean_SD_and_get_RR_EffSize <- 
+  function(
+    field, intervals, Single.Field.Analysis = TRUE, printplot = FALSE){
+  plot_NAME <- (deparse(substitute(field)))
+  if(Single.Field.Analysis > 0){
+  # removing rows with NAs in Yield
+  sum(is.na(field$Yield))
+  # field <- field[!complete.cases(field$Yield), ]
+  field <- field[!is.na(field$Yield),]
+  # as.factor(fieldA$ControlRate)
+  table.field <- table(as.factor(field$ControlRate))
+  field$ControlRate.Levels <- as.factor(intervals * ceiling(field$ControlRate/intervals))
+  field.Count <- setNames(aggregate(field$ControlRate, 
+          by = list(field$ControlRate.Levels), FUN = length), c("ControlRate", "Count"))
+  # Degree of freedome = n * k - k
+  field.Count$degree.Freedom <- 
+    (field.Count$Count * length(field.Count$ControlRate)) -length(field.Count$ControlRate)
+  
+  field.mean <-
+    setNames(aggregate(
+    field$Yield,
+    by = list(field$ControlRate.Levels),
+    FUN = mean
+    ),
+    c("ControlRate", "Mean"))
+    
+    field.SD <-
+    setNames(aggregate(
+    field$Yield,
+    by = list(field$ControlRate.Levels),
+    FUN = sd
+    ),
+    c("ControlRate", "SD"))
+
+  # plot individual fields with tukey test We will print box plot only if we
+  # want for certain ControlRates intervals. Otherwise we will have too many
+  # plots
+  if(printplot == 1 ){
+  get_my_box_plot(field, plot_name = plot_NAME)
+  }
+  # Else we work on the merged data with SD pooled; no need to calculate mean
+  # and SD as we will be doing it below
+  
+  } else {
+    temp.Field <- field
+    colnames(temp.Field)[colnames(temp.Field) == "ControlRate"] <- "ControlRate.Levels"
+    colnames(temp.Field)[colnames(temp.Field) == "Mean"] <- "Yield"
+    # get_my_box_plot(temp.Field)
+    field.SD  <- 
+      as.data.frame(cbind(ControlRate = field["ControlRate"], SD = field["SD_pooled"]))
+    field.mean <- 
+      as.data.frame(cbind(ControlRate = field["ControlRate"], Mean = field["Mean"]))
+  }
+  
+# Calculate Required replicate and Effect Size from each
+# field for ControlRate i vs i+1
+
+# ReqRep_EffectSize_table <- function (field.mean, field.SD){
+Req.Rep.table.field <- {}
+for (i in 1:nrow(field.SD)){
+  if(i+1 > nrow(field.SD) ){
+    break
+  }
+  temp.Effect.size <-
+    cohen.d(
+    m1 = field.mean$Mean[i],
+    s1 = field.SD$SD[i],
+    m2 = field.mean$Mean[i + 1],
+    s2 = field.SD$SD[i + 1]
+    )
+    
+    tmp.req.reps <-
+    required.replicates(
+    m1 = field.mean$Mean[i],
+    s1 = field.SD$SD[i],
+    m2 = field.mean$Mean[i + 1],
+    s2 = field.SD$SD[i + 1]
+    )
+ 
+    tmp.table <-
+    cbind(
+    Group = paste0(field.SD$ControlRate[i], " Vs ", field.SD$ControlRate[i +
+    1]),
+    EffectSize = temp.Effect.size,
+    RequiredReplicates = tmp.req.reps
+    )
+      
+      Req.Rep.table.field <- rbind(Req.Rep.table.field, tmp.table)
+}
+if (Single.Field.Analysis > 0) {
+  return(
+    list(
+      field.mean = field.mean,
+      fieldSD = field.SD,
+      field.Count = field.Count,
+      Req.Rep.table.field = Req.Rep.table.field
+    )
+  )
+} else{
+  return(list(Req.Rep.table.field = Req.Rep.table.field))
+}
+  }
+
+###############################################End of Functions##########
+
+```
+
+
+Now, we read four fields data:
+
+```{r}
+fieldA <-
+  read.table(
+  "https://raw.githubusercontent.com/achalneupane/data/master/fieldA.csv",
+  header = TRUE,
+  sep = ","
+  )
+  # head(fieldA)
+  dim(fieldA)
+  tmp.fieldA <- fieldA
+  tmp.fieldA$ControlRate <- as.factor(tmp.fieldA$ControlRate)
+  # aggregate(fieldA$Yield, by = list(fieldA$ControlRate), FUN = mean)
+```
+
+Note: There are 40 levels of Control rates in fieldA, we can reduce these levels, so what we can do is relevel them separated by 'intervals' of(say 1000) as used in 'calculate_field_mean_SD' function above. We can do the same for other fields. However, instead of checking all this one by one, we will be using the functions we described above to analyze these four fields data and get the plots. 
+
+```{r}
+fieldB <-
+  read.table(
+  "https://raw.githubusercontent.com/achalneupane/data/master/fieldB.csv",
+  header = TRUE,
+  sep = ","
+  )
+  # head(fieldB)
+  dim(fieldB)
+  
+  # fieldC
+  fieldC <-
+  read.table(
+  "https://raw.githubusercontent.com/achalneupane/data/master/fieldC.csv",
+  header = TRUE,
+  sep = ","
+  )
+  # head(fieldC)
+  dim(fieldC)
+  
+  # fieldD
+  fieldD <-
+  read.table(
+  "https://raw.githubusercontent.com/achalneupane/data/master/fieldD.csv",
+  header = TRUE,
+  sep = ","
+  )
+  # head(fieldD)
+  dim(fieldD)
+```
+
+
+we can calculate EffectSize and RequiredReplicates for these four fields using previous homeworks functions Cohen's d and 
+required.replicates as described in the begining of this report.
+
+  
+Here, we can work on each individual field, first for the interval of 500, 1000,
+2000 and 3000 ControlRates and decide which ControlRate interval fits the best
+for our data. Then we we will work on merged data that we merge after
+calculating individual fields (i.e using Mean and SD pooled for each
+ControlRate from all fields)
+  
+We chan check how many replicates we need for each field if we compare at
+the different ControlRates intervals starting with 500 to 3000. Set `eval = TRUE` to check this code.
+
+At ControlRates interval of 500:
+```{r, eval = TRUE}
+# Now we chan check how many replicates we need for each field if we compare at
+# the different ControlRates intervals starting with 500 to 3000:
+
+# At ControlRates interval of 500:
+ControlRateInterval <- 500
+
+# field A
+fieldA.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldA, interval = ControlRateInterval
+    )
+
+# field B
+fieldB.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldB, interval = ControlRateInterval
+    )
+
+# field C
+fieldC.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldC, interval = ControlRateInterval
+    )
+
+# field D
+fieldD.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldD, interval = ControlRateInterval
+    )
+
+# Now, we merge all these so we can plot them together later
+my_list <- list(fieldA.data$Req.Rep.table.field, fieldB.data$Req.Rep.table.field, 
+                fieldC.data$Req.Rep.table.field, fieldD.data$Req.Rep.table.field)
+
+my_list_nms <- setNames(my_list, c("fieldA", "fieldB", "fieldC", "fieldD"))
+Merged.EffectSize.500 <- 
+  data.frame(rbindlist(lapply(my_list_nms, as.data.table), idcol = "id"))
+Merged.EffectSize.500$interval <- 500
+```
+
+
+At ControlRates interval of 1000:
+
+```{r, eval = TRUE}
+ControlRateInterval <- 1000
+
+# field A
+fieldA.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldA, interval = ControlRateInterval
+    )
+# field B
+fieldB.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldB, interval = ControlRateInterval
+    )
+
+# field C
+fieldC.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldC, interval = ControlRateInterval
+    )
+
+# field D
+fieldD.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldD, interval = ControlRateInterval
+    )
+
+# Now, we merge all these so we can plot them together later
+my_list <- list(fieldA.data$Req.Rep.table.field, fieldB.data$Req.Rep.table.field, 
+                fieldC.data$Req.Rep.table.field, fieldD.data$Req.Rep.table.field)
+
+my_list_nms <- setNames(my_list, c("fieldA", "fieldB", "fieldC", "fieldD"))
+Merged.EffectSize.1000 <- 
+  data.frame(rbindlist(lapply(my_list_nms, as.data.table), idcol = "id"))
+
+Merged.EffectSize.1000$interval <- 1000
+```
+
+At ControlRates interval of 2000:
+
+```{r, eval = TRUE}
+ControlRateInterval <- 2000
+
+# field A
+fieldA.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldA, interval = ControlRateInterval
+    )
+# field B
+fieldB.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldB, interval = ControlRateInterval
+    )
+
+# field C
+fieldC.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldC, interval = ControlRateInterval
+    )
+
+# field D
+fieldD.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldD, interval = ControlRateInterval
+    )
+
+# Now, we merge all these so we can plot them together later
+my_list <- list(fieldA.data$Req.Rep.table.field, fieldB.data$Req.Rep.table.field, 
+                fieldC.data$Req.Rep.table.field, fieldD.data$Req.Rep.table.field)
+
+my_list_nms <- setNames(my_list, c("fieldA", "fieldB", "fieldC", "fieldD"))
+Merged.EffectSize.2000 <- 
+  data.frame(rbindlist(lapply(my_list_nms, as.data.table), idcol = "id"))
+Merged.EffectSize.2000$interval <- 2000
+```
+
+At ControlRates interval of 3000:
+
+```{r, eval = TRUE}
+ControlRateInterval <- 3000
+
+# field A
+fieldA.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldA, interval = ControlRateInterval
+    )
+# field B
+fieldB.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldB, interval = ControlRateInterval
+    )
+
+# field C
+fieldC.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldC, interval = ControlRateInterval
+    )
+
+# field D
+fieldD.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldD, interval = ControlRateInterval
+    )
+
+# Now, we merge all these so we can plot them together later
+my_list <- list(fieldA.data$Req.Rep.table.field, fieldB.data$Req.Rep.table.field, 
+                fieldC.data$Req.Rep.table.field, fieldD.data$Req.Rep.table.field)
+
+my_list_nms <- setNames(my_list, c("fieldA", "fieldB", "fieldC", "fieldD"))
+Merged.EffectSize.3000 <- 
+  data.frame(rbindlist(lapply(my_list_nms, as.data.table), idcol = "id"))
+Merged.EffectSize.3000$interval <- 3000
+```
+
+
+Now, let's plot these data for EffectSize Vs RequiredReplicates for each Field and fordifferent ControlRate intervals
+
+```{r, eval = TRUE}
+EffectSize.Plot <-
+  rbind(
+  Merged.EffectSize.500,
+  Merged.EffectSize.1000,
+  Merged.EffectSize.2000,
+  Merged.EffectSize.3000
+  )
+
+EffectSize.Plot$id <- factor(EffectSize.Plot$id)
+EffectSize.Plot$interval <- factor(EffectSize.Plot$interval)
+EffectSize.Plot$Group <- factor(EffectSize.Plot$Group)
+EffectSize.Plot$EffectSize <- as.numeric(EffectSize.Plot$EffectSize)
+EffectSize.Plot$RequiredReplicates <- as.numeric(EffectSize.Plot$RequiredReplicates)
+head(EffectSize.Plot)
+
+
+scaleFUN <- function(x) sprintf("%.2f", x)
+
+# To eliminate any outliers and noise, we can plot effect Size between 0-1 and
+# Required Replicates upto 5000
+EffectSize.Plot <- EffectSize.Plot[EffectSize.Plot$RequiredReplicates<= 5000,]
+EffectSize.Plot <- EffectSize.Plot[EffectSize.Plot$EffectSize<= 1,]
+
+EffectSize.Plot$Group <- factor(EffectSize.Plot$Group)
+
+ggplot(EffectSize.Plot, aes(x=EffectSize, y=RequiredReplicates)) + 
+  ggtitle("Effect size Vs Required replicates for each field data") +
+  geom_point(aes(shape = Group), size = 2)  + 
+  scale_shape_manual(values=1:nlevels(EffectSize.Plot$Group)) +
+  geom_line() + 
+  scale_x_continuous("EffectSize", breaks=c(0,0.2,0.5,1), labels = scaleFUN) +
+  theme_bw() +
+  theme(axis.title = element_text(size=14,face="bold"), axis.text = element_text(size=10), 
+        plot.title = element_text(hjust = 0.5, face = "bold")) +
+  facet_wrap(~id)
+```
+
+Based on the plot we just plotted above, RequiredReplicates inccrease significantly with decreasing Effect Size. 
+
+Additionally, after running all these `ControlRateInterval`, I noticed that the Required replicates decrease for the higher ControlRate intervals. The reason I did not include this in my report is because it gives lots of output. SO, if we consider taking the ControlRate intervals of only 1000 and get the field mean and field SD for each field as below.
+
+Now, I will only limit my analysis for all fields (merged) for the Control Rates interval of 1000. 
+
+```{r}
+# If we consider taking the ControlRate intervals of 1000 and get the field mean and field
+# SD for each field:
+
+ControlRateInterval <- 1000
+# field A
+fieldA.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldA, intervals = ControlRateInterval, printplot = TRUE
+    )
+
+fieldA.data
+```
+Based on the plot we can see that the Mean Yield is significant between 23000 vs all ControlRates , 24000 vs all Control Rates, 25000 Vs all Control rates. Yeild has no significant effect of Seeding from Control Rate between 26000 to 28000. Infact, it starts to decline significantly  from 29000 Control Seedings. 
+
+```{r}
+# field B
+fieldB.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldB, interval = ControlRateInterval, printplot = TRUE
+    )
+
+fieldB.data
+```
+
+Here, we see significant difference between all Control Rates of Seeding except between 28000 Vs 29000. The seeding rates of 28000 has the highest Mean yield here. 
+
+```{r}
+# field C
+fieldC.data <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = fieldC, interval = ControlRateInterval, printplot = TRUE
+    )
+
+fieldC.data
+```
+
+Here, all Control rates of seeding are significantly diffferent with the highest Mean yeild for 28000.
+
+```{r}
+# field D
+fieldD.data <- calculate_field_mean_SD_and_get_RR_EffSize(
+  field = fieldD, interval = ControlRateInterval, printplot = TRUE
+  )
+
+fieldD.data
+```
+
+Here, all Control Rates of seeding are significantly different except for 26000-28000 Vs 29000 with the highest Mean yield for 28000.
+
+Also, to check if my calculation of Control rates and Yeild mean matches with
+the table in instruction (with 1000 intervals), we can check this with the merged field data ( i.e.
+fieldA, fieldB, fieldC and fieldD) data. We should get the same Mean values in
+the instruction table above.
+
+```{r}
+all.merged.raw.fields <- rbind(fieldA, fieldB, fieldC, fieldD)
+
+check.the.instruction.table <-
+calculate_field_mean_SD_and_get_RR_EffSize(
+  field = all.merged.raw.fields, intervals = ControlRateInterval
+  )
+
+check.the.instruction.table$field.mean
+```
+
+We can now merge all four fields  for SD, means and ControlRate level counts.
+
+```{r}
+merged.SD.4.plots <-
+  Reduce(
+  function(x, y)
+  merge(x, y, all = TRUE),
+  list(
+  fieldA.data$fieldSD,
+  fieldB.data$fieldSD,
+  fieldC.data$fieldSD,
+  fieldD.data$fieldSD
+  )
+  )
+  
+  
+  merged.Mean.4.plots <-
+  Reduce(
+  function(x, y)
+  merge(x, y, all = TRUE),
+  list(
+  fieldA.data$field.mean,
+  fieldB.data$field.mean,
+  fieldC.data$field.mean,
+  fieldD.data$field.mean
+  )
+  )
+  
+  
+  merged.Count.4.plots <-
+  Reduce(
+  function(x, y)
+  merge(x, y, all = TRUE),
+  list(
+  fieldA.data$field.Count,
+  fieldB.data$field.Count,
+  fieldC.data$field.Count,
+  fieldD.data$field.Count
+  )
+  )
+```
+
+We need SD pooled for these levels so we can calculate Cohen's d and Required
+Replicates.
+
+```{r}
+levels(merged.SD.4.plots$ControlRate)
+```
+
+First, we merged all merged.SD.4.plots, merged.Mean.4.plots and merged.Count.4.plots from all fields.
+```{r}
+# Therefore, now merging all three dataframes from all four plots for SD, Mean
+# and counts by ControlRate column
+Mean_SD_Count.dat <- Reduce(function(...)
+  merge(..., by = c("ControlRate", "grp"), all.x = TRUE),
+  lapply(
+    list(merged.Mean.4.plots, merged.SD.4.plots, merged.Count.4.plots),
+    transform,
+    grp = ave(seq_along(ControlRate), ControlRate, FUN = seq_along)
+  ))
+
+head(Mean_SD_Count.dat)
+```
+
+Now, we can also do Anova on the merged data `Mean_SD_Count.dat`
+
+```{r}
+Mean_SD_Count_merged_for_all_four_plots <- Mean_SD_Count.dat
+Mean_SD_Count_merged_for_all_four_plots$Yield <-
+Mean_SD_Count_merged_for_all_four_plots$Mean
+Mean_SD_Count_merged_for_all_four_plots$ControlRate.Levels <-
+Mean_SD_Count_merged_for_all_four_plots$ControlRate
+
+get_my_box_plot(Mean_SD_Count_merged_for_all_four_plots, plot_name = "all four fields")
+```
+
+Based on this plot, from all fields, we can tell that, Control Rates of seeding of 23000-25000 has significantly less Mean yield as compared to 26000-29000. It looks like Control Rates of Seeding between 27000 and 28000 has the highest Mean yield.
+
+We now calculate pooled SD for merged 4 plots `Mean_SD_Count.dat` to calculate Effect Size and Required Replicates for all fields (combined analysis) using pooled SD.
+
+```{r}
+pooled.dat <- Mean_SD_Count.dat
+
+
+# # Pooled sd can be calculated as: 
+pooled.dat$df <- pooled.dat$Count-1
+# pooled SD is :
+# pooledSD <- sqrt( sum(pooled.dat$sd^2 * pooled.dat$df) / sum(pooled.dat$df) )
+
+
+# We can calculate our SD pooled using this formula:
+#  s_{pooled} = \sqrt{\frac{\sum_i (n_i-1)s_i^2}{N-k}}
+# We will derrive this in steps as below:
+
+pooled.dat$df <- pooled.dat$Count-1
+pooled.dat$sd.square <- pooled.dat$SD^2 
+
+pooled.dat$ss <- pooled.dat$sd.square * pooled.dat$df
+
+
+# We can use convenience function (aggregate) for splitting and calculating the necessary sums.
+ds <- aggregate(ss ~ ControlRate, data = pooled.dat, sum)
+
+# Two different built in methods for split apply, we could use aggregate for
+# both if we wanted. This calculates our degrees of freedom.
+ds$df <- tapply(pooled.dat$df, pooled.dat$ControlRate, sum) 
+# divide ss by df and then we get sd square
+ds$sd.square <- ds$ss / ds$df
+# Finally, we can get our sd pooled
+ds$SD_pooled <- sqrt(ds$sd.square)
+ds
+
+# However, we could also calculate our sd_pooled as below and get the same results :
+sd_pooled <- lapply( split(Mean_SD_Count.dat, Mean_SD_Count.dat$ControlRate),
+         function(dd) sqrt( sum( dd$SD^2 * (dd$Count-1) )/(sum(dd$Count-1)-nrow(dd)) ) )
+```
+
+Now, we calculate Mean (Mean of Means) from the merged table `Mean_SD_Count.dat`, so we can calculate Cohen's d and RequiredReplicates for all four field combined.
+
+```{r}
+ds.Mean <-
+  setNames(aggregate(
+  Mean_SD_Count.dat$Mean,
+  by = list(Mean_SD_Count.dat$ControlRate),
+  FUN = mean
+  ),
+  c("ControlRate", "Mean"))
+
+ds <- merge(ds, ds.Mean, by.x = "ControlRate")
+ds
+```
+
+Now we calculate the Effect Size and Cohen's D for the combined 4 plots using mean yield and sd pooled for different ControlRate
+
+Now we calculate the Effect Size and Cohen's D for the combined 4 plots using mean yield and sd pooled for different ControlRate usinf our function `calculate_field_mean_SD_and_get_RR_EffSize`.
+
+```{r}
+RequiredReplicates_for_all_fields <- 
+  calculate_field_mean_SD_and_get_RR_EffSize(
+    field = ds, intervals = ControlRateInterval, Single.Field.Analysis = FALSE
+    )
+
+RequiredReplicates_for_all_fields
+```
+
+We can plot this results for better visualization of pattern.
+
+```{r}
+RequiredReplicates_for_all_fields <-
+  as.data.frame(RequiredReplicates_for_all_fields$Req.Rep.table.field)
+  
+  RequiredReplicates_for_all_fields$Group <-
+  factor(RequiredReplicates_for_all_fields$Group)
+  
+  RequiredReplicates_for_all_fields$RequiredReplicates <-
+  as.numeric(as.character(RequiredReplicates_for_all_fields$RequiredReplicates))
+  
+  RequiredReplicates_for_all_fields$EffectSize <-
+  as.numeric(as.character(RequiredReplicates_for_all_fields$EffectSize))
+  
+  # Plot RequiredReplicates_for_all_fields
+  ggplot(RequiredReplicates_for_all_fields,
+  aes(x = EffectSize, y = RequiredReplicates)) +
+  ggtitle("Effect size Vs Required replicates for all fields data \n(Combined Effect)") +
+  geom_point(aes(shape = Group), size = 2)  +
+  scale_shape_manual(values = 1:nlevels(EffectSize.Plot$Group)) +
+  geom_line() +
+  scale_x_continuous("EffectSize",
+  breaks = c(
+  0,
+  0.2,
+  0.5,
+  1,
+  max(RequiredReplicates_for_all_fields$EffectSize)
+  ),
+  labels = scaleFUN) +
+  theme_bw() +
+  theme(
+  axis.title = element_text(size = 14, face = "bold"),
+  axis.text = element_text(size = 10),
+  plot.title = element_text(hjust = 0.5, face = "bold")
+  )
+```
+
+Based on the combined effect size (from all four fields), we can see that the Effect size is inversely proportional to Required Replicates. We also see that for the small effect of ~0.2, we need exponentially larger replicates, for medium effect (~0.5), we need about 80 replicates and for larger effect (more than 0.8), we only need about 20 or fewer replicates. Our analysis from all fields also indicates that we have highest mean yeild for controlRates of Seeding og 27000-29000. 
+
+Final discussion and suggestion:
+
+Based on the results we saw above, if we take individual field (one at a time),  we would need thousands of replicates for low effect size. However, for moderate and large effect size, the required replicates number signficantly decreases even if we use individual field data separately. On the other hand, when we combine all four fields, our required replictes decreases for all low, moderate and large effect sizes (Figure: Effect size Vs Required replicates for all fields data (Combined Effect)) as compared to individual fields (Figure: Effect size Vs Required replicates for each field data). I also found that the required replicates decreases for lower rates of seeding (control Rates of 23000 Vs 24000). 
+Based on these results, we can also conclude that the Required replicates is inversely proportional to the Effect size as seen in all four fields data and merged data. 
+
+Aditionally, the mean yield significantly increases when we increase the seeding rates at control rates of 26000 to 28000 for each individual field. This was also consistent for combined field data (Figure: ControlRates Vs Mean yield for all four fields). So, my final suggestion for this analysis is that we should used all four fields to calculate required replicates and effect size, though we could still use single field data separately to derrive the conclusion that higher seeding rates (~26000-28000) has higher mean yield which was consistent in all four fields. However, making use of all four fields data is recommended. 
