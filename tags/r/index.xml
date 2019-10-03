@@ -22,6 +22,24 @@
 
 &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
 &lt;/script&gt;
+&lt;p&gt;&lt;strong&gt;Project Overview:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The final project will be a continuation of the midterm project. We will continue working with data from four corn fields, but will be looking at some issues with times and dates.
+For each field, I’ve uploaded two files, seed&lt;em&gt;.csv and harvest&lt;/em&gt;.csv, corresponding to seeding rate and yield data, respectively. Both sets of files have a column Timestamp with strings of the form
+2018-05-20T13:20:08.201Z
+Your task will be to extract the date and time values from these strings, and answer these questions. The text before ’T&amp;quot; is the date string, and the text between ’T&amp;quot; and “Z” is the time string, in universal time.
+1. What is the range of planting dates in these data?
+2. Was each field harvested entirely in one day, and where they harvested each at approximately the same time of day?
+It might be enough to process only the first and last rows in the data. Each should be sampled at one second intervals, so the time difference between the first and last rows, in seconds, should be almost equal to the number of rows. I would not be too worried about gaps on the data on the order of seconds, but I would want to know about hour long gaps in the data, and where they occur. Note that time will reset to 0 at 23:59:59 and date will increment, so account for this in the analysis.
+Some additional thoughts.
+There is a relationship between planting date and yield. We could review the literature to get a more precise estimate (and you can do that, if you wish), but we’ll start with a rough back-of-the-envelope calculation.
+Suppose we are working with 100-day corn - we expect corn to reach maturity in roughly 100 days. Let’s suppose that the difference between the first field planting date and the last field planting date is 5 days. That’s 5 percent of the growing period, so let %Diff = 5. What is the standard deviation for Yield, with regard to planting date? Again, we can look to the literature, but we’ll use a simplifying assumption that it will be similar to the sd for yield vs planting rate, as determined in the midterm project. Convert that to CV.
+Now we have a first approximation for effect size (%Diff/CV). Is this effect size large enough that we need to worry that the effect of planting date will confound our analysis of the relationship between yield and planting rate? When I gather data from more fields, do I need to be careful and only include fields in a narrow range of dates? What is the first approximation for the number of fields required to test the relationship between planting date and yield?
+Not, about gaps in harvest. I’ve been arguing that analyzing yield monitor data should be a two-step process. First, analysis the yield as a time series (as grain moves through the harvester) then analyze as spatial data (the as the harvester moves over the field). There will be auto-correlated errors in each process that should be analyzed independently.
+In particular, the value for yield as reported in these data is not the yield of the grain as it is measured going through the harvester. The grain moving through the harvester will be of varying degrees of maturity, thus of grain moisture - less mature grain will have more water content, thus more weight. Yield values are standardized to a define percent moisture, so the harvester has a moisture sensor, and the percent moisture reading is use to normalize yield.
+But yield is measured at one second intervals, while moisture can only be measured at approximately 10-15 second intervals. I’m curious if gaps in the harvest record will affect how yield is normalized by moisture - there may be some cases where the moisture reading is uncorrelated with yield, because of this difference in measurement (I suspect it will be very small, but it’s an interesting problem, to me).
+I’m also interested in how percent moisture changes over the course of a day, and if there is an effect when fields are harvested at different times of day.
+More will follow in the discussions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The algorithm to do this analysis is divided into several steps as described below:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;First you have to define the path to all csv files for final under (&lt;code&gt;path.final&lt;/code&gt;) and all .csv files from midterm under &lt;code&gt;path.midterm&lt;/code&gt; in the begining of the code below.&lt;/li&gt;
