@@ -5,7 +5,7 @@
     <link>/achalneupane.github.io/tags/modern-applied-statistics-i/</link>
       <atom:link href="/achalneupane.github.io/tags/modern-applied-statistics-i/index.xml" rel="self" type="application/rss+xml" />
     <description>Modern Applied Statistics I</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Thu, 15 Aug 2019 17:26:23 -0500</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 01 Oct 2019 17:26:23 -0500</lastBuildDate>
     <image>
       <url>/achalneupane.github.io/img/icon-192.png</url>
       <title>Modern Applied Statistics I</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Density Estimation</title>
       <link>/achalneupane.github.io/post/density_estimation/</link>
-      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <pubDate>Tue, 01 Oct 2019 17:26:23 -0500</pubDate>
       <guid>/achalneupane.github.io/post/density_estimation/</guid>
       <description>
 
@@ -718,7 +718,7 @@ message(paste0(&amp;quot;Female Group mean is 0.746*24.93+(1-0.747)*46.85 = &amp
     <item>
       <title>Graphical Summary</title>
       <link>/achalneupane.github.io/post/graphical_summary/</link>
-      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <pubDate>Tue, 01 Oct 2019 17:26:23 -0500</pubDate>
       <guid>/achalneupane.github.io/post/graphical_summary/</guid>
       <description>
 
@@ -1162,7 +1162,7 @@ TukeyHSD(chick.aov)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Logistic Regression&amp;GLM-I</title>
       <link>/achalneupane.github.io/post/logistic_regression_glm_i/</link>
-      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <pubDate>Tue, 01 Oct 2019 17:26:23 -0500</pubDate>
       <guid>/achalneupane.github.io/post/logistic_regression_glm_i/</guid>
       <description>
 
@@ -2080,7 +2080,7 @@ symbols(plasma$fibrinogen,plasma$globulin,circles=prob,add=T)&lt;/code&gt;&lt;/p
     <item>
       <title>Logistic Regression&amp;GLM-II</title>
       <link>/achalneupane.github.io/post/logistic_regression_glm_ii/</link>
-      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <pubDate>Tue, 01 Oct 2019 17:26:23 -0500</pubDate>
       <guid>/achalneupane.github.io/post/logistic_regression_glm_ii/</guid>
       <description>
 
@@ -2489,9 +2489,9 @@ cat(&amp;quot;Error rate: &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 err.rate2&amp;lt;- mean((pred2&amp;gt;0.5 &amp;amp; val$default==0) | (pred2&amp;lt;0.5 &amp;amp; val$default==1))
 
 cat(&amp;quot;Error rate of model1 =&amp;quot;, err.rate1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Error rate of model1 = 0.0265&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate of model1 = 0.02825&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Error rate of model2 =&amp;quot;, err.rate2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Error rate of model2 = 0.02725&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate of model2 = 0.02775&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#3c LOOCV&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## #3c LOOCV&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(boot)
@@ -2515,11 +2515,11 @@ cv.err2.10 &amp;lt;- cv.glm(Default, mod.log2, cost ,K=10)$delta
 cat(&amp;quot;10-fold cross validation of Model1&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 10-fold cross validation of Model1&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err1.10&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.02660 0.02661&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02700 0.02707&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;10-fold cross validation of Model2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 10-fold cross validation of Model2&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err2.10&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.02760 0.02757&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02730 0.02728&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Discussions:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;3a. The first model with both student and balance has the smaller AIC. The anova-function was also used to perform a chi-square test for model selection and again concluded the first model was better.&lt;/p&gt;
 &lt;p&gt;3b. Splitted the data into 60/40 between the training and validation data sets and made sure the default rate was similar between the two dataset, then fitted the models to the training data and then used the validation set to calculate the error rate using 0.5 as out threshold.&lt;/p&gt;
