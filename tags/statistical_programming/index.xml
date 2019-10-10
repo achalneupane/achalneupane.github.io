@@ -2492,28 +2492,28 @@ library(moments)
 
 norm.sample.kurt &amp;lt;- kurtosis(norm.sample, na.rm = TRUE)
 norm.sample.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2.986512&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.019845&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy.1000.kurt &amp;lt;- kurtosis(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 607.2262&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 637.7849&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull.1000.kurt &amp;lt;- kurtosis(dweibull.1000, na.rm = TRUE)
 dweibull.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.201574&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.690248&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rexp.1000.kurt &amp;lt;- kurtosis(rexp.1000, na.rm = TRUE)
 rexp.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 6.371047&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6.491124&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norm.sample.skew &amp;lt;- skewness(norm.sample, na.rm = TRUE)
 norm.sample.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.06422158&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.05738408&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy.1000.skew &amp;lt;- skewness(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -23.72455&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -21.30164&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull.1000.skew &amp;lt;- skewness(dweibull.1000, na.rm = TRUE)
 dweibull.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.057125&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9275191&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rexp.1000.skew &amp;lt;- skewness(rexp.1000, na.rm = TRUE)
 rexp.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.2445158&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.1313863&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-b-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part b&lt;/h2&gt;
@@ -6365,9 +6365,9 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
                       &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                  expr   min     lq     mean median    uq      max neval
-##   Using first formula 1.795 1.8655 56.83257  1.897 1.963 5463.788   100
-##  Using second formula 1.786 1.8755  2.02457  1.912 1.970    8.547   100
+##                  expr   min     lq     mean median     uq      max neval
+##   Using first formula 1.847 1.9210 64.28422 1.9650 2.0345 6164.061   100
+##  Using second formula 1.950 2.0275  2.20202 2.0655 2.1670    6.762   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
@@ -7224,11 +7224,11 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
   # bootstrap estimate of the mean
   star.bar.theta &amp;lt;- mean (star.theta.rep)
   star.bar.theta&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.08608051&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.08607396&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.mean &amp;lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  bstraps &amp;lt;- c()
   for (i in 1:1000) {
     bsample &amp;lt;- sample(y, length(y), replace=T)
@@ -7241,7 +7241,7 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.median &amp;lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-d.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part d.&lt;/h3&gt;
@@ -7264,9 +7264,9 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jackknife.stderr.median&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
@@ -7328,13 +7328,13 @@ Calculate jackknife and bootstrap estimates for &lt;span class=&#34;math inline&
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] -9.36847e-05
+## [1] -1.812038e-05
 ## 
 ## $cv
-## [1] -0.01587837
+## [1] -0.003025871
 ## 
 ## $standard_error_bootstrap
-## [1] 0.005900146&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.005988483&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -7489,8 +7489,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 1.43087234 1.09603973 0.83167909 1.24208721 0.76151170 0.80077058
-##  [7] 0.05306075 2.48599063 0.77230077 0.81066476&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 3.1726361 1.1815705 0.3921257 0.3086669 0.2846722 0.5960117 1.2447695
+##  [8] 1.0524592 0.2326107 0.4646740&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -7520,8 +7520,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 1.1779284 0.8629830 1.1665347 0.9735838 1.5209630 2.7914202 0.5355803
-##  [8] 3.2634736 0.3702484 2.8597514&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 0.27576346 1.05007564 1.90823112 1.05630693 2.53490490 0.93007307
+##  [7] 0.02246152 1.83466562 0.94968873 0.53982581&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;

@@ -2492,28 +2492,28 @@ library(moments)
 
 norm.sample.kurt &amp;lt;- kurtosis(norm.sample, na.rm = TRUE)
 norm.sample.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2.986512&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.019845&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy.1000.kurt &amp;lt;- kurtosis(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 607.2262&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 637.7849&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull.1000.kurt &amp;lt;- kurtosis(dweibull.1000, na.rm = TRUE)
 dweibull.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.201574&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.690248&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rexp.1000.kurt &amp;lt;- kurtosis(rexp.1000, na.rm = TRUE)
 rexp.1000.kurt&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 6.371047&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6.491124&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norm.sample.skew &amp;lt;- skewness(norm.sample, na.rm = TRUE)
 norm.sample.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.06422158&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.05738408&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dcauchy.1000.skew &amp;lt;- skewness(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -23.72455&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -21.30164&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dweibull.1000.skew &amp;lt;- skewness(dweibull.1000, na.rm = TRUE)
 dweibull.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.057125&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9275191&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rexp.1000.skew &amp;lt;- skewness(rexp.1000, na.rm = TRUE)
 rexp.1000.skew&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.2445158&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.1313863&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-b-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part b&lt;/h2&gt;
@@ -6136,6 +6136,709 @@ Based on the contingency table, &lt;code&gt;E[AA]&lt;/code&gt; &lt;code&gt;AA&lt
     </item>
     
     <item>
+      <title>Density Estimation</title>
+      <link>/achalneupane.github.io/post/density_estimation/</link>
+      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <guid>/achalneupane.github.io/post/density_estimation/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;p&gt;Answer all questions specified on the problem and include a discussion on how your results answered/addressed the question.&lt;/p&gt;
+&lt;p&gt;Submit your  file with the knitted  (or knitted Word Document saved as a PDF). If you are having trouble with .rmd, let us know and we will help you, but both the .rmd and the PDF are required.&lt;/p&gt;
+&lt;p&gt;This file can be used as a skeleton document for your code/write up. Please follow the instructions found under Content for Formatting and Guidelines. No code should be in your PDF write-up unless stated otherwise.&lt;/p&gt;
+&lt;p&gt;For any question asking for plots/graphs, please do as the question asks as well as do the same but using the respective commands in the GGPLOT2 library. (So if the question asks for one plot, your results should have two plots. One produced using the given R-function and one produced from the GGPLOT2 equivalent). This doesn’t apply to questions that don’t specifically ask for a plot, however I still would encourage you to produce both.&lt;/p&gt;
+&lt;p&gt;You do not need to include the above statements.&lt;/p&gt;
+&lt;p&gt;Please do the following problems from the text book R Handbook and stated.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;The  data from  contains the velocities of 82 galaxies from six well-separated conic sections of space (Postman et al., 1986, Roeder, 1990). The data are intended to shed light on whether or not the observable universe contains superclusters of galaxies surrounded by large voids. The evidence for the existence of superclusters would be the multimodality of the distribution of velocities.(8.1 Handbook)&lt;/p&gt;
+&lt;p&gt;a.) Construct histograms using the following functions:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; -hist() and ggplot()+geom_histogram()
+
+ -truehist() and ggplot+geom_histogram() (pay attention to the y-axis!)
+
+ -qplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Comment on the shape and distribution of the variable based on the three plots. (Hint: Also play around with binning)&lt;/p&gt;
+&lt;p&gt;b.) Create a new variable  = &lt;span class=&#34;math inline&#34;&gt;\(\log\)&lt;/span&gt;(galaxies). Construct histograms using the functions in part a.) and comment on the shape and differences.&lt;/p&gt;
+&lt;p&gt;c.) Construct kernel density estimates using two different choices of kernel functions and three choices of bandwidth (one that is too large and “oversmooths,” one that is too small and “undersmooths,” and one that appears appropriate.) Therefore you should have six different kernel density estimates plots. Discuss your results. You can use the log scale or original scale for the variable.&lt;/p&gt;
+&lt;p&gt;d.) What is your conclusion about the possible existence of superclusterd of galaxies? How many superclusters (1,2, 3, … )?&lt;/p&gt;
+&lt;p&gt;e.) How many clusters did it find? Did it match with your answer from (d) above? Report parameter estimates and BIC of the best model.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(MASS)
+library(ggplot2)
+# Load the data
+data(galaxies)
+# #set the vector of numeric velocities to dataframe
+# galaxies &amp;lt;- as.data.frame(galaxies)
+# #rename the single column in the galaxies dataframe to Velocity
+# names(galaxies) &amp;lt;- &amp;#39;Velocity&amp;#39;
+# #replace the typo with the correct numeric value
+# # galaxies[78,1] &amp;lt;- 26960
+# #add the log velocity column
+# galaxies &amp;lt;- galaxies %&amp;gt;%
+#   mutate(loggalaxies = log(Velocity))
+
+message(&amp;quot;# 1a.&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 1a.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# histogram
+message(&amp;quot;Using hist and geom_histogram:&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using hist and geom_histogram:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#set the figure position
+# par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+hist(galaxies,
+     xlab = &amp;#39;velocity&amp;#39;,
+     main = &amp;#39;base R: Histogram showing galaxies&amp;#39;,
+     ylab = &amp;#39;Frequency&amp;#39;, freq = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() + aes(galaxies) +
+  geom_histogram(binwidth = 5000, breaks = c(seq(5000, 35000, 5000)), boundary = NULL, fill = &amp;#39;white&amp;#39;, color = &amp;quot;black&amp;quot;) +
+  labs(title = &amp;#39;ggplot: Histogram showing galaxies&amp;#39;, x= &amp;quot;velocity&amp;quot;, y = &amp;quot;Frequency&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# truehist
+message(&amp;quot;Using truehist and geom_histogram():&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using truehist and geom_histogram():&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+truehist(galaxies,
+         xlab = &amp;#39;velocity&amp;#39;,
+         main = &amp;#39;base R: True Histogram showing galaxies&amp;#39;,
+         ylab = &amp;#39;density&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;######### *****
+# ggplot() + aes(galaxies) +
+#   geom_histogram(binwidth = 5000, bins = 10, boundary = NULL, fill = &amp;#39;skyblue&amp;#39;, color = &amp;quot;black&amp;quot;) +
+#   labs(x = &amp;quot;velocity&amp;quot;, title = &amp;#39;ggplot: True Histogram showing galaxies&amp;#39;) 
+
+BINS &amp;lt;- 6
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+# Frequency
+# ggplot() + aes(galaxies) + geom_histogram(binwidth = BINWIDTH, boundary = NULL, fill = &amp;#39;skyblue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) 
+# Density
+ggplot() + aes(galaxies) + geom_histogram(aes(y = ..density..), binwidth = BINWIDTH, breaks = c(seq(5000, 35000, 5000)), boundary = NULL, fill = &amp;#39;skyblue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) + 
+labs(title = &amp;quot;ggplot: True Histogram showing galaxies&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;######
+
+
+
+
+# qplot
+message(&amp;quot;Using qplot:&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using qplot:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(galaxies) +
+  labs(title=&amp;#39;base R: Histogram showing galaxies (qplot)&amp;#39;,
+       x=&amp;#39;Velocity&amp;#39;,
+       y=&amp;#39;Frequency&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 30
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() + aes(galaxies) +
+  geom_histogram(bins = BINS, breaks = BREAKS, binwidth = BINWIDTH, boundary = NULL, fill = &amp;#39;grey&amp;#39;, color = &amp;quot;black&amp;quot;) +
+  labs(x = &amp;quot;velocity&amp;quot;, y= &amp;quot;Frequency&amp;quot;, title = &amp;#39;ggplot: Histogram showing galaxies (qplot)&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-6.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message(&amp;quot;# 1b.&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 1b.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;loggalaxies &amp;lt;- log(galaxies)
+# histogram
+message(&amp;quot;Using hist and geom_histogram:&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using hist and geom_histogram:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#set the figure position
+# par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+hist(loggalaxies,
+     xlab = &amp;#39;log velocity&amp;#39;,
+     main = &amp;#39;base R: Histogram showing log velocity of galaxies&amp;#39;,
+     ylab = &amp;#39;Frequency&amp;#39;, freq = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-7.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 7
+BREAKS &amp;lt;- seq(9, 10.5, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() + aes(loggalaxies) +
+  geom_histogram(binwidth = .15, bins = 8, boundary = NULL, fill = &amp;#39;white&amp;#39;, color = &amp;quot;black&amp;quot;) +
+  labs(x = &amp;quot;log velocity&amp;quot;, y = &amp;quot;Frequency&amp;quot;, title = &amp;#39;ggplot: Histogram showing log velocity of galaxies&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-8.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# truehist
+message(&amp;quot;Using truehist and geom_histogram():&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using truehist and geom_histogram():&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+truehist(loggalaxies,
+         xlab = &amp;#39;log velocity of galaxies&amp;#39;,
+         main = &amp;#39;base R: True Histogram of log velocity of galaxies&amp;#39;,
+         ylab = &amp;#39;density&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-9.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;######### *****
+# ggplot() + aes(loggalaxies) +
+#   geom_histogram(binwidth = 0.1, bins = 0.1, boundary = NULL, fill = &amp;#39;skyblue&amp;#39;, color = &amp;quot;black&amp;quot;) +
+#   labs(x = &amp;quot;log velocity&amp;quot;, title = &amp;#39;ggplot: True Histogram showing log velocity of galaxies&amp;#39;) 
+
+BINS &amp;lt;- 7
+BREAKS &amp;lt;- seq(9, 10.5, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+# ggplot() + aes(loggalaxies) + geom_histogram(binwidth = BINWIDTH, boundary = NULL, fill = &amp;#39;skyblue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) # Frequency
+ggplot() + aes(loggalaxies) + geom_histogram(aes(y = ..density..), binwidth = BINWIDTH, bins = BINS, breaks = BREAKS, boundary = NULL, fill = &amp;#39;skyblue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+labs(title = &amp;quot;ggplot: True Histogram of log velocity of galaxies&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-10.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;######
+
+
+# qplot
+message(&amp;quot;Using qplot:&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using qplot:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(loggalaxies) +
+  labs(title=&amp;#39;base R: Histogram of log velocity of galaxies (qplot)&amp;#39;,
+       x=&amp;#39;log velocity of Galaxies&amp;#39;,
+       y=&amp;#39;Frequency&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-11.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() + aes(loggalaxies) +
+  geom_histogram(bins = 30, boundary = NULL, fill = &amp;#39;grey&amp;#39;, color = &amp;quot;black&amp;quot;) +
+  labs(x = &amp;quot;log velocity&amp;quot;, title = &amp;#39;ggplot: Histogram showing log velocity of Galaxies (qplot)&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-12.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message (&amp;quot;# 1c.&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 1c.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;truehist(galaxies,ymax=0.0002,col=&amp;quot;blue&amp;quot;, main=&amp;quot;base R: Gaussian Over Smooth&amp;quot;)
+lines(density(galaxies,kernel=&amp;quot;gaussian&amp;quot;,bw=5000),col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-13.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 6
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &amp;#39;blue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+  stat_density(kernel = &amp;quot;gaussian&amp;quot;, bw = 5000, fill = NA, col = &amp;quot;red&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Gaussian Over Smooth&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-14.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;truehist(galaxies,ymax=0.0002,col=&amp;quot;blue&amp;quot;, main=&amp;quot;base R: Gaussian Under Smooth&amp;quot;)
+lines(density(galaxies,kernel=&amp;quot;gaussian&amp;quot;,bw=500),col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-15.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 6
+# BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+# BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &amp;#39;blue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+  stat_density(kernel = &amp;quot;gaussian&amp;quot;, bw = 500, fill = NA, col = &amp;quot;red&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Gaussian Under Smooth&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-16.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;truehist(galaxies,ymax=0.0002,col=&amp;quot;blue&amp;quot;, main=&amp;quot;base R: Gaussian Best Appx&amp;quot;)
+lines(density(galaxies,kernel=&amp;quot;gaussian&amp;quot;,bw=1100),col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-17.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 6
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &amp;#39;blue&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+  stat_density(kernel = &amp;quot;gaussian&amp;quot;, bw = 1100, fill = NA, col = &amp;quot;red&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Gaussian Best Appx&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-18.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;truehist(galaxies,ymax=0.0002,col=&amp;quot;green&amp;quot;, ylab = &amp;quot;density&amp;quot;, main=&amp;quot;base R: Triangular Over Smooth&amp;quot;)
+lines(density(galaxies,kernel=&amp;quot;triangular&amp;quot;,bw=5000),col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-19.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 6
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &amp;#39;green&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+  stat_density(kernel = &amp;quot;triangular&amp;quot;, bw = 5000, fill = NA, col = &amp;quot;red&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Triangular Over Smooth&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-20.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;truehist(galaxies,ymax=0.0002,col=&amp;quot;green&amp;quot;, ylab= &amp;quot;density&amp;quot;, main=&amp;quot;base R: Triangular Under Smooth&amp;quot;)
+lines(density(galaxies,kernel=&amp;quot;triangular&amp;quot;,bw=500),col=&amp;quot;red&amp;quot;,main=&amp;quot;Triangular_Under&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-21.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 6
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &amp;#39;green&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+  stat_density(kernel = &amp;quot;triangular&amp;quot;, bw = 500, fill = NA, col = &amp;quot;red&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Triangular Under Smooth&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-22.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;truehist(galaxies,ymax=0.0002,col=&amp;quot;green&amp;quot;, ylab = &amp;quot;density&amp;quot;, main=&amp;quot;base R: Triangular Best Appx&amp;quot;)
+lines(density(galaxies,kernel=&amp;quot;triangular&amp;quot;,bw=1100), col=&amp;quot;red&amp;quot;,main=&amp;quot;Triangular_Appx&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-23.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BINS &amp;lt;- 6
+BREAKS &amp;lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &amp;lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &amp;#39;green&amp;#39;, color = &amp;quot;black&amp;quot;, closed = &amp;quot;left&amp;quot;) +
+  stat_density(kernel = &amp;quot;triangular&amp;quot;, bw = 1100, fill = NA, col = &amp;quot;red&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Triangular Best Appx&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-24.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# # hist(galaxies, xlab = &amp;quot;Waiting times (in min.)&amp;quot;, ylab = &amp;quot;Frequency&amp;quot;,
+# # probability = TRUE, main = &amp;quot;Rectangular kernel&amp;quot;, border = &amp;quot;gray&amp;quot;)
+# # lines(density(galaxies, bw = 5000, window = &amp;quot;gaussian&amp;quot;))
+# # rug(galaxies)
+# 
+# #construct a stat density plot with ggplot2, adjust = 1 for less smoothing
+# p1_g &amp;lt;- ggplot() +
+#   stat_density(kernel=&amp;#39;gaussian&amp;#39;,adjust=1,aes(x=galaxies)) +
+#   labs(title = &amp;#39;Gaussian Kernal Density of Galaxy Velocity&amp;#39;,
+#        x = &amp;#39;Galaxy Velocity&amp;#39;,
+#        y=&amp;#39;Density Estimate&amp;#39;)
+# #construct a stat density plot with ggplot2, adjust = 2 for moderate smoothing
+# p2_g &amp;lt;- ggplot() +
+#   stat_density(kernel=&amp;#39;gaussian&amp;#39;,adjust=2,aes(x=galaxies)) +
+#   labs(title = &amp;#39;Gaussian Kernal Density of Galaxy Velocity&amp;#39;,
+#        x = &amp;#39;Galaxy Velocity&amp;#39;,
+#        y=&amp;#39;Density Estimate&amp;#39;)
+# #construct a stat density plot with ggplot2, adjust = 3 for over-smoothing
+# p3_g &amp;lt;- ggplot() +
+#   stat_density(kernel=&amp;#39;gaussian&amp;#39;,adjust=3,aes(x=galaxies$Velocity)) +
+#   labs(title = &amp;#39;Gaussian Kernal Density of Galaxy Velocity&amp;#39;,
+#        x = &amp;#39;Galaxy Velocity&amp;#39;,
+#        y=&amp;#39;Density Estimate&amp;#39;)
+# #construct a triangular stat density plot, adjust for less smoothing
+# p1_t &amp;lt;- ggplot() +
+#   stat_density(kernel=&amp;#39;triangular&amp;#39;,adjust=1,aes(x=galaxies$Velocity)) +
+#   labs(title = &amp;#39;Triangular Kernal Density of Galaxy Velocity&amp;#39;,
+#        x = &amp;#39;Galaxy Velocity&amp;#39;,
+#        y=&amp;#39;Density Estimate&amp;#39;)
+# #construct a triangular stat density plot, adjust for moderate smoothing
+# p2_t &amp;lt;- ggplot() +
+#   stat_density(kernel=&amp;#39;triangular&amp;#39;,adjust=2,aes(x=galaxies$Velocity)) +
+#   labs(title = &amp;#39;Triangular Kernal Density of Galaxy Velocity&amp;#39;,
+#        x = &amp;#39;Galaxy Velocity&amp;#39;,
+#        y=&amp;#39;Density Estimate&amp;#39;)
+# #construct a triangular stat density plot, adjust for over-smoothing
+# p3_t &amp;lt;- ggplot() +
+#   stat_density(kernel=&amp;#39;triangular&amp;#39;,adjust=3,aes(x=galaxies)) +
+#   labs(title = &amp;#39;Triangular Kernal Density of Galaxy Velocity&amp;#39;,
+#        x = &amp;#39;Galaxy Velocity&amp;#39;,
+#        y=&amp;#39;Density Estimate&amp;#39;)
+
+
+message(&amp;quot;# 1e.&amp;quot;,&amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 1e.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# we can use:
+library(mclust)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Package &amp;#39;mclust&amp;#39; version 5.4.2
+## Type &amp;#39;citation(&amp;quot;mclust&amp;quot;)&amp;#39; for citing this R package in publications.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod=Mclust(galaxies)
+print(mod)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;Mclust&amp;#39; model object: (V,4) 
+## 
+## Available components: 
+##  [1] &amp;quot;call&amp;quot;           &amp;quot;data&amp;quot;           &amp;quot;modelName&amp;quot;      &amp;quot;n&amp;quot;             
+##  [5] &amp;quot;d&amp;quot;              &amp;quot;G&amp;quot;              &amp;quot;BIC&amp;quot;            &amp;quot;bic&amp;quot;           
+##  [9] &amp;quot;loglik&amp;quot;         &amp;quot;df&amp;quot;             &amp;quot;hypvol&amp;quot;         &amp;quot;parameters&amp;quot;    
+## [13] &amp;quot;z&amp;quot;              &amp;quot;classification&amp;quot; &amp;quot;uncertainty&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(summary(mod, parameters = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust V (univariate, unequal variance) model with 4 components: 
+## 
+##  log.likelihood  n df       BIC       ICL
+##        -765.694 82 11 -1579.862 -1598.907
+## 
+## Clustering table:
+##  1  2  3  4 
+##  7 35 32  8 
+## 
+## Mixing probabilities:
+##          1          2          3          4 
+## 0.08440635 0.38660329 0.37116156 0.15782880 
+## 
+## Means:
+##         1         2         3         4 
+##  9707.492 19804.259 22879.486 24459.536 
+## 
+## Variances:
+##          1          2          3          4 
+##   177296.7   436160.9  1261611.3 34437115.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#pot the density plot of the model
+# par(fig=c(0,1,0,1),new=T)
+plot(mod,what=&amp;quot;density&amp;quot;)
+title (&amp;quot;Density plot of the finite mixture model&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-25.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# BIC
+mclustBIC(galaxies)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Bayesian Information Criterion (BIC): 
+##           E         V
+## 1 -1622.361 -1622.361
+## 2 -1631.243 -1595.403
+## 3 -1584.016 -1592.299
+## 4 -1592.828 -1579.862
+## 5 -1592.299 -1593.277
+## 6 -1601.228 -1604.069
+## 7 -1588.610 -1611.538
+## 8 -1597.427 -1625.804
+## 9 -1600.709 -1633.494
+## 
+## Top 3 models based on the BIC criterion: 
+##       V,4       E,3       E,7 
+## -1579.862 -1584.016 -1588.610&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Discussion:&lt;/p&gt;
+&lt;p&gt;1.a. All graphs have similar shapes for hist() and truehist(), except for a scaling factor. This is expected as hist() shows the frequency along the y axis, whereas truehist() produces the probability, which is a scaled version of the frequency. We can make some estimation about the distribution of the data, but cannot comment in a parametric way. Just based on the plots, we can tell that the data are highly congested in the middle of the data range. We can best think that there are three clusters of data, but qplot(), shows an extra cluster in the middle-congested cluster of data. By observing the qplot(),we can assume that there are four clusters in the data set.&lt;/p&gt;
+&lt;p&gt;1.b. Here a scaled version of the data in part (a) is used to construct the same plots. Similar comments like in part (a) is valid here as well to describe the similarity of hist() and truehist(). From this scaled data hist() and truehist(), still it is reasonable to guess that there are three clusters.&lt;/p&gt;
+&lt;p&gt;1.c. Here over smoothing and under smoothing bin width choice were easy and straight forward. Startting with the extreme bw values, 5000, 500 and 1100 were used to generate the three Kernels for Gaussian and Triangular. Searching for the best fit just by visualizing was not easy. By changing the the binwidth, we can actually set the Kernel to better fit for the best approximate of clusters.&lt;/p&gt;
+&lt;p&gt;1.d. From the figures found in part (c), we can assume that there are four clusters in the data set with unequal variances. It was hard to determine manually, but my guess was that there are about three or four clusters with almost equal possiblity.&lt;/p&gt;
+&lt;p&gt;1.e. The mclust() found four clusters of unequal variance for the best fit. However, the density plot of the model indicates there are three clusters. Based on this information, we can say that there are at least 3 or 4 clusters that can be determined from this analysis.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;The  data from  gives the birth and death rates for 69 countries (from Hartigan, 1975). (8.2 Handbook)&lt;/p&gt;
+&lt;p&gt;a.) Produce a scatterplot of the data and overlay a contour plot of the estimated bivariate density.&lt;/p&gt;
+&lt;p&gt;b.) Does the plot give you any interesting insights into the possible structure of the data?&lt;/p&gt;
+&lt;p&gt;c.) Construct the perspective plot (persp() in R, GGplot is not required for this question).&lt;/p&gt;
+&lt;p&gt;d.) Model-based clustering (Mclust). Provide plot of the summary of your fit (BIC, classification, uncertainty, and density).&lt;/p&gt;
+&lt;p&gt;e.) Discuss the results (structure of data, outliers, etc.). Write a discussion in the context of the problem.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(HSAUR3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: tools&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(KernSmooth)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## KernSmooth 2.23 loaded
+## Copyright M. P. Wand 1997-2009&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(reshape2)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:MASS&amp;#39;:
+## 
+##     select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(birthdeathrates)
+head(birthdeathrates)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     birth death
+## alg  36.4  14.6
+## con  37.3   8.0
+## egy  42.1  15.3
+## gha  55.8  25.6
+## ict  56.1  33.1
+## mag  41.8  15.8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(birthdeathrates)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nrow(birthdeathrates)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 69&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message (&amp;quot;# 2a&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 2a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BDRd &amp;lt;- bkde2D(birthdeathrates, bandwidth = sapply(birthdeathrates, dpik))
+contour(x=BDRd$x1, y=BDRd$x2, z=BDRd$fhat,
+        main = &amp;quot;base R: Countour Scatterplot of Birth_Death_Rates&amp;quot;,
+        xlab=&amp;quot;Birth Rates&amp;quot;, 
+        ylab=&amp;quot;Death Rates&amp;quot;,
+        xlim =c(0,60), ylim = c(0,35))
+points(birthdeathrates, pch=16, col=&amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data=birthdeathrates,aes(birth,death)) + 
+  geom_density2d(aes(colour=..level..)) + 
+  scale_colour_gradient(low=&amp;quot;green&amp;quot;,high=&amp;quot;red&amp;quot;) + 
+  theme_bw() +
+  geom_point() +
+  # geom_text(aes(label=ifelse(death &amp;gt;= 15 | birth &amp;gt;= 35,row.names(birthdeathrates),&amp;#39;&amp;#39;),hjust=0, vjust=0)) +
+  labs(title=&amp;#39;ggplot: Countour Scatterplot of Birth_Death_Rates&amp;#39;,
+       x=&amp;#39;Birth Rate&amp;#39;,
+       y=&amp;#39;Death Rate&amp;#39;) +
+  scale_x_continuous(limits = c(0,60)) +
+  scale_y_continuous(limits = c(0,35))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message(&amp;quot;# 2c.&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 2c.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;persp (x=BDRd$x1, y=BDRd$x2, z=BDRd$fhat,
+       xlab=&amp;quot;Birth Rates&amp;quot;, 
+       ylab=&amp;quot;Death Rates&amp;quot;,
+       zlab=&amp;quot;Estimated Density&amp;quot;,
+       theta=-35, axes=TRUE, box=TRUE, main = &amp;quot;Perspective plot for birthdeathrates data&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message(&amp;quot;# 2d.&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # 2d.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(mclust)
+
+mod &amp;lt;- Mclust(birthdeathrates)
+mod&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;Mclust&amp;#39; model object: (EII,4) 
+## 
+## Available components: 
+##  [1] &amp;quot;call&amp;quot;           &amp;quot;data&amp;quot;           &amp;quot;modelName&amp;quot;      &amp;quot;n&amp;quot;             
+##  [5] &amp;quot;d&amp;quot;              &amp;quot;G&amp;quot;              &amp;quot;BIC&amp;quot;            &amp;quot;bic&amp;quot;           
+##  [9] &amp;quot;loglik&amp;quot;         &amp;quot;df&amp;quot;             &amp;quot;hypvol&amp;quot;         &amp;quot;parameters&amp;quot;    
+## [13] &amp;quot;z&amp;quot;              &amp;quot;classification&amp;quot; &amp;quot;uncertainty&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(mod, parameters = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust EII (spherical, equal volume) model with 4 components: 
+## 
+##  log.likelihood  n df       BIC       ICL
+##       -424.4194 69 12 -899.6481 -906.4841
+## 
+## Clustering table:
+##  1  2  3  4 
+##  2 17 38 12 
+## 
+## Mixing probabilities:
+##          1          2          3          4 
+## 0.02898652 0.24555002 0.55023375 0.17522972 
+## 
+## Means:
+##           [,1]     [,2]      [,3]      [,4]
+## birth 55.94967 43.80396 19.922913 33.730672
+## death 29.34960 12.09411  9.081348  8.535812
+## 
+## Variances:
+## [,,1]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108
+## [,,2]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108
+## [,,3]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108
+## [,,4]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message(&amp;quot;Value for mod$parameters$mean&amp;quot;, &amp;quot; &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Value for mod$parameters$mean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sqrt(mod$parameters$variance$sigmasq)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.195434&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BIC.data&amp;lt;- as.data.frame(mod$BIC[,])
+BIC.data$NumComp&amp;lt;-rownames(BIC.data)
+melted.BIC&amp;lt;- reshape2::melt(BIC.data, var.ids= &amp;quot;NumComp&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Using NumComp as id variables&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# length(levels(melted.BIC$variable))
+
+par(mfrow=c(1,1), ask=FALSE)
+# BIC
+plot(mod, what=&amp;quot;BIC&amp;quot;, main = &amp;quot;base R: Plot of BIC&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(melted.BIC, aes(x=as.numeric(NumComp), y=value, colour=variable, group=variable))+
+  scale_x_continuous(&amp;quot;Number of Components&amp;quot;)+
+  scale_y_continuous(&amp;quot;BIC&amp;quot;)+
+  scale_colour_hue(&amp;quot;&amp;quot;)+
+  geom_point()+
+  geom_line()+
+  theme_bw() + 
+  labs(title = &amp;quot;ggplot: BIC&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 19 rows containing missing values (geom_point).&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 19 rows containing missing values (geom_path).&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# uncertainty
+par(mfrow=c(1,1), ask=FALSE)
+plot(mod, what=&amp;quot;uncertainty&amp;quot;)
+title(main = &amp;quot;base R: Plot of uncertainty&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-6.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;birthdeathrates %&amp;gt;% mutate(uncertainty = mod$uncertainty,
+                classification = factor(mod$classification)) %&amp;gt;% 
+  ggplot(aes(birth, death, size = uncertainty, color = classification)) +
+  geom_point() + 
+  guides(size = guide_legend(), colour = &amp;quot;legend&amp;quot;) + theme_classic() +
+  stat_ellipse(level = 0.5, type = &amp;quot;t&amp;quot;) + 
+  labs(x = &amp;quot;birth&amp;quot;, y = &amp;quot;death&amp;quot;, title = &amp;quot;ggplot: Uncertainty&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Too few points to calculate an ellipse&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 1 rows containing missing values (geom_path).&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-7.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# classification
+par(mfrow=c(1,1), ask=FALSE)
+plot(mod, what=&amp;quot;classification&amp;quot;)
+title(main = &amp;quot;base R: Plot of classification&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-8.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;birthdeathrates %&amp;gt;% mutate(uncertainty = mod$uncertainty,
+                classification = factor(mod$classification)) %&amp;gt;% 
+  ggplot(aes(birth, death, shape = classification, color = classification)) +
+  geom_point() + 
+  guides(size = guide_legend(), shape = guide_legend()) + theme_classic() +
+  stat_ellipse(level = 0.5, type = &amp;quot;t&amp;quot;) + 
+  labs(x = &amp;quot;birth&amp;quot;, y = &amp;quot;death&amp;quot;, title = &amp;quot;ggplot: Plot of classification&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Too few points to calculate an ellipse&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 1 rows containing missing values (geom_path).&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-9.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# density
+par(mfrow=c(1,1), ask=FALSE)
+plot(mod, what=&amp;quot;density&amp;quot;)
+title(main = &amp;quot;base R: Plot of density&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-10.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(birthdeathrates, aes(x = birth, y = death)) +
+  geom_point() +
+  geom_density_2d() + 
+  labs ( title = &amp;quot;ggplot: Plot of density&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-11.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Discussion:&lt;/p&gt;
+&lt;p&gt;2.b. Comparaing data for birth rates from 10 to about 50 with the death rates, we can tell that the death rate is relatively slow. I would say twice as many people are being born than they are dying (i.e., 2:1 birth to death ratio). The countour appears to show the majority of countries grouping around a birthrate of 20 and a death rate of 10.&lt;/p&gt;
+&lt;p&gt;2.e. The BIC plot indicates that there are 4 clusters. The classification plot seems to indicate the groupings of the data. The table of means indicate that the birth rates group along ~ 20, 34, 44, and 56. The death rates group around 9, 8, 12 and 30.&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;A sex difference in the age of onset of schizophrenia was noted by Kraepelin (1919). Subsequent epidemiological studies of the disorder have consistently shown an earlier onset in men than in women. One model that has been suggested to explain this observed difference is known as the subtype model which postulates two types of schizophrenia, one characterized by early onset, typical symptoms and poor premorbid competence; and the other by late onset, atypical symptoms and good premorbid competence. The early onset type is assumed to be largely a disorder of men and the late onset largely a disorder of women. Fit finite mixutres of normal densities separately to the onset data for men and women given in the  data from . See if you can produce some evidence for or against the subtype model. (8.3 Handbook)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Answer:&lt;/p&gt;
+&lt;p&gt;Based on this density plot faceted by gender, we can tell that the distribution in diagnosis of disease is centered towards 20 years (age) in males whereas, for females, its more uniform thoughout the life.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(schizophrenia)
+#plot the schizophrenia data using stat_density within ggplot2, facet by gender
+# par(fig=c(0,1,0,1),new=T)
+ggplot(data=schizophrenia)+
+  stat_density(kernel=&amp;#39;gaussian&amp;#39;,adjust=1,aes(age,fill=gender)) +
+  facet_grid(gender~.) +
+       labs(title = &amp;#39;Density plot (gaussian) of Schizophrenia diagnosis data&amp;#39;,
+       x = &amp;quot;Diagnosis Age&amp;quot;,
+       y=&amp;#39;Density Estimate&amp;#39;) +
+  scale_fill_manual( values = c(&amp;quot;red&amp;quot;,&amp;quot;blue&amp;quot;)) +
+  theme(
+        strip.background = element_blank(),
+        strip.text.y = element_blank(),
+        panel.background = element_blank()
+        )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can also check the distribution of the data using histogram plots. These plots also show that male diagnosis age numbers are centered more around mid 20’s, where as females patients can also be diagnosed in 40s and fewer (compared to males) in mid 20s.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# par(fig=c(0,1,0,1),new=T)
+ggplot(data=schizophrenia)+
+  geom_histogram(aes(age,fill=gender)) +
+  facet_grid(gender~.) +
+  labs(title = &amp;#39;Histogram of Schizophrenia Diagnosis by Gender&amp;#39;,
+       x = &amp;#39;Age of diagnosis&amp;#39;,
+       y=&amp;#39;Frequency&amp;#39;) +
+scale_fill_manual( values = c(&amp;quot;red&amp;quot;,&amp;quot;blue&amp;quot;)) +
+# scale_color_brewer(palette = &amp;quot;Set2&amp;quot;) +
+  theme(
+        strip.background = element_blank(),
+        strip.text.y = element_blank(),
+        panel.background = element_blank()
+        )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Or we can visualize both together and see the same results discussed above by making this plot below:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;setMen &amp;lt;- subset(schizophrenia, gender==&amp;quot;male&amp;quot;)$age
+setWmn &amp;lt;- subset(schizophrenia, gender!=&amp;quot;male&amp;quot;)$age
+
+par(mfrow=c(1,1))
+hist (schizophrenia$age, xlab=&amp;quot;Age&amp;quot;, ylab=&amp;quot;Density&amp;quot;, main=&amp;quot;Distribution of Schizophrenia Onset by Age&amp;quot;, freq=FALSE, ylim=c(0,.075), border=4)
+lines(density(setMen), col=1, )
+lines(density(setWmn), col=2)
+legend(40, 0.05, legend=c(&amp;quot;Female&amp;quot;, &amp;quot;Male&amp;quot;),
+       col=c(1,2), lty=c(1,1), cex=0.8)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can subset the schizophrenia data by male and female for fit of model analysis by gender:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(schizophrenia)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   age gender
+## 1  20 female
+## 2  30 female
+## 3  21 female
+## 4  23 female
+## 5  30 female
+## 6  25 female&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;onset=schizophrenia
+male=subset(onset,gender==&amp;quot;male&amp;quot;)
+female=subset(onset,gender==&amp;quot;female&amp;quot;)
+message(&amp;quot;
+Mclust Data
+        &amp;quot;,&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Mclust Data
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod_male=Mclust(male$age)
+mod_female=Mclust(female$age)
+# par(mfrow=c(2,2))
+plot(mod_male, what = &amp;quot;BIC&amp;quot;)
+title(main=&amp;#39;BIC Of schizophrenia for male&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mod_female, what = &amp;quot;BIC&amp;quot;)
+title(main=&amp;#39;BIC Of schizophrenia for female&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-6-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;message(&amp;quot;Male
+        &amp;quot;,&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Male
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(mod_male)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;Mclust&amp;#39; model object: (V,2) 
+## 
+## Available components: 
+##  [1] &amp;quot;call&amp;quot;           &amp;quot;data&amp;quot;           &amp;quot;modelName&amp;quot;      &amp;quot;n&amp;quot;             
+##  [5] &amp;quot;d&amp;quot;              &amp;quot;G&amp;quot;              &amp;quot;BIC&amp;quot;            &amp;quot;bic&amp;quot;           
+##  [9] &amp;quot;loglik&amp;quot;         &amp;quot;df&amp;quot;             &amp;quot;hypvol&amp;quot;         &amp;quot;parameters&amp;quot;    
+## [13] &amp;quot;z&amp;quot;              &amp;quot;classification&amp;quot; &amp;quot;uncertainty&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(summary(mod_male, parameters = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust V (univariate, unequal variance) model with 2 components: 
+## 
+##  log.likelihood   n df       BIC       ICL
+##       -520.9747 152  5 -1067.069 -1134.392
+## 
+## Clustering table:
+##  1  2 
+## 99 53 
+## 
+## Mixing probabilities:
+##         1         2 
+## 0.5104189 0.4895811 
+## 
+## Means:
+##        1        2 
+## 20.23922 27.74615 
+## 
+## Variances:
+##          1          2 
+##   9.395305 111.997525&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# print(mod_male$parameters)
+message(&amp;quot;FeMale
+        &amp;quot;,&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## FeMale
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(mod_female)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;#39;Mclust&amp;#39; model object: (E,2) 
+## 
+## Available components: 
+##  [1] &amp;quot;call&amp;quot;           &amp;quot;data&amp;quot;           &amp;quot;modelName&amp;quot;      &amp;quot;n&amp;quot;             
+##  [5] &amp;quot;d&amp;quot;              &amp;quot;G&amp;quot;              &amp;quot;BIC&amp;quot;            &amp;quot;bic&amp;quot;           
+##  [9] &amp;quot;loglik&amp;quot;         &amp;quot;df&amp;quot;             &amp;quot;hypvol&amp;quot;         &amp;quot;parameters&amp;quot;    
+## [13] &amp;quot;z&amp;quot;              &amp;quot;classification&amp;quot; &amp;quot;uncertainty&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(summary(mod_female, parameters = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust E (univariate, equal variance) model with 2 components: 
+## 
+##  log.likelihood  n df       BIC       ICL
+##       -373.6992 99  4 -765.7788 -774.8935
+## 
+## Clustering table:
+##  1  2 
+## 74 25 
+## 
+## Mixing probabilities:
+##         1         2 
+## 0.7472883 0.2527117 
+## 
+## Means:
+##        1        2 
+## 24.93517 46.85570 
+## 
+## Variances:
+##        1        2 
+## 44.55641 44.55641&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# print(mod_female$parameters)
+
+# male group mean
+message(paste0(&amp;quot;Male Group mean is 0.51*20.23+(1-0.51)*27.75 = &amp;quot;, 0.51*20.23+(1-0.51)*27.75))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Male Group mean is 0.51*20.23+(1-0.51)*27.75 = 23.9148&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Female group mean
+message(paste0(&amp;quot;Female Group mean is 0.746*24.93+(1-0.747)*46.85 = &amp;quot;, 0.746*24.93+(1-0.747)*46.85))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Female Group mean is 0.746*24.93+(1-0.747)*46.85 = 30.45083&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From the model summary above, we can see that the female model showing data points centered at about 25 and age 47 of age marks, whereas for males it was at around 20 and 27 years of age (i.e., within 20s). For males, the mean was calculated to be 23.91. Similarly, the mean of whole female group was calculated to be 30.45. So female group has a larger age mean which tells us that the males have onset of disorder earlier than females. Additionally, the BIC plot shows that the optimal number of cluster for both males and females is 2.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Functions</title>
       <link>/achalneupane.github.io/post/functions/</link>
       <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
@@ -6365,9 +7068,9 @@ mbm &amp;lt;- microbenchmark(&amp;quot;Using first formula&amp;quot; = pois.pmf.
                       &amp;quot;Using second formula&amp;quot; = pois.pmf(x=x, lambda = lambda))
 mbm&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                  expr   min     lq     mean median    uq      max neval
-##   Using first formula 1.795 1.8655 56.83257  1.897 1.963 5463.788   100
-##  Using second formula 1.786 1.8755  2.02457  1.912 1.970    8.547   100
+##                  expr   min     lq     mean median     uq      max neval
+##   Using first formula 1.847 1.9210 64.28422 1.9650 2.0345 6164.061   100
+##  Using second formula 1.950 2.0275  2.20202 2.0655 2.1670    6.762   100
 ##  cld
 ##    a
 ##    a&lt;/code&gt;&lt;/pre&gt;
@@ -6632,6 +7335,1918 @@ change from 1936 to 2006.&lt;/p&gt;
 &lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;References&lt;/h1&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Graphical Summary</title>
+      <link>/achalneupane.github.io/post/graphical_summary/</link>
+      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <guid>/achalneupane.github.io/post/graphical_summary/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;p&gt;Answer all questions specified on the problem and include a discussion on how your results answered/addressed the question.&lt;/p&gt;
+&lt;p&gt;Submit your  file with the knitted  (or knitted Word Document saved as a PDF). If you are having trouble with .rmd, let us know and we will help you, but both the .rmd and the PDF are required.&lt;/p&gt;
+&lt;p&gt;This file can be used as a skeleton document for your code/write up. Please follow the instructions found under Content titled Format+STAT-701+HW. No code should be in your PDF write-up unless stated otherwise.&lt;/p&gt;
+&lt;p&gt;For any question asking for plots/graphs, please do as the question asks as well as do the same but using the respective commands in the GGPLOT2 library. (So if the question asks for one plot, your results should have two plots. One produced using the given R-function and one produced from the GGPLOT2 equivalent). This doesn’t apply to questions that don’t specifically ask for a plot, however I still would encourage you to produce both.&lt;/p&gt;
+&lt;p&gt;You do not need to include the above statements.&lt;/p&gt;
+&lt;p&gt;Please do the following problems from the text book R Handbook and stated.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 1.1, pg. 23 in Handbook &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here, for this question, we assume that we have data available for the given countries and we will remove any NAs from the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;#39;HSAUR3&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: tools&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#subset the data for wanted contries only first
+median.subset &amp;lt;- subset(Forbes2000,country %in% c(&amp;quot;United States&amp;quot;,&amp;quot;United Kingdom&amp;quot;,&amp;quot;France&amp;quot;,&amp;quot;Germany&amp;quot;))
+# library(&amp;quot;plyr&amp;quot;)
+# ddply(median.subset,c(&amp;quot;country&amp;quot;),function(x){median(x$profits,na.rm=T)})
+by.country &amp;lt;- setNames(aggregate(median.subset$profits, by = list(median.subset$country), function(x){median(x,na.rm=T)}), c(&amp;quot;country&amp;quot;, &amp;quot;median&amp;quot;))
+by.country&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          country median
+## 1         France  0.190
+## 2        Germany  0.230
+## 3 United Kingdom  0.205
+## 4  United States  0.240&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 1.2, pg. 23 in Handbook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Forbes2000[Forbes2000$country == &amp;quot;Germany&amp;quot; &amp;amp; Forbes2000$profits &amp;lt; 0,&amp;quot;name&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Allianz Worldwide&amp;quot;       &amp;quot;Deutsche Telekom&amp;quot;       
+##  [3] &amp;quot;E.ON&amp;quot;                    &amp;quot;HVB-HypoVereinsbank&amp;quot;    
+##  [5] &amp;quot;Commerzbank&amp;quot;             &amp;quot;Infineon Technologies&amp;quot;  
+##  [7] &amp;quot;BHW Holding&amp;quot;             &amp;quot;Bankgesellschaft Berlin&amp;quot;
+##  [9] &amp;quot;W&amp;amp;W-Wustenrot&amp;quot;           &amp;quot;mg technologies&amp;quot;        
+## [11] &amp;quot;Nurnberger Beteiligungs&amp;quot; &amp;quot;SPAR Handels&amp;quot;           
+## [13] &amp;quot;Mobilcom&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 1.3, pg. 23 in Handbook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sort(table(Forbes2000[Forbes2000$country==&amp;quot;Bermuda&amp;quot;,&amp;quot;category&amp;quot;]),decreasing=T)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##                        Insurance                    Conglomerates 
+##                               10                                2 
+##             Oil &amp;amp; gas operations                          Banking 
+##                                2                                1 
+##                    Capital goods             Food drink &amp;amp; tobacco 
+##                                1                                1 
+##                     Food markets                            Media 
+##                                1                                1 
+##              Software &amp;amp; services              Aerospace &amp;amp; defense 
+##                                1                                0 
+##     Business services &amp;amp; supplies                        Chemicals 
+##                                0                                0 
+##                     Construction                Consumer durables 
+##                                0                                0 
+##           Diversified financials            Drugs &amp;amp; biotechnology 
+##                                0                                0 
+## Health care equipment &amp;amp; services     Hotels restaurants &amp;amp; leisure 
+##                                0                                0 
+##    Household &amp;amp; personal products                        Materials 
+##                                0                                0 
+##                        Retailing                   Semiconductors 
+##                                0                                0 
+##  Technology hardware &amp;amp; equipment      Telecommunications services 
+##                                0                                0 
+##                Trading companies                   Transportation 
+##                                0                                0 
+##                        Utilities 
+##                                0&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 1.4, pg. 23 in Handbook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Forbes2000.data &amp;lt;- Forbes2000[order(Forbes2000$profits,decreasing=T),]
+par(mfrow = c(1,1))
+# Using base plot
+plot(
+    log(Forbes2000.data[1:50, &amp;quot;assets&amp;quot;]),
+    log(Forbes2000.data[1:50, &amp;quot;sales&amp;quot;])
+    ,
+    ylab = &amp;quot;sales (log scale)&amp;quot;,
+    xlab = &amp;quot;assets (log scale)&amp;quot;,
+    main = &amp;quot;Sales vs Assets: Log transformed&amp;quot;
+)
+# we can add texts to data points
+text(
+    x = log(Forbes2000.data[1:50, &amp;quot;assets&amp;quot;]),
+    y = log(Forbes2000.data[1:50, &amp;quot;sales&amp;quot;]),
+    labels = abbreviate(Forbes2000.data$country[1:50]),
+    col = &amp;quot;black&amp;quot;,
+    font = 1,
+    pos = 1
+)
+
+#Using ggplot
+library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(Forbes2000.data[1:50, ], aes(x = log(assets), y = log(sales))) +
+    geom_point(shape = 1, size = 2) +
+    geom_text(aes(label = abbreviate(country)), hjust = 0, vjust = 0) +
+    labs(title = &amp;quot;Sales vs Assets: Log transformed&amp;quot;, color = &amp;quot;country&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 1.5, pg. 23 in Handbook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(plyr)
+# selecting companies with profit more than 5 billion
+Forbes2000.5billions.dat &amp;lt;- Forbes2000[Forbes2000$profits &amp;gt; 5 ,]
+Forbes2000.5billions.dat &amp;lt;- Forbes2000.5billions.dat[complete.cases(Forbes2000.5billions.dat), ]
+
+setNames(ddply(Forbes2000.5billions.dat,c(&amp;quot;country&amp;quot;),function(x){c(nrow(x),mean(x$sales))}), c(&amp;quot;Country&amp;quot;, &amp;quot;Company_counts&amp;quot;, &amp;quot;Avg_Sales&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                       Country Company_counts Avg_Sales
+## 1                       China              1   29.5300
+## 2                      France              1  131.6400
+## 3                     Germany              1  157.1300
+## 4                       Japan              1  135.8200
+## 5 Netherlands/ United Kingdom              1  133.5000
+## 6                 South Korea              1   50.2200
+## 7                 Switzerland              3   46.7600
+## 8              United Kingdom              3  103.6867
+## 9               United States             20   77.2835&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# #or we could also do:
+# aggregate(Forbes2000.5billions.dat$sales, by = list(Forbes2000.5billions.dat$country), function(x){c(Company_counts = length(x), Avg_Sales = mean(x))})&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 2.1, pg. 39 in Handbook (see Chapter 6 of R Graphcis Cookbook for GGPlot)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For this, we will first calculate total household expenses as below. Then calculate the itemized expenses (proportion).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;household&amp;quot;, package = &amp;quot;HSAUR3&amp;quot;)
+
+# total expenses
+household$total&amp;lt;-household$housing+household$food+household$goods+household$service
+library(ggplot2)
+
+ggplot(household, aes(x=gender, y=total))+geom_boxplot() +
+  labs(title = &amp;quot;Total expenses per gender&amp;quot;) + 
+  theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# base R version
+boxplot(household$total ~ household$gender,
+        xlab = &amp;quot;Gender&amp;quot;, ylab = &amp;quot;total&amp;quot;, main = &amp;quot;Total household expenses by gender&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-6-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# This indicates that males tend to have more expenses than females in total. 
+#calculate proportions
+household$housing&amp;lt;-household$housing/household$total
+household$service&amp;lt;-household$service/household$total
+household$goods&amp;lt;-household$goods/household$total
+household$food&amp;lt;-household$food/household$total
+
+#plot boxplots of proportions
+a&amp;lt;-ggplot(household, aes(x=gender, y=housing))+geom_boxplot() + labs(title = &amp;quot;Housing expenses (in %) per gender&amp;quot;) 
+b&amp;lt;-ggplot(household, aes(x=gender, y=service))+geom_boxplot() + labs(title = &amp;quot;Service expenses (in %) per gender&amp;quot;)
+c&amp;lt;-ggplot(household, aes(x=gender, y=goods))+geom_boxplot() + labs(title = &amp;quot;Goods expenses (in %) per gender&amp;quot;)
+d&amp;lt;-ggplot(household, aes(x=gender, y=food))+geom_boxplot() + labs(title = &amp;quot;Food expenses (in %) per gender&amp;quot;)
+
+# combine all 4 gg objects
+library(gridExtra)
+grid.arrange(a,b,c,d, nrow=2, ncol=2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-6-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# base R version
+par(mfrow=c(2,2))
+boxplot(household$housing ~ household$gender,
+        xlab = &amp;quot;Gender&amp;quot;, ylab = &amp;quot;Housing expenses&amp;quot;, main = &amp;quot;Housing expenses (in %) by gender&amp;quot;)
+boxplot(household$service ~ household$gender,
+        xlab = &amp;quot;Gender&amp;quot;, ylab = &amp;quot;Service expenses&amp;quot;, main = &amp;quot;Service expenses (in %) by gender&amp;quot;)
+boxplot(household$goods ~ household$gender,
+        xlab = &amp;quot;Gender&amp;quot;, ylab = &amp;quot;Goods expenses&amp;quot;, main = &amp;quot;Goods expenses (in %) by gender&amp;quot;)
+boxplot(household$food ~ household$gender,
+        xlab = &amp;quot;Gender&amp;quot;, ylab = &amp;quot;food expenses&amp;quot;, main = &amp;quot;Food expenses (in %) by gender&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-6-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# histogram of total expenditures by gender
+ggplot(household, aes(x=total, fill=gender)) +
+  geom_histogram(position=&amp;quot;identity&amp;quot;, alpha=0.4, binwidth = 1000) + 
+  labs(title = &amp;quot;Histogram of total expenditures by gender&amp;quot; ) + 
+  theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-6-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Based on these results, males tend to spend more money than females on Foods
+and Services, where as females take the lead on Housing and Goods.&lt;/p&gt;
+&lt;ol start=&#34;7&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Question 2.3, pg. 41 in Handbook (see Chapter 6 of R Graphcis Cookbook for GGPlot)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;suicides2&amp;quot;)
+#Boxplot of mortality
+boxplot(suicides2,
+        xlab = &amp;quot;Age group&amp;quot;, ylab = &amp;quot;Mortality rates per 100,000&amp;quot;, main = &amp;quot;Mortality by suicide&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(reshape2)
+suicides2.melted &amp;lt;- melt(suicides2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## No id variables; using all as measure variables&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ggplot version
+ggplot(suicides2.melted, aes(x=factor(variable), y=value)) + 
+  geom_boxplot() +
+  labs(x = &amp;quot;Age group&amp;quot;, y = &amp;quot;Mortality rates per 100,000&amp;quot;, title = &amp;quot;Mortality by suicide&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Graphical_summary_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Using a single R expression, calculate the median absolute deviation, &lt;span class=&#34;math inline&#34;&gt;\(1.4826\cdot median|x-\mu|\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; is the sample median. Use the dataset . Use the R function mad() to verify your answer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(abs(chickwts$weight - median(chickwts$weight))) * 1.4826&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 91.9212&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#check using mad
+mad(chickwts$weight, median (chickwts$weight), constant = 1.4826)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 91.9212&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;10&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Using the data matrix , find the state with the minimum per capita income in the New England region as defined by the factor . Use the vector  to get the state name.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(state.x77)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in data(state.x77): data set &amp;#39;state.x77&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#create df with state name, income, and division
+state_df &amp;lt;- data.frame(income=state.x77[,&amp;quot;Income&amp;quot;],
+                    name=state.name,
+                    div=state.division)
+#Subset for New England
+New_Eng &amp;lt;- subset(state_df, div ==&amp;quot;New England&amp;quot;)
+
+#State with min income per capita
+New_Eng[which(New_Eng$income == min(New_Eng$income)), ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       income  name         div
+## Maine   3694 Maine New England&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;11&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Use subscripting operations on the dataset  to find the vehicles with highway mileage of less than 25 miles per gallon (variable ) and weight (variable ) over 3500lbs. Print the model name, the price range (low, high), highway mileage, and the weight of the cars that satisfy these conditions.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(Cars93, package= &amp;quot;MASS&amp;quot;)
+df.cars93 &amp;lt;- Cars93[Cars93$MPG.highway &amp;lt; 25 &amp;amp; Cars93$Weight &amp;gt; 3500, c(&amp;quot;Model&amp;quot;, &amp;quot;Price&amp;quot;, &amp;quot;MPG.highway&amp;quot;, &amp;quot;Weight&amp;quot;)]
+df.cars93[with(df.cars93, order(Price)), ]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         Model Price MPG.highway Weight
+## 16 Lumina_APV  16.3          23   3715
+## 17      Astro  16.6          20   4025
+## 26    Caravan  19.0          21   3705
+## 56        MPV  19.1          24   3735
+## 66      Quest  19.1          23   4100
+## 70 Silhouette  19.5          23   3715
+## 89    Eurovan  19.7          21   3960
+## 36   Aerostar  19.9          20   3735
+## 87     Previa  22.7          22   3785
+## 28    Stealth  25.8          24   3805
+## 63   Diamante  26.1          24   3730
+## 49      ES300  28.0          24   3510
+## 50      SC300  35.2          23   3515
+## 48        Q45  47.9          22   4000&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;12&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Form a matrix object named  from the variables  from the  dataframe from the  package. Use it to create a list object named  containing named components as follows:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;A vector of means, named &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A vector of standard errors of the means, named &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(Cars93, package= &amp;quot;MASS&amp;quot;)
+mycars &amp;lt;- Cars93[,c(&amp;quot;Min.Price&amp;quot;, &amp;quot;Max.Price&amp;quot;, &amp;quot;MPG.city&amp;quot;, &amp;quot;MPG.highway&amp;quot;, &amp;quot;EngineSize&amp;quot;, &amp;quot;Length&amp;quot;, &amp;quot;Weight&amp;quot;)]
+Cars.Means &amp;lt;- sapply(mycars, mean)       
+Cars.Means&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   Min.Price   Max.Price    MPG.city MPG.highway  EngineSize      Length 
+##   17.125806   21.898925   22.365591   29.086022    2.667742  183.204301 
+##      Weight 
+## 3072.903226&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# function to calculate standard error &amp;#39;standard.err&amp;#39;
+standard.err &amp;lt;- function(x) sqrt(var(x)/length(x))
+Cars.Std.Errors &amp;lt;- lapply(mycars, standard.err)  
+Cars.Std.Errors&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Min.Price
+## [1] 0.906921
+## 
+## $Max.Price
+## [1] 1.143805
+## 
+## $MPG.city
+## [1] 0.5827473
+## 
+## $MPG.highway
+## [1] 0.5528742
+## 
+## $EngineSize
+## [1] 0.1075695
+## 
+## $Length
+## [1] 1.514196
+## 
+## $Weight
+## [1] 61.16942&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Use the  function on the three-dimensional array  to compute:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Sample means of the variables , for each of the three species &lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(iris3, c(2,3), mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          Setosa Versicolor Virginica
+## Sepal L.  5.006      5.936     6.588
+## Sepal W.  3.428      2.770     2.974
+## Petal L.  1.462      4.260     5.552
+## Petal W.  0.246      1.326     2.026&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;b) Sample means of the variables \textit{Sepal Length, Sepal Width, Petal Width} for the entire data set.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;apply(iris3, 2, mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Sepal L. Sepal W. Petal L. Petal W. 
+## 5.843333 3.057333 3.758000 1.199333&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;14&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Use the data matrix  and the  function to obtain:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;The mean per capita income of the states in each of the four regions defined by the factor &lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydf &amp;lt;- data.frame(state.x77, state.region = state.region, stringsAsFactors = FALSE)
+tapply(mydf$Income, mydf$state.region, mean)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Northeast         South North Central          West 
+##      4570.222      4011.938      4611.083      4702.615&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;b) The maximum illiteracy rates for states in each of the nine divisions defined by the factor \textit{state.division}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydf &amp;lt;- data.frame(state.x77, state.division = state.division, stringsAsFactors = FALSE)
+tapply(mydf$Illiteracy, mydf$state.division, max)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        New England    Middle Atlantic     South Atlantic 
+##                1.3                1.4                2.3 
+## East South Central West South Central East North Central 
+##                2.4                2.8                0.9 
+## West North Central           Mountain            Pacific 
+##                0.8                2.2                1.9&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;c) The number of states in each region&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydf &amp;lt;- data.frame(state.x77, state.region = state.region, state.name = state.name, stringsAsFactors = FALSE)
+tapply(mydf$state.name, mydf$state.region, length)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Northeast         South North Central          West 
+##             9            16            12            13&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;15&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Using the dataframe , produce a scatter plot matrix of the variables . Use different colors to identify cars belonging to each of the categories defined by the  variable in different colors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;carsize = cut(mtcars[,&amp;quot;wt&amp;quot;], breaks=c(0, 2.5, 3.5, 5.5), 
+labels = c(&amp;quot;Compact&amp;quot;,&amp;quot;Midsize&amp;quot;,&amp;quot;Large&amp;quot;))
+carsize = cut(mtcars[,&amp;quot;wt&amp;quot;], breaks=c(0, 2.5, 3.5,
+                                  5.5), labels = c(&amp;quot;Compact&amp;quot;,&amp;quot;Midsize&amp;quot;,&amp;quot;Large&amp;quot;))
+
+mydf &amp;lt;- data.frame(mtcars, carsize = carsize)
+
+# Using base R
+par(mfrow = c(1,1))
+pairs(~mpg + disp + hp + drat + qsec, data=mydf, 
+  main=&amp;quot;mtcars Scatterplot Matrix&amp;quot;)
+
+# Using ggplot
+library(ggplot2)
+library(&amp;#39;GGally&amp;#39;)
+ggpairs(mydf[,c(&amp;quot;mpg&amp;quot;, &amp;quot;disp&amp;quot;, &amp;quot;hp&amp;quot;, &amp;quot;drat&amp;quot;, &amp;quot;qsec&amp;quot;)])&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the function  to perform a one-way analysis of variance on the  data with  as the treatment factor. Assign the result to an object named  and use it to print an ANOVA table.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;chick.aov &amp;lt;- aov( weight ~ feed, chickwts)
+
+# summary aov
+summary.aov(chick.aov)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##             Df Sum Sq Mean Sq F value   Pr(&amp;gt;F)    
+## feed         5 231129   46226   15.37 5.94e-10 ***
+## Residuals   65 195556    3009                     
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# post-hoc test (Tukey HSD)
+TukeyHSD(chick.aov)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = weight ~ feed, data = chickwts)
+## 
+## $feed
+##                            diff         lwr       upr     p adj
+## horsebean-casein    -163.383333 -232.346876 -94.41979 0.0000000
+## linseed-casein      -104.833333 -170.587491 -39.07918 0.0002100
+## meatmeal-casein      -46.674242 -113.906207  20.55772 0.3324584
+## soybean-casein       -77.154762 -140.517054 -13.79247 0.0083653
+## sunflower-casein       5.333333  -60.420825  71.08749 0.9998902
+## linseed-horsebean     58.550000  -10.413543 127.51354 0.1413329
+## meatmeal-horsebean   116.709091   46.335105 187.08308 0.0001062
+## soybean-horsebean     86.228571   19.541684 152.91546 0.0042167
+## sunflower-horsebean  168.716667   99.753124 237.68021 0.0000000
+## meatmeal-linseed      58.159091   -9.072873 125.39106 0.1276965
+## soybean-linseed       27.678571  -35.683721  91.04086 0.7932853
+## sunflower-linseed    110.166667   44.412509 175.92082 0.0000884
+## soybean-meatmeal     -30.480519  -95.375109  34.41407 0.7391356
+## sunflower-meatmeal    52.007576  -15.224388 119.23954 0.2206962
+## sunflower-soybean     82.488095   19.125803 145.85039 0.0038845&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;17&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Write an R function named  for conducting a one-sample t-test. Return a list object containing the two components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the t-statistic named T;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;the two-sided p-value named P.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Annotated R Code
+  library(HSAUR3)
+  library(stats)
+  attach(chickwts)
+  head(chickwts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   weight      feed
+## 1    179 horsebean
+## 2    160 horsebean
+## 3    136 horsebean
+## 4    227 horsebean
+## 5    217 horsebean
+## 6    168 horsebean&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  t.test(chickwts$weight,mu=240)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  One Sample t-test
+## 
+## data:  chickwts$weight
+## t = 2.2999, df = 70, p-value = 0.02444
+## alternative hypothesis: true mean is not equal to 240
+## 95 percent confidence interval:
+##  242.8301 279.7896
+## sample estimates:
+## mean of x 
+##  261.3099&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  ttest=function(x,mu,alpha){
+    # x = data
+    # mu = sample mean, 
+    # alpha = alpha 
+    # level = (1-confidence level)
+    me=mean(x$weight)
+    p1=qt(alpha/2,(nrow(x)-1))
+    p2=qt(1-alpha/2,(nrow(x)-1))
+    s=sqrt(var(x$weight))
+    n=nrow(x)
+    
+    T=(me-mu)/(s/sqrt(nrow(x))) 
+    P=seq(1,1,1)
+    P[1]=2*(1-pt(T,n))
+    P=data.frame(P)
+    return (cbind(P,T))
+  }
+  
+  t_test_values &amp;lt;- ttest(chickwts,240,0.05)
+  print (&amp;quot;T value and two sided P values returned by the funtion: &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;T value and two sided P values returned by the funtion: &amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  print(t_test_values)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            P        T
+## 1 0.02439824 2.299879&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Use this function to test the hypothesis that the mean of the  variable (in the  dataset) is equal to 240 against the two-sided alternative. &lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  message(&amp;quot;Hypothesis Result:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Hypothesis Result:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  if (2*abs(t_test_values[1,2])&amp;gt;2*abs(t_test_values[1,1])){
+    print(&amp;quot;Rejected! The true mean is NOT 240 !!&amp;quot;)
+  } else if (2*abs(t_test_values[1,2])&amp;lt;2*abs(t_test_values[1,1])){
+    print(&amp;quot;Null. The mean is 240 !!&amp;quot;)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Rejected! The true mean is NOT 240 !!&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression&amp;GLM-I</title>
+      <link>/achalneupane.github.io/post/logistic_regression_glm_i/</link>
+      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <guid>/achalneupane.github.io/post/logistic_regression_glm_i/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;p&gt;Answer all questions specified on the problem and include a discussion on how
+your results answered/addressed the question.&lt;/p&gt;
+&lt;p&gt;Submit your  file with the knitted  (or knitted Word
+Document saved as a PDF). If you are having trouble with .rmd, let us know and
+we will help you, but both the .rmd and the PDF are required.&lt;/p&gt;
+&lt;p&gt;This file can be used as a skeleton document for your code/write up. Please
+follow the instructions found under Content for Formatting and Guidelines. No
+code should be in your PDF write-up unless stated otherwise.&lt;/p&gt;
+&lt;p&gt;For any question asking for plots/graphs, please do as the question asks as well
+as do the same but using the respective commands in the GGPLOT2 library. (So if
+the question asks for one plot, your results should have two plots. One produced
+using the given R-function and one produced from the GGPLOT2 equivalent). This
+doesn’t apply to questions that don’t specifically ask for a plot, however I
+still would encourage you to produce both.&lt;/p&gt;
+&lt;p&gt;You do not need to include the above statements.&lt;/p&gt;
+&lt;p&gt;Please do the following problems from the text book R Handbook and stated.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Collett (2003) argues that two outliers need to be removed from the
+ data. Try to identify those two unusual observations by means of
+a scatterplot. (7.2 on Handbook)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;calibrate&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: MASS&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;ggplot2&amp;quot;)
+library(&amp;quot;HSAUR3&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: tools&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;knitr&amp;quot;)
+data(&amp;quot;plasma&amp;quot;)
+
+plasma$rownumber &amp;lt;- 1:nrow(plasma)
+plot.new()
+# square plotting region, independent of device size; 1 x 1 pictures on one plot
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+plot(
+  plasma$fibrinogen,
+  plasma$globulin,
+  col = plasma$ESR,
+  data = plasma,
+  pch = 18,
+  main = &amp;quot;base R: Scatterplot of plasma data&amp;quot;,
+  xlab = &amp;quot;Fibrinogen&amp;quot;,
+  ylab = &amp;quot;Globulin&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in plot.window(...): &amp;quot;data&amp;quot; is not a graphical parameter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in plot.xy(xy, type, ...): &amp;quot;data&amp;quot; is not a graphical parameter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in axis(side = side, at = at, labels = labels, ...): &amp;quot;data&amp;quot; is not
+## a graphical parameter
+
+## Warning in axis(side = side, at = at, labels = labels, ...): &amp;quot;data&amp;quot; is not
+## a graphical parameter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in box(...): &amp;quot;data&amp;quot; is not a graphical parameter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in title(...): &amp;quot;data&amp;quot; is not a graphical parameter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;text(globulin ~fibrinogen, labels = rownumber,data=plasma, cex=0.8, font=0.5)
+abline(v = 3.5)
+abline(h = 45)
+# points(plasma[c(27, 30, 32), 1:2], pch = 5)
+legend(
+  &amp;quot;bottomright&amp;quot;,
+  c(&amp;quot;ESR&amp;lt;20&amp;quot;, &amp;quot;ESR&amp;gt;20&amp;quot;),
+  # title = &amp;quot;ESR&amp;quot;,
+  inset = c(0, 1),
+  xpd=TRUE, 
+  horiz=TRUE,
+  col = c(&amp;quot;black&amp;quot;, &amp;quot;red&amp;quot;),
+  # lty = c(1, 1),
+  pch = c(18, 18),
+  bty = &amp;quot;n&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = plasma, aes(x = fibrinogen, y = globulin, colour = ESR)) +
+  geom_point() +
+  ggtitle(&amp;quot;ggplot: Scatterplot of Plasma data&amp;quot;) +
+  xlab(&amp;quot;Fibrinogen&amp;quot;) +
+  ylab(&amp;quot;Globulin&amp;quot;) +
+  geom_text(aes(label=plasma$rownumber),hjust=0, vjust=0) +
+  geom_hline(yintercept=45, linetype=&amp;quot;dashed&amp;quot;, 
+             color = &amp;quot;black&amp;quot;, size=0.5) +
+  geom_vline(xintercept=3.5, linetype=&amp;quot;dashed&amp;quot;, 
+             color = &amp;quot;black&amp;quot;, size=0.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Discussion: Based on the scatter plot (and if we consider all data points, both ESR &amp;gt; and &amp;lt; 20, together), we could say that rows 27, 30 and 32 as the potential outliers. If we separate the data by ESR &amp;gt;20 and ESR &amp;lt; 20, there may be other outliers for each group. I think we could make box plots by group to determine the outliers more effectively.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;(Multiple Regression) Continuing from the lecture on the  data
+from  library;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Fit a quadratic regression model, i.e.,a model of the form
+&lt;span class=&#34;math display&#34;&gt;\[\text{Model 2:   } velocity = \beta_1 \times distance + \beta_2 \times distance^2 +\epsilon\]&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gamair)
+data(hubble)
+
+# A. Fit a quadratic regression model
+model2 &amp;lt;- lm(y~x + I(x^2) -1, data = hubble)
+# summary(model2)
+kable(summary(model2)$coefficients, caption = &amp;quot;Summary of the model2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-2&#34;&gt;Table 1: &lt;/span&gt;Summary of the model2&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Estimate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Std. Error&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;t value&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Pr(&amp;gt;|t|)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;90.9046424&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.5725817&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.4852433&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000164&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;I(x^2)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.8837375&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9925378&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.8903817&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.3828949&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;b) Plot the fitted curve from Model 2 on the scatterplot of the data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# fitted curve
+# index  &amp;lt;- seq(0, 22, 0.1)
+index &amp;lt;- seq(min(hubble$x),max(hubble$x),0.1)
+index2 &amp;lt;- index^2
+# predicted &amp;lt;- predict(model2,list(x = index, x2=index2))
+predicted &amp;lt;- model2$fitted.values
+#create a data frame of x nd y values for plotting for ggplot
+data &amp;lt;- as.data.frame(cbind(x = hubble$x,predicted))
+# Scatter Plot
+plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+plot(y~x, data = hubble, main = &amp;quot;base R: Scatter plot with fitted curve from Model2&amp;quot;, xlab = &amp;quot;Distance&amp;quot;, ylab = &amp;quot;Velocity&amp;quot;)
+lines(data$x[order(data$x)], data$predicted[order(data$predicted)], col = &amp;quot;green&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = model2, aes(x = model2$model$x, y = model2$model$y)) +
+  geom_point() +
+  geom_line(aes(x = model2$model$x, y = model2$fitted.values), colour = &amp;quot;green&amp;quot;) +
+  labs(title = &amp;quot;ggplot: Scatter plot with fitted curve from Model2&amp;quot;, x = &amp;quot;Distance&amp;quot;, y = &amp;quot;velocity&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;c) Add the simple linear regression fit (fitted in class) on this plot - use
+different color and line type to differentiate the two and add a legend to
+your plot.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Simple lm fitted in class
+hmod &amp;lt;- lm(y~x - 1 , data = hubble)
+plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+plot(y~x, data = hubble, main = &amp;quot;base R: scatter plot for hubble data&amp;quot;, xlab = &amp;quot;Distance&amp;quot;, ylab = &amp;quot;Velocity&amp;quot;)
+lines(data$x[order(data$x)], data$predicted[order(data$predicted)], col = &amp;quot;green&amp;quot;)
+abline(hmod, lty=2, col=2)
+
+# Legend
+legend(&amp;quot;bottomright&amp;quot;, c(&amp;quot;Quadratic&amp;quot;, &amp;quot;Linear&amp;quot;), lty = 1:2, col = 2:1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## ggplot version
+
+ggplot(data = model2, aes(x = model2$model$x, y = model2$model$y)) +
+  geom_point() +
+  geom_line(aes(x = model2$model$x, y = model2$fitted.values, colour = &amp;quot;Quadratic&amp;quot;)) +
+  geom_line(data = hmod, aes(x = hmod$model$x, y = hmod$fitted.values, colour = &amp;quot;Linear&amp;quot;)) +
+  labs(title = &amp;quot;ggplot: Scatter plot with fitted curve from Model2&amp;quot;, x = &amp;quot;Distance&amp;quot;, y = &amp;quot;velocity&amp;quot;, colour = &amp;quot;Models&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d) Which model do you consider most sensible considering the nature of the data - looking at the plot? 
+
+Answer: The simple model seems more sensible to me.  The data points seem to
+follow a line from lower left to upper right of the plot without a clear
+curvature. However, strictly saying, there isn&amp;#39;t much difference between the two models.
+
+e) Which model is better? - provide a statistic to support you claim.
+
+Note: The quadratic model here is still regarded as a ``linear regression&amp;quot;
+model since the term ``linear&amp;quot; relates to the parameters of the model and
+not to the powers of the explanatory variables.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model2) # # Quadratic regression model&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = y ~ x + I(x^2) - 1, data = hubble)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -713.15 -152.76  -54.85  163.92  557.01 
+## 
+## Coefficients:
+##        Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## x       90.9046    16.5726   5.485 1.64e-05 ***
+## I(x^2)  -0.8837     0.9925  -0.890    0.383    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 260.1 on 22 degrees of freedom
+## Multiple R-squared:  0.944,  Adjusted R-squared:  0.9389 
+## F-statistic: 185.3 on 2 and 22 DF,  p-value: 1.715e-14&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod.2 &amp;lt;- summary(model2)
+summary(hmod)  # Simple linear model&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = y ~ x - 1, data = hubble)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -736.5 -132.5  -19.0  172.2  558.0 
+## 
+## Coefficients:
+##   Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## x   76.581      3.965   19.32 1.03e-15 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 258.9 on 23 degrees of freedom
+## Multiple R-squared:  0.9419, Adjusted R-squared:  0.9394 
+## F-statistic: 373.1 on 1 and 23 DF,  p-value: 1.032e-15&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hmod.1 &amp;lt;- summary(hmod) 
+cat (&amp;quot;Adjusted R-square&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Adjusted R-square&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kable(cbind(Quadratic = mod.2$adj.r.squared, Linear = hmod.1$adj.r.squared), caption = &amp;quot;Adjusted R-square&amp;quot;, row.names = FALSE )&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 2: &lt;/span&gt;Adjusted R-square&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;Quadratic&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Linear&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0.9388554&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9394063&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;Answer to 2e. The statistics appear to support the simple model as the
+better one. Since the Adjusted r-squared statistic is higher for the simple model
+(0.9394) Vs. Quadratic (0.9388554) which indicates that the simple model explains more of the variability in the response data than does the quadratic model.&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;The  data from package  shows the survival times
+from diagnosis of patients suffering from leukemia and the values of two
+explanatory variables, the white blood cell count (wbc) and the presence or
+absence of a morphological characteristic of the white blood cells (ag).&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Define a binary outcome variable according to whether or not patients
+lived for at least 24 weeks after diagnosis. Call it .&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#add a binary column named surv24 for time greater than or less than 24. 
+library(MASS)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:MASS&amp;#39;:
+## 
+##     select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;q3_subset &amp;lt;- leuk %&amp;gt;%
+  mutate(surv24 = ifelse(time &amp;gt;= 24, 1,0))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;b) Fit a logistic regression model to the data with \textit{surv24} as
+response. It is advisable to transform the very large white blood counts to
+avoid regression coefficients very close to 0 (and odds ratio close to 1).
+You may use log transformation.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;surv24.model &amp;lt;- glm(surv24 ~ log(wbc) + ag, data=q3_subset,family = &amp;#39;binomial&amp;#39;)
+kable(summary(surv24.model)$coefficient, caption = &amp;quot;Summary coefficients of the glm&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-7&#34;&gt;Table 3: &lt;/span&gt;Summary coefficients of the glm&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Estimate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Std. Error&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;z value&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Pr(&amp;gt;|z|)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;(Intercept)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.4555870&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.9821469&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.158758&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2465548&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;log(wbc)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.4821891&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.3149136&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-1.531179&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1257252&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;agpresent&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.7621259&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.8093190&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.177295&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0294586&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;c) Construct some graphics useful in the interpretation of the final model you fit. &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Create a scatter plot of the data fitting the two curves of test results to the fitted output of the model prediciton&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Create a scatter plot of the data fitting the two curves of test results to the fitted output of the model prediciton&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x.extension &amp;lt;- seq(0, max(log(q3_subset$wbc)+4.5), by = 0.5)
+espframe &amp;lt;- data.frame(&amp;quot;x.extension&amp;quot; = x.extension, &amp;quot;agpress&amp;quot; = (exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3])/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3]))), &amp;quot;agabs&amp;quot; = exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension)/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension)))
+
+
+plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+plot(x = log(leuk$wbc), y = surv24.model$fitted.values, col = leuk$ag, xlim = c(0,15), ylim = c(0,1), ylab = &amp;quot;Survive (Time, surv24wks)&amp;quot;, xlab = &amp;quot;log (wbc counts)&amp;quot;, main = &amp;quot;base R: plot of logistic model of Leuk data&amp;quot;)
+lines(x = x.extension, y = exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension)/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension)))
+lines(x = x.extension, y = exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3])/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3])))
+legend(&amp;quot;bottomleft&amp;quot;, legend = c(&amp;quot;Ag Absent&amp;quot;, &amp;quot;Ag Present&amp;quot;), col = c(&amp;quot;black&amp;quot;, &amp;quot;red&amp;quot;), lty = c(1,1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;leuk.gg &amp;lt;- data.frame(&amp;quot;logwbc&amp;quot; = log(leuk$wbc), surv24 = q3_subset$surv24, &amp;quot;fv&amp;quot; = surv24.model$fitted.values, &amp;quot;ag&amp;quot; = leuk$ag)
+
+leuk.gg &amp;lt;- cbind(leuk.gg, espframe)
+ggplot(leuk.gg, aes(x = logwbc, y = fv, colour = ag)) + 
+  geom_point() +
+  # scale_colour_discrete(guide = FALSE) +
+  # guides(colour=FALSE) +
+  geom_line(aes(x = x.extension, y = agpress, colour = &amp;quot;present&amp;quot;)) +
+  geom_line(aes(x = x.extension, y = agabs, colour = &amp;quot;absent&amp;quot;)) +
+  labs ( title = &amp;quot;ggplot: plot of logistic model of Leuk data&amp;quot;, x = &amp;quot;log of WBC count&amp;quot;, y = &amp;quot;Survive (Time, surv24wks)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Survival Vs WBC count with logistic model on actual data points&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Survival Vs WBC count with logistic model on actual data points&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# # base plot version
+line.1.dat &amp;lt;- leuk.gg[leuk.gg$ag == &amp;#39;absent&amp;#39;, ]
+line.2.dat &amp;lt;- leuk.gg[leuk.gg$ag == &amp;#39;present&amp;#39;, ]
+plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+plot(
+  x = leuk.gg$logwbc,
+  y = leuk.gg$surv24,
+  xlim=c(0,15),
+  ylim = c(0,1),
+  col = leuk.gg$ag,
+  xlab = &amp;quot;WBC counts&amp;quot;,
+  ylab = &amp;quot;Probability of Death prior to 24 Weeks&amp;quot;,
+  main = &amp;quot;base R: Survival Vs WBC Counts in Leukaemia Patients&amp;quot;
+)
+lines(x.extension, leuk.gg$agpress, col = &amp;quot;green&amp;quot;)
+lines(x.extension, leuk.gg$agabs, col = &amp;quot;black&amp;quot;)
+legend(
+  &amp;quot;topleft&amp;quot;,
+  title = &amp;quot;AG test&amp;quot;,
+  legend = c(&amp;quot;absent&amp;quot;, &amp;quot;present&amp;quot;),
+  inset = c(1, 0),
+  xpd = TRUE,
+  horiz = FALSE,
+  col = c(&amp;quot;black&amp;quot;, &amp;quot;green&amp;quot;),
+  lty = c(1,1),
+  pch = c(1, 2),
+  bty = &amp;quot;n&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(leuk.gg, aes(x = logwbc, y = surv24, color = ag)) +
+  geom_point() +
+  scale_colour_manual(name = &amp;quot;AG test&amp;quot;, values = c(&amp;#39;black&amp;#39;, &amp;#39;green&amp;#39;)) +
+  geom_line(aes(x = x.extension, y = agpress, colour = &amp;quot;present&amp;quot;)) +
+  geom_line(aes(x = x.extension, y = agabs, colour = &amp;quot;absent&amp;quot;)) +
+  labs(title = &amp;#39;ggplot: Survival Vs WBC Counts in Leukaemia Patients&amp;#39;,
+       x = &amp;#39;log WBC Count&amp;#39;,
+       y = &amp;#39;Probability of Death prior to 24 Weeks&amp;#39;) +
+  theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d) Fit a model with an interaction term between the two predictors. Which
+model fits the data better? Justify your answer.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#fitting the model with the interaction term ag * log(wbc)
+surv24.model2 &amp;lt;- lm(surv24 ~ ag * log(wbc), data=q3_subset,family=&amp;#39;binomial&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
+##  extra argument &amp;#39;family&amp;#39; will be disregarded&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kable(summary(surv24.model2)$coefficients, caption = &amp;quot;Summary of the linear model with an interaction&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-9&#34;&gt;Table 4: &lt;/span&gt;Summary of the linear model with an interaction&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Estimate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Std. Error&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;t value&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Pr(&amp;gt;|t|)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;(Intercept)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.0258017&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.8719219&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.0295918&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9765953&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;agpresent&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.4360783&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.1398202&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.1372479&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0411387&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;log(wbc)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0286636&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0898818&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.3189031&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7520857&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;agpresent:log(wbc)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-0.2156187&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1183543&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;-1.8218074&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0788139&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod2 = summary(surv24.model2)
+mod = summary(surv24.model)
+# we can also calculate adjusted r-square value for glm using 
+library(rsq)
+mod.rsq.adj = rsq(surv24.model,adj=TRUE,type=c(&amp;#39;v&amp;#39;,&amp;#39;kl&amp;#39;,&amp;#39;sse&amp;#39;,&amp;#39;lr&amp;#39;,&amp;#39;n&amp;#39;),data=NULL)
+mod2.rsq.adj = rsq(surv24.model2,adj=TRUE,type=c(&amp;#39;v&amp;#39;,&amp;#39;kl&amp;#39;,&amp;#39;sse&amp;#39;,&amp;#39;lr&amp;#39;,&amp;#39;n&amp;#39;),data=NULL)
+# if not using package rsq
+# adj.rsq = rbind(mod2$adj.r.squared, (1 -(mod$deviance/mod$null.deviance)) * 32/(32-2-2))
+adj.rsq = rbind(mod2.rsq.adj, mod.rsq.adj)
+
+row.names(adj.rsq) &amp;lt;- c(&amp;quot;Linear model with interation&amp;quot;, &amp;quot;Linear model&amp;quot;)
+kable(adj.rsq, col.names = &amp;quot;Adjusted R-square values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Adjusted R-square values&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Linear model with interation&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2308546&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Linear model&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1890705&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Since the adjusted R-square value for Linear model with the interacion is higher, I would say the model with an interaction fits the data better.&lt;/p&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Load the  dataset from  library. The dataset
+contains information on ten thousand customers. The aim here is to predict which
+customers will default on their credit card debt. It is a four-dimensional
+dataset with 10000 observations. The question of interest is to predict
+individuals who will default . We want to examine how each predictor variable is
+related to the response (default). Do the following on this dataset&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;Perform descriptive analysis on the dataset to have an insight. Use
+summaries and appropriate exploratory graphics to answer the question of
+interest.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use R to build a logistic regression model.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Discuss your result. Which predictor variables were important? Are there
+interactions?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;How good is your model? Assess the performance of the logistic regression
+classifier. What is the error rate?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Set up data
+data(&amp;quot;Default&amp;quot;, package = &amp;quot;ISLR&amp;quot;)
+
+kable(summary(Default[,1:2]), caption = &amp;quot;Summary of default and student status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-10&#34;&gt;Table 5: &lt;/span&gt;Summary of default and student status&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;default&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;student&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;No :9667&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;No :7056&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Yes: 333&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Yes:2944&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kable(summary(Default[,3:4]), caption = &amp;quot;Summary of Income and Balance&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-10&#34;&gt;Table 5: &lt;/span&gt;Summary of Income and Balance&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;balance&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;income&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Min. : 0.0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Min. : 772&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1st Qu.: 481.7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1st Qu.:21340&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Median : 823.6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Median :34553&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Mean : 835.4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Mean :33517&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3rd Qu.:1166.3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3rd Qu.:43808&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Max. :2654.3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Max. :73554&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#create default binary
+default_binary     &amp;lt;-
+  ifelse(regexpr(&amp;#39;Yes&amp;#39;, Default$default) == -1, 0, 1)
+dflt_str &amp;lt;-
+  ifelse(regexpr(&amp;#39;Yes&amp;#39;, Default$default) == -1,
+         &amp;quot;Not Defaulted&amp;quot;,
+         &amp;quot;Defaulted&amp;quot;)
+
+stdn     &amp;lt;- ifelse(regexpr(&amp;#39;Yes&amp;#39;, Default$student) == -1, 0, 1)
+stdn_str &amp;lt;-
+  ifelse(regexpr(&amp;#39;Yes&amp;#39;, Default$student) == -1, &amp;quot;Not-Student&amp;quot;, &amp;quot;Student&amp;quot;)
+
+blnc &amp;lt;- Default$balance
+incm &amp;lt;- Default$income
+
+df &amp;lt;-  data.frame(default_binary, dflt_str, stdn, stdn_str, blnc, incm)
+
+# par(mfrow = c(1, 1))
+
+cat(&amp;quot;Balance appears roughly normal&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Balance appears roughly normal&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(blnc, main = &amp;quot;Balance&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ggplot() + geom_histogram(aes(blnc), bins = 13, color = &amp;quot;black&amp;quot;, fill = &amp;quot;white&amp;quot;)
+
+
+cat(&amp;quot;Income appears roughly normal with two means&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Income appears roughly normal with two means&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(incm, main = &amp;quot;Income&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Dual means in income appears explained by student status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Dual means in income appears explained by student status&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;layout(matrix(1:2, ncol = 2))
+hist(
+  subset(df$incm, df$stdn == 1),
+  main = &amp;quot;Income by Student Status&amp;quot;,
+  ylab = &amp;quot;Income&amp;quot;,
+  xlab = &amp;quot;Student: Yes&amp;quot;
+)
+hist(
+  subset(df$incm, df$stdn == 0),
+  main = &amp;quot;&amp;quot;,
+  ylab = &amp;quot;Income&amp;quot;,
+  xlab = &amp;quot;Student: No&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;**And** the dual means in income appears NOT to be explained by default status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## **And** the dual means in income appears NOT to be explained by default status&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;layout(matrix(1:2, ncol = 2))
+hist(
+  subset(df$incm, df$default_binary == 1),
+  main = &amp;quot;Income by Default Status&amp;quot;,
+  ylab = &amp;quot;Income&amp;quot;,
+  xlab = &amp;quot;Default: Yes&amp;quot;
+)
+hist(
+  subset(df$incm, df$default_binary == 0),
+  main = &amp;quot;&amp;quot;,
+  ylab = &amp;quot;Income&amp;quot;,
+  xlab = &amp;quot;Default: No&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Clustering of income v. balance explained by student status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Clustering of income v. balance explained by student status&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(
+  Default$income ~ Default$balance,
+  col = Default$student,
+  main = &amp;quot;base R: Income by Balance&amp;quot;,
+  ylab = &amp;quot;Income&amp;quot;,
+  xlab = &amp;quot;Balance&amp;quot;,
+  pch = 18
+)
+legend(
+  &amp;quot;topright&amp;quot;,
+  c(&amp;quot;Yes&amp;quot;, &amp;quot;No&amp;quot;),
+  title = &amp;quot;Student?&amp;quot;,
+  # bty = &amp;quot;n&amp;quot;,
+  fill = c(&amp;quot;red&amp;quot;, &amp;quot;black&amp;quot;),
+  pch = c(18,18)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-6.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = Default, aes(x = balance, y = income, colour = student)) + 
+  geom_point() +
+  labs(title = &amp;quot;ggplot: Income by Balance&amp;quot;) + 
+  guides(colour=guide_legend(title=&amp;quot;Student?&amp;quot;)) +
+  scale_color_manual(values = c(&amp;quot;No&amp;quot; = &amp;quot;black&amp;quot;, &amp;quot;Yes&amp;quot; = &amp;quot;red&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-7.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+boxplot(balance~student, data = Default, main = &amp;quot;base R: Balance grouped by Student status&amp;quot;, xlab = &amp;quot;student&amp;quot;, ylab = &amp;quot;balance&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-8.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = Default, aes(x = student, y = balance)) +
+  geom_boxplot() +
+  labs(title = &amp;quot;ggplot: Balance grouped by Student status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-9.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+boxplot(balance~default, data = Default, main = &amp;quot;base R: Balance grouped by Default status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-10.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = Default, aes(x = default, y = balance)) +
+  geom_boxplot() +
+  labs(title = &amp;quot;ggplot: Balance grouped by Default status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-11.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+boxplot(income~student, data = Default, main = &amp;quot;base R: Income grouped by Student status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-12.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = Default, aes(x = student, y = income)) +
+  geom_boxplot() +
+  labs(title = &amp;quot;ggplot: Income grouped by Student status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-13.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+boxplot(income~default, data = Default, main = &amp;quot;base R: Income grouped by Default status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-14.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = Default, aes(x = default, y = income)) +
+  geom_boxplot() +
+  labs(title = &amp;quot;ggplot: Income grouped by Default status&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-15.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Median and Max income are lower for defaulted than not defaulted loans&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Median and Max income are lower for defaulted than not defaulted loans&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(df$incm, df$dflt_str, FUN = summary)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Defaulted
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    9664   19028   31515   32089   43067   66466 
+## 
+## $`Not Defaulted`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     772   21405   34589   33566   43824   73554&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Median and max balance are higher for defaulted rather than not defaulted loans&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Median and max balance are higher for defaulted rather than not defaulted loans&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tapply(df$blnc, df$dflt_str, FUN = summary)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Defaulted
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   652.4  1511.6  1789.1  1747.8  1988.9  2654.3 
+## 
+## $`Not Defaulted`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     0.0   465.7   802.9   803.9  1128.2  2391.0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#B. Use R to build a logistic regression model&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #B. Use R to build a logistic regression model&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# # https://stackoverflow.com/questions/13366755/what-does-the-r-formula-y1-mean
+regression_model0 &amp;lt;- glm(default_binary ~ stdn + blnc + incm, family = binomial())
+summary(regression_model0)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = default_binary ~ stdn + blnc + incm, family = binomial())
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.4691  -0.1418  -0.0557  -0.0203   3.7383  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## (Intercept) -1.087e+01  4.923e-01 -22.080  &amp;lt; 2e-16 ***
+## stdn        -6.468e-01  2.363e-01  -2.738  0.00619 ** 
+## blnc         5.737e-03  2.319e-04  24.738  &amp;lt; 2e-16 ***
+## incm         3.033e-06  8.203e-06   0.370  0.71152    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2920.6  on 9999  degrees of freedom
+## Residual deviance: 1571.5  on 9996  degrees of freedom
+## AIC: 1579.5
+## 
+## Number of Fisher Scoring iterations: 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# # we could also do to select all predictors in the data
+# mod &amp;lt;- glm(default~., data = Default, family = binomial)
+# summary(mod)
+
+cat(&amp;quot;Then with interactions:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Then with interactions:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;regression_model1 &amp;lt;- glm(default_binary ~ stdn + blnc + incm + stdn * blnc + stdn * incm + blnc * incm, family = binomial())
+summary(regression_model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = default_binary ~ stdn + blnc + incm + stdn * blnc + 
+##     stdn * incm + blnc * incm, family = binomial())
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.4848  -0.1417  -0.0554  -0.0202   3.7579  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## (Intercept) -1.104e+01  1.866e+00  -5.914 3.33e-09 ***
+## stdn        -5.201e-01  1.344e+00  -0.387    0.699    
+## blnc         5.882e-03  1.180e-03   4.983 6.27e-07 ***
+## incm         4.050e-06  4.459e-05   0.091    0.928    
+## stdn:blnc   -2.551e-04  7.905e-04  -0.323    0.747    
+## stdn:incm    1.447e-05  2.779e-05   0.521    0.602    
+## blnc:incm   -1.579e-09  2.815e-08  -0.056    0.955    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2920.6  on 9999  degrees of freedom
+## Residual deviance: 1571.1  on 9993  degrees of freedom
+## AIC: 1585.1
+## 
+## Number of Fisher Scoring iterations: 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;# D. Error Rate&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # D. Error Rate&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dflt.fitted0 &amp;lt;- predict(regression_model0, type = &amp;quot;response&amp;quot;)
+dflt.fitted1 &amp;lt;- predict(regression_model1, type = &amp;quot;response&amp;quot;)
+
+levs &amp;lt;- c(&amp;quot;Defaulted&amp;quot;, &amp;quot;Not Defaulted&amp;quot;)
+Tr &amp;lt;- default_binary
+
+Predicted0 &amp;lt;-
+  factor(ifelse(dflt.fitted0 &amp;gt;= 0.50, &amp;quot;Defaulted&amp;quot;, &amp;quot;Not Defaulted&amp;quot;),
+         levels = levs)
+Predicted1 &amp;lt;-
+  factor(ifelse(dflt.fitted1 &amp;gt;= 0.50, &amp;quot;Defaulted&amp;quot;, &amp;quot;Not Defaulted&amp;quot;),
+         levels = levs)
+Tr1 &amp;lt;-
+  factor(ifelse(Tr &amp;gt;= 0.50, &amp;quot;Defaulted&amp;quot;, &amp;quot;Not Defaulted&amp;quot;), levels = levs)
+rate0 &amp;lt;- table(Predicted0, True = Tr1)
+rate1 &amp;lt;- table(Predicted1, True = Tr1)
+rate0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                True
+## Predicted0      Defaulted Not Defaulted
+##   Defaulted           105            40
+##   Not Defaulted       228          9627&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;error_rate0 &amp;lt;- 1 - (rate0[1, 1] + rate0[2, 2]) / sum(rate0)
+error_rate0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0268&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rate1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                True
+## Predicted1      Defaulted Not Defaulted
+##   Defaulted           104            40
+##   Not Defaulted       229          9627&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;error_rate1 &amp;lt;- 1 - (rate1[1, 1] + rate1[2, 2]) / sum(rate1)
+error_rate1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0269&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;analysis of variance&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## analysis of variance&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(regression_model0, regression_model1, test = &amp;#39;Chisq&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Deviance Table
+## 
+## Model 1: default_binary ~ stdn + blnc + incm
+## Model 2: default_binary ~ stdn + blnc + incm + stdn * blnc + stdn * incm + 
+##     blnc * incm
+##   Resid. Df Resid. Dev Df Deviance Pr(&amp;gt;Chi)
+## 1      9996     1571.5                     
+## 2      9993     1571.1  3  0.47911   0.9235&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4a. Based on the outputs for 4a. we can tell that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Fewer people default than don’t default.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Defaulters and non-defaulters appear to have the same income range, given student status.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Defaulters appear to have higher balances.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If students default, they likely do it with over $1,000 balance.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If non-students default, they are likely do it with over $500 balance.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;4c.
+Without taking interactions into account, it appears that two predictors-
+student and balance are significant. With interactions involved, it appears that
+only balance predictor is important.&lt;/p&gt;
+&lt;p&gt;4d.
+The model without interactions has an AICof 1579.5 and the interaction model has
+an AIC of 1585.1 (slightly higher). But, both have almost similar error rates
+~2.7 %. Also, since analysis of deviance also shows that the chi-square test has
+no significance at 5% level, we can conclude that both models are almost the
+same as a working model.&lt;/p&gt;
+&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Go through Section 7.3.1 of the Handbook. Run all the codes (additional exploration of data is allowed) and write your own version of explanation and interpretation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;# density plot&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # density plot&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plasma &amp;lt;- plasma
+
+layout(matrix(1:2,ncol=2))
+cdplot(ESR ~ fibrinogen, data=plasma)
+cdplot(ESR ~ globulin,data=plasma)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It appears that above a certain level of fibrogen, ESR drops sucessively. This is not the case for globulin.&lt;/p&gt;
+&lt;p&gt;ESR Logistic Regression an Confidence Interval Estimates:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plasma_glm_1 &amp;lt;- glm(ESR ~ fibrinogen, data = plasma, family=binomial())
+confint(plasma_glm_1,parm=&amp;#39;fibrinogen&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Waiting for profiling to be done...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     2.5 %    97.5 % 
+## 0.3387619 3.9984921&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, fibrinogen might have value as a predictor of ESR. We can look at the summary.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(plasma_glm_1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = ESR ~ fibrinogen, family = binomial(), data = plasma)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.9298  -0.5399  -0.4382  -0.3356   2.4794  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)  
+## (Intercept)  -6.8451     2.7703  -2.471   0.0135 *
+## fibrinogen    1.8271     0.9009   2.028   0.0425 *
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 30.885  on 31  degrees of freedom
+## Residual deviance: 24.840  on 30  degrees of freedom
+## AIC: 28.84
+## 
+## Number of Fisher Scoring iterations: 5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The summary output indicates a 5% significance of fibrinogenand and increase of the log-odds of ESR &amp;gt; 20 by about 1.83 with confidence interval (CI) of 0.33 to 3.99.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(coef(plasma_glm_1)[&amp;#39;fibrinogen&amp;#39;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## fibrinogen 
+##   6.215715&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fibrinogen might have value as a predictor of ESR.
+To make the results more readable, it is useful to apply an exponent function. This exponenetiates the log-odds of fibriogen and CI to correspond with the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(confint(plasma_glm_1, parm=&amp;#39;fibrinogen&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Waiting for profiling to be done...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     2.5 %    97.5 % 
+##  1.403209 54.515884&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also perform logistic regression of both explanatory variables (fibrinogen and globulin) and text for the deviance.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plasma_glm_2 &amp;lt;- glm(ESR ~ fibrinogen + globulin, data = plasma, family = binomial())
+summary(plasma_glm_2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = ESR ~ fibrinogen + globulin, family = binomial(), 
+##     data = plasma)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.9683  -0.6122  -0.3458  -0.2116   2.2636  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)  
+## (Intercept) -12.7921     5.7963  -2.207   0.0273 *
+## fibrinogen    1.9104     0.9710   1.967   0.0491 *
+## globulin      0.1558     0.1195   1.303   0.1925  
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 30.885  on 31  degrees of freedom
+## Residual deviance: 22.971  on 29  degrees of freedom
+## AIC: 28.971
+## 
+## Number of Fisher Scoring iterations: 5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;# comparison of models&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # comparison of models&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(plasma_glm_1, plasma_glm_2, test= &amp;#39;Chisq&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Deviance Table
+## 
+## Model 1: ESR ~ fibrinogen
+## Model 2: ESR ~ fibrinogen + globulin
+##   Resid. Df Resid. Dev Df Deviance Pr(&amp;gt;Chi)
+## 1        30     24.840                     
+## 2        29     22.971  1   1.8692   0.1716&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we can make the bubble plot of the predicted values of model II (plasma_glm_2). The plot shows that the probablity of ‘good’ ESR reading increases as fibrinogen increases. This is true of globulin only up to a point.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prob &amp;lt;- predict(plasma_glm_2, type=&amp;#39;response&amp;#39;)
+
+plot.new()
+par(mfrow = c(1, 1), pty = &amp;quot;s&amp;quot;)
+plot(globulin ~ fibrinogen,data=plasma,xlim=c(2,6),ylim=c(25,55),pch=&amp;#39;.&amp;#39;, main = &amp;quot;Bubble plot of the predicted values of model II&amp;quot;)
+symbols(plasma$fibrinogen,plasma$globulin,circles=prob,add=T)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression&amp;GLM-II</title>
+      <link>/achalneupane.github.io/post/logistic_regression_glm_ii/</link>
+      <pubDate>Thu, 15 Aug 2019 17:26:23 -0500</pubDate>
+      <guid>/achalneupane.github.io/post/logistic_regression_glm_ii/</guid>
+      <description>
+
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+&lt;p&gt;Answer all questions specified on the problem and include a discussion on how your results answered/addressed the question.&lt;/p&gt;
+&lt;p&gt;Submit your  file with the knitted  (or knitted Word Document saved as a PDF). If you are having trouble with .rmd, let us know and we will help you, but both the .rmd and the PDF are required.&lt;/p&gt;
+&lt;p&gt;This file can be used as a skeleton document for your code/write up. Please follow the instructions found under Content for Formatting and Guidelines. No code should be in your PDF write-up unless stated otherwise.&lt;/p&gt;
+&lt;p&gt;For any question asking for plots/graphs, please do as the question asks as well as do the same but using the respective commands in the GGPLOT2 library. (So if the question asks for one plot, your results should have two plots. One produced using the given R-function and one produced from the GGPLOT2 equivalent). This doesn’t apply to questions that don’t specifically ask for a plot, however I still would encourage you to produce both.&lt;/p&gt;
+&lt;p&gt;You do not need to include the above statements.&lt;/p&gt;
+&lt;p&gt;Please do the following problems from the text book R Handbook and stated.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Use the  data from the  library to answer the following questions&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;Construct graphical and numerical summaries that will show the relationship between tumor size and the number of recurrent tumors. Discuss your discovery. (Hint: mosaic plot may be a great way to assess this)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Build a Poisson regression that estimates the effect of size of tumor on the number of recurrent tumors. Discuss your results.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;bladdercancer&amp;quot;, package = &amp;quot;HSAUR3&amp;quot;)
+# base R plot version
+# head(bladdercancer)
+cat(&amp;quot;#1a&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #1a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mosaicplot(xtabs( ~ number + tumorsize, data = bladdercancer),
+           main = &amp;quot;base R: The Number of recurrent tumors compared with tumor size&amp;quot;,
+           shade = TRUE)
+
+# ggplot version:
+# install.packages(&amp;#39;ggmosaic&amp;#39;)
+library(ggmosaic)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: ggplot2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = bladdercancer) +
+  geom_mosaic(aes(x = product(tumorsize, number), fill = tumorsize), na.rm =
+                FALSE) +
+  labs(x = &amp;quot;Number&amp;quot;, x = &amp;quot;Tumour Size&amp;quot;, title = &amp;#39;ggplot: The Number of recurrent tumors compared with tumor size&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-1-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We can also visualize this by creating percentage table using `prop.table`
+# function.
+table_rows_percentage &amp;lt;-
+  table(bladdercancer$tumorsize, bladdercancer$number)
+colnames(table_rows_percentage) &amp;lt;-
+  c(&amp;quot;Tumour_1 (counts)&amp;quot;,
+    &amp;quot;Tumour_2 (counts)&amp;quot;,
+    &amp;quot;Tumour_3 (counts)&amp;quot;,
+    &amp;quot;Tumour_4 (counts)&amp;quot;)
+cat(&amp;quot;Table of tumour number and frequency:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Table of tumour number and frequency:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table_rows_percentage&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        
+##         Tumour_1 (counts) Tumour_2 (counts) Tumour_3 (counts)
+##   &amp;lt;=3cm                15                 5                 1
+##   &amp;gt;3cm                  5                 2                 1
+##        
+##         Tumour_4 (counts)
+##   &amp;lt;=3cm                 1
+##   &amp;gt;3cm                  1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# bladdercancer %&amp;gt;%
+#   group_by(tumorsize,number) %&amp;gt;%
+#   summarize(freq = n()) %&amp;gt;%
+#   spread(number,freq,sep=&amp;#39;_of_tumors_&amp;#39;)
+tt &amp;lt;- prop.table(table_rows_percentage, 1)
+colnames(tt) &amp;lt;-
+  c(&amp;quot;Tumour_1(%)&amp;quot;, &amp;quot;Tumour_2(%)&amp;quot;, &amp;quot;Tumour_3(%)&amp;quot;, &amp;quot;Tumour_4(%)&amp;quot;)
+cat(&amp;quot;Table of tumour number and frequency in %:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Table of tumour number and frequency in %:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tt&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        
+##         Tumour_1(%) Tumour_2(%) Tumour_3(%) Tumour_4(%)
+##   &amp;lt;=3cm  0.68181818  0.22727273  0.04545455  0.04545455
+##   &amp;gt;3cm   0.55555556  0.22222222  0.11111111  0.11111111&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1a. &lt;strong&gt;Discussion:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Based on the mosaic plot, frequency table or the percentage table above, we can tell that the observed frequency for 1 or 2 tumors greater than 3cm (&amp;gt;3cm) is lower than expected and the observed frequency for 3 or 4 tumors less than or equal to 3 cm (&amp;lt;=3cm) is also lower than what we would expect for this data.&lt;/p&gt;
+&lt;p&gt;1b.&lt;/p&gt;
+&lt;p&gt;Building a Poisson regression that estimates the effect of size of tumor on
+the number of recurrent tumors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod1 &amp;lt;- glm(number ~ tumorsize,data=bladdercancer,family=poisson())
+summary(mod1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = number ~ tumorsize, family = poisson(), data = bladdercancer)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.6363  -0.3996  -0.3996   0.4277   1.7326  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&amp;gt;|z|)  
+## (Intercept)     0.3747     0.1768   2.120    0.034 *
+## tumorsize&amp;gt;3cm   0.2007     0.3062   0.655    0.512  
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 12.80  on 30  degrees of freedom
+## Residual deviance: 12.38  on 29  degrees of freedom
+## AIC: 87.191
+## 
+## Number of Fisher Scoring iterations: 4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1b. &lt;strong&gt;Discussion&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;model1 (mod1): If we test the model dropping the time variable. It shows that the intercept is significant (P&amp;lt;0.05), but the tumour size is not significant.&lt;/p&gt;
+&lt;p&gt;Additionally, we can also test models considering the time interaction&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod2 &amp;lt;- glm(number ~time + tumorsize + tumorsize*time,data=bladdercancer,family=poisson(link=log))
+summary(mod2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = number ~ time + tumorsize + tumorsize * time, family = poisson(link = log), 
+##     data = bladdercancer)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.6943  -0.5581  -0.2413   0.2932   1.4644  
+## 
+## Coefficients:
+##                    Estimate Std. Error z value Pr(&amp;gt;|z|)
+## (Intercept)         0.03957    0.43088   0.092    0.927
+## time                0.02138    0.02418   0.884    0.377
+## tumorsize&amp;gt;3cm       0.46717    0.66713   0.700    0.484
+## time:tumorsize&amp;gt;3cm -0.01676    0.03821  -0.439    0.661
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 12.800  on 30  degrees of freedom
+## Residual deviance: 11.566  on 27  degrees of freedom
+## AIC: 90.377
+## 
+## Number of Fisher Scoring iterations: 4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1b. &lt;strong&gt;Discussion:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;model2 (mod2): If we consider time interaction with the tumour size, we can clearly see that none of the variables are significant.&lt;/p&gt;
+&lt;p&gt;If we remove time interaction from above model, we get&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod3 &amp;lt;- glm(number ~ time + tumorsize,data=bladdercancer,family=poisson())
+summary(mod3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = number ~ time + tumorsize, family = poisson(), 
+##     data = bladdercancer)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.8183  -0.4753  -0.2923   0.3319   1.5446  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&amp;gt;|z|)
+## (Intercept)    0.14568    0.34766   0.419    0.675
+## time           0.01478    0.01883   0.785    0.433
+## tumorsize&amp;gt;3cm  0.20511    0.30620   0.670    0.503
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 12.800  on 30  degrees of freedom
+## Residual deviance: 11.757  on 28  degrees of freedom
+## AIC: 88.568
+## 
+## Number of Fisher Scoring iterations: 4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1b. &lt;strong&gt;Discussions:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;model3 (mod3): If we drop time interaction from previous model (mod2), we still do not get anything significant with the time or tumour size. However, the AIC value drops to 88.56.&lt;/p&gt;
+&lt;p&gt;In all three models we compared, we can also see that the residual and null deviance values are low compared to the degrees of freedom. If our Null Deviance is really small, it means that the Null Model explains the data pretty well. Likewise with your Residual Deviance.&lt;/p&gt;
+&lt;p&gt;Additionaly, we can perform a Chi-squared test for the Null deviance to check
+whether any of the predictors have an influence on the response variables in
+our three models using function &lt;code&gt;pchisq&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Source: https://stat.ethz.ch/education/semesters/as2015/asr/Uebungen/Uebungen/solution8.pdf
+pchisq((mod1$null.deviance-mod1$deviance), df = (mod1$df.null-mod1$df.residual), lower = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5171827&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pchisq((mod2$null.deviance-mod2$deviance), df = (mod2$df.null-mod2$df.residual), lower = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.7448414&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pchisq((mod3$null.deviance-mod3$deviance), df  = (mod3$df.null-mod3$df.residual), lower = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5935891&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The p-values in all three models are larger than 0.05, which tells us that there is no significant predictor in our model.&lt;/p&gt;
+&lt;p&gt;Additionally, if we can compare all three models we built above for analysis of deviance using ANOVA:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(mod1,mod2,mod3,test=&amp;#39;Chisq&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Deviance Table
+## 
+## Model 1: number ~ tumorsize
+## Model 2: number ~ time + tumorsize + tumorsize * time
+## Model 3: number ~ time + tumorsize
+##   Resid. Df Resid. Dev Df Deviance Pr(&amp;gt;Chi)
+## 1        29     12.380                     
+## 2        27     11.566  2  0.81458   0.6655
+## 3        28     11.757 -1 -0.19095   0.6621&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1b. &lt;strong&gt;Discussion&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here as well, we do not find any of these models to be significant.&lt;/p&gt;
+&lt;p&gt;Final conclusion: Based on these analysis we can tell that the acceptance of the null hypothesis is evident in this case because there is nothing within the data to explain an increment in the number of tumors. Since we tested both tumour size and time variables, we can tell that &lt;strong&gt;neither time&lt;/strong&gt; nor the &lt;strong&gt;tumour size&lt;/strong&gt; have any effect on increasing &lt;strong&gt;number&lt;/strong&gt; of tumours.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The following data is the number of new AIDS cases in Belgium between the years 1981-1993. Let &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt; denote time
+&lt;p&gt;Do the following&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;Plot the relationship between AIDS cases against time. Comment on the plot&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fit a Poisson regression model &lt;span class=&#34;math inline&#34;&gt;\(log(\mu_i)=\beta_0+\beta_1t_i\)&lt;/span&gt;. Comment on the model parameters and residuals (deviance) vs Fitted plot.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now add a quadratic term in time ( ) and fit the model. Comment on the model parameters and assess the residual plots.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compare the two models using AIC. Which model is better?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use -function to perform &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; test for model selection. Did adding the quadratic term improve model?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y = c(12, 14, 33, 50, 67, 74, 123, 141, 165, 204, 253, 246, 240)
+t = 1:13
+
+data &amp;lt;- as.data.frame(cbind(t, y))
+
+cat(&amp;quot;#2a (base R plot version)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #2a (base R plot version)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(y ~ t,
+     main = &amp;quot;base R: Number of AIDs cases from 1981-1993&amp;quot;,
+     xlab = &amp;quot;Time in Years from 1981&amp;quot;,
+     ylab = &amp;quot;Number of Aids cases&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#2a ggplot version&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #2a ggplot version&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() + aes(x = t, y = y) + geom_point() + labs(title = &amp;quot;ggplot: Number of AIDs cases from 1981-1993&amp;quot;, x = &amp;quot;Time in Years from 1981&amp;quot;, y = &amp;quot;Number of Aids cases&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#2b&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #2b&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Poisson model
+aids.pois &amp;lt;- glm(y ~ t, data = data, family = &amp;quot;poisson&amp;quot;)
+summary(aids.pois)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = y ~ t, family = &amp;quot;poisson&amp;quot;, data = data)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -4.6784  -1.5013  -0.2636   2.1760   2.7306  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## (Intercept) 3.140590   0.078247   40.14   &amp;lt;2e-16 ***
+## t           0.202121   0.007771   26.01   &amp;lt;2e-16 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 872.206  on 12  degrees of freedom
+## Residual deviance:  80.686  on 11  degrees of freedom
+## AIC: 166.37
+## 
+## Number of Fisher Scoring iterations: 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Coefficients
+exp(coef(aids.pois)) # coefficients&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept)           t 
+##   23.117491    1.223996&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(confint(aids.pois)) # confidence interval&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Waiting for profiling to be done...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 2.5 %    97.5 %
+## (Intercept) 19.789547 26.894433
+## t            1.205624  1.242922&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#use code below for residual plots
+plot(aids.pois, which = 1, main = &amp;quot;base R: Residual Vs fitted plot for y ~ t&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-7-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ggplot version
+# https://stackoverflow.com/questions/36731027/how-can-i-plot-the-residuals-of-lm-with-ggplot
+
+# cc &amp;lt;- data.frame(aids.pois$residuals, aids.pois$fitted.values)
+#
+# ggplot(cc, aes(x = aids.pois.fitted.values, y = aids.pois.residuals)) +
+#   geom_point() +
+#   geom_abline()
+
+# ggplot(cc, aes(x = aids.pois.fitted.values, y = aids.pois.residuals)) +
+#   geom_smooth(method=&amp;quot;loess&amp;quot;, color=&amp;quot;red&amp;quot;, se=FALSE) +
+#   geom_hline(yintercept = 0, linetype=2, color=&amp;quot;darkgrey&amp;quot;) +
+#   geom_point()+ labs(title = &amp;quot;ggplot: Residual Vs fitted plot&amp;quot;)
+
+# ggplot version
+ggplot(aids.pois, aes(x = .fitted, y = .resid)) + geom_point() + geom_smooth(group = 1, formula = y ~ x) + labs(title = &amp;quot;ggplot: Residual Vs fitted plot for y ~ t&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-7-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#2c&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #2c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$t2 &amp;lt;- data$t ^ 2
+aids2.pois &amp;lt;- glm(y ~ t + t2, data = data, family = &amp;quot;poisson&amp;quot;)
+summary(aids2.pois)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = y ~ t + t2, family = &amp;quot;poisson&amp;quot;, data = data)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -1.45903  -0.64491   0.08927   0.67117   1.54596  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&amp;gt;|z|)    
+## (Intercept)  1.901459   0.186877  10.175  &amp;lt; 2e-16 ***
+## t            0.556003   0.045780  12.145  &amp;lt; 2e-16 ***
+## t2          -0.021346   0.002659  -8.029 9.82e-16 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 872.2058  on 12  degrees of freedom
+## Residual deviance:   9.2402  on 10  degrees of freedom
+## AIC: 96.924
+## 
+## Number of Fisher Scoring iterations: 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Coefficients
+exp(coef(aids2.pois)) # coefficients&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept)           t          t2 
+##   6.6956535   1.7436895   0.9788799&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exp(confint(aids2.pois)) # confidence interval&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Waiting for profiling to be done...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 2.5 %    97.5 %
+## (Intercept) 4.5976982 9.5678396
+## t           1.5965138 1.9104525
+## t2          0.9737254 0.9839292&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#use code below for residual plots
+plot(aids2.pois, which = 1, main = &amp;quot;base R: Residual Vs fitted plot for y ~ t + t2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-7-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ggplot version
+ggplot(aids2.pois, aes(x = .fitted, y = .resid)) + geom_point() + labs(title = &amp;quot;ggplot: Residuals Vs fitted plot for y ~ t + t2&amp;quot;) + geom_smooth()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using method = &amp;#39;loess&amp;#39; and formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Logistic_Regression_GLM_II_files/figure-html/unnamed-chunk-7-6.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#2d&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #2d&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;AIC(aids.pois)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 166.3698&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;AIC(aids2.pois)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 96.92358&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#2e&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #2e&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;anova(aids.pois, aids2.pois, test = &amp;quot;Chisq&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Deviance Table
+## 
+## Model 1: y ~ t
+## Model 2: y ~ t + t2
+##   Resid. Df Resid. Dev Df Deviance  Pr(&amp;gt;Chi)    
+## 1        11     80.686                          
+## 2        10      9.240  1   71.446 &amp;lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Discussions:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2a. The number of new AIDS cases has an increasing trend over time and seems to be leveling off between 1981-1991 then it remains somewhat unchanged until 1993. The maximum number of new AIDS cases occurs in 1991.&lt;/p&gt;
+&lt;p&gt;2b. Both (b0) and (b1) are statistically significant from zero.&lt;/p&gt;
+&lt;p&gt;Interpretation of the coefficients calculated by exponentiating the estimates:&lt;/p&gt;
+&lt;p&gt;exp(b1) =1.22 : A one year increase will result in a 22% increase in the mean number of new AIDs cases.&lt;/p&gt;
+&lt;p&gt;exp(b0) =23.1 : When t=0, the average number of AID cases is 23.1.&lt;/p&gt;
+&lt;p&gt;Likewise, comparing the residual deviance of the model, we can tell that the model is over-spread by 7.80 times on 11 degrees of freedom. Based on the residual plot, we can tell that at time 1, 2, and 13 the residual values are further away from zero indicating they are outliers. Additionally, there is a clear pattern to the residual plot which indicates that mean does not increase as the variance increase because there is not a constant spread in the residuals.&lt;/p&gt;
+&lt;p&gt;Additionally, we can see a curved pattern in the Residual vs. Fitted plot. This could tell us that a transformation or adding a quadratic term to the model would be suitable.&lt;/p&gt;
+&lt;p&gt;2c. All the model parameters are statistically significant from zero.&lt;br /&gt;
+Interpretation of the coefficients calculated by exponentiating the estimates:&lt;/p&gt;
+&lt;p&gt;exp(b1) =1.74: Taking all other parameters constant, a one year increase will result in a 74% increase in the mean number of new AID cases.&lt;/p&gt;
+&lt;p&gt;exp(b2) =0.98 : Taking all other parameters constant, a one year increase will result in a 2% decrease in the mean number of new AID cases.&lt;/p&gt;
+&lt;p&gt;exp(b0) =6.7 : When t=0 and t^2=0, the average number of AID cases is 6.7.&lt;/p&gt;
+&lt;p&gt;Additionally, the residuals vs. fitted values plot looks much better than model one. The residuals seems randomly distributed around 0.&lt;/p&gt;
+&lt;p&gt;2d. Based on the AIC values and the residual plots, model 2 is a better fit for this data.&lt;/p&gt;
+&lt;p&gt;2e.Based on the chi-square test statistic and p-value—in this case we reject the null hypothesis at the  = 0.05 level that model 1 is true. We can tell that the larger model is better, which in this case, adding the quadratic term did improve the model.&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Load the  dataset from  library. The dataset contains information on ten thousand customers. The aim here is to predict which customers will default on their credit card debt. It is a 4 dimensional dataset with 10000 observations. You had developed a logistic regression model on HW #2. Now consider the following two models
+&lt;p&gt;For the two competing models do the following&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;With the whole data compare the two models (Use AIC and/or error rate)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use validation set approach and choose the best model. Be aware that we have few people who defaulted in the data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use LOOCV approach and choose the best model&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use 10-fold cross-validation approach and choose the best model&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Report validation misclassification (error) rate for both models in each of the three assessment methods. Discuss your results.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;Default&amp;quot;, package = &amp;quot;ISLR&amp;quot;)
+Default$default&amp;lt;-as.numeric(Default$default==&amp;quot;Yes&amp;quot;)
+
+mod.log1&amp;lt;-glm(default ~ student + balance , data = Default, family = binomial())
+# summary(mod.log1)
+
+
+cat (&amp;quot;#3a&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #3a&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod.log2&amp;lt;-glm(default ~ balance , data = Default, family = binomial())
+cat(&amp;quot;AIC for mod.log1:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## AIC for mod.log1:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# cat(&amp;quot;AIC(mod.log1) =&amp;quot;, AIC(mod.log1))
+AIC(mod.log1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1577.682&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;AIC for mod.log2:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## AIC for mod.log2:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;AIC(mod.log2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1600.452&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# cat(&amp;quot;AIC(mod.log2) =&amp;quot;, AIC(mod.log2))
+anova(mod.log1, mod.log2, test=&amp;quot;Chisq&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Analysis of Deviance Table
+## 
+## Model 1: default ~ student + balance
+## Model 2: default ~ balance
+##   Resid. Df Resid. Dev Df Deviance  Pr(&amp;gt;Chi)    
+## 1      9997     1571.7                          
+## 2      9998     1596.5 -1   -24.77 6.459e-07 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#3b Validation approach&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #3b Validation approach&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;index&amp;lt;-sample(1:nrow(Default), size=0.6*nrow(Default))
+train&amp;lt;- Default[index, ]
+val&amp;lt;- Default[-index, ]
+
+
+mod.train1&amp;lt;-glm(default ~ student + balance , data = train, family = binomial())
+# summary(mod.train1)
+mod.train2&amp;lt;-glm(default ~ balance , data = train, family = binomial())
+# summary(mod.train2)
+pred1&amp;lt;-predict(mod.train1, val, type = &amp;quot;response&amp;quot;)
+pred2&amp;lt;-predict(mod.train2, val, type = &amp;quot;response&amp;quot;)
+
+cat(&amp;quot;Error rate: &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;err.rate1&amp;lt;- mean((pred1&amp;gt;0.5 &amp;amp; val$default==0) | (pred1&amp;lt;0.5 &amp;amp; val$default==1))
+err.rate2&amp;lt;- mean((pred2&amp;gt;0.5 &amp;amp; val$default==0) | (pred2&amp;lt;0.5 &amp;amp; val$default==1))
+
+cat(&amp;quot;Error rate of model1 =&amp;quot;, err.rate1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate of model1 = 0.0265&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;Error rate of model2 =&amp;quot;, err.rate2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate of model2 = 0.02725&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#3c LOOCV&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #3c LOOCV&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(boot)
+
+cost &amp;lt;- function(r, pi = 0) mean(abs(r-pi) &amp;gt; 0.5)
+cv.err &amp;lt;- cv.glm(Default,mod.log1, cost)$delta
+cv.err2 &amp;lt;- cv.glm(Default, mod.log2, cost)$delta
+cat(&amp;quot;LOOCV of model1&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## LOOCV of model1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0267 0.0267&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;LOOCV of model2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## LOOCV of model2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02750000 0.02749994&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;#3d 10-fold cross validation&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## #3d 10-fold cross validation&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err1.10 &amp;lt;- cv.glm(Default, mod.log1, cost ,K=10)$delta
+cv.err2.10 &amp;lt;- cv.glm(Default, mod.log2, cost ,K=10)$delta
+
+cat(&amp;quot;10-fold cross validation of Model1&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 10-fold cross validation of Model1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err1.10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02660 0.02661&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;quot;10-fold cross validation of Model2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 10-fold cross validation of Model2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cv.err2.10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02760 0.02757&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Discussions:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;3a. The first model with both student and balance has the smaller AIC. The anova-function was also used to perform a chi-square test for model selection and again concluded the first model was better.&lt;/p&gt;
+&lt;p&gt;3b. Splitted the data into 60/40 between the training and validation data sets and made sure the default rate was similar between the two dataset, then fitted the models to the training data and then used the validation set to calculate the error rate using 0.5 as out threshold.&lt;/p&gt;
+&lt;p&gt;For model 1, the MSE is 0.023.&lt;/p&gt;
+&lt;p&gt;For model 2, the MSE is 0.024.&lt;/p&gt;
+&lt;p&gt;Based on these values we would chose model 1 as our best model. We will also examine other validation techniques below.&lt;/p&gt;
+&lt;p&gt;3c. LOOCV prediction error is adjusted for bias and we still want the smallest prediction errors.
+For model 1, the adjusted prediction error is 0.0267.&lt;/p&gt;
+&lt;p&gt;For model 2, the adjusted prediction error is 0.02749994.&lt;/p&gt;
+&lt;p&gt;Therefore, we choose model 1 as the best model because it has the smaller adjusted prediction rate using the LOOCV approach.&lt;/p&gt;
+&lt;p&gt;3d. Using K=10 for the 10-fold cross-validation approach, we obtain the following error rates:&lt;/p&gt;
+&lt;p&gt;For model 1, the CV error rate is 0.02667
+For model 2, the CV error rate is 0.0278&lt;/p&gt;
+&lt;p&gt;Again, we can choose model 1 as our best model. Though it was little easier to calculate the 10-fold cross validation error rate than the LOOCV error rate but our conclusion is the same.&lt;/p&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;In the  library load the  dataset. This contains Daily percentage returns for the S&amp;amp;P 500 stock index between 2001 and 2005. There are 1250 observations and 9 variables. The variable of interest is Direction which is a factor with levels Down and Up indicating whether the market had a positive or negative return on a given day. Since the goal is to predict the direction of the stock market in the future, here it would make sense to use the data from years 2001 - 2004 as training and 2005 as validation. According to this, create a training set and testing set. Perform logistic regression and assess the error rate.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;Smarket&amp;quot;, package = &amp;quot;ISLR&amp;quot;)
+Smarket$Direction &amp;lt;- as.numeric(Smarket$Direction == &amp;quot;Up&amp;quot;)
+
+train.mark &amp;lt;- subset(Smarket, Year &amp;lt;= 2004)
+val.mark &amp;lt;- subset(Smarket, Year &amp;gt; 2004)
+
+
+#Model 1
+mod.train.mark &amp;lt;-
+  glm(Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 ,
+      data = train.mark,
+      family = binomial())
+summary(mod.train.mark)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5, family = binomial(), 
+##     data = train.mark)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -1.339  -1.189   1.070   1.163   1.326  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&amp;gt;|z|)
+## (Intercept)  0.032269   0.063379   0.509    0.611
+## Lag1        -0.055510   0.051706  -1.074    0.283
+## Lag2        -0.044218   0.051681  -0.856    0.392
+## Lag3         0.008918   0.051517   0.173    0.863
+## Lag4         0.008556   0.051514   0.166    0.868
+## Lag5        -0.003243   0.051089  -0.063    0.949
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1383.3  on 997  degrees of freedom
+## Residual deviance: 1381.3  on 992  degrees of freedom
+## AIC: 1393.3
+## 
+## Number of Fisher Scoring iterations: 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;err.rate1 &amp;lt;-
+  mean((
+    predict(mod.train.mark, val.mark, type = &amp;quot;response&amp;quot;) - val.mark$Direction
+  ) ^ 2)
+cat(&amp;quot;Error rate model1:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate model1:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;err.rate1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.2483559&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Model 2
+mod.train.mark2 &amp;lt;-
+  glm(Direction ~ Lag1 + Lag2 + Lag3,
+      data = train.mark,
+      family = binomial())
+summary(mod.train.mark2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## glm(formula = Direction ~ Lag1 + Lag2 + Lag3, family = binomial(), 
+##     data = train.mark)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -1.338  -1.189   1.072   1.163   1.335  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&amp;gt;|z|)
+## (Intercept)  0.032230   0.063377   0.509    0.611
+## Lag1        -0.055523   0.051709  -1.074    0.283
+## Lag2        -0.044300   0.051674  -0.857    0.391
+## Lag3         0.008815   0.051495   0.171    0.864
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1383.3  on 997  degrees of freedom
+## Residual deviance: 1381.4  on 994  degrees of freedom
+## AIC: 1389.4
+## 
+## Number of Fisher Scoring iterations: 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;err.rate2 &amp;lt;-
+  mean((
+    predict(mod.train.mark2, val.mark, type = &amp;quot;response&amp;quot;) - val.mark$Direction
+  ) ^ 2)
+cat(&amp;quot;Error rate model2:&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error rate model2:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;err.rate2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.2483144&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Discussions:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The error rate for model 1 which includes predictor variables lag 1-5 is: 0.4126984.&lt;/p&gt;
+&lt;p&gt;The error rate for model 2 which includes predictor variables lag 1-3 is: 0.4087302.&lt;/p&gt;
+&lt;p&gt;We can choose the simpler model 2 based on the error rate. This error rate suggests that we are able to predict the direction of the stock market. We can predict the right outcome at around 60% of the time, which is still better than predicting randomly.&lt;/p&gt;
 </description>
     </item>
     
@@ -7224,11 +9839,11 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
   # bootstrap estimate of the mean
   star.bar.theta &amp;lt;- mean (star.theta.rep)
   star.bar.theta&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.08608051&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.08607396&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.mean &amp;lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  bstraps &amp;lt;- c()
   for (i in 1:1000) {
     bsample &amp;lt;- sample(y, length(y), replace=T)
@@ -7241,7 +9856,7 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.median &amp;lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-d.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part d.&lt;/h3&gt;
@@ -7264,9 +9879,9 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jackknife.stderr.median&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006771068&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006871263&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
@@ -7328,13 +9943,13 @@ Calculate jackknife and bootstrap estimates for &lt;span class=&#34;math inline&
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] -9.36847e-05
+## [1] -1.812038e-05
 ## 
 ## $cv
-## [1] -0.01587837
+## [1] -0.003025871
 ## 
 ## $standard_error_bootstrap
-## [1] 0.005900146&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.005988483&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -7489,8 +10104,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 1.43087234 1.09603973 0.83167909 1.24208721 0.76151170 0.80077058
-##  [7] 0.05306075 2.48599063 0.77230077 0.81066476&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 3.1726361 1.1815705 0.3921257 0.3086669 0.2846722 0.5960117 1.2447695
+##  [8] 1.0524592 0.2326107 0.4646740&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -7520,8 +10135,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 1.1779284 0.8629830 1.1665347 0.9735838 1.5209630 2.7914202 0.5355803
-##  [8] 3.2634736 0.3702484 2.8597514&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 0.27576346 1.05007564 1.90823112 1.05630693 2.53490490 0.93007307
+##  [7] 0.02246152 1.83466562 0.94968873 0.53982581&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;

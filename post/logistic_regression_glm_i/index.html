@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Achal Neupane">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Statistics series">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/achalneupane.github.io/post/logistic_regression_glm_i/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145752794-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/achalneupane.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/achalneupane.github.io/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/achalneupane.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="/achalneupane.github.io/post/logistic_regression_glm_i/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@achalneupane">
+  <meta property="twitter:creator" content="@achalneupane">
+  
+  <meta property="og:site_name" content="Achal Neupane">
+  <meta property="og:url" content="/achalneupane.github.io/post/logistic_regression_glm_i/">
+  <meta property="og:title" content="Logistic Regression&amp;GLM-I | Achal Neupane">
+  <meta property="og:description" content="Statistics series"><meta property="og:image" content="/achalneupane.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+    
+    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Logistic Regression&amp;GLM-I | Achal Neupane</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/achalneupane.github.io/">Achal Neupane</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#impact"><span>Impact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Logistic Regression&amp;GLM-I</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/achalneupane.github.io/authors/achal-neupane/"><strong>Achal Neupane</strong></a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 15, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    21 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/achalneupane.github.io/post/logistic_regression_glm_i/&amp;text=Logistic%20Regression&amp;amp;GLM-I" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/achalneupane.github.io/post/logistic_regression_glm_i/&amp;t=Logistic%20Regression&amp;amp;GLM-I" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Logistic%20Regression&amp;amp;GLM-I&amp;body=/achalneupane.github.io/post/logistic_regression_glm_i/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/achalneupane.github.io/post/logistic_regression_glm_i/&amp;title=Logistic%20Regression&amp;amp;GLM-I" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Logistic%20Regression&amp;amp;GLM-I%20/achalneupane.github.io/post/logistic_regression_glm_i/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/achalneupane.github.io/post/logistic_regression_glm_i/&amp;title=Logistic%20Regression&amp;amp;GLM-I" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<p>Answer all questions specified on the problem and include a discussion on how
+your results answered/addressed the question.</p>
+<p>Submit your  file with the knitted  (or knitted Word
+Document saved as a PDF). If you are having trouble with .rmd, let us know and
+we will help you, but both the .rmd and the PDF are required.</p>
+<p>This file can be used as a skeleton document for your code/write up. Please
+follow the instructions found under Content for Formatting and Guidelines. No
+code should be in your PDF write-up unless stated otherwise.</p>
+<p>For any question asking for plots/graphs, please do as the question asks as well
+as do the same but using the respective commands in the GGPLOT2 library. (So if
+the question asks for one plot, your results should have two plots. One produced
+using the given R-function and one produced from the GGPLOT2 equivalent). This
+doesn’t apply to questions that don’t specifically ask for a plot, however I
+still would encourage you to produce both.</p>
+<p>You do not need to include the above statements.</p>
+<p>Please do the following problems from the text book R Handbook and stated.</p>
+<ol style="list-style-type: decimal">
+<li>Collett (2003) argues that two outliers need to be removed from the
+ data. Try to identify those two unusual observations by means of
+a scatterplot. (7.2 on Handbook)</li>
+</ol>
+<pre class="r"><code>library(&quot;calibrate&quot;)</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre class="r"><code>library(&quot;ggplot2&quot;)
+library(&quot;HSAUR3&quot;)</code></pre>
+<pre><code>## Loading required package: tools</code></pre>
+<pre class="r"><code>library(&quot;knitr&quot;)
+data(&quot;plasma&quot;)
+
+plasma$rownumber &lt;- 1:nrow(plasma)
+plot.new()
+# square plotting region, independent of device size; 1 x 1 pictures on one plot
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+plot(
+  plasma$fibrinogen,
+  plasma$globulin,
+  col = plasma$ESR,
+  data = plasma,
+  pch = 18,
+  main = &quot;base R: Scatterplot of plasma data&quot;,
+  xlab = &quot;Fibrinogen&quot;,
+  ylab = &quot;Globulin&quot;
+)</code></pre>
+<pre><code>## Warning in plot.window(...): &quot;data&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in plot.xy(xy, type, ...): &quot;data&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;data&quot; is not
+## a graphical parameter
+
+## Warning in axis(side = side, at = at, labels = labels, ...): &quot;data&quot; is not
+## a graphical parameter</code></pre>
+<pre><code>## Warning in box(...): &quot;data&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in title(...): &quot;data&quot; is not a graphical parameter</code></pre>
+<pre class="r"><code>text(globulin ~fibrinogen, labels = rownumber,data=plasma, cex=0.8, font=0.5)
+abline(v = 3.5)
+abline(h = 45)
+# points(plasma[c(27, 30, 32), 1:2], pch = 5)
+legend(
+  &quot;bottomright&quot;,
+  c(&quot;ESR&lt;20&quot;, &quot;ESR&gt;20&quot;),
+  # title = &quot;ESR&quot;,
+  inset = c(0, 1),
+  xpd=TRUE, 
+  horiz=TRUE,
+  col = c(&quot;black&quot;, &quot;red&quot;),
+  # lty = c(1, 1),
+  pch = c(18, 18),
+  bty = &quot;n&quot;
+)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = plasma, aes(x = fibrinogen, y = globulin, colour = ESR)) +
+  geom_point() +
+  ggtitle(&quot;ggplot: Scatterplot of Plasma data&quot;) +
+  xlab(&quot;Fibrinogen&quot;) +
+  ylab(&quot;Globulin&quot;) +
+  geom_text(aes(label=plasma$rownumber),hjust=0, vjust=0) +
+  geom_hline(yintercept=45, linetype=&quot;dashed&quot;, 
+             color = &quot;black&quot;, size=0.5) +
+  geom_vline(xintercept=3.5, linetype=&quot;dashed&quot;, 
+             color = &quot;black&quot;, size=0.5)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<p>Discussion: Based on the scatter plot (and if we consider all data points, both ESR &gt; and &lt; 20, together), we could say that rows 27, 30 and 32 as the potential outliers. If we separate the data by ESR &gt;20 and ESR &lt; 20, there may be other outliers for each group. I think we could make box plots by group to determine the outliers more effectively.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>(Multiple Regression) Continuing from the lecture on the  data
+from  library;</p>
+<ol style="list-style-type: lower-alpha">
+<li>Fit a quadratic regression model, i.e.,a model of the form
+<span class="math display">\[\text{Model 2:   } velocity = \beta_1 \times distance + \beta_2 \times distance^2 +\epsilon\]</span></li>
+</ol></li>
+</ol>
+<pre class="r"><code>library(gamair)
+data(hubble)
+
+# A. Fit a quadratic regression model
+model2 &lt;- lm(y~x + I(x^2) -1, data = hubble)
+# summary(model2)
+kable(summary(model2)$coefficients, caption = &quot;Summary of the model2&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 1: </span>Summary of the model2</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x</td>
+<td align="right">90.9046424</td>
+<td align="right">16.5725817</td>
+<td align="right">5.4852433</td>
+<td align="right">0.0000164</td>
+</tr>
+<tr class="even">
+<td>I(x^2)</td>
+<td align="right">-0.8837375</td>
+<td align="right">0.9925378</td>
+<td align="right">-0.8903817</td>
+<td align="right">0.3828949</td>
+</tr>
+</tbody>
+</table>
+<pre><code>b) Plot the fitted curve from Model 2 on the scatterplot of the data</code></pre>
+<pre class="r"><code># fitted curve
+# index  &lt;- seq(0, 22, 0.1)
+index &lt;- seq(min(hubble$x),max(hubble$x),0.1)
+index2 &lt;- index^2
+# predicted &lt;- predict(model2,list(x = index, x2=index2))
+predicted &lt;- model2$fitted.values
+#create a data frame of x nd y values for plotting for ggplot
+data &lt;- as.data.frame(cbind(x = hubble$x,predicted))
+# Scatter Plot
+plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+plot(y~x, data = hubble, main = &quot;base R: Scatter plot with fitted curve from Model2&quot;, xlab = &quot;Distance&quot;, ylab = &quot;Velocity&quot;)
+lines(data$x[order(data$x)], data$predicted[order(data$predicted)], col = &quot;green&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = model2, aes(x = model2$model$x, y = model2$model$y)) +
+  geom_point() +
+  geom_line(aes(x = model2$model$x, y = model2$fitted.values), colour = &quot;green&quot;) +
+  labs(title = &quot;ggplot: Scatter plot with fitted curve from Model2&quot;, x = &quot;Distance&quot;, y = &quot;velocity&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre><code>c) Add the simple linear regression fit (fitted in class) on this plot - use
+different color and line type to differentiate the two and add a legend to
+your plot.</code></pre>
+<pre class="r"><code># Simple lm fitted in class
+hmod &lt;- lm(y~x - 1 , data = hubble)
+plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+plot(y~x, data = hubble, main = &quot;base R: scatter plot for hubble data&quot;, xlab = &quot;Distance&quot;, ylab = &quot;Velocity&quot;)
+lines(data$x[order(data$x)], data$predicted[order(data$predicted)], col = &quot;green&quot;)
+abline(hmod, lty=2, col=2)
+
+# Legend
+legend(&quot;bottomright&quot;, c(&quot;Quadratic&quot;, &quot;Linear&quot;), lty = 1:2, col = 2:1)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>## ggplot version
+
+ggplot(data = model2, aes(x = model2$model$x, y = model2$model$y)) +
+  geom_point() +
+  geom_line(aes(x = model2$model$x, y = model2$fitted.values, colour = &quot;Quadratic&quot;)) +
+  geom_line(data = hmod, aes(x = hmod$model$x, y = hmod$fitted.values, colour = &quot;Linear&quot;)) +
+  labs(title = &quot;ggplot: Scatter plot with fitted curve from Model2&quot;, x = &quot;Distance&quot;, y = &quot;velocity&quot;, colour = &quot;Models&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre><code>d) Which model do you consider most sensible considering the nature of the data - looking at the plot? 
+
+Answer: The simple model seems more sensible to me.  The data points seem to
+follow a line from lower left to upper right of the plot without a clear
+curvature. However, strictly saying, there isn&#39;t much difference between the two models.
+
+e) Which model is better? - provide a statistic to support you claim.
+
+Note: The quadratic model here is still regarded as a ``linear regression&quot;
+model since the term ``linear&quot; relates to the parameters of the model and
+not to the powers of the explanatory variables.</code></pre>
+<pre class="r"><code>summary(model2) # # Quadratic regression model</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x + I(x^2) - 1, data = hubble)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -713.15 -152.76  -54.85  163.92  557.01 
+## 
+## Coefficients:
+##        Estimate Std. Error t value Pr(&gt;|t|)    
+## x       90.9046    16.5726   5.485 1.64e-05 ***
+## I(x^2)  -0.8837     0.9925  -0.890    0.383    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 260.1 on 22 degrees of freedom
+## Multiple R-squared:  0.944,  Adjusted R-squared:  0.9389 
+## F-statistic: 185.3 on 2 and 22 DF,  p-value: 1.715e-14</code></pre>
+<pre class="r"><code>mod.2 &lt;- summary(model2)
+summary(hmod)  # Simple linear model</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x - 1, data = hubble)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -736.5 -132.5  -19.0  172.2  558.0 
+## 
+## Coefficients:
+##   Estimate Std. Error t value Pr(&gt;|t|)    
+## x   76.581      3.965   19.32 1.03e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 258.9 on 23 degrees of freedom
+## Multiple R-squared:  0.9419, Adjusted R-squared:  0.9394 
+## F-statistic: 373.1 on 1 and 23 DF,  p-value: 1.032e-15</code></pre>
+<pre class="r"><code>hmod.1 &lt;- summary(hmod) 
+cat (&quot;Adjusted R-square&quot;)</code></pre>
+<pre><code>## Adjusted R-square</code></pre>
+<pre class="r"><code>kable(cbind(Quadratic = mod.2$adj.r.squared, Linear = hmod.1$adj.r.squared), caption = &quot;Adjusted R-square&quot;, row.names = FALSE )</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 2: </span>Adjusted R-square</caption>
+<thead>
+<tr class="header">
+<th align="right">Quadratic</th>
+<th align="right">Linear</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.9388554</td>
+<td align="right">0.9394063</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Answer to 2e. The statistics appear to support the simple model as the
+better one. Since the Adjusted r-squared statistic is higher for the simple model
+(0.9394) Vs. Quadratic (0.9388554) which indicates that the simple model explains more of the variability in the response data than does the quadratic model.</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>The  data from package  shows the survival times
+from diagnosis of patients suffering from leukemia and the values of two
+explanatory variables, the white blood cell count (wbc) and the presence or
+absence of a morphological characteristic of the white blood cells (ag).</p>
+<ol style="list-style-type: lower-alpha">
+<li>Define a binary outcome variable according to whether or not patients
+lived for at least 24 weeks after diagnosis. Call it .</li>
+</ol></li>
+</ol>
+<pre class="r"><code>#add a binary column named surv24 for time greater than or less than 24. 
+library(MASS)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     select</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>q3_subset &lt;- leuk %&gt;%
+  mutate(surv24 = ifelse(time &gt;= 24, 1,0))</code></pre>
+<pre><code>b) Fit a logistic regression model to the data with \textit{surv24} as
+response. It is advisable to transform the very large white blood counts to
+avoid regression coefficients very close to 0 (and odds ratio close to 1).
+You may use log transformation.</code></pre>
+<pre class="r"><code>surv24.model &lt;- glm(surv24 ~ log(wbc) + ag, data=q3_subset,family = &#39;binomial&#39;)
+kable(summary(surv24.model)$coefficient, caption = &quot;Summary coefficients of the glm&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-7">Table 3: </span>Summary coefficients of the glm</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">z value</th>
+<th align="right">Pr(&gt;|z|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td align="right">3.4555870</td>
+<td align="right">2.9821469</td>
+<td align="right">1.158758</td>
+<td align="right">0.2465548</td>
+</tr>
+<tr class="even">
+<td>log(wbc)</td>
+<td align="right">-0.4821891</td>
+<td align="right">0.3149136</td>
+<td align="right">-1.531179</td>
+<td align="right">0.1257252</td>
+</tr>
+<tr class="odd">
+<td>agpresent</td>
+<td align="right">1.7621259</td>
+<td align="right">0.8093190</td>
+<td align="right">2.177295</td>
+<td align="right">0.0294586</td>
+</tr>
+</tbody>
+</table>
+<pre><code>c) Construct some graphics useful in the interpretation of the final model you fit. </code></pre>
+<pre class="r"><code>cat(&quot;Create a scatter plot of the data fitting the two curves of test results to the fitted output of the model prediciton&quot;)</code></pre>
+<pre><code>## Create a scatter plot of the data fitting the two curves of test results to the fitted output of the model prediciton</code></pre>
+<pre class="r"><code>x.extension &lt;- seq(0, max(log(q3_subset$wbc)+4.5), by = 0.5)
+espframe &lt;- data.frame(&quot;x.extension&quot; = x.extension, &quot;agpress&quot; = (exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3])/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3]))), &quot;agabs&quot; = exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension)/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension)))
+
+
+plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+plot(x = log(leuk$wbc), y = surv24.model$fitted.values, col = leuk$ag, xlim = c(0,15), ylim = c(0,1), ylab = &quot;Survive (Time, surv24wks)&quot;, xlab = &quot;log (wbc counts)&quot;, main = &quot;base R: plot of logistic model of Leuk data&quot;)
+lines(x = x.extension, y = exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension)/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension)))
+lines(x = x.extension, y = exp(surv24.model$coefficients[1] +surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3])/(1+exp(surv24.model$coefficient[1] + surv24.model$coefficients[2]*x.extension + surv24.model$coefficients[3])))
+legend(&quot;bottomleft&quot;, legend = c(&quot;Ag Absent&quot;, &quot;Ag Present&quot;), col = c(&quot;black&quot;, &quot;red&quot;), lty = c(1,1))</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>leuk.gg &lt;- data.frame(&quot;logwbc&quot; = log(leuk$wbc), surv24 = q3_subset$surv24, &quot;fv&quot; = surv24.model$fitted.values, &quot;ag&quot; = leuk$ag)
+
+leuk.gg &lt;- cbind(leuk.gg, espframe)
+ggplot(leuk.gg, aes(x = logwbc, y = fv, colour = ag)) + 
+  geom_point() +
+  # scale_colour_discrete(guide = FALSE) +
+  # guides(colour=FALSE) +
+  geom_line(aes(x = x.extension, y = agpress, colour = &quot;present&quot;)) +
+  geom_line(aes(x = x.extension, y = agabs, colour = &quot;absent&quot;)) +
+  labs ( title = &quot;ggplot: plot of logistic model of Leuk data&quot;, x = &quot;log of WBC count&quot;, y = &quot;Survive (Time, surv24wks)&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;Survival Vs WBC count with logistic model on actual data points&quot;)</code></pre>
+<pre><code>## Survival Vs WBC count with logistic model on actual data points</code></pre>
+<pre class="r"><code># # base plot version
+line.1.dat &lt;- leuk.gg[leuk.gg$ag == &#39;absent&#39;, ]
+line.2.dat &lt;- leuk.gg[leuk.gg$ag == &#39;present&#39;, ]
+plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+plot(
+  x = leuk.gg$logwbc,
+  y = leuk.gg$surv24,
+  xlim=c(0,15),
+  ylim = c(0,1),
+  col = leuk.gg$ag,
+  xlab = &quot;WBC counts&quot;,
+  ylab = &quot;Probability of Death prior to 24 Weeks&quot;,
+  main = &quot;base R: Survival Vs WBC Counts in Leukaemia Patients&quot;
+)
+lines(x.extension, leuk.gg$agpress, col = &quot;green&quot;)
+lines(x.extension, leuk.gg$agabs, col = &quot;black&quot;)
+legend(
+  &quot;topleft&quot;,
+  title = &quot;AG test&quot;,
+  legend = c(&quot;absent&quot;, &quot;present&quot;),
+  inset = c(1, 0),
+  xpd = TRUE,
+  horiz = FALSE,
+  col = c(&quot;black&quot;, &quot;green&quot;),
+  lty = c(1,1),
+  pch = c(1, 2),
+  bty = &quot;n&quot;
+)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
+<pre class="r"><code>ggplot(leuk.gg, aes(x = logwbc, y = surv24, color = ag)) +
+  geom_point() +
+  scale_colour_manual(name = &quot;AG test&quot;, values = c(&#39;black&#39;, &#39;green&#39;)) +
+  geom_line(aes(x = x.extension, y = agpress, colour = &quot;present&quot;)) +
+  geom_line(aes(x = x.extension, y = agabs, colour = &quot;absent&quot;)) +
+  labs(title = &#39;ggplot: Survival Vs WBC Counts in Leukaemia Patients&#39;,
+       x = &#39;log WBC Count&#39;,
+       y = &#39;Probability of Death prior to 24 Weeks&#39;) +
+  theme_classic()</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
+<pre><code>d) Fit a model with an interaction term between the two predictors. Which
+model fits the data better? Justify your answer.</code></pre>
+<pre class="r"><code>#fitting the model with the interaction term ag * log(wbc)
+surv24.model2 &lt;- lm(surv24 ~ ag * log(wbc), data=q3_subset,family=&#39;binomial&#39;)</code></pre>
+<pre><code>## Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
+##  extra argument &#39;family&#39; will be disregarded</code></pre>
+<pre class="r"><code>kable(summary(surv24.model2)$coefficients, caption = &quot;Summary of the linear model with an interaction&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 4: </span>Summary of the linear model with an interaction</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td align="right">-0.0258017</td>
+<td align="right">0.8719219</td>
+<td align="right">-0.0295918</td>
+<td align="right">0.9765953</td>
+</tr>
+<tr class="even">
+<td>agpresent</td>
+<td align="right">2.4360783</td>
+<td align="right">1.1398202</td>
+<td align="right">2.1372479</td>
+<td align="right">0.0411387</td>
+</tr>
+<tr class="odd">
+<td>log(wbc)</td>
+<td align="right">0.0286636</td>
+<td align="right">0.0898818</td>
+<td align="right">0.3189031</td>
+<td align="right">0.7520857</td>
+</tr>
+<tr class="even">
+<td>agpresent:log(wbc)</td>
+<td align="right">-0.2156187</td>
+<td align="right">0.1183543</td>
+<td align="right">-1.8218074</td>
+<td align="right">0.0788139</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>mod2 = summary(surv24.model2)
+mod = summary(surv24.model)
+# we can also calculate adjusted r-square value for glm using 
+library(rsq)
+mod.rsq.adj = rsq(surv24.model,adj=TRUE,type=c(&#39;v&#39;,&#39;kl&#39;,&#39;sse&#39;,&#39;lr&#39;,&#39;n&#39;),data=NULL)
+mod2.rsq.adj = rsq(surv24.model2,adj=TRUE,type=c(&#39;v&#39;,&#39;kl&#39;,&#39;sse&#39;,&#39;lr&#39;,&#39;n&#39;),data=NULL)
+# if not using package rsq
+# adj.rsq = rbind(mod2$adj.r.squared, (1 -(mod$deviance/mod$null.deviance)) * 32/(32-2-2))
+adj.rsq = rbind(mod2.rsq.adj, mod.rsq.adj)
+
+row.names(adj.rsq) &lt;- c(&quot;Linear model with interation&quot;, &quot;Linear model&quot;)
+kable(adj.rsq, col.names = &quot;Adjusted R-square values&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Adjusted R-square values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear model with interation</td>
+<td align="right">0.2308546</td>
+</tr>
+<tr class="even">
+<td>Linear model</td>
+<td align="right">0.1890705</td>
+</tr>
+</tbody>
+</table>
+<p>Since the adjusted R-square value for Linear model with the interacion is higher, I would say the model with an interaction fits the data better.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Load the  dataset from  library. The dataset
+contains information on ten thousand customers. The aim here is to predict which
+customers will default on their credit card debt. It is a four-dimensional
+dataset with 10000 observations. The question of interest is to predict
+individuals who will default . We want to examine how each predictor variable is
+related to the response (default). Do the following on this dataset</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Perform descriptive analysis on the dataset to have an insight. Use
+summaries and appropriate exploratory graphics to answer the question of
+interest.</p></li>
+<li><p>Use R to build a logistic regression model.</p></li>
+<li><p>Discuss your result. Which predictor variables were important? Are there
+interactions?</p></li>
+<li><p>How good is your model? Assess the performance of the logistic regression
+classifier. What is the error rate?</p></li>
+</ol></li>
+</ol>
+<pre class="r"><code># Set up data
+data(&quot;Default&quot;, package = &quot;ISLR&quot;)
+
+kable(summary(Default[,1:2]), caption = &quot;Summary of default and student status&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 5: </span>Summary of default and student status</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">default</th>
+<th align="left">student</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td align="left">No :9667</td>
+<td align="left">No :7056</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="left">Yes: 333</td>
+<td align="left">Yes:2944</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>kable(summary(Default[,3:4]), caption = &quot;Summary of Income and Balance&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 5: </span>Summary of Income and Balance</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">balance</th>
+<th align="center">income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td align="center">Min. : 0.0</td>
+<td align="center">Min. : 772</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="center">1st Qu.: 481.7</td>
+<td align="center">1st Qu.:21340</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="center">Median : 823.6</td>
+<td align="center">Median :34553</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="center">Mean : 835.4</td>
+<td align="center">Mean :33517</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="center">3rd Qu.:1166.3</td>
+<td align="center">3rd Qu.:43808</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="center">Max. :2654.3</td>
+<td align="center">Max. :73554</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>#create default binary
+default_binary     &lt;-
+  ifelse(regexpr(&#39;Yes&#39;, Default$default) == -1, 0, 1)
+dflt_str &lt;-
+  ifelse(regexpr(&#39;Yes&#39;, Default$default) == -1,
+         &quot;Not Defaulted&quot;,
+         &quot;Defaulted&quot;)
+
+stdn     &lt;- ifelse(regexpr(&#39;Yes&#39;, Default$student) == -1, 0, 1)
+stdn_str &lt;-
+  ifelse(regexpr(&#39;Yes&#39;, Default$student) == -1, &quot;Not-Student&quot;, &quot;Student&quot;)
+
+blnc &lt;- Default$balance
+incm &lt;- Default$income
+
+df &lt;-  data.frame(default_binary, dflt_str, stdn, stdn_str, blnc, incm)
+
+# par(mfrow = c(1, 1))
+
+cat(&quot;Balance appears roughly normal&quot;)</code></pre>
+<pre><code>## Balance appears roughly normal</code></pre>
+<pre class="r"><code>hist(blnc, main = &quot;Balance&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code># ggplot() + geom_histogram(aes(blnc), bins = 13, color = &quot;black&quot;, fill = &quot;white&quot;)
+
+
+cat(&quot;Income appears roughly normal with two means&quot;)</code></pre>
+<pre><code>## Income appears roughly normal with two means</code></pre>
+<pre class="r"><code>hist(incm, main = &quot;Income&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;Dual means in income appears explained by student status&quot;)</code></pre>
+<pre><code>## Dual means in income appears explained by student status</code></pre>
+<pre class="r"><code>layout(matrix(1:2, ncol = 2))
+hist(
+  subset(df$incm, df$stdn == 1),
+  main = &quot;Income by Student Status&quot;,
+  ylab = &quot;Income&quot;,
+  xlab = &quot;Student: Yes&quot;
+)
+hist(
+  subset(df$incm, df$stdn == 0),
+  main = &quot;&quot;,
+  ylab = &quot;Income&quot;,
+  xlab = &quot;Student: No&quot;
+)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;**And** the dual means in income appears NOT to be explained by default status&quot;)</code></pre>
+<pre><code>## **And** the dual means in income appears NOT to be explained by default status</code></pre>
+<pre class="r"><code>layout(matrix(1:2, ncol = 2))
+hist(
+  subset(df$incm, df$default_binary == 1),
+  main = &quot;Income by Default Status&quot;,
+  ylab = &quot;Income&quot;,
+  xlab = &quot;Default: Yes&quot;
+)
+hist(
+  subset(df$incm, df$default_binary == 0),
+  main = &quot;&quot;,
+  ylab = &quot;Income&quot;,
+  xlab = &quot;Default: No&quot;
+)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;Clustering of income v. balance explained by student status&quot;)</code></pre>
+<pre><code>## Clustering of income v. balance explained by student status</code></pre>
+<pre class="r"><code>plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-5.png" width="672" /></p>
+<pre class="r"><code>plot(
+  Default$income ~ Default$balance,
+  col = Default$student,
+  main = &quot;base R: Income by Balance&quot;,
+  ylab = &quot;Income&quot;,
+  xlab = &quot;Balance&quot;,
+  pch = 18
+)
+legend(
+  &quot;topright&quot;,
+  c(&quot;Yes&quot;, &quot;No&quot;),
+  title = &quot;Student?&quot;,
+  # bty = &quot;n&quot;,
+  fill = c(&quot;red&quot;, &quot;black&quot;),
+  pch = c(18,18)
+)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-6.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = Default, aes(x = balance, y = income, colour = student)) + 
+  geom_point() +
+  labs(title = &quot;ggplot: Income by Balance&quot;) + 
+  guides(colour=guide_legend(title=&quot;Student?&quot;)) +
+  scale_color_manual(values = c(&quot;No&quot; = &quot;black&quot;, &quot;Yes&quot; = &quot;red&quot;))</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-7.png" width="672" /></p>
+<pre class="r"><code>plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+boxplot(balance~student, data = Default, main = &quot;base R: Balance grouped by Student status&quot;, xlab = &quot;student&quot;, ylab = &quot;balance&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-8.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = Default, aes(x = student, y = balance)) +
+  geom_boxplot() +
+  labs(title = &quot;ggplot: Balance grouped by Student status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-9.png" width="672" /></p>
+<pre class="r"><code>plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+boxplot(balance~default, data = Default, main = &quot;base R: Balance grouped by Default status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-10.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = Default, aes(x = default, y = balance)) +
+  geom_boxplot() +
+  labs(title = &quot;ggplot: Balance grouped by Default status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-11.png" width="672" /></p>
+<pre class="r"><code>plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+boxplot(income~student, data = Default, main = &quot;base R: Income grouped by Student status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-12.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = Default, aes(x = student, y = income)) +
+  geom_boxplot() +
+  labs(title = &quot;ggplot: Income grouped by Student status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-13.png" width="672" /></p>
+<pre class="r"><code>plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+boxplot(income~default, data = Default, main = &quot;base R: Income grouped by Default status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-14.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = Default, aes(x = default, y = income)) +
+  geom_boxplot() +
+  labs(title = &quot;ggplot: Income grouped by Default status&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-10-15.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;Median and Max income are lower for defaulted than not defaulted loans&quot;)</code></pre>
+<pre><code>## Median and Max income are lower for defaulted than not defaulted loans</code></pre>
+<pre class="r"><code>tapply(df$incm, df$dflt_str, FUN = summary)</code></pre>
+<pre><code>## $Defaulted
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    9664   19028   31515   32089   43067   66466 
+## 
+## $`Not Defaulted`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     772   21405   34589   33566   43824   73554</code></pre>
+<pre class="r"><code>cat(&quot;Median and max balance are higher for defaulted rather than not defaulted loans&quot;)</code></pre>
+<pre><code>## Median and max balance are higher for defaulted rather than not defaulted loans</code></pre>
+<pre class="r"><code>tapply(df$blnc, df$dflt_str, FUN = summary)</code></pre>
+<pre><code>## $Defaulted
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   652.4  1511.6  1789.1  1747.8  1988.9  2654.3 
+## 
+## $`Not Defaulted`
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     0.0   465.7   802.9   803.9  1128.2  2391.0</code></pre>
+<pre class="r"><code>cat(&quot;#B. Use R to build a logistic regression model&quot;)</code></pre>
+<pre><code>## #B. Use R to build a logistic regression model</code></pre>
+<pre class="r"><code># # https://stackoverflow.com/questions/13366755/what-does-the-r-formula-y1-mean
+regression_model0 &lt;- glm(default_binary ~ stdn + blnc + incm, family = binomial())
+summary(regression_model0)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = default_binary ~ stdn + blnc + incm, family = binomial())
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.4691  -0.1418  -0.0557  -0.0203   3.7383  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -1.087e+01  4.923e-01 -22.080  &lt; 2e-16 ***
+## stdn        -6.468e-01  2.363e-01  -2.738  0.00619 ** 
+## blnc         5.737e-03  2.319e-04  24.738  &lt; 2e-16 ***
+## incm         3.033e-06  8.203e-06   0.370  0.71152    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2920.6  on 9999  degrees of freedom
+## Residual deviance: 1571.5  on 9996  degrees of freedom
+## AIC: 1579.5
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<pre class="r"><code># # we could also do to select all predictors in the data
+# mod &lt;- glm(default~., data = Default, family = binomial)
+# summary(mod)
+
+cat(&quot;Then with interactions:&quot;)</code></pre>
+<pre><code>## Then with interactions:</code></pre>
+<pre class="r"><code>regression_model1 &lt;- glm(default_binary ~ stdn + blnc + incm + stdn * blnc + stdn * incm + blnc * incm, family = binomial())
+summary(regression_model1)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = default_binary ~ stdn + blnc + incm + stdn * blnc + 
+##     stdn * incm + blnc * incm, family = binomial())
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.4848  -0.1417  -0.0554  -0.0202   3.7579  
+## 
+## Coefficients:
+##               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -1.104e+01  1.866e+00  -5.914 3.33e-09 ***
+## stdn        -5.201e-01  1.344e+00  -0.387    0.699    
+## blnc         5.882e-03  1.180e-03   4.983 6.27e-07 ***
+## incm         4.050e-06  4.459e-05   0.091    0.928    
+## stdn:blnc   -2.551e-04  7.905e-04  -0.323    0.747    
+## stdn:incm    1.447e-05  2.779e-05   0.521    0.602    
+## blnc:incm   -1.579e-09  2.815e-08  -0.056    0.955    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2920.6  on 9999  degrees of freedom
+## Residual deviance: 1571.1  on 9993  degrees of freedom
+## AIC: 1585.1
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<pre class="r"><code>cat(&quot;# D. Error Rate&quot;)</code></pre>
+<pre><code>## # D. Error Rate</code></pre>
+<pre class="r"><code>dflt.fitted0 &lt;- predict(regression_model0, type = &quot;response&quot;)
+dflt.fitted1 &lt;- predict(regression_model1, type = &quot;response&quot;)
+
+levs &lt;- c(&quot;Defaulted&quot;, &quot;Not Defaulted&quot;)
+Tr &lt;- default_binary
+
+Predicted0 &lt;-
+  factor(ifelse(dflt.fitted0 &gt;= 0.50, &quot;Defaulted&quot;, &quot;Not Defaulted&quot;),
+         levels = levs)
+Predicted1 &lt;-
+  factor(ifelse(dflt.fitted1 &gt;= 0.50, &quot;Defaulted&quot;, &quot;Not Defaulted&quot;),
+         levels = levs)
+Tr1 &lt;-
+  factor(ifelse(Tr &gt;= 0.50, &quot;Defaulted&quot;, &quot;Not Defaulted&quot;), levels = levs)
+rate0 &lt;- table(Predicted0, True = Tr1)
+rate1 &lt;- table(Predicted1, True = Tr1)
+rate0</code></pre>
+<pre><code>##                True
+## Predicted0      Defaulted Not Defaulted
+##   Defaulted           105            40
+##   Not Defaulted       228          9627</code></pre>
+<pre class="r"><code>error_rate0 &lt;- 1 - (rate0[1, 1] + rate0[2, 2]) / sum(rate0)
+error_rate0</code></pre>
+<pre><code>## [1] 0.0268</code></pre>
+<pre class="r"><code>rate1</code></pre>
+<pre><code>##                True
+## Predicted1      Defaulted Not Defaulted
+##   Defaulted           104            40
+##   Not Defaulted       229          9627</code></pre>
+<pre class="r"><code>error_rate1 &lt;- 1 - (rate1[1, 1] + rate1[2, 2]) / sum(rate1)
+error_rate1</code></pre>
+<pre><code>## [1] 0.0269</code></pre>
+<pre class="r"><code>cat(&quot;analysis of variance&quot;)</code></pre>
+<pre><code>## analysis of variance</code></pre>
+<pre class="r"><code>anova(regression_model0, regression_model1, test = &#39;Chisq&#39;)</code></pre>
+<pre><code>## Analysis of Deviance Table
+## 
+## Model 1: default_binary ~ stdn + blnc + incm
+## Model 2: default_binary ~ stdn + blnc + incm + stdn * blnc + stdn * incm + 
+##     blnc * incm
+##   Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
+## 1      9996     1571.5                     
+## 2      9993     1571.1  3  0.47911   0.9235</code></pre>
+<p>4a. Based on the outputs for 4a. we can tell that:</p>
+<ul>
+<li><p>Fewer people default than don’t default.</p></li>
+<li><p>Defaulters and non-defaulters appear to have the same income range, given student status.</p></li>
+<li><p>Defaulters appear to have higher balances.</p></li>
+<li><p>If students default, they likely do it with over $1,000 balance.</p></li>
+<li><p>If non-students default, they are likely do it with over $500 balance.</p></li>
+</ul>
+<p>4c.
+Without taking interactions into account, it appears that two predictors-
+student and balance are significant. With interactions involved, it appears that
+only balance predictor is important.</p>
+<p>4d.
+The model without interactions has an AICof 1579.5 and the interaction model has
+an AIC of 1585.1 (slightly higher). But, both have almost similar error rates
+~2.7 %. Also, since analysis of deviance also shows that the chi-square test has
+no significance at 5% level, we can conclude that both models are almost the
+same as a working model.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Go through Section 7.3.1 of the Handbook. Run all the codes (additional exploration of data is allowed) and write your own version of explanation and interpretation.</li>
+</ol>
+<pre class="r"><code>cat(&quot;# density plot&quot;)</code></pre>
+<pre><code>## # density plot</code></pre>
+<pre class="r"><code>plasma &lt;- plasma
+
+layout(matrix(1:2,ncol=2))
+cdplot(ESR ~ fibrinogen, data=plasma)
+cdplot(ESR ~ globulin,data=plasma)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>It appears that above a certain level of fibrogen, ESR drops sucessively. This is not the case for globulin.</p>
+<p>ESR Logistic Regression an Confidence Interval Estimates:</p>
+<pre class="r"><code>plasma_glm_1 &lt;- glm(ESR ~ fibrinogen, data = plasma, family=binomial())
+confint(plasma_glm_1,parm=&#39;fibrinogen&#39;)</code></pre>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##     2.5 %    97.5 % 
+## 0.3387619 3.9984921</code></pre>
+<p>Here, fibrinogen might have value as a predictor of ESR. We can look at the summary.</p>
+<pre class="r"><code>summary(plasma_glm_1)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = ESR ~ fibrinogen, family = binomial(), data = plasma)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.9298  -0.5399  -0.4382  -0.3356   2.4794  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)  
+## (Intercept)  -6.8451     2.7703  -2.471   0.0135 *
+## fibrinogen    1.8271     0.9009   2.028   0.0425 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 30.885  on 31  degrees of freedom
+## Residual deviance: 24.840  on 30  degrees of freedom
+## AIC: 28.84
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>The summary output indicates a 5% significance of fibrinogenand and increase of the log-odds of ESR &gt; 20 by about 1.83 with confidence interval (CI) of 0.33 to 3.99.</p>
+<pre class="r"><code>exp(coef(plasma_glm_1)[&#39;fibrinogen&#39;])</code></pre>
+<pre><code>## fibrinogen 
+##   6.215715</code></pre>
+<p>Fibrinogen might have value as a predictor of ESR.
+To make the results more readable, it is useful to apply an exponent function. This exponenetiates the log-odds of fibriogen and CI to correspond with the data.</p>
+<pre class="r"><code>exp(confint(plasma_glm_1, parm=&#39;fibrinogen&#39;))</code></pre>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##     2.5 %    97.5 % 
+##  1.403209 54.515884</code></pre>
+<p>We can also perform logistic regression of both explanatory variables (fibrinogen and globulin) and text for the deviance.</p>
+<pre class="r"><code>plasma_glm_2 &lt;- glm(ESR ~ fibrinogen + globulin, data = plasma, family = binomial())
+summary(plasma_glm_2)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = ESR ~ fibrinogen + globulin, family = binomial(), 
+##     data = plasma)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.9683  -0.6122  -0.3458  -0.2116   2.2636  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)  
+## (Intercept) -12.7921     5.7963  -2.207   0.0273 *
+## fibrinogen    1.9104     0.9710   1.967   0.0491 *
+## globulin      0.1558     0.1195   1.303   0.1925  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 30.885  on 31  degrees of freedom
+## Residual deviance: 22.971  on 29  degrees of freedom
+## AIC: 28.971
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<pre class="r"><code>cat(&quot;# comparison of models&quot;)</code></pre>
+<pre><code>## # comparison of models</code></pre>
+<pre class="r"><code>anova(plasma_glm_1, plasma_glm_2, test= &#39;Chisq&#39;)</code></pre>
+<pre><code>## Analysis of Deviance Table
+## 
+## Model 1: ESR ~ fibrinogen
+## Model 2: ESR ~ fibrinogen + globulin
+##   Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
+## 1        30     24.840                     
+## 2        29     22.971  1   1.8692   0.1716</code></pre>
+<p>Now, we can make the bubble plot of the predicted values of model II (plasma_glm_2). The plot shows that the probablity of ‘good’ ESR reading increases as fibrinogen increases. This is true of globulin only up to a point.</p>
+<pre class="r"><code>prob &lt;- predict(plasma_glm_2, type=&#39;response&#39;)
+
+plot.new()
+par(mfrow = c(1, 1), pty = &quot;s&quot;)
+plot(globulin ~ fibrinogen,data=plasma,xlim=c(2,6),ylim=c(25,55),pch=&#39;.&#39;, main = &quot;Bubble plot of the predicted values of model II&quot;)
+symbols(plasma$fibrinogen,plasma$globulin,circles=prob,add=T)</code></pre>
+<p><img src="/achalneupane.github.io/post/Logistic_Regression_GLM_I_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/modern-applied-statistics-i/">Modern Applied Statistics I</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/achalneupane.github.io/authors/achal-neupane/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/achalneupane.github.io/post/density_estimation/">Density Estimation</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/graphical_summary/">Graphical Summary</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_ii/">Logistic Regression&amp;GLM-II</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/achalneupane.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/achalneupane.github.io/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/achalneupane.github.io/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/achalneupane.github.io/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

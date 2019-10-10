@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Achal Neupane">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Statistics series">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/achalneupane.github.io/post/density_estimation/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145752794-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/achalneupane.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/achalneupane.github.io/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/achalneupane.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="/achalneupane.github.io/post/density_estimation/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@achalneupane">
+  <meta property="twitter:creator" content="@achalneupane">
+  
+  <meta property="og:site_name" content="Achal Neupane">
+  <meta property="og:url" content="/achalneupane.github.io/post/density_estimation/">
+  <meta property="og:title" content="Density Estimation | Achal Neupane">
+  <meta property="og:description" content="Statistics series"><meta property="og:image" content="/achalneupane.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+    
+    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Density Estimation | Achal Neupane</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/achalneupane.github.io/">Achal Neupane</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#impact"><span>Impact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Density Estimation</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/achalneupane.github.io/authors/achal-neupane/"><strong>Achal Neupane</strong></a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Aug 15, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    20 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/achalneupane.github.io/post/density_estimation/&amp;text=Density%20Estimation" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/achalneupane.github.io/post/density_estimation/&amp;t=Density%20Estimation" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Density%20Estimation&amp;body=/achalneupane.github.io/post/density_estimation/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/achalneupane.github.io/post/density_estimation/&amp;title=Density%20Estimation" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Density%20Estimation%20/achalneupane.github.io/post/density_estimation/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/achalneupane.github.io/post/density_estimation/&amp;title=Density%20Estimation" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<p>Answer all questions specified on the problem and include a discussion on how your results answered/addressed the question.</p>
+<p>Submit your  file with the knitted  (or knitted Word Document saved as a PDF). If you are having trouble with .rmd, let us know and we will help you, but both the .rmd and the PDF are required.</p>
+<p>This file can be used as a skeleton document for your code/write up. Please follow the instructions found under Content for Formatting and Guidelines. No code should be in your PDF write-up unless stated otherwise.</p>
+<p>For any question asking for plots/graphs, please do as the question asks as well as do the same but using the respective commands in the GGPLOT2 library. (So if the question asks for one plot, your results should have two plots. One produced using the given R-function and one produced from the GGPLOT2 equivalent). This doesn’t apply to questions that don’t specifically ask for a plot, however I still would encourage you to produce both.</p>
+<p>You do not need to include the above statements.</p>
+<p>Please do the following problems from the text book R Handbook and stated.</p>
+<ol style="list-style-type: decimal">
+<li><p>The  data from  contains the velocities of 82 galaxies from six well-separated conic sections of space (Postman et al., 1986, Roeder, 1990). The data are intended to shed light on whether or not the observable universe contains superclusters of galaxies surrounded by large voids. The evidence for the existence of superclusters would be the multimodality of the distribution of velocities.(8.1 Handbook)</p>
+<p>a.) Construct histograms using the following functions:</p>
+<pre><code> -hist() and ggplot()+geom_histogram()
+
+ -truehist() and ggplot+geom_histogram() (pay attention to the y-axis!)
+
+ -qplot()</code></pre>
+<p>Comment on the shape and distribution of the variable based on the three plots. (Hint: Also play around with binning)</p>
+<p>b.) Create a new variable  = <span class="math inline">\(\log\)</span>(galaxies). Construct histograms using the functions in part a.) and comment on the shape and differences.</p>
+<p>c.) Construct kernel density estimates using two different choices of kernel functions and three choices of bandwidth (one that is too large and “oversmooths,” one that is too small and “undersmooths,” and one that appears appropriate.) Therefore you should have six different kernel density estimates plots. Discuss your results. You can use the log scale or original scale for the variable.</p>
+<p>d.) What is your conclusion about the possible existence of superclusterd of galaxies? How many superclusters (1,2, 3, … )?</p>
+<p>e.) How many clusters did it find? Did it match with your answer from (d) above? Report parameter estimates and BIC of the best model.</p></li>
+</ol>
+<pre class="r"><code>library(MASS)
+library(ggplot2)
+# Load the data
+data(galaxies)
+# #set the vector of numeric velocities to dataframe
+# galaxies &lt;- as.data.frame(galaxies)
+# #rename the single column in the galaxies dataframe to Velocity
+# names(galaxies) &lt;- &#39;Velocity&#39;
+# #replace the typo with the correct numeric value
+# # galaxies[78,1] &lt;- 26960
+# #add the log velocity column
+# galaxies &lt;- galaxies %&gt;%
+#   mutate(loggalaxies = log(Velocity))
+
+message(&quot;# 1a.&quot;, &quot; &quot;)</code></pre>
+<pre><code>## # 1a.</code></pre>
+<pre class="r"><code># histogram
+message(&quot;Using hist and geom_histogram:&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Using hist and geom_histogram:</code></pre>
+<pre class="r"><code>#set the figure position
+# par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+hist(galaxies,
+     xlab = &#39;velocity&#39;,
+     main = &#39;base R: Histogram showing galaxies&#39;,
+     ylab = &#39;Frequency&#39;, freq = TRUE)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>ggplot() + aes(galaxies) +
+  geom_histogram(binwidth = 5000, breaks = c(seq(5000, 35000, 5000)), boundary = NULL, fill = &#39;white&#39;, color = &quot;black&quot;) +
+  labs(title = &#39;ggplot: Histogram showing galaxies&#39;, x= &quot;velocity&quot;, y = &quot;Frequency&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code># truehist
+message(&quot;Using truehist and geom_histogram():&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Using truehist and geom_histogram():</code></pre>
+<pre class="r"><code># par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+truehist(galaxies,
+         xlab = &#39;velocity&#39;,
+         main = &#39;base R: True Histogram showing galaxies&#39;,
+         ylab = &#39;density&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>######### *****
+# ggplot() + aes(galaxies) +
+#   geom_histogram(binwidth = 5000, bins = 10, boundary = NULL, fill = &#39;skyblue&#39;, color = &quot;black&quot;) +
+#   labs(x = &quot;velocity&quot;, title = &#39;ggplot: True Histogram showing galaxies&#39;) 
+
+BINS &lt;- 6
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+# Frequency
+# ggplot() + aes(galaxies) + geom_histogram(binwidth = BINWIDTH, boundary = NULL, fill = &#39;skyblue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) 
+# Density
+ggplot() + aes(galaxies) + geom_histogram(aes(y = ..density..), binwidth = BINWIDTH, breaks = c(seq(5000, 35000, 5000)), boundary = NULL, fill = &#39;skyblue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) + 
+labs(title = &quot;ggplot: True Histogram showing galaxies&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+<pre class="r"><code>######
+
+
+
+
+# qplot
+message(&quot;Using qplot:&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Using qplot:</code></pre>
+<pre class="r"><code>qplot(galaxies) +
+  labs(title=&#39;base R: Histogram showing galaxies (qplot)&#39;,
+       x=&#39;Velocity&#39;,
+       y=&#39;Frequency&#39;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-5.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 30
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() + aes(galaxies) +
+  geom_histogram(bins = BINS, breaks = BREAKS, binwidth = BINWIDTH, boundary = NULL, fill = &#39;grey&#39;, color = &quot;black&quot;) +
+  labs(x = &quot;velocity&quot;, y= &quot;Frequency&quot;, title = &#39;ggplot: Histogram showing galaxies (qplot)&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-6.png" width="672" /></p>
+<pre class="r"><code>message(&quot;# 1b.&quot;, &quot; &quot;)</code></pre>
+<pre><code>## # 1b.</code></pre>
+<pre class="r"><code>loggalaxies &lt;- log(galaxies)
+# histogram
+message(&quot;Using hist and geom_histogram:&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Using hist and geom_histogram:</code></pre>
+<pre class="r"><code>#set the figure position
+# par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+hist(loggalaxies,
+     xlab = &#39;log velocity&#39;,
+     main = &#39;base R: Histogram showing log velocity of galaxies&#39;,
+     ylab = &#39;Frequency&#39;, freq = TRUE)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-7.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 7
+BREAKS &lt;- seq(9, 10.5, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() + aes(loggalaxies) +
+  geom_histogram(binwidth = .15, bins = 8, boundary = NULL, fill = &#39;white&#39;, color = &quot;black&quot;) +
+  labs(x = &quot;log velocity&quot;, y = &quot;Frequency&quot;, title = &#39;ggplot: Histogram showing log velocity of galaxies&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-8.png" width="672" /></p>
+<pre class="r"><code># truehist
+message(&quot;Using truehist and geom_histogram():&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Using truehist and geom_histogram():</code></pre>
+<pre class="r"><code># par(fig=c(0,1,0,1),new=T)
+#draw the histogram
+truehist(loggalaxies,
+         xlab = &#39;log velocity of galaxies&#39;,
+         main = &#39;base R: True Histogram of log velocity of galaxies&#39;,
+         ylab = &#39;density&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-9.png" width="672" /></p>
+<pre class="r"><code>######### *****
+# ggplot() + aes(loggalaxies) +
+#   geom_histogram(binwidth = 0.1, bins = 0.1, boundary = NULL, fill = &#39;skyblue&#39;, color = &quot;black&quot;) +
+#   labs(x = &quot;log velocity&quot;, title = &#39;ggplot: True Histogram showing log velocity of galaxies&#39;) 
+
+BINS &lt;- 7
+BREAKS &lt;- seq(9, 10.5, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+# ggplot() + aes(loggalaxies) + geom_histogram(binwidth = BINWIDTH, boundary = NULL, fill = &#39;skyblue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) # Frequency
+ggplot() + aes(loggalaxies) + geom_histogram(aes(y = ..density..), binwidth = BINWIDTH, bins = BINS, breaks = BREAKS, boundary = NULL, fill = &#39;skyblue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+labs(title = &quot;ggplot: True Histogram of log velocity of galaxies&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-10.png" width="672" /></p>
+<pre class="r"><code>######
+
+
+# qplot
+message(&quot;Using qplot:&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Using qplot:</code></pre>
+<pre class="r"><code>qplot(loggalaxies) +
+  labs(title=&#39;base R: Histogram of log velocity of galaxies (qplot)&#39;,
+       x=&#39;log velocity of Galaxies&#39;,
+       y=&#39;Frequency&#39;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-11.png" width="672" /></p>
+<pre class="r"><code>ggplot() + aes(loggalaxies) +
+  geom_histogram(bins = 30, boundary = NULL, fill = &#39;grey&#39;, color = &quot;black&quot;) +
+  labs(x = &quot;log velocity&quot;, title = &#39;ggplot: Histogram showing log velocity of Galaxies (qplot)&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-12.png" width="672" /></p>
+<pre class="r"><code>message (&quot;# 1c.&quot;, &quot; &quot;)</code></pre>
+<pre><code>## # 1c.</code></pre>
+<pre class="r"><code>truehist(galaxies,ymax=0.0002,col=&quot;blue&quot;, main=&quot;base R: Gaussian Over Smooth&quot;)
+lines(density(galaxies,kernel=&quot;gaussian&quot;,bw=5000),col=&quot;red&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-13.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 6
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &#39;blue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+  stat_density(kernel = &quot;gaussian&quot;, bw = 5000, fill = NA, col = &quot;red&quot;) +
+  labs(title = &quot;ggplot: Gaussian Over Smooth&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-14.png" width="672" /></p>
+<pre class="r"><code>truehist(galaxies,ymax=0.0002,col=&quot;blue&quot;, main=&quot;base R: Gaussian Under Smooth&quot;)
+lines(density(galaxies,kernel=&quot;gaussian&quot;,bw=500),col=&quot;red&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-15.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 6
+# BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+# BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &#39;blue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+  stat_density(kernel = &quot;gaussian&quot;, bw = 500, fill = NA, col = &quot;red&quot;) +
+  labs(title = &quot;ggplot: Gaussian Under Smooth&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-16.png" width="672" /></p>
+<pre class="r"><code>truehist(galaxies,ymax=0.0002,col=&quot;blue&quot;, main=&quot;base R: Gaussian Best Appx&quot;)
+lines(density(galaxies,kernel=&quot;gaussian&quot;,bw=1100),col=&quot;red&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-17.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 6
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &#39;blue&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+  stat_density(kernel = &quot;gaussian&quot;, bw = 1100, fill = NA, col = &quot;red&quot;) +
+  labs(title = &quot;ggplot: Gaussian Best Appx&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-18.png" width="672" /></p>
+<pre class="r"><code>truehist(galaxies,ymax=0.0002,col=&quot;green&quot;, ylab = &quot;density&quot;, main=&quot;base R: Triangular Over Smooth&quot;)
+lines(density(galaxies,kernel=&quot;triangular&quot;,bw=5000),col=&quot;red&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-19.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 6
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &#39;green&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+  stat_density(kernel = &quot;triangular&quot;, bw = 5000, fill = NA, col = &quot;red&quot;) +
+  labs(title = &quot;ggplot: Triangular Over Smooth&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-20.png" width="672" /></p>
+<pre class="r"><code>truehist(galaxies,ymax=0.0002,col=&quot;green&quot;, ylab= &quot;density&quot;, main=&quot;base R: Triangular Under Smooth&quot;)
+lines(density(galaxies,kernel=&quot;triangular&quot;,bw=500),col=&quot;red&quot;,main=&quot;Triangular_Under&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-21.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 6
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &#39;green&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+  stat_density(kernel = &quot;triangular&quot;, bw = 500, fill = NA, col = &quot;red&quot;) +
+  labs(title = &quot;ggplot: Triangular Under Smooth&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-22.png" width="672" /></p>
+<pre class="r"><code>truehist(galaxies,ymax=0.0002,col=&quot;green&quot;, ylab = &quot;density&quot;, main=&quot;base R: Triangular Best Appx&quot;)
+lines(density(galaxies,kernel=&quot;triangular&quot;,bw=1100), col=&quot;red&quot;,main=&quot;Triangular_Appx&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-23.png" width="672" /></p>
+<pre class="r"><code>BINS &lt;- 6
+BREAKS &lt;- seq(5000, 35000, length.out = BINS + 1)
+BINWIDTH &lt;- BREAKS[2] - BREAKS[1]
+ggplot() +
+  aes(galaxies) +
+  geom_histogram(aes(y=..density..), bins = BINS, binwidth = BINWIDTH, breaks = BREAKS, boundary = NULL, fill = &#39;green&#39;, color = &quot;black&quot;, closed = &quot;left&quot;) +
+  stat_density(kernel = &quot;triangular&quot;, bw = 1100, fill = NA, col = &quot;red&quot;) +
+  labs(title = &quot;ggplot: Triangular Best Appx&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-24.png" width="672" /></p>
+<pre class="r"><code># # hist(galaxies, xlab = &quot;Waiting times (in min.)&quot;, ylab = &quot;Frequency&quot;,
+# # probability = TRUE, main = &quot;Rectangular kernel&quot;, border = &quot;gray&quot;)
+# # lines(density(galaxies, bw = 5000, window = &quot;gaussian&quot;))
+# # rug(galaxies)
+# 
+# #construct a stat density plot with ggplot2, adjust = 1 for less smoothing
+# p1_g &lt;- ggplot() +
+#   stat_density(kernel=&#39;gaussian&#39;,adjust=1,aes(x=galaxies)) +
+#   labs(title = &#39;Gaussian Kernal Density of Galaxy Velocity&#39;,
+#        x = &#39;Galaxy Velocity&#39;,
+#        y=&#39;Density Estimate&#39;)
+# #construct a stat density plot with ggplot2, adjust = 2 for moderate smoothing
+# p2_g &lt;- ggplot() +
+#   stat_density(kernel=&#39;gaussian&#39;,adjust=2,aes(x=galaxies)) +
+#   labs(title = &#39;Gaussian Kernal Density of Galaxy Velocity&#39;,
+#        x = &#39;Galaxy Velocity&#39;,
+#        y=&#39;Density Estimate&#39;)
+# #construct a stat density plot with ggplot2, adjust = 3 for over-smoothing
+# p3_g &lt;- ggplot() +
+#   stat_density(kernel=&#39;gaussian&#39;,adjust=3,aes(x=galaxies$Velocity)) +
+#   labs(title = &#39;Gaussian Kernal Density of Galaxy Velocity&#39;,
+#        x = &#39;Galaxy Velocity&#39;,
+#        y=&#39;Density Estimate&#39;)
+# #construct a triangular stat density plot, adjust for less smoothing
+# p1_t &lt;- ggplot() +
+#   stat_density(kernel=&#39;triangular&#39;,adjust=1,aes(x=galaxies$Velocity)) +
+#   labs(title = &#39;Triangular Kernal Density of Galaxy Velocity&#39;,
+#        x = &#39;Galaxy Velocity&#39;,
+#        y=&#39;Density Estimate&#39;)
+# #construct a triangular stat density plot, adjust for moderate smoothing
+# p2_t &lt;- ggplot() +
+#   stat_density(kernel=&#39;triangular&#39;,adjust=2,aes(x=galaxies$Velocity)) +
+#   labs(title = &#39;Triangular Kernal Density of Galaxy Velocity&#39;,
+#        x = &#39;Galaxy Velocity&#39;,
+#        y=&#39;Density Estimate&#39;)
+# #construct a triangular stat density plot, adjust for over-smoothing
+# p3_t &lt;- ggplot() +
+#   stat_density(kernel=&#39;triangular&#39;,adjust=3,aes(x=galaxies)) +
+#   labs(title = &#39;Triangular Kernal Density of Galaxy Velocity&#39;,
+#        x = &#39;Galaxy Velocity&#39;,
+#        y=&#39;Density Estimate&#39;)
+
+
+message(&quot;# 1e.&quot;,&quot; &quot;)</code></pre>
+<pre><code>## # 1e.</code></pre>
+<pre class="r"><code># we can use:
+library(mclust)</code></pre>
+<pre><code>## Package &#39;mclust&#39; version 5.4.2
+## Type &#39;citation(&quot;mclust&quot;)&#39; for citing this R package in publications.</code></pre>
+<pre class="r"><code>mod=Mclust(galaxies)
+print(mod)</code></pre>
+<pre><code>## &#39;Mclust&#39; model object: (V,4) 
+## 
+## Available components: 
+##  [1] &quot;call&quot;           &quot;data&quot;           &quot;modelName&quot;      &quot;n&quot;             
+##  [5] &quot;d&quot;              &quot;G&quot;              &quot;BIC&quot;            &quot;bic&quot;           
+##  [9] &quot;loglik&quot;         &quot;df&quot;             &quot;hypvol&quot;         &quot;parameters&quot;    
+## [13] &quot;z&quot;              &quot;classification&quot; &quot;uncertainty&quot;</code></pre>
+<pre class="r"><code>print(summary(mod, parameters = TRUE))</code></pre>
+<pre><code>## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust V (univariate, unequal variance) model with 4 components: 
+## 
+##  log.likelihood  n df       BIC       ICL
+##        -765.694 82 11 -1579.862 -1598.907
+## 
+## Clustering table:
+##  1  2  3  4 
+##  7 35 32  8 
+## 
+## Mixing probabilities:
+##          1          2          3          4 
+## 0.08440635 0.38660329 0.37116156 0.15782880 
+## 
+## Means:
+##         1         2         3         4 
+##  9707.492 19804.259 22879.486 24459.536 
+## 
+## Variances:
+##          1          2          3          4 
+##   177296.7   436160.9  1261611.3 34437115.3</code></pre>
+<pre class="r"><code>#pot the density plot of the model
+# par(fig=c(0,1,0,1),new=T)
+plot(mod,what=&quot;density&quot;)
+title (&quot;Density plot of the finite mixture model&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-1-25.png" width="672" /></p>
+<pre class="r"><code># BIC
+mclustBIC(galaxies)</code></pre>
+<pre><code>## Bayesian Information Criterion (BIC): 
+##           E         V
+## 1 -1622.361 -1622.361
+## 2 -1631.243 -1595.403
+## 3 -1584.016 -1592.299
+## 4 -1592.828 -1579.862
+## 5 -1592.299 -1593.277
+## 6 -1601.228 -1604.069
+## 7 -1588.610 -1611.538
+## 8 -1597.427 -1625.804
+## 9 -1600.709 -1633.494
+## 
+## Top 3 models based on the BIC criterion: 
+##       V,4       E,3       E,7 
+## -1579.862 -1584.016 -1588.610</code></pre>
+<p>Discussion:</p>
+<p>1.a. All graphs have similar shapes for hist() and truehist(), except for a scaling factor. This is expected as hist() shows the frequency along the y axis, whereas truehist() produces the probability, which is a scaled version of the frequency. We can make some estimation about the distribution of the data, but cannot comment in a parametric way. Just based on the plots, we can tell that the data are highly congested in the middle of the data range. We can best think that there are three clusters of data, but qplot(), shows an extra cluster in the middle-congested cluster of data. By observing the qplot(),we can assume that there are four clusters in the data set.</p>
+<p>1.b. Here a scaled version of the data in part (a) is used to construct the same plots. Similar comments like in part (a) is valid here as well to describe the similarity of hist() and truehist(). From this scaled data hist() and truehist(), still it is reasonable to guess that there are three clusters.</p>
+<p>1.c. Here over smoothing and under smoothing bin width choice were easy and straight forward. Startting with the extreme bw values, 5000, 500 and 1100 were used to generate the three Kernels for Gaussian and Triangular. Searching for the best fit just by visualizing was not easy. By changing the the binwidth, we can actually set the Kernel to better fit for the best approximate of clusters.</p>
+<p>1.d. From the figures found in part (c), we can assume that there are four clusters in the data set with unequal variances. It was hard to determine manually, but my guess was that there are about three or four clusters with almost equal possiblity.</p>
+<p>1.e. The mclust() found four clusters of unequal variance for the best fit. However, the density plot of the model indicates there are three clusters. Based on this information, we can say that there are at least 3 or 4 clusters that can be determined from this analysis.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>The  data from  gives the birth and death rates for 69 countries (from Hartigan, 1975). (8.2 Handbook)</p>
+<p>a.) Produce a scatterplot of the data and overlay a contour plot of the estimated bivariate density.</p>
+<p>b.) Does the plot give you any interesting insights into the possible structure of the data?</p>
+<p>c.) Construct the perspective plot (persp() in R, GGplot is not required for this question).</p>
+<p>d.) Model-based clustering (Mclust). Provide plot of the summary of your fit (BIC, classification, uncertainty, and density).</p>
+<p>e.) Discuss the results (structure of data, outliers, etc.). Write a discussion in the context of the problem.</p></li>
+</ol>
+<pre class="r"><code>library(HSAUR3)</code></pre>
+<pre><code>## Loading required package: tools</code></pre>
+<pre class="r"><code>library(KernSmooth)</code></pre>
+<pre><code>## KernSmooth 2.23 loaded
+## Copyright M. P. Wand 1997-2009</code></pre>
+<pre class="r"><code>library(reshape2)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     select</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>data(birthdeathrates)
+head(birthdeathrates)</code></pre>
+<pre><code>##     birth death
+## alg  36.4  14.6
+## con  37.3   8.0
+## egy  42.1  15.3
+## gha  55.8  25.6
+## ict  56.1  33.1
+## mag  41.8  15.8</code></pre>
+<pre class="r"><code>length(birthdeathrates)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>nrow(birthdeathrates)</code></pre>
+<pre><code>## [1] 69</code></pre>
+<pre class="r"><code>message (&quot;# 2a&quot;, &quot; &quot;)</code></pre>
+<pre><code>## # 2a</code></pre>
+<pre class="r"><code>BDRd &lt;- bkde2D(birthdeathrates, bandwidth = sapply(birthdeathrates, dpik))
+contour(x=BDRd$x1, y=BDRd$x2, z=BDRd$fhat,
+        main = &quot;base R: Countour Scatterplot of Birth_Death_Rates&quot;,
+        xlab=&quot;Birth Rates&quot;, 
+        ylab=&quot;Death Rates&quot;,
+        xlim =c(0,60), ylim = c(0,35))
+points(birthdeathrates, pch=16, col=&quot;red&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data=birthdeathrates,aes(birth,death)) + 
+  geom_density2d(aes(colour=..level..)) + 
+  scale_colour_gradient(low=&quot;green&quot;,high=&quot;red&quot;) + 
+  theme_bw() +
+  geom_point() +
+  # geom_text(aes(label=ifelse(death &gt;= 15 | birth &gt;= 35,row.names(birthdeathrates),&#39;&#39;),hjust=0, vjust=0)) +
+  labs(title=&#39;ggplot: Countour Scatterplot of Birth_Death_Rates&#39;,
+       x=&#39;Birth Rate&#39;,
+       y=&#39;Death Rate&#39;) +
+  scale_x_continuous(limits = c(0,60)) +
+  scale_y_continuous(limits = c(0,35))</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code>message(&quot;# 2c.&quot;, &quot; &quot;)</code></pre>
+<pre><code>## # 2c.</code></pre>
+<pre class="r"><code>persp (x=BDRd$x1, y=BDRd$x2, z=BDRd$fhat,
+       xlab=&quot;Birth Rates&quot;, 
+       ylab=&quot;Death Rates&quot;,
+       zlab=&quot;Estimated Density&quot;,
+       theta=-35, axes=TRUE, box=TRUE, main = &quot;Perspective plot for birthdeathrates data&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<pre class="r"><code>message(&quot;# 2d.&quot;, &quot; &quot;)</code></pre>
+<pre><code>## # 2d.</code></pre>
+<pre class="r"><code>library(mclust)
+
+mod &lt;- Mclust(birthdeathrates)
+mod</code></pre>
+<pre><code>## &#39;Mclust&#39; model object: (EII,4) 
+## 
+## Available components: 
+##  [1] &quot;call&quot;           &quot;data&quot;           &quot;modelName&quot;      &quot;n&quot;             
+##  [5] &quot;d&quot;              &quot;G&quot;              &quot;BIC&quot;            &quot;bic&quot;           
+##  [9] &quot;loglik&quot;         &quot;df&quot;             &quot;hypvol&quot;         &quot;parameters&quot;    
+## [13] &quot;z&quot;              &quot;classification&quot; &quot;uncertainty&quot;</code></pre>
+<pre class="r"><code>summary(mod, parameters = TRUE)</code></pre>
+<pre><code>## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust EII (spherical, equal volume) model with 4 components: 
+## 
+##  log.likelihood  n df       BIC       ICL
+##       -424.4194 69 12 -899.6481 -906.4841
+## 
+## Clustering table:
+##  1  2  3  4 
+##  2 17 38 12 
+## 
+## Mixing probabilities:
+##          1          2          3          4 
+## 0.02898652 0.24555002 0.55023375 0.17522972 
+## 
+## Means:
+##           [,1]     [,2]      [,3]      [,4]
+## birth 55.94967 43.80396 19.922913 33.730672
+## death 29.34960 12.09411  9.081348  8.535812
+## 
+## Variances:
+## [,,1]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108
+## [,,2]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108
+## [,,3]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108
+## [,,4]
+##         birth   death
+## birth 10.2108  0.0000
+## death  0.0000 10.2108</code></pre>
+<pre class="r"><code>message(&quot;Value for mod$parameters$mean&quot;, &quot; &quot;)</code></pre>
+<pre><code>## Value for mod$parameters$mean</code></pre>
+<pre class="r"><code>sqrt(mod$parameters$variance$sigmasq)</code></pre>
+<pre><code>## [1] 3.195434</code></pre>
+<pre class="r"><code>BIC.data&lt;- as.data.frame(mod$BIC[,])
+BIC.data$NumComp&lt;-rownames(BIC.data)
+melted.BIC&lt;- reshape2::melt(BIC.data, var.ids= &quot;NumComp&quot;)</code></pre>
+<pre><code>## Using NumComp as id variables</code></pre>
+<pre class="r"><code># length(levels(melted.BIC$variable))
+
+par(mfrow=c(1,1), ask=FALSE)
+# BIC
+plot(mod, what=&quot;BIC&quot;, main = &quot;base R: Plot of BIC&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
+<pre class="r"><code>ggplot(melted.BIC, aes(x=as.numeric(NumComp), y=value, colour=variable, group=variable))+
+  scale_x_continuous(&quot;Number of Components&quot;)+
+  scale_y_continuous(&quot;BIC&quot;)+
+  scale_colour_hue(&quot;&quot;)+
+  geom_point()+
+  geom_line()+
+  theme_bw() + 
+  labs(title = &quot;ggplot: BIC&quot;)</code></pre>
+<pre><code>## Warning: Removed 19 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 19 rows containing missing values (geom_path).</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-5.png" width="672" /></p>
+<pre class="r"><code># uncertainty
+par(mfrow=c(1,1), ask=FALSE)
+plot(mod, what=&quot;uncertainty&quot;)
+title(main = &quot;base R: Plot of uncertainty&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-6.png" width="672" /></p>
+<pre class="r"><code>birthdeathrates %&gt;% mutate(uncertainty = mod$uncertainty,
+                classification = factor(mod$classification)) %&gt;% 
+  ggplot(aes(birth, death, size = uncertainty, color = classification)) +
+  geom_point() + 
+  guides(size = guide_legend(), colour = &quot;legend&quot;) + theme_classic() +
+  stat_ellipse(level = 0.5, type = &quot;t&quot;) + 
+  labs(x = &quot;birth&quot;, y = &quot;death&quot;, title = &quot;ggplot: Uncertainty&quot;)</code></pre>
+<pre><code>## Too few points to calculate an ellipse</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-7.png" width="672" /></p>
+<pre class="r"><code># classification
+par(mfrow=c(1,1), ask=FALSE)
+plot(mod, what=&quot;classification&quot;)
+title(main = &quot;base R: Plot of classification&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-8.png" width="672" /></p>
+<pre class="r"><code>birthdeathrates %&gt;% mutate(uncertainty = mod$uncertainty,
+                classification = factor(mod$classification)) %&gt;% 
+  ggplot(aes(birth, death, shape = classification, color = classification)) +
+  geom_point() + 
+  guides(size = guide_legend(), shape = guide_legend()) + theme_classic() +
+  stat_ellipse(level = 0.5, type = &quot;t&quot;) + 
+  labs(x = &quot;birth&quot;, y = &quot;death&quot;, title = &quot;ggplot: Plot of classification&quot;)</code></pre>
+<pre><code>## Too few points to calculate an ellipse</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-9.png" width="672" /></p>
+<pre class="r"><code># density
+par(mfrow=c(1,1), ask=FALSE)
+plot(mod, what=&quot;density&quot;)
+title(main = &quot;base R: Plot of density&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-10.png" width="672" /></p>
+<pre class="r"><code>ggplot(birthdeathrates, aes(x = birth, y = death)) +
+  geom_point() +
+  geom_density_2d() + 
+  labs ( title = &quot;ggplot: Plot of density&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-2-11.png" width="672" /></p>
+<p>Discussion:</p>
+<p>2.b. Comparaing data for birth rates from 10 to about 50 with the death rates, we can tell that the death rate is relatively slow. I would say twice as many people are being born than they are dying (i.e., 2:1 birth to death ratio). The countour appears to show the majority of countries grouping around a birthrate of 20 and a death rate of 10.</p>
+<p>2.e. The BIC plot indicates that there are 4 clusters. The classification plot seems to indicate the groupings of the data. The table of means indicate that the birth rates group along ~ 20, 34, 44, and 56. The death rates group around 9, 8, 12 and 30.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>A sex difference in the age of onset of schizophrenia was noted by Kraepelin (1919). Subsequent epidemiological studies of the disorder have consistently shown an earlier onset in men than in women. One model that has been suggested to explain this observed difference is known as the subtype model which postulates two types of schizophrenia, one characterized by early onset, typical symptoms and poor premorbid competence; and the other by late onset, atypical symptoms and good premorbid competence. The early onset type is assumed to be largely a disorder of men and the late onset largely a disorder of women. Fit finite mixutres of normal densities separately to the onset data for men and women given in the  data from . See if you can produce some evidence for or against the subtype model. (8.3 Handbook)</li>
+</ol>
+<p>Answer:</p>
+<p>Based on this density plot faceted by gender, we can tell that the distribution in diagnosis of disease is centered towards 20 years (age) in males whereas, for females, its more uniform thoughout the life.</p>
+<pre class="r"><code>data(schizophrenia)
+#plot the schizophrenia data using stat_density within ggplot2, facet by gender
+# par(fig=c(0,1,0,1),new=T)
+ggplot(data=schizophrenia)+
+  stat_density(kernel=&#39;gaussian&#39;,adjust=1,aes(age,fill=gender)) +
+  facet_grid(gender~.) +
+       labs(title = &#39;Density plot (gaussian) of Schizophrenia diagnosis data&#39;,
+       x = &quot;Diagnosis Age&quot;,
+       y=&#39;Density Estimate&#39;) +
+  scale_fill_manual( values = c(&quot;red&quot;,&quot;blue&quot;)) +
+  theme(
+        strip.background = element_blank(),
+        strip.text.y = element_blank(),
+        panel.background = element_blank()
+        )</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>We can also check the distribution of the data using histogram plots. These plots also show that male diagnosis age numbers are centered more around mid 20’s, where as females patients can also be diagnosed in 40s and fewer (compared to males) in mid 20s.</p>
+<pre class="r"><code># par(fig=c(0,1,0,1),new=T)
+ggplot(data=schizophrenia)+
+  geom_histogram(aes(age,fill=gender)) +
+  facet_grid(gender~.) +
+  labs(title = &#39;Histogram of Schizophrenia Diagnosis by Gender&#39;,
+       x = &#39;Age of diagnosis&#39;,
+       y=&#39;Frequency&#39;) +
+scale_fill_manual( values = c(&quot;red&quot;,&quot;blue&quot;)) +
+# scale_color_brewer(palette = &quot;Set2&quot;) +
+  theme(
+        strip.background = element_blank(),
+        strip.text.y = element_blank(),
+        panel.background = element_blank()
+        )</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Or we can visualize both together and see the same results discussed above by making this plot below:</p>
+<pre class="r"><code>setMen &lt;- subset(schizophrenia, gender==&quot;male&quot;)$age
+setWmn &lt;- subset(schizophrenia, gender!=&quot;male&quot;)$age
+
+par(mfrow=c(1,1))
+hist (schizophrenia$age, xlab=&quot;Age&quot;, ylab=&quot;Density&quot;, main=&quot;Distribution of Schizophrenia Onset by Age&quot;, freq=FALSE, ylim=c(0,.075), border=4)
+lines(density(setMen), col=1, )
+lines(density(setWmn), col=2)
+legend(40, 0.05, legend=c(&quot;Female&quot;, &quot;Male&quot;),
+       col=c(1,2), lty=c(1,1), cex=0.8)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>We can subset the schizophrenia data by male and female for fit of model analysis by gender:</p>
+<pre class="r"><code>head(schizophrenia)</code></pre>
+<pre><code>##   age gender
+## 1  20 female
+## 2  30 female
+## 3  21 female
+## 4  23 female
+## 5  30 female
+## 6  25 female</code></pre>
+<pre class="r"><code>onset=schizophrenia
+male=subset(onset,gender==&quot;male&quot;)
+female=subset(onset,gender==&quot;female&quot;)
+message(&quot;
+Mclust Data
+        &quot;,&quot;&quot;)</code></pre>
+<pre><code>## 
+## Mclust Data
+## </code></pre>
+<pre class="r"><code>mod_male=Mclust(male$age)
+mod_female=Mclust(female$age)
+# par(mfrow=c(2,2))
+plot(mod_male, what = &quot;BIC&quot;)
+title(main=&#39;BIC Of schizophrenia for male&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>plot(mod_female, what = &quot;BIC&quot;)
+title(main=&#39;BIC Of schizophrenia for female&#39;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Density_Estimation_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<pre class="r"><code>message(&quot;Male
+        &quot;,&quot;&quot;)</code></pre>
+<pre><code>## Male
+## </code></pre>
+<pre class="r"><code>print(mod_male)</code></pre>
+<pre><code>## &#39;Mclust&#39; model object: (V,2) 
+## 
+## Available components: 
+##  [1] &quot;call&quot;           &quot;data&quot;           &quot;modelName&quot;      &quot;n&quot;             
+##  [5] &quot;d&quot;              &quot;G&quot;              &quot;BIC&quot;            &quot;bic&quot;           
+##  [9] &quot;loglik&quot;         &quot;df&quot;             &quot;hypvol&quot;         &quot;parameters&quot;    
+## [13] &quot;z&quot;              &quot;classification&quot; &quot;uncertainty&quot;</code></pre>
+<pre class="r"><code>print(summary(mod_male, parameters = TRUE))</code></pre>
+<pre><code>## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust V (univariate, unequal variance) model with 2 components: 
+## 
+##  log.likelihood   n df       BIC       ICL
+##       -520.9747 152  5 -1067.069 -1134.392
+## 
+## Clustering table:
+##  1  2 
+## 99 53 
+## 
+## Mixing probabilities:
+##         1         2 
+## 0.5104189 0.4895811 
+## 
+## Means:
+##        1        2 
+## 20.23922 27.74615 
+## 
+## Variances:
+##          1          2 
+##   9.395305 111.997525</code></pre>
+<pre class="r"><code># print(mod_male$parameters)
+message(&quot;FeMale
+        &quot;,&quot;&quot;)</code></pre>
+<pre><code>## FeMale
+## </code></pre>
+<pre class="r"><code>print(mod_female)</code></pre>
+<pre><code>## &#39;Mclust&#39; model object: (E,2) 
+## 
+## Available components: 
+##  [1] &quot;call&quot;           &quot;data&quot;           &quot;modelName&quot;      &quot;n&quot;             
+##  [5] &quot;d&quot;              &quot;G&quot;              &quot;BIC&quot;            &quot;bic&quot;           
+##  [9] &quot;loglik&quot;         &quot;df&quot;             &quot;hypvol&quot;         &quot;parameters&quot;    
+## [13] &quot;z&quot;              &quot;classification&quot; &quot;uncertainty&quot;</code></pre>
+<pre class="r"><code>print(summary(mod_female, parameters = TRUE))</code></pre>
+<pre><code>## ---------------------------------------------------- 
+## Gaussian finite mixture model fitted by EM algorithm 
+## ---------------------------------------------------- 
+## 
+## Mclust E (univariate, equal variance) model with 2 components: 
+## 
+##  log.likelihood  n df       BIC       ICL
+##       -373.6992 99  4 -765.7788 -774.8935
+## 
+## Clustering table:
+##  1  2 
+## 74 25 
+## 
+## Mixing probabilities:
+##         1         2 
+## 0.7472883 0.2527117 
+## 
+## Means:
+##        1        2 
+## 24.93517 46.85570 
+## 
+## Variances:
+##        1        2 
+## 44.55641 44.55641</code></pre>
+<pre class="r"><code># print(mod_female$parameters)
+
+# male group mean
+message(paste0(&quot;Male Group mean is 0.51*20.23+(1-0.51)*27.75 = &quot;, 0.51*20.23+(1-0.51)*27.75))</code></pre>
+<pre><code>## Male Group mean is 0.51*20.23+(1-0.51)*27.75 = 23.9148</code></pre>
+<pre class="r"><code># Female group mean
+message(paste0(&quot;Female Group mean is 0.746*24.93+(1-0.747)*46.85 = &quot;, 0.746*24.93+(1-0.747)*46.85))</code></pre>
+<pre><code>## Female Group mean is 0.746*24.93+(1-0.747)*46.85 = 30.45083</code></pre>
+<p>From the model summary above, we can see that the female model showing data points centered at about 25 and age 47 of age marks, whereas for males it was at around 20 and 27 years of age (i.e., within 20s). For males, the mean was calculated to be 23.91. Similarly, the mean of whole female group was calculated to be 30.45. So female group has a larger age mean which tells us that the males have onset of disorder earlier than females. Additionally, the BIC plot shows that the optimal number of cluster for both males and females is 2.</p>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/modern-applied-statistics-i/">Modern Applied Statistics I</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/achalneupane.github.io/authors/achal-neupane/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/achalneupane.github.io/post/graphical_summary/">Graphical Summary</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_i/">Logistic Regression&amp;GLM-I</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_ii/">Logistic Regression&amp;GLM-II</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/achalneupane.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/achalneupane.github.io/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/achalneupane.github.io/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/achalneupane.github.io/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
