@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Achal Neupane">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Statistics series">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145752794-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/achalneupane.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/achalneupane.github.io/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/achalneupane.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@achalneupane">
+  <meta property="twitter:creator" content="@achalneupane">
+  
+  <meta property="og:site_name" content="Achal Neupane">
+  <meta property="og:url" content="/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/">
+  <meta property="og:title" content="Longitudinal Data Analysis and Mixed Models I | Achal Neupane">
+  <meta property="og:description" content="Statistics series"><meta property="og:image" content="/achalneupane.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-10-28T17:26:23-05:00">
+    
+    <meta property="article:modified_time" content="2019-10-28T17:26:23-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Longitudinal Data Analysis and Mixed Models I | Achal Neupane</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/achalneupane.github.io/">Achal Neupane</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#impact"><span>Impact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Longitudinal Data Analysis and Mixed Models I</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-10-28 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-10-28 17:26:23 -0500 CDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/achalneupane.github.io/authors/achal-neupane/"><strong>Achal Neupane</strong></a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 28, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    17 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/&amp;text=Longitudinal%20Data%20Analysis%20and%20Mixed%20Models%20I" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/&amp;t=Longitudinal%20Data%20Analysis%20and%20Mixed%20Models%20I" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Longitudinal%20Data%20Analysis%20and%20Mixed%20Models%20I&amp;body=/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/&amp;title=Longitudinal%20Data%20Analysis%20and%20Mixed%20Models%20I" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Longitudinal%20Data%20Analysis%20and%20Mixed%20Models%20I%20/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/&amp;title=Longitudinal%20Data%20Analysis%20and%20Mixed%20Models%20I" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<p>Answer all questions specified on the problem and include a discussion on how your results answered/addressed the question.</p>
+<p>Submit your  file with the knitted  (or knitted Word Document saved as a PDF). If you are having trouble with .rmd, let us know and we will help you, but both the .rmd and the PDF are required.</p>
+<p>This file can be used as a skeleton document for your code/write up. Please follow the instructions found under Content for Formatting and Guidelines. No code should be in your PDF write-up unless stated otherwise.</p>
+<p>For any question asking for plots/graphs, please do as the question asks as well as do the same but using the respective commands in the GGPLOT2 library. (So if the question asks for one plot, your results should have two plots. One produced using the given R-function and one produced from the GGPLOT2 equivalent). This doesn’t apply to questions that don’t specifically ask for a plot, however I still would encourage you to produce both.</p>
+<p>You do not need to include the above statements.</p>
+<p>Please do the following problems from the text book R Handbook and stated.</p>
+<ol style="list-style-type: decimal">
+<li><p>Following up with the Beat the Blues data from the video (package HSAUR3) do the following</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Construct boxplots to compare the factor variable  in an analogous way to how we constructed boxplots in the video for the treatment variable. Discuss the results.</p></li>
+<li><p>Repeat (a) for the  variable. Discuss the results.</p></li>
+<li><p>Use the  function to fit a model to the Beat the Blues data that assumes that the repeated measurements are independent. Compare the results to those from fitting the random intercept model  from the video.</p></li>
+<li><p>Investigate and discuss whether there is any evidence of an interaction between treatment and time for the Beat the Blues data.</p></li>
+<li><p>Construct a plot of the mean profiles of both treatment groups in the Beat the Blues data, showing also standard deviation bars at each time point.</p></li>
+</ol></li>
+</ol>
+<pre class="r"><code>library(&quot;gee&quot;)
+library(&quot;lme4&quot;)</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre class="r"><code>library(&quot;Matrix&quot;)
+library(&quot;multcomp&quot;)</code></pre>
+<pre><code>## Loading required package: mvtnorm</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<pre><code>## Loading required package: TH.data</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## 
+## Attaching package: &#39;TH.data&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     geyser</code></pre>
+<pre class="r"><code>library (HSAUR3)</code></pre>
+<pre><code>## Loading required package: tools</code></pre>
+<pre><code>## 
+## Attaching package: &#39;HSAUR3&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:TH.data&#39;:
+## 
+##     birds</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(plyr)
+library(tidyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;tidyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:Matrix&#39;:
+## 
+##     expand, pack, unpack</code></pre>
+<pre class="r"><code>cat(&quot;# 1.a&quot;) </code></pre>
+<pre><code>## # 1.a</code></pre>
+<pre class="r"><code># a. Construct boxplots to compare the factor variable \textbf{drug} in an
+# analogous way to how we constructed boxplots in the video for the treatment
+# variable. Discuss the results.
+data(&quot;BtheB&quot;)
+
+layout(matrix(1:2, nrow=1))
+
+ylim=range(BtheB[ , grep(&quot;bdi&quot;, names(BtheB))],
+           na.rm=TRUE)
+
+yes=subset(BtheB, drug==&quot;Yes&quot;)[ , grep(&quot;bdi&quot;, names(BtheB))]
+boxplot(yes, main=&quot;Drugs Used&quot;, ylab=&quot;BDI&quot;,
+        xlab=&quot;Time (in Months)&quot;, names=c(0,2,3,5,8), 
+        ylim=ylim)
+
+no=subset(BtheB, drug==&quot;No&quot;)[ , grep(&quot;bdi&quot;, names(BtheB))]
+boxplot(no, main=&quot;Drugs Not Used&quot;, ylab=&quot;BDI&quot;,
+        xlab=&quot;Time (in Months)&quot;, names=c(0,2,3,5,8), 
+        ylim=ylim)</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;#1.b&quot;)</code></pre>
+<pre><code>## #1.b</code></pre>
+<pre class="r"><code># b. Repeat (a) for the \textbf{length} variable. Discuss the results.
+
+layout(matrix(1:2, nrow = 1))
+lengthlow&lt;-subset(BtheB,length==&quot;&lt;6m&quot;)[,grep(&quot;bdi&quot;,names(BtheB))]
+boxplot(lengthlow, main =&quot;Length&lt;6m&quot;, ylab= &quot;BDI&quot;, xlab = &quot;Time (in months)&quot;,names=c(0,2,3,5,8))
+
+lengthhigh&lt;-subset(BtheB,length==&quot;&gt;6m&quot;)[,grep(&quot;bdi&quot;,names(BtheB))]
+boxplot(lengthhigh, main =&quot;Length&gt;6m&quot;, ylab= &quot;BDI&quot;, xlab = &quot;Time (in months)&quot;,names=c(0,2,3,5,8))</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;#1.c&quot;)</code></pre>
+<pre><code>## #1.c</code></pre>
+<pre class="r"><code># c. Use the \textit{lm} function to fit a model to the Beat the Blues
+# data that assumes that the repeated measurements are independent.
+# Compare the results to those from fitting the random intercept model
+# \textit{BtheB\_lmer1} from the video.
+
+BtheB$subject=factor(rownames(BtheB))
+nobs=nrow(BtheB)
+cat(&quot;Let change the data in wide format&quot;)</code></pre>
+<pre><code>## Let change the data in wide format</code></pre>
+<pre class="r"><code>BtheB_long=reshape(BtheB, idvar = &quot;subject&quot;,
+                   varying = c(&quot;bdi.2m&quot;, &quot;bdi.3m&quot;, &quot;bdi.5m&quot;, &quot;bdi.8m&quot;),
+                   direction = &quot;long&quot;)
+BtheB_long$time=rep(c(2, 3, 5, 8), rep(nobs, 4))
+
+
+BtheB_lm=lm(bdi ~ bdi.pre + time + treatment + drug + 
+              length, data=BtheB_long, na.action=na.omit)
+
+summary(BtheB_lm)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = bdi ~ bdi.pre + time + treatment + drug + length, 
+##     data = BtheB_long, na.action = na.omit)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -23.6779  -5.4177   0.0151   5.3268  27.2688 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     7.32290    1.72765   4.239 3.08e-05 ***
+## bdi.pre         0.57396    0.05497  10.440  &lt; 2e-16 ***
+## time           -0.93784    0.23650  -3.965 9.36e-05 ***
+## treatmentBtheB -3.32254    1.10069  -3.019  0.00278 ** 
+## drugYes        -3.56866    1.14717  -3.111  0.00206 ** 
+## length&gt;6m       1.71067    1.11056   1.540  0.12463    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.674 on 274 degrees of freedom
+##   (120 observations deleted due to missingness)
+## Multiple R-squared:  0.395,  Adjusted R-squared:  0.384 
+## F-statistic: 35.78 on 5 and 274 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>BtheB_lmer1=lmer(bdi ~ bdi.pre + time + treatment + drug +
+                   length + (1 | subject), data=BtheB_long,
+                 REML=FALSE, na.action=na.omit)
+
+cftest(BtheB_lmer1)</code></pre>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Fit: lmer(formula = bdi ~ bdi.pre + time + treatment + drug + length + 
+##     (1 | subject), data = BtheB_long, REML = FALSE, na.action = na.omit)
+## 
+## Linear Hypotheses:
+##                     Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) == 0     5.59239    2.24244   2.494   0.0126 *  
+## bdi.pre == 0         0.63968    0.07789   8.212 2.22e-16 ***
+## time == 0           -0.70476    0.14639  -4.814 1.48e-06 ***
+## treatmentBtheB == 0 -2.32908    1.67036  -1.394   0.1632    
+## drugYes == 0        -2.82495    1.72684  -1.636   0.1019    
+## length&gt;6m == 0       0.19708    1.63832   0.120   0.9043    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Univariate p values reported)</code></pre>
+<pre class="r"><code>cat(&quot;Comparison of lm and lmer&quot;)</code></pre>
+<pre><code>## Comparison of lm and lmer</code></pre>
+<pre class="r"><code>anova(BtheB_lmer1,BtheB_lm)</code></pre>
+<pre><code>## Data: BtheB_long
+## Models:
+## BtheB_lm: bdi ~ bdi.pre + time + treatment + drug + length
+## BtheB_lmer1: bdi ~ bdi.pre + time + treatment + drug + length + (1 | subject)
+##             Df    AIC    BIC  logLik deviance Chisq Chi Df Pr(&gt;Chisq)    
+## BtheB_lm     7 2012.3 2037.7 -999.15   1998.3                            
+## BtheB_lmer1  8 1887.5 1916.6 -935.75   1871.5 126.8      1  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>cat(&quot;We can plot the residuals from Linear model&quot;)</code></pre>
+<pre><code>## We can plot the residuals from Linear model</code></pre>
+<pre class="r"><code>plot(BtheB_lm, which=2)
+# Assumptions for Mixed-model
+
+residuals &lt;- function(object, obs) obs-predict(object) 
+cat(&quot;We can also plot the residuals from linear mixed-model&quot;)</code></pre>
+<pre><code>## We can also plot the residuals from linear mixed-model</code></pre>
+<pre class="r"><code>layout(matrix(1:2, ncol = 2))</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>qint &lt;- ranef(BtheB_lmer1)$subject[[&quot;(Intercept)&quot;]]
+qres &lt;- residuals(BtheB_lmer1,BtheB_long$bdi.pre)</code></pre>
+<pre><code>## Warning in obs - predict(object): longer object length is not a multiple of
+## shorter object length</code></pre>
+<pre class="r"><code>qqnorm(qint, ylab = &quot;Estimated random intercepts&quot;,
+     xlim = c(-3, 3), ylim = c(-20, 20),
+     main = &quot;Random intercepts&quot;)
+qqline(qint, col=&quot;red&quot;, lwd=3)
+qqnorm(qres, xlim = c(-3, 3), ylim = c(-20, 20),
+     ylab = &quot;Estimated residuals&quot;,
+     main = &quot;Residuals&quot;)
+qqline(qres, col=&quot;red&quot;, lwd=3)</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;#1.d&quot;)</code></pre>
+<pre><code>## #1.d</code></pre>
+<pre class="r"><code># d. Investigate and discuss whether there is any evidence of an interaction
+# between treatment and time for the Beat the Blues data.
+
+cat(&quot;Testing fitted linear model with lm&quot;)</code></pre>
+<pre><code>## Testing fitted linear model with lm</code></pre>
+<pre class="r"><code>BtheB_lm2=lm(bdi ~ bdi.pre + time + treatment + drug +
+                   length + time*treatment + subject, 
+                 data=BtheB_long, REML=FALSE, na.action=na.omit)</code></pre>
+<pre><code>## Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
+##  extra argument &#39;REML&#39; will be disregarded</code></pre>
+<pre class="r"><code>summary(BtheB_lm2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = bdi ~ bdi.pre + time + treatment + drug + length + 
+##     time * treatment + subject, data = BtheB_long, na.action = na.omit, 
+##     REML = FALSE)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -12.142  -2.135   0.000   1.475  18.851 
+## 
+## Coefficients: (4 not defined because of singularities)
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)          29.76770    9.56265   3.113 0.002154 ** 
+## bdi.pre              -1.65000    0.70622  -2.336 0.020565 *  
+## time                 -0.95949    0.21348  -4.494 1.24e-05 ***
+## treatmentBtheB      -19.42712   11.68602  -1.662 0.098158 .  
+## drugYes               6.00000    3.53108   1.699 0.091000 .  
+## length&gt;6m            22.48102   12.10631   1.857 0.064941 .  
+## subject10             3.10000    4.52199   0.686 0.493881    
+## subject11            19.06898    4.40270   4.331 2.45e-05 ***
+## subject12           100.14125   35.32423   2.835 0.005105 ** 
+## subject13            18.05000    5.42455   3.327 0.001061 ** 
+## subject14            23.31898    5.41836   4.304 2.75e-05 ***
+## subject15            15.80000    6.07510   2.601 0.010070 *  
+## subject16             5.45000    4.11791   1.323 0.187343    
+## subject17            46.96818   12.31014   3.815 0.000186 ***
+## subject18            19.78102   12.16794   1.626 0.105760    
+## subject19            42.11898    7.12772   5.909 1.67e-08 ***
+## subject2             34.65000   11.83833   2.927 0.003862 ** 
+## subject20            52.83102   25.34385   2.085 0.038512 *  
+## subject21             8.46022    7.50845   1.127 0.261336    
+## subject22            33.95000    9.83645   3.451 0.000694 ***
+## subject23            14.00000    4.99370   2.804 0.005606 ** 
+## subject24             3.67026    8.82128   0.416 0.677853    
+## subject25            27.12026    6.73771   4.025 8.36e-05 ***
+## subject26            11.81818    5.55378   2.128 0.034694 *  
+## subject27             0.95128    6.84960   0.139 0.889699    
+## subject28            62.16624   12.24689   5.076 9.51e-07 ***
+## subject29            24.00000   14.55901   1.648 0.100992    
+## subject3             27.40128    9.26385   2.958 0.003511 ** 
+## subject30            12.58102   10.30362   1.221 0.223663    
+## subject31            28.60000   10.49865   2.724 0.007078 ** 
+## subject32            29.28102   15.42181   1.899 0.059198 .  
+## subject33            10.23102    9.57607   1.068 0.286765    
+## subject34             1.19125    8.26315   0.144 0.885531    
+## subject35            56.95000   20.08684   2.835 0.005101 ** 
+## subject36            72.85128   18.52482   3.933 0.000120 ***
+## subject37            19.95000    6.66242   2.994 0.003135 ** 
+## subject38            13.91898    5.59943   2.486 0.013833 *  
+## subject39             3.29920    8.84068   0.373 0.709448    
+## subject4             16.25000    6.11601   2.657 0.008590 ** 
+## subject40            32.76898    7.02198   4.667 5.94e-06 ***
+## subject41           100.19125   33.25146   3.013 0.002956 ** 
+## subject42            26.05000    6.07510   4.288 2.93e-05 ***
+## subject43           -18.13102   11.53675  -1.572 0.117793    
+## subject44            17.51022    6.19857   2.825 0.005261 ** 
+## subject45            38.15000   18.69805   2.040 0.042771 *  
+## subject46            69.79125   23.95835   2.913 0.004031 ** 
+## subject47            61.53102   23.96835   2.567 0.011061 *  
+## subject48            10.84579   11.62898   0.933 0.352242    
+## subject49            -7.40875    7.23325  -1.024 0.307078    
+## subject5             27.71022    9.01742   3.073 0.002447 ** 
+## subject50            55.96898    6.58205   8.503 6.75e-15 ***
+## subject51            59.90128   16.51807   3.626 0.000374 ***
+## subject52            48.24125   19.27469   2.503 0.013206 *  
+## subject53            43.46898    4.56947   9.513  &lt; 2e-16 ***
+## subject54             3.64920    8.34740   0.437 0.662512    
+## subject55            28.08102    7.50271   3.743 0.000244 ***
+## subject56             0.63102    7.46940   0.084 0.932767    
+## subject57             9.23102    4.40270   2.097 0.037412 *  
+## subject58            73.13102   19.55676   3.739 0.000247 ***
+## subject59            52.24125   17.72452   2.947 0.003627 ** 
+## subject6             -3.36898    7.46940  -0.451 0.652502    
+## subject60            -6.08978    5.33361  -1.142 0.255056    
+## subject61             7.36898    6.58205   1.120 0.264386    
+## subject62            10.01898    6.06957   1.651 0.100536    
+## subject63             9.18060    4.07475   2.253 0.025457 *  
+## subject64           -19.51709   15.51635  -1.258 0.210070    
+## subject65             5.61022    5.42631   1.034 0.302566    
+## subject66           -34.50043   16.19268  -2.131 0.034471 *  
+## subject67            -0.15000    4.78979  -0.031 0.975052    
+## subject68            55.89920   24.10162   2.319 0.021495 *  
+## subject69            36.70128   11.36703   3.229 0.001476 ** 
+## subject7              2.60000    4.78979   0.543 0.587920    
+## subject70            64.84125   21.93711   2.956 0.003534 ** 
+## subject71            10.18102    9.70541   1.049 0.295574    
+## subject72            54.96818   19.13108   2.873 0.004549 ** 
+## subject73           -24.20000   13.65756  -1.772 0.078092 .  
+## subject74            -4.99872    6.27981  -0.796 0.427075    
+## subject75            -3.33102   11.44996  -0.291 0.771446    
+## subject76            23.80000    9.18080   2.592 0.010310 *  
+## subject77             4.85000    3.23629   1.499 0.135711    
+## subject78             6.90000    5.51572   1.251 0.212560    
+## subject79            19.10128    9.01832   2.118 0.035536 *  
+## subject8              3.31898    7.69955   0.431 0.666937    
+## subject80             9.46898    7.12772   1.328 0.185695    
+## subject81            20.36898    4.56947   4.458 1.45e-05 ***
+## subject82            -0.08978    5.78228  -0.016 0.987630    
+## subject83           -18.18102   14.10427  -1.289 0.199028    
+## subject84             8.95000    6.07510   1.473 0.142427    
+## subject85            82.36818   21.62732   3.809 0.000191 ***
+## subject86            40.75000   16.18143   2.518 0.012659 *  
+## subject87            16.76022    7.47517   2.242 0.026168 *  
+## subject88             5.56898    5.86055   0.950 0.343253    
+## subject89            50.53102   23.96835   2.108 0.036387 *  
+## subject9             29.28102   13.89048   2.108 0.036408 *  
+## subject90            30.93102   16.08662   1.923 0.056078 .  
+## subject92            60.94920   22.05961   2.763 0.006320 ** 
+## subject93            21.76246   13.32765   1.633 0.104232    
+## subject94             3.20000    4.94351   0.647 0.518249    
+## subject95                  NA         NA      NA       NA    
+## subject96                  NA         NA      NA       NA    
+## subject98                  NA         NA      NA       NA    
+## subject99                  NA         NA      NA       NA    
+## time:treatmentBtheB   0.64358    0.29757   2.163 0.031867 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.994 on 181 degrees of freedom
+##   (120 observations deleted due to missingness)
+## Multiple R-squared:  0.8675, Adjusted R-squared:  0.7958 
+## F-statistic:  12.1 on 98 and 181 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>cat(&quot;Testing fitted linear mixed-model with lmer subject as a random effect&quot;)</code></pre>
+<pre><code>## Testing fitted linear mixed-model with lmer subject as a random effect</code></pre>
+<pre class="r"><code>BtheB_lmer2=lmer(bdi ~ bdi.pre + time + treatment + drug +
+                   length + time*treatment + (1 | subject), 
+                 data=BtheB_long, REML=FALSE, na.action=na.omit)
+
+cftest(BtheB_lmer2)</code></pre>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Fit: lmer(formula = bdi ~ bdi.pre + time + treatment + drug + length + 
+##     time * treatment + (1 | subject), data = BtheB_long, REML = FALSE, 
+##     na.action = na.omit)
+## 
+## Linear Hypotheses:
+##                          Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) == 0          6.47824    2.31905   2.793  0.00521 ** 
+## bdi.pre == 0              0.64046    0.07843   8.166 2.22e-16 ***
+## time == 0                -0.95555    0.20831  -4.587 4.49e-06 ***
+## treatmentBtheB == 0      -4.09804    1.98490  -2.065  0.03896 *  
+## drugYes == 0             -2.79209    1.73987  -1.605  0.10854    
+## length&gt;6m == 0            0.21905    1.65044   0.133  0.89441    
+## time:treatmentBtheB == 0  0.49000    0.28959   1.692  0.09064 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Univariate p values reported)</code></pre>
+<pre class="r"><code>cat(&quot;#1.e&quot;)</code></pre>
+<pre><code>## #1.e</code></pre>
+<pre class="r"><code># e. Construct a plot of the mean profiles of both treatment groups in the Beat
+# the Blues data, showing also standard deviation bars at each time point.
+
+data_sum=ddply(BtheB_long, c(&quot;time&quot;, &quot;treatment&quot;), summarise, 
+            N=sum(!is.na(bdi)),
+            mean=mean(bdi, na.rm=TRUE),
+            sd=sd(bdi, na.rm=TRUE),
+            se=sd/sqrt(N))
+
+pd &lt;- position_dodge(0.1)
+
+ggplot(data_sum, aes(x=time, y=mean, colour=treatment)) +
+  geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=0.1, position=pd) +
+  geom_line(position=pd) +
+  geom_point(position=pd) + 
+  theme_classic() +
+  labs(title = &quot;Mean profiles of both treatment groups&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-1-5.png" width="672" /></p>
+<p>Discussions:</p>
+<p>1a.</p>
+<p>The plots demonstrate that BDI (median or average) declines at a faster rate they do not take the medication.</p>
+<p>1b.</p>
+<p>The plots demonstrate that when patients live for less than 6 months, BDI (median or average) declines at a higher pace than when patients survive for more than months.</p>
+<p>1c.</p>
+<p>In linear model, Bdi.pre, time, treatmentBtheB, and drugYes are significant, but in the lmer model, only bdi.pre and time are significant. This means that the linear model understates the standard errors because it does not account for the correlation over time or the repeated measures.</p>
+<p>1d.</p>
+<p>In the first output, the linear model shows that there is interation between time and treatment with P &lt; 0.05. However, mixed effect model (lmer) indicates that there is no time and treatment effect because p is 0.09.</p>
+<p>1e.</p>
+<p>The mean profile shows that the results are very different between the two categories, but the standard deviation bars converge.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Consider the  data from the package HSAUR3. This data shows the plasma inorganic phosphate levels for 33 subjects, 20 of whom are controls and 13 of whom have been classified as obese (Davis, 2002). Perform the following on this dataset</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Construct boxplots by group and discuss.</p></li>
+<li><p>Produce separate plots of the profiles of the individuals in each group.</p></li>
+<li><p>Guided by how these plots fit, which linear mixed effects models do you think might be sensible? (Hint: Discuss intercept and slope, intercept and interaction).</p></li>
+<li><p>Convert the data to long version and fit the model of your choice and discuss the results.</p></li>
+</ol></li>
+</ol>
+<pre class="r"><code>data(&quot;phosphate&quot;, package = &quot;HSAUR3&quot;)
+library(lme4)
+library(Matrix)
+library(multcomp)
+attach(phosphate)
+par(mfrow = c(1,2))
+ylim &lt;-range(phosphate[,-1], na.rm = TRUE)
+cat(&quot;#2.a&quot;)</code></pre>
+<pre><code>## #2.a</code></pre>
+<pre class="r"><code># a. Construct boxplots by group and discuss. 
+boxplot(phosphate[group == &quot;control&quot;, -1], 
+        xlab = &quot;time&quot;, ylab = &quot;Phosphate level&quot;,
+        main = &quot;base R: Control group&quot;, ylim = ylim)
+boxplot(phosphate[group == &quot;obese&quot;,-1],
+        xlab = &quot;time&quot;, ylab = &quot;Phosphate level&quot;,
+        main = &quot;Obese group&quot;, ylim = ylim)</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code># ggplot version:
+
+phosphate %&gt;%
+  gather(time,phosphate_level, 2:9) %&gt;%
+  mutate(time = factor(gsub(time,pattern=&quot;[[:alpha:]]&quot;,replacement=&#39;&#39;))) %&gt;%
+ggplot(aes(x=time,y=phosphate_level)) +
+  geom_boxplot() +
+  facet_grid(.~group) +
+  labs(title=&#39;ggplot: Phosphate Data by Groups&#39;,
+       x=&#39;Time (hours)&#39;,
+       y=&#39;Phosphate level&#39;) +
+  theme_classic()</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;#2.b&quot;)</code></pre>
+<pre><code>## #2.b</code></pre>
+<pre class="r"><code># b. Produce separate plots of the profiles of the individuals in each group
+layout(matrix(1:2, nrow=1))
+
+rg=range(phosphate[ ,-1])
+plot(c(1, 8), c(rg), type=&quot;n&quot;, xlab=&quot;Time (hours)&quot;, 
+     ylab=&quot;Phosphate Levels&quot;, main=&quot;base R: Control Group&quot;)
+for(i in 1:sum(phosphate$group==&quot;control&quot;)){
+  lines(1:8, phosphate[i, -1])
+}
+
+plot(c(1, 8), c(rg), type=&quot;n&quot;, xlab=&quot;Time (hours)&quot;, 
+     ylab=&quot;Phosphate Levels&quot;, main=&quot;Obese Group&quot;)
+for(i in 1:sum(phosphate$group==&quot;obese&quot;)){
+  lines(1:8, phosphate[nrow(phosphate)-i, -1])
+}</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<pre class="r"><code>phosphate_t &lt;- phosphate
+phosphate_t$subject &lt;- factor(rownames(phosphate_t))
+
+phosphate_t %&gt;%
+  gather(time,phosphate_level, 2:9) %&gt;%
+  mutate(time = factor(gsub(time,pattern=&quot;[[:alpha:]]&quot;,replacement=&#39;&#39;))) %&gt;%
+ggplot(aes(x=time,y=phosphate_level)) +
+  geom_line(aes(group=subject,color=subject),size=1) +
+  facet_grid(.~group) +
+  labs(title=&#39;ggplot: Phosphate by group&#39;,
+       x=&#39;Time (in hours)&#39;,
+       y=&#39;Phosphate Level&#39;) +
+  theme_classic()</code></pre>
+<p><img src="/achalneupane.github.io/post/Longitudinal_Data_Analysis_and_Mixed_Models_I_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;#2.d&quot;) </code></pre>
+<pre><code>## #2.d</code></pre>
+<pre class="r"><code>#d. Convert the data to long version and fit the model of your choice and
+#discuss the results.
+data(phosphate)
+ph=phosphate
+ph$subject=as.factor(rownames(ph))
+##LOng form
+a=ph[,c(3:9)]
+
+ph_long=reshape(ph,idvar=&quot;subject&quot;,v.names=&quot;p_level&quot;,
+                varying=list(names(a)),direction=&quot;long&quot;)
+
+timer=seq(1:7)
+timer[1]=0.5
+timer[2]=1
+timer[3]=1.5
+for(i in 4:7){
+  timer[i]=i-2}
+
+for(i in 1:7){
+  for(j in 1:33){
+    ph_long[(33*(i-1)+j),4]=timer[i]
+  }
+}
+
+ph_non_inter=lmer(p_level~time+group+t0+(1|subject),data=ph_long,
+                  REML=FALSE,na.actio=na.omit)
+
+ph_inter=lmer(p_level~time+group+t0+time*group+(1|subject),
+              data=ph_long,REML=FALSE,na.actio=na.omit)
+
+ph_cept_slope=lmer(p_level~time+group+t0+
+                     (time|subject),
+              data=ph_long,REML=FALSE,na.actio=na.omit)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, :
+## unable to evaluate scaled gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, :
+## Model failed to converge: degenerate Hessian with 1 negative eigenvalues</code></pre>
+<pre class="r"><code>ph_cept_slope_inter=lmer(p_level~time+group+t0+time*group+
+                           (time|subject),
+                         data=ph_long,REML=FALSE,na.actio=na.omit)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, :
+## Model failed to converge with max|grad| = 0.0119258 (tol = 0.002, component 1)</code></pre>
+<pre class="r"><code>print(summary(ph_cept_slope_inter))</code></pre>
+<pre><code>## Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
+## Formula: p_level ~ time + group + t0 + time * group + (time | subject)
+##    Data: ph_long
+## 
+##      AIC      BIC   logLik deviance df.resid 
+##    391.4    422.4   -186.7    373.4      222 
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -2.4111 -0.5836 -0.0419  0.5861  3.5259 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr
+##  subject  (Intercept) 0.009286 0.09636      
+##           time        0.004514 0.06718  0.99
+##  Residual             0.250017 0.50002      
+## Number of obs: 231, groups:  subject, 33
+## 
+## Fixed effects:
+##                  Estimate Std. Error t value
+## (Intercept)      0.001779   0.339884   0.005
+## time             0.174229   0.031570   5.519
+## groupobese       0.636604   0.137868   4.617
+## t0               0.691589   0.079454   8.704
+## time:groupobese -0.211030   0.050299  -4.196
+## 
+## Correlation of Fixed Effects:
+##             (Intr) time   gropbs t0    
+## time        -0.144                     
+## groupobese   0.150  0.356              
+## t0          -0.970  0.000 -0.304       
+## time:gropbs  0.091 -0.628 -0.568  0.000
+## convergence code: 0
+## Model failed to converge with max|grad| = 0.0119258 (tol = 0.002, component 1)</code></pre>
+<pre class="r"><code>print(cftest(ph_cept_slope_inter))</code></pre>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Fit: lmer(formula = p_level ~ time + group + t0 + time * group + (time | 
+##     subject), data = ph_long, REML = FALSE, na.action = na.omit)
+## 
+## Linear Hypotheses:
+##                       Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) == 0      0.001779   0.339884   0.005    0.996    
+## time == 0             0.174229   0.031570   5.519 3.41e-08 ***
+## groupobese == 0       0.636604   0.137868   4.617 3.88e-06 ***
+## t0 == 0               0.691589   0.079454   8.704  &lt; 2e-16 ***
+## time:groupobese == 0 -0.211030   0.050299  -4.196 2.72e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Univariate p values reported)</code></pre>
+<pre class="r"><code>anova(ph_inter,ph_non_inter,ph_cept_slope,ph_cept_slope_inter)</code></pre>
+<pre><code>## Data: ph_long
+## Models:
+## ph_non_inter: p_level ~ time + group + t0 + (1 | subject)
+## ph_inter: p_level ~ time + group + t0 + time * group + (1 | subject)
+## ph_cept_slope: p_level ~ time + group + t0 + (time | subject)
+## ph_cept_slope_inter: p_level ~ time + group + t0 + time * group + (time | subject)
+##                     Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(&gt;Chisq)
+## ph_non_inter         6 411.77 432.43 -199.89   399.77                         
+## ph_inter             7 393.19 417.29 -189.59   379.19 20.585      1  5.705e-06
+## ph_cept_slope        8 404.23 431.76 -194.11   388.23  0.000      1  1.0000000
+## ph_cept_slope_inter  9 391.45 422.43 -186.72   373.45 14.775      1  0.0001211
+##                        
+## ph_non_inter           
+## ph_inter            ***
+## ph_cept_slope          
+## ph_cept_slope_inter ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>pred=predict(ph_cept_slope_inter)
+MSE=mean((pred-ph_long$p_level)^2)
+message(&quot;Mean Squared Error: &quot;,MSE)</code></pre>
+<pre><code>## Mean Squared Error: 0.225552916473035</code></pre>
+<pre class="r"><code>message(&quot;Mean Phosphate Level: &quot;,mean(ph_long$p_level))</code></pre>
+<pre><code>## Mean Phosphate Level: 3.48744588744589</code></pre>
+<p>2.a</p>
+<p>Based on the plot, the control group has the median level of phosphate falling rapidly from a higher level of 4.3 to midway between t1 and t2 and starts to rise more rapidly over time. The obese group reached a relatively higher median phosphate rate close to 5 and dropped and grew steadily over time. The Obese group also has two outliers.</p>
+<p>2.c</p>
+<p>I think linear mixed model would be suitable because the slopes and intercepts in each group vary widely. Additionally, there is an interaction between control and obese groups based on time. So fitting something of the form lmer(phosphatelevel t0+time∗group+(1= phos) would be suitable.</p>
+<p>2.d</p>
+<p>Based on the model I used:
+In the fixed effect we see that there is a positive relation between the time and the phosphate level. It makes sense sinse we saw that after decreasing for a while the phosphate level increases for longer than decreasing time period. Based on the f-test with cftest , time, group, baseline phosphate level and the interaction between time and group all are significant.</p>
+<p>Comparing this with three other models, (ph_non_inter=random intercept, ph_inter=random intercept with interction, ph_cept_slope=random intercept and random slope) using anova, the model I used has the smallest AIC (about 391) indicating a better fit of among four models. However, considering BIC value, we also see that random intercept with interaction is also a good model.</p>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/modern-applied-statistics-i/">Modern Applied Statistics I</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/achalneupane.github.io/authors/achal-neupane/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/achalneupane.github.io/post/quantile_regression/">Quantile Regression</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/survival_analysis/">Survival Analysis</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/generalized_additive_models_and_spline_models/">Generalized Additive Models and Spline Models</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_ii/">Logistic Regression&amp;GLM-II</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_i/">Logistic Regression&amp;GLM-I</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/achalneupane.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/achalneupane.github.io/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/achalneupane.github.io/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/achalneupane.github.io/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

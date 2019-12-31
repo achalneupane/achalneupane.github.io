@@ -132,9 +132,9 @@
   <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+      <meta property="article:published_time" content="2019-06-12T17:26:23-05:00">
     
-    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+    <meta property="article:modified_time" content="2019-06-12T17:26:23-05:00">
   
 
   
@@ -376,8 +376,8 @@
 
 
 
-<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
-<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+<meta content="2019-06-12 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-06-12 17:26:23 -0500 CDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -402,7 +402,7 @@
     
       
     
-    <time>Aug 15, 2019</time>
+    <time>Jun 12, 2019</time>
   </span>
   
 
@@ -774,20 +774,13 @@ collect</code></pre>
 collect &lt;- merge(collect, merged.class, by.x = &quot;col1&quot;, by.y = &quot;Class&quot; )
 collect &lt;- merge(collect, merged.class, by.x = &quot;col2&quot;, by.y = &quot;Class&quot; )
 collect</code></pre>
-<pre><code>##         col2       col1   Mean.x      SD.x Counts.x   Mean.y      SD.y
-## 1 Cinderella       Blue 175.0000  0.000000        6 218.4286 17.924445
-## 2     Howden       Blue 175.0000  0.000000        6 127.9000  3.695342
-## 3     Howden Cinderella 218.4286 17.924445        7 127.9000  3.695342
-## 4        Pie       Blue 175.0000  0.000000        6 212.0000 18.565200
-## 5        Pie Cinderella 218.4286 17.924445        7 212.0000 18.565200
-## 6        Pie     Howden 127.9000  3.695342       10 212.0000 18.565200
-##   Counts.y
-## 1        7
-## 2       10
-## 3       10
-## 4        7
-## 5        7
-## 6        7</code></pre>
+<pre><code>##         col2       col1   Mean.x      SD.x Counts.x   Mean.y      SD.y Counts.y
+## 1 Cinderella       Blue 175.0000  0.000000        6 218.4286 17.924445        7
+## 2     Howden       Blue 175.0000  0.000000        6 127.9000  3.695342       10
+## 3     Howden Cinderella 218.4286 17.924445        7 127.9000  3.695342       10
+## 4        Pie       Blue 175.0000  0.000000        6 212.0000 18.565200        7
+## 5        Pie Cinderella 218.4286 17.924445        7 212.0000 18.565200        7
+## 6        Pie     Howden 127.9000  3.695342       10 212.0000 18.565200        7</code></pre>
 </div>
 <div id="part-c.-1" class="section level3">
 <h3>Part c.</h3>
@@ -815,20 +808,20 @@ for(i in 1:nrow(collect)) {
 collect &lt;- collect[order(collect$cohens_d, decreasing = TRUE),]
 # This  is the final table we need
 collect</code></pre>
-<pre><code>##         col2       col1   Mean.x      SD.x Counts.x   Mean.y      SD.y
-## 2     Howden       Blue 175.0000  0.000000        6 127.9000  3.695342
-## 3     Howden Cinderella 218.4286 17.924445        7 127.9000  3.695342
-## 6        Pie     Howden 127.9000  3.695342       10 212.0000 18.565200
-## 1 Cinderella       Blue 175.0000  0.000000        6 218.4286 17.924445
-## 4        Pie       Blue 175.0000  0.000000        6 212.0000 18.565200
-## 5        Pie Cinderella 218.4286 17.924445        7 212.0000 18.565200
-##   Counts.y   cohens_d
-## 2       10 18.0252467
-## 3       10  6.9954609
-## 6        7  6.2831022
-## 1        7  3.4264534
-## 4        7  2.8184938
-## 5        7  0.3522961</code></pre>
+<pre><code>##         col2       col1   Mean.x      SD.x Counts.x   Mean.y      SD.y Counts.y
+## 2     Howden       Blue 175.0000  0.000000        6 127.9000  3.695342       10
+## 3     Howden Cinderella 218.4286 17.924445        7 127.9000  3.695342       10
+## 6        Pie     Howden 127.9000  3.695342       10 212.0000 18.565200        7
+## 1 Cinderella       Blue 175.0000  0.000000        6 218.4286 17.924445        7
+## 4        Pie       Blue 175.0000  0.000000        6 212.0000 18.565200        7
+## 5        Pie Cinderella 218.4286 17.924445        7 212.0000 18.565200        7
+##     cohens_d
+## 2 18.0252467
+## 3  6.9954609
+## 6  6.2831022
+## 1  3.4264534
+## 4  2.8184938
+## 5  0.3522961</code></pre>
 </div>
 </div>
 <div id="exercise-4." class="section level1">
@@ -1089,10 +1082,8 @@ AppleWide</code></pre>
 <p>To confirm that you’ve reshaped correctly, print column means for the wide data set and use an aggregate or apply function to compute <code>time</code> means for the long format.</p>
 <pre class="r"><code>meanWide= colMeans(AppleWide, na.rm = T)
 meanWide</code></pre>
-<pre><code>##      tree     apple    diam.1    diam.2    diam.3    diam.4    diam.5 
-##  6.739130 14.173913  2.878696  2.931304  2.953913  2.983913  3.009524 
-##    diam.6 
-##  2.976875</code></pre>
+<pre><code>##      tree     apple    diam.1    diam.2    diam.3    diam.4    diam.5    diam.6 
+##  6.739130 14.173913  2.878696  2.931304  2.953913  2.983913  3.009524  2.976875</code></pre>
 <pre class="r"><code>meanLong = tapply(AppleData1$diam, AppleData1$time, mean, na.rm=T)
 meanLong</code></pre>
 <pre><code>##        1        2        3        4        5        6 
@@ -1195,8 +1186,8 @@ p</code></pre>
 <p>The p-value matches with the value calculated using Wilcoxon test below.</p>
 <p>The NIST page gives a p-values based on the continuity correction. We are not computing this correction. You can compute the <span class="math inline">\(P(z&gt;z_W)\)</span> of your <span class="math inline">\(z_W\)</span> (using the normal distribution) and compare it to</p>
 <pre class="r"><code>wilcox.test(NATR332.DAT$Y1, NATR332.DAT$Y2, paired = TRUE, correct = FALSE, alternative = &quot;less&quot;)</code></pre>
-<pre><code>## Warning in wilcox.test.default(NATR332.DAT$Y1, NATR332.DAT$Y2, paired =
-## TRUE, : cannot compute exact p-value with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(NATR332.DAT$Y1, NATR332.DAT$Y2, paired = TRUE, :
+## cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
 ##  Wilcoxon signed rank test
 ## 
@@ -1205,8 +1196,8 @@ p</code></pre>
 ## alternative hypothesis: true location shift is less than 0</code></pre>
 <p>while the corrected p-values are given by</p>
 <pre class="r"><code>wilcox.test(NATR332.DAT$Y1, NATR332.DAT$Y2, paired = TRUE, correct = TRUE, alternative = &quot;less&quot;)</code></pre>
-<pre><code>## Warning in wilcox.test.default(NATR332.DAT$Y1, NATR332.DAT$Y2, paired =
-## TRUE, : cannot compute exact p-value with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(NATR332.DAT$Y1, NATR332.DAT$Y2, paired = TRUE, :
+## cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -1214,8 +1205,8 @@ p</code></pre>
 ## V = 13.5, p-value = 0.5
 ## alternative hypothesis: true location shift is less than 0</code></pre>
 <pre class="r"><code>wilcox.test(NATR332.DAT$Y1, NATR332.DAT$Y2, paired = TRUE, correct = TRUE, alternative = &quot;greater&quot;)</code></pre>
-<pre><code>## Warning in wilcox.test.default(NATR332.DAT$Y1, NATR332.DAT$Y2, paired =
-## TRUE, : cannot compute exact p-value with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(NATR332.DAT$Y1, NATR332.DAT$Y2, paired = TRUE, :
+## cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -1290,15 +1281,15 @@ p</code></pre>
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
-          
-          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
-          
-          <li><a href="/achalneupane.github.io/post/calculations/">Calculations</a></li>
+          <li><a href="/achalneupane.github.io/post/data_tables/">Data tables</a></li>
           
           <li><a href="/achalneupane.github.io/post/control_structures/">Control Structures</a></li>
           
-          <li><a href="/achalneupane.github.io/post/data_tables/">Data tables</a></li>
+          <li><a href="/achalneupane.github.io/post/functions/">Functions</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/calculations/">Calculations</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
           
         </ul>
       </div>

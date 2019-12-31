@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Achal Neupane">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Statistics series">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/achalneupane.github.io/post/generalized_additive_models_and_spline_models/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-145752794-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/achalneupane.github.io/index.webmanifest">
+  <link rel="icon" type="image/png" href="/achalneupane.github.io/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/achalneupane.github.io/img/icon-192.png">
+
+  <link rel="canonical" href="/achalneupane.github.io/post/generalized_additive_models_and_spline_models/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@achalneupane">
+  <meta property="twitter:creator" content="@achalneupane">
+  
+  <meta property="og:site_name" content="Achal Neupane">
+  <meta property="og:url" content="/achalneupane.github.io/post/generalized_additive_models_and_spline_models/">
+  <meta property="og:title" content="Generalized Additive Models and Spline Models | Achal Neupane">
+  <meta property="og:description" content="Statistics series"><meta property="og:image" content="/achalneupane.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-10-01T17:26:23-05:00">
+    
+    <meta property="article:modified_time" content="2019-10-01T17:26:23-05:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Generalized Additive Models and Spline Models | Achal Neupane</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/achalneupane.github.io/">Achal Neupane</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#impact"><span>Impact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/achalneupane.github.io/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Generalized Additive Models and Spline Models</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-10-01 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-10-01 17:26:23 -0500 CDT" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/achalneupane.github.io/authors/achal-neupane/"><strong>Achal Neupane</strong></a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 1, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    19 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/achalneupane.github.io/post/generalized_additive_models_and_spline_models/&amp;text=Generalized%20Additive%20Models%20and%20Spline%20Models" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/achalneupane.github.io/post/generalized_additive_models_and_spline_models/&amp;t=Generalized%20Additive%20Models%20and%20Spline%20Models" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Generalized%20Additive%20Models%20and%20Spline%20Models&amp;body=/achalneupane.github.io/post/generalized_additive_models_and_spline_models/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/achalneupane.github.io/post/generalized_additive_models_and_spline_models/&amp;title=Generalized%20Additive%20Models%20and%20Spline%20Models" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Generalized%20Additive%20Models%20and%20Spline%20Models%20/achalneupane.github.io/post/generalized_additive_models_and_spline_models/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/achalneupane.github.io/post/generalized_additive_models_and_spline_models/&amp;title=Generalized%20Additive%20Models%20and%20Spline%20Models" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<p>Answer all questions specified on the problem and include a discussion on how your results answered/addressed the question.</p>
+<p>Submit your  file with the knitted  (or knitted Word Document saved as a PDF). If you are having trouble with .rmd, let us know and we will help you, but both the .rmd and the PDF are required.</p>
+<p>This file can be used as a skeleton document for your code/write up. Please follow the instructions found under Content for Formatting and Guidelines. No code should be in your PDF write-up unless stated otherwise.</p>
+<p>For any question asking for plots/graphs, please do as the question asks as well as do the same but using the respective commands in the GGPLOT2 library. (So if the question asks for one plot, your results should have two plots. One produced using the given R-function and one produced from the GGPLOT2 equivalent). This doesn’t apply to questions that don’t specifically ask for a plot, however I still would encourage you to produce both.</p>
+<p>You do not need to include the above statements.</p>
+<p>Please do the following problems from the text book R Handbook and stated.</p>
+<ol style="list-style-type: decimal">
+<li><p>Consider the body fat data introduced in Chapter 9 ( data from  package).</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Explore the data graphically. What variables do you think need to be included for predicting bodyfat? (Hint: Are there correlated predictors).</p></li>
+<li><p>Fit a generalised additive model assuming normal errors using the following code.</p>
+<ul>
+<li><p>Assess the  and  of the model (don’t need GGPLOT). Are all covariates informative? Should all covariates be smoothed or should some be included as a linear effect?</p></li>
+<li><p>Report GCV, AIC, adj-R<span class="math inline">\(^2\)</span>, and total model degrees of freedom.</p></li>
+<li><p>Use  function to look at the diagnostic plot. Does it appear that the normality assumption is violated?</p></li>
+<li><p>Write a discussion on all of the above points.</p></li>
+</ul></li>
+<li><p>Now remove insignificant variables and remove smoothing for some variables. Report the summary, plot, GCV, AIC, adj-R<span class="math inline">\(^2\)</span>.</p></li>
+</ol>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><p>Again fit an additive model to the body fat data, but this time for a log-transformed response. Compare the three models, which one is more appropriate? (Hint: use Adj-R<span class="math inline">\(^2\)</span>, residual plots, etc. to compare models).</p></li>
+<li>Fit a generalised additive model that underwent AIC-based variable selection (fitted using function  function). What variable was removed by using AIC?</li>
+</ol></li>
+</ol>
+<pre class="r"><code>library(ggplot2)
+library(mgcv)</code></pre>
+<pre><code>## Loading required package: nlme</code></pre>
+<pre><code>## This is mgcv 1.8-31. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
+<pre class="r"><code>library(mboost)</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## Loading required package: stabs</code></pre>
+<pre><code>## This is mboost 2.9-1. See &#39;package?mboost&#39; and &#39;news(package  = &quot;mboost&quot;)&#39;
+## for a complete list of changes.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;mboost&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     %+%</code></pre>
+<pre class="r"><code>library(caret)</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre class="r"><code>library(gamclass)
+library (TH.data)</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<pre><code>## 
+## Attaching package: &#39;survival&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:caret&#39;:
+## 
+##     cluster</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## 
+## Attaching package: &#39;TH.data&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     geyser</code></pre>
+<pre class="r"><code>data (&quot;bodyfat&quot;)
+head(bodyfat)</code></pre>
+<pre><code>##    age DEXfat waistcirc hipcirc elbowbreadth kneebreadth anthro3a anthro3b
+## 47  57  41.68     100.0   112.0          7.1         9.4     4.42     4.95
+## 48  65  43.29      99.5   116.5          6.5         8.9     4.63     5.01
+## 49  59  35.41      96.0   108.5          6.2         8.9     4.12     4.74
+## 50  58  22.79      72.0    96.5          6.1         9.2     4.03     4.48
+## 51  60  36.42      89.5   100.5          7.1        10.0     4.24     4.68
+## 52  61  24.13      83.5    97.0          6.5         8.8     3.55     4.06
+##    anthro3c anthro4
+## 47     4.50    6.13
+## 48     4.48    6.37
+## 49     4.60    5.82
+## 50     3.91    5.66
+## 51     4.15    5.91
+## 52     3.64    5.14</code></pre>
+<pre class="r"><code>NROW(bodyfat) # 71</code></pre>
+<pre><code>## [1] 71</code></pre>
+<pre class="r"><code>library(DescTools)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;DescTools&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:caret&#39;:
+## 
+##     MAE, RMSE</code></pre>
+<pre><code>## The following object is masked from &#39;package:mboost&#39;:
+## 
+##     AUC</code></pre>
+<pre class="r"><code>names(bodyfat)</code></pre>
+<pre><code>##  [1] &quot;age&quot;          &quot;DEXfat&quot;       &quot;waistcirc&quot;    &quot;hipcirc&quot;      &quot;elbowbreadth&quot;
+##  [6] &quot;kneebreadth&quot;  &quot;anthro3a&quot;     &quot;anthro3b&quot;     &quot;anthro3c&quot;     &quot;anthro4&quot;</code></pre>
+<pre class="r"><code>#
+cat(&quot;# 1A&quot;)</code></pre>
+<pre><code>## # 1A</code></pre>
+<pre class="r"><code>#
+
+# plot the variables to see which variables are correlated with which
+library(ggplot2)
+# base plot
+pairs(bodyfat, main = &quot;base R: plots showing correlation of variables&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>#ggplot
+library(GGally)
+library(knitr)
+p &lt;- ggpairs(bodyfat)
+p + labs(title = &quot;ggplot: plots showing correlation of variables&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;all of the anthros correlate with each other&quot;)</code></pre>
+<pre><code>## all of the anthros correlate with each other</code></pre>
+<pre class="r"><code>body_f &lt;- glm(DEXfat ~ ., data=bodyfat)
+bf_step &lt;- step(body_f, trace = 0)
+
+cat(&quot;step recommends: waistcirc, hipcirc, kneebreadth and anthro3b&quot;)</code></pre>
+<pre><code>## step recommends: waistcirc, hipcirc, kneebreadth and anthro3b</code></pre>
+<pre class="r"><code>bf_step</code></pre>
+<pre><code>## 
+## Call:  glm(formula = DEXfat ~ waistcirc + hipcirc + kneebreadth + anthro3b, 
+##     data = bodyfat)
+## 
+## Coefficients:
+## (Intercept)    waistcirc      hipcirc  kneebreadth     anthro3b  
+##    -71.7197       0.2037       0.3546       1.8047       7.1264  
+## 
+## Degrees of Freedom: 70 Total (i.e. Null);  66 Residual
+## Null Deviance:       8536 
+## Residual Deviance: 676.9     AIC: 373.6</code></pre>
+<pre class="r"><code>kable(summary(bf_step)$coefficients, caption = &quot;Coefficients from step function&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-1">Table 1: </span>Coefficients from step function</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td align="right">-71.7196776</td>
+<td align="right">5.0140437</td>
+<td align="right">-14.303760</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td>waistcirc</td>
+<td align="right">0.2037314</td>
+<td align="right">0.0609069</td>
+<td align="right">3.344966</td>
+<td align="right">0.0013605</td>
+</tr>
+<tr class="odd">
+<td>hipcirc</td>
+<td align="right">0.3546222</td>
+<td align="right">0.0767978</td>
+<td align="right">4.617607</td>
+<td align="right">0.0000185</td>
+</tr>
+<tr class="even">
+<td>kneebreadth</td>
+<td align="right">1.8047490</td>
+<td align="right">0.6611504</td>
+<td align="right">2.729710</td>
+<td align="right">0.0081187</td>
+</tr>
+<tr class="odd">
+<td>anthro3b</td>
+<td align="right">7.1264238</td>
+<td align="right">1.1295927</td>
+<td align="right">6.308844</td>
+<td align="right">0.0000000</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>#
+cat(&quot;# 1B&quot;)</code></pre>
+<pre><code>## # 1B</code></pre>
+<pre class="r"><code>#
+
+bodyfat_gam &lt;- gam(DEXfat ~ s(age) + s(waistcirc) + s(hipcirc) +
+                     s(elbowbreadth) + s(kneebreadth) + s(anthro3a) + s(anthro3c),      
+                   data = bodyfat)
+
+# Assess Summary
+summary(bodyfat_gam)</code></pre>
+<pre><code>## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## DEXfat ~ s(age) + s(waistcirc) + s(hipcirc) + s(elbowbreadth) + 
+##     s(kneebreadth) + s(anthro3a) + s(anthro3c)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  30.7828     0.2847   108.1   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##                   edf Ref.df      F  p-value    
+## s(age)          1.000  1.000  0.956 0.332964    
+## s(waistcirc)    1.000  1.000 10.821 0.001844 ** 
+## s(hipcirc)      1.775  2.235  9.917 0.000152 ***
+## s(elbowbreadth) 1.000  1.000  0.001 0.972242    
+## s(kneebreadth)  8.754  8.960  6.180 3.59e-06 ***
+## s(anthro3a)     1.000  1.000 12.966 0.000725 ***
+## s(anthro3c)     7.042  8.041  1.798 0.100242    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.953   Deviance explained = 96.7%
+## GCV = 8.4354  Scale est. = 5.7538    n = 71</code></pre>
+<pre class="r"><code># Assess plot
+cat (&quot;Plot of a generalized additive model for question 1b:&quot;)</code></pre>
+<pre><code>## Plot of a generalized additive model for question 1b:</code></pre>
+<pre class="r"><code>layout(matrix(1:9, ncol = 3))
+plot(bodyfat_gam)
+
+# plot looks like we don&#39;t need to smooth all variables. These appear linear:
+# age, waistcirc, elbowbreadth &amp; anthro3a don&#39;t need smoothing
+
+
+# Question: How do we evaluate a covariate&#39;s &#39;informative&#39;-ness?
+# Annwer: Look at the p-values of the covariates.
+
+
+# Report model attributes
+cat(&quot;GCV&quot;)</code></pre>
+<pre><code>## GCV</code></pre>
+<pre class="r"><code>bodyfat_gam$gcv.ubre            # GCV</code></pre>
+<pre><code>##   GCV.Cp 
+## 8.435412</code></pre>
+<pre class="r"><code>cat(&quot;AIC&quot;)</code></pre>
+<pre><code>## AIC</code></pre>
+<pre class="r"><code>bodyfat_gam$aic                 # AIC</code></pre>
+<pre><code>## [1] 345.708</code></pre>
+<pre class="r"><code>cat(&quot;Adjusted R-squared&quot;)</code></pre>
+<pre><code>## Adjusted R-squared</code></pre>
+<pre class="r"><code>summary(bodyfat_gam)$r.sq       # Adjusted r-squared</code></pre>
+<pre><code>## [1] 0.9528156</code></pre>
+<pre class="r"><code>cat(&quot;Total degrees of Freedom&quot;)</code></pre>
+<pre><code>## Total degrees of Freedom</code></pre>
+<pre class="r"><code>sum(bodyfat_gam$edf)            # Total degrees of freedom</code></pre>
+<pre><code>## [1] 22.57091</code></pre>
+<pre class="r"><code>cat(&quot;Some diagnostics for a fitted gam model using cam.check&quot;)</code></pre>
+<pre><code>## Some diagnostics for a fitted gam model using cam.check</code></pre>
+<pre class="r"><code>gam.check(bodyfat_gam)  # Response Vs Fitted values</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-3.png" width="672" /><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+<pre><code>## 
+## Method: GCV   Optimizer: magic
+## Smoothing parameter selection converged after 41 iterations.
+## The RMS GCV score gradient at convergence was 2.767255e-07 .
+## The Hessian was positive definite.
+## Model rank =  64 / 64 
+## 
+## Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
+## indicate that k is too low, especially if edf is close to k&#39;.
+## 
+##                   k&#39;  edf k-index p-value  
+## s(age)          9.00 1.00    0.81   0.040 *
+## s(waistcirc)    9.00 1.00    0.94   0.260  
+## s(hipcirc)      9.00 1.78    1.02   0.560  
+## s(elbowbreadth) 9.00 1.00    0.81   0.035 *
+## s(kneebreadth)  9.00 8.75    1.08   0.690  
+## s(anthro3a)     9.00 1.00    1.09   0.770  
+## s(anthro3c)     9.00 7.04    0.89   0.185  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># Additionally we can also check for the train() method. Please note that
+# train() won&#39;t allow for smoothing the variables; it evidently decides which to
+# smooth on its own.
+bf_train_gam &lt;- train(DEXfat ~ age +  waistcirc + hipcirc + elbowbreadth + 
+                        kneebreadth + anthro3a + anthro3c,      
+                      data = bodyfat, method = &quot;gam&quot;)</code></pre>
+<pre><code>## Warning: model fit failed for Resample22: select= TRUE, method=GCV.Cp Error in magic(G$y, G$X, msp, G$S, G$off, L = G$L, lsp0 = G$lsp0, G$rank,  : 
+##   magic, the gcv/ubre optimizer, failed to converge after 400 iterations.</code></pre>
+<pre><code>## Warning in nominalTrainWorkflow(x = x, y = y, wts = weights, info = trainInfo, :
+## There were missing values in resampled performance measures.</code></pre>
+<pre class="r"><code>summary(bf_train_gam)</code></pre>
+<pre><code>## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## .outcome ~ s(elbowbreadth) + s(kneebreadth) + s(age) + s(hipcirc) + 
+##     s(waistcirc) + s(anthro3a) + s(anthro3c)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  30.7828     0.2968   103.7   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##                       edf Ref.df     F  p-value    
+## s(elbowbreadth) 3.186e-07      9 0.000   0.8204    
+## s(kneebreadth)  7.825e+00      9 6.978 5.34e-08 ***
+## s(age)          6.695e-01      9 0.374   0.0271 *  
+## s(hipcirc)      1.843e+00      9 3.740 1.35e-08 ***
+## s(waistcirc)    7.598e-01      9 2.512 2.53e-07 ***
+## s(anthro3a)     6.742e-01      9 1.446 5.61e-06 ***
+## s(anthro3c)     5.959e-01      9 0.975 4.41e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.949   Deviance explained = 95.8%
+## GCV = 7.7062  Scale est. = 6.2553    n = 71</code></pre>
+<pre class="r"><code># It looks like train() decided to smooth all the variables.
+# This resulted in a less effective model.
+
+#
+cat(&quot;# 1C&quot;)</code></pre>
+<pre><code>## # 1C</code></pre>
+<pre class="r"><code>#
+# Removing insignificant elbowbreadth including age variables
+bodyfat_gam2 &lt;- gam(DEXfat ~ waistcirc + s(hipcirc) +
+                      s(kneebreadth) + s(anthro3a) + s(anthro3c),      
+                    data = bodyfat)
+# Assess Summary
+summary(bodyfat_gam2)</code></pre>
+<pre><code>## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## DEXfat ~ waistcirc + s(hipcirc) + s(kneebreadth) + s(anthro3a) + 
+##     s(anthro3c)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 13.60862    4.74887   2.866 0.006052 ** 
+## waistcirc    0.19654    0.05425   3.623 0.000676 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##                  edf Ref.df      F  p-value    
+## s(hipcirc)     1.610  2.010 10.910 0.000103 ***
+## s(kneebreadth) 8.793  8.970  6.780 2.48e-06 ***
+## s(anthro3a)    1.000  1.000 18.035 8.73e-05 ***
+## s(anthro3c)    7.117  8.103  2.126 0.048737 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.954   Deviance explained = 96.7%
+## GCV = 7.9464  Scale est. = 5.6498    n = 71</code></pre>
+<pre class="r"><code># wastcirc and anthro3a are no longer the most signifcant parameter.
+
+# Assess plot
+cat(&quot;Plots for the model after removing insignificant variables&quot;)</code></pre>
+<pre><code>## Plots for the model after removing insignificant variables</code></pre>
+<pre class="r"><code>layout(matrix(1:4, ncol = 2))
+plot(bodyfat_gam2)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-5.png" width="672" /></p>
+<pre class="r"><code># plot looks like we don&#39;t need to smooth all variables.  These appear linear:
+# anthro3a and (possibly) hipcirc
+
+
+# Report model attributes
+cat(&quot;GCV of bodyfat_gam2&quot;)</code></pre>
+<pre><code>## GCV of bodyfat_gam2</code></pre>
+<pre class="r"><code>bodyfat_gam2$gcv.ubre            # GCV</code></pre>
+<pre><code>##   GCV.Cp 
+## 7.946447</code></pre>
+<pre class="r"><code>cat(&quot;AIC of bodyfat_gam2&quot;)</code></pre>
+<pre><code>## AIC of bodyfat_gam2</code></pre>
+<pre class="r"><code>bodyfat_gam2$aic                 # AIC</code></pre>
+<pre><code>## [1] 343.2562</code></pre>
+<pre class="r"><code>cat(&quot;Adjusted r-squared of bodyfat_gam2&quot;)</code></pre>
+<pre><code>## Adjusted r-squared of bodyfat_gam2</code></pre>
+<pre class="r"><code>summary(bodyfat_gam2)$r.sq       # Adjusted r-squared</code></pre>
+<pre><code>## [1] 0.9536683</code></pre>
+<pre class="r"><code>cat(&quot;Total Degrees of freedom of bodyfat_gam2&quot;)</code></pre>
+<pre><code>## Total Degrees of freedom of bodyfat_gam2</code></pre>
+<pre class="r"><code>sum(bodyfat_gam2$edf)            # Total degrees of freedom</code></pre>
+<pre><code>## [1] 20.52</code></pre>
+<pre class="r"><code># run gam.check: is the normality assumption violated?
+gam.check(bodyfat_gam2)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-6.png" width="672" /></p>
+<pre><code>## 
+## Method: GCV   Optimizer: magic
+## Smoothing parameter selection converged after 31 iterations.
+## The RMS GCV score gradient at convergence was 7.054782e-07 .
+## The Hessian was positive definite.
+## Model rank =  38 / 38 
+## 
+## Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
+## indicate that k is too low, especially if edf is close to k&#39;.
+## 
+##                  k&#39;  edf k-index p-value
+## s(hipcirc)     9.00 1.61    1.01    0.48
+## s(kneebreadth) 9.00 8.79    1.06    0.70
+## s(anthro3a)    9.00 1.00    1.11    0.80
+## s(anthro3c)    9.00 7.12    0.91    0.17</code></pre>
+<pre class="r"><code>#
+cat(&quot;# 1D&quot;)</code></pre>
+<pre><code>## # 1D</code></pre>
+<pre class="r"><code>#
+
+log_transferred_DEX &lt;- log(bodyfat$DEXfat)
+df &lt;- cbind (bodyfat, log_transferred_DEX)
+
+bodyfat_gam3 &lt;- gam(log_transferred_DEX ~ waistcirc + s(hipcirc) +
+                      s(kneebreadth) + s(anthro3a) + s(anthro3c),      
+                    data = df)
+# Assess Summary
+summary(bodyfat_gam3)</code></pre>
+<pre><code>## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## log_transferred_DEX ~ waistcirc + s(hipcirc) + s(kneebreadth) + 
+##     s(anthro3a) + s(anthro3c)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 2.973535   0.158102  18.808   &lt;2e-16 ***
+## waistcirc   0.004418   0.001806   2.447   0.0176 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##                  edf Ref.df      F  p-value    
+## s(hipcirc)     2.909  3.616 11.828  8.8e-07 ***
+## s(kneebreadth) 2.325  2.962  2.027 0.128320    
+## s(anthro3a)    1.000  1.000 15.576 0.000217 ***
+## s(anthro3c)    7.358  8.263  4.678 0.000144 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.952   Deviance explained = 96.2%
+## GCV = 0.0088137  Scale est. = 0.006878  n = 71</code></pre>
+<pre class="r"><code># Hipcirc, anthro3a and anthro3c are the most significant smoothed terms and
+# Kneebreadth is not significant here. Similarly, waistcirc is barely signifcant
+# parameter (&lt;0.005).
+
+# Assess plot
+#layout(matrix(1:4, ncol = 2))
+#plot(bodyfat_gam3)
+
+# plot looks like we don&#39;t need to smooth all variables.  These appear linear:
+# anthro3a.  Hipcirc is prominantly NOT linear in this light.
+
+
+# Report model attributes
+cat(&quot;GCV of bodyfat_gam3&quot;)</code></pre>
+<pre><code>## GCV of bodyfat_gam3</code></pre>
+<pre class="r"><code>bodyfat_gam3$gcv.ubre            # GCV</code></pre>
+<pre><code>##      GCV.Cp 
+## 0.008813659</code></pre>
+<pre class="r"><code>cat(&quot;AIC of bodyfat_gam3&quot;)</code></pre>
+<pre><code>## AIC of bodyfat_gam3</code></pre>
+<pre class="r"><code>bodyfat_gam3$aic                 # AIC</code></pre>
+<pre><code>## [1] -136.47</code></pre>
+<pre class="r"><code>cat(&quot;Adjusted R-square of bodyfat_gam3&quot;)</code></pre>
+<pre><code>## Adjusted R-square of bodyfat_gam3</code></pre>
+<pre class="r"><code>summary(bodyfat_gam3)$r.sq       # Adjusted r-squared</code></pre>
+<pre><code>## [1] 0.9522733</code></pre>
+<pre class="r"><code>cat(&quot;Total degrees of freedom of bodyfat_gam3&quot;)</code></pre>
+<pre><code>## Total degrees of freedom of bodyfat_gam3</code></pre>
+<pre class="r"><code>sum(bodyfat_gam3$edf)            # Total degrees of freedom</code></pre>
+<pre><code>## [1] 15.59274</code></pre>
+<pre class="r"><code># run gam.check: is the normality assumption violated?
+gam.check(bodyfat_gam3)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-7.png" width="672" /></p>
+<pre><code>## 
+## Method: GCV   Optimizer: magic
+## Smoothing parameter selection converged after 11 iterations.
+## The RMS GCV score gradient at convergence was 5.573874e-08 .
+## The Hessian was positive definite.
+## Model rank =  38 / 38 
+## 
+## Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
+## indicate that k is too low, especially if edf is close to k&#39;.
+## 
+##                  k&#39;  edf k-index p-value  
+## s(hipcirc)     9.00 2.91    0.86    0.10 .
+## s(kneebreadth) 9.00 2.33    0.83    0.09 .
+## s(anthro3a)    9.00 1.00    1.00    0.48  
+## s(anthro3c)    9.00 7.36    0.99    0.42  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>cat(&quot;Plots for the model with log transferred response&quot;)</code></pre>
+<pre><code>## Plots for the model with log transferred response</code></pre>
+<pre class="r"><code>par(mfrow=c(1,4))
+plot(bodyfat_gam3)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-8.png" width="672" /></p>
+<pre class="r"><code># plot(bodyfat_gam,select=1)
+# plot(bodyfat_gam2,select=1)
+# plot(bodyfat_gam3,select=1)
+# plot(bodyfat_gam3,select=4)
+# #compare with plots
+# ggplot(bodyfat) + geom_line(aes(x=seq(1:nrow(bodyfat)), y=DEXfat), lty=1, col=1) +
+#   geom_line(aes(x=seq(1:nrow(bodyfat)), y=bodyfat_gam$fitted.values), lty=2, col=2) +
+#   geom_line(aes(x=seq(1:nrow(bodyfat)), y=bodyfat_gam2$fitted.values), lty=3, col=3) +
+#   geom_line(aes(x=seq(1:nrow(bodyfat)), y=exp(bodyfat_gam2$fitted.values)), lty=4, col=4)
+# 
+# ggplot(bodyfat, aes(x=seq(1:nrow(bodyfat)), y=bodyfat_gam$fitted.values)) + geom_line(lty=2, col=6)
+#
+cat(&quot;# 1E&quot;)</code></pre>
+<pre><code>## # 1E</code></pre>
+<pre class="r"><code>#
+
+bodyfat_boost &lt;- gamboost(DEXfat ~ ., data=bodyfat)
+bodyfat_aic &lt;- AIC(bodyfat_boost)
+cat(&quot;printing AIC&quot;)</code></pre>
+<pre><code>## printing AIC</code></pre>
+<pre class="r"><code>bodyfat_aic</code></pre>
+<pre><code>## [1] 3.268173
+## Optimal number of boosting iterations: 51 
+## Degrees of freedom (for mstop = 51): 7.637287</code></pre>
+<pre class="r"><code>bf_gam &lt;- bodyfat_boost[mstop(bodyfat_aic)]
+
+cat(&quot;plots for model fitted using gamboost:&quot;)</code></pre>
+<pre><code>## plots for model fitted using gamboost:</code></pre>
+<pre class="r"><code>layout(matrix(1:9, ncol = 3))
+plot(bf_gam)
+
+cat(&quot;extract variable names&quot;)</code></pre>
+<pre><code>## extract variable names</code></pre>
+<pre class="r"><code>extract(bf_gam,what=&#39;variable.names&#39;)</code></pre>
+<pre><code>##    bbs(waistcirc, df = dfbase)      bbs(hipcirc, df = dfbase) 
+##                    &quot;waistcirc&quot;                      &quot;hipcirc&quot; 
+## bbs(elbowbreadth, df = dfbase)  bbs(kneebreadth, df = dfbase) 
+##                 &quot;elbowbreadth&quot;                  &quot;kneebreadth&quot; 
+##     bbs(anthro3a, df = dfbase)     bbs(anthro3b, df = dfbase) 
+##                     &quot;anthro3a&quot;                     &quot;anthro3b&quot; 
+##     bbs(anthro3c, df = dfbase)      bbs(anthro4, df = dfbase) 
+##                     &quot;anthro3c&quot;                      &quot;anthro4&quot;</code></pre>
+<pre class="r"><code>cat(&quot;Here, variable &#39;age&#39; was removed&quot;)</code></pre>
+<pre><code>## Here, variable &#39;age&#39; was removed</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-1-9.png" width="672" /></p>
+<p><strong>Discussions:</strong></p>
+<p>#1a</p>
+<p>From the plot, it appears that age and elbowbreadth don’t correlate with DEXfat.
+However, waistcirc, hipcirc, and all four anthro variables appear to correlate with DEXfat. Based on the plot, I would select waistcirc, hipcirc, anthro3a and anthro3c. However, I would also test the model using anthro3b rather than anthro3a to see which yields a better model.
+Additionally, stepwise regression using step() function recommended: kneebreadth, waistcirc, hipcirc and anthro3b. This also confirm that the anthro variables are sufficiently correlated to be represented by one variable which in this case is anthro3b.</p>
+<p>#1b.</p>
+<p>Not all covariates should be smoothed. Looking at the plot, the covariates that appear linear are: age, elbowbreadth, waistcirc and anthro3a. That leaves anthro3c, kneebreadth and hipcirc to be smoothed.</p>
+<p>Report model attributes:
+GCV
+8.435412
+AIC
+345.708
+Adjusted R-squared
+0.9528156
+Total degrees of Freedom
+22.57091</p>
+<p>gam.check:
+While the residuals plot appears random, the histogram makes the data appear skewed to the left, so the assumption of normality doesn’t entirely hold.</p>
+<p>This summary shows that age, elbowbreadth, and anthro3c are not significant at
+the significance level of 0.05. The variables age, waistcirc, elbowbreadth and
+anthro3a all have linear relationships as shown in the plots. The model seems
+to give a moderate GCV and high AIC which could possibily be adjusted by
+variable selection and using smoothing functions on the variables mentioned
+above. The adjusted R2 does indicate that the model explains most of the
+variance, but as stated previously the model can improve.</p>
+<div id="c." class="section level1">
+<h1>1c.</h1>
+<p>GCV of bodyfat_gam2:
+7.946447
+AIC of bodyfat_gam2:
+343.2562
+Adjusted r-squared of bodyfat_gam2:
+0.9536683
+Total Degrees of freedom of bodyfat_gam2:
+20.52</p>
+</div>
+<div id="d." class="section level1">
+<h1>1d.</h1>
+<p>In this case, the log-transformed model is slightly better in that it accounts for slightly more of the deviation.
+Report GCV, AIC, adj-R2, and the total model degrees of freedom.
+GCV: 0.0088
+AIC: -136.4700
+adj-R2: 0.9523
+Total DF: 15.5927</p>
+</div>
+<div id="e." class="section level1">
+<h1>1e.</h1>
+<p>Age variable was removed by gamboost() function.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Fit a logistic additive model to the glaucoma data. (Here use family = “binomial”). Which covariates should enter the model and how is their influence on the probability of suffering from glaucoma? (Hint: since there are many covariates, use  to fit the GAM model.)</li>
+</ol>
+<pre class="r"><code>library(&quot;TH.data&quot;)
+data(&quot;GlaucomaM&quot;)
+# cat(&quot;head(GlaucomaM)&quot;)
+# head(GlaucomaM)
+# nrow(GlaucomaM) # 196
+# names(GlaucomaM)
+
+glau_gamb &lt;- gamboost(Class ~., data = GlaucomaM, family = Binomial())
+
+summary(glau_gamb)</code></pre>
+<pre><code>## 
+##   Model-based Boosting
+## 
+## Call:
+## gamboost(formula = Class ~ ., data = GlaucomaM, family = Binomial())
+## 
+## 
+##   Negative Binomial Likelihood (logit link) 
+## 
+## Loss function: { 
+##      f &lt;- pmin(abs(f), 36) * sign(f) 
+##      p &lt;- exp(f)/(exp(f) + exp(-f)) 
+##      y &lt;- (y + 1)/2 
+##      -y * log(p) - (1 - y) * log(1 - p) 
+##  } 
+##  
+## 
+## Number of boosting iterations: mstop = 100 
+## Step size:  0.1 
+## Offset:  0 
+## Number of baselearners:  62 
+## 
+## Selection frequencies:
+##  bbs(tmi, df = dfbase) bbs(mhcg, df = dfbase) bbs(vars, df = dfbase) 
+##                   0.17                   0.11                   0.11 
+## bbs(mhci, df = dfbase)  bbs(hvc, df = dfbase) bbs(vass, df = dfbase) 
+##                   0.10                   0.08                   0.08 
+##   bbs(as, df = dfbase) bbs(vari, df = dfbase)   bbs(mv, df = dfbase) 
+##                   0.07                   0.06                   0.04 
+## bbs(abrs, df = dfbase) bbs(mhcn, df = dfbase) bbs(phcn, df = dfbase) 
+##                   0.03                   0.03                   0.03 
+##  bbs(mdn, df = dfbase) bbs(phci, df = dfbase)  bbs(hic, df = dfbase) 
+##                   0.03                   0.02                   0.01 
+## bbs(phcg, df = dfbase)  bbs(mdi, df = dfbase)  bbs(tms, df = dfbase) 
+##                   0.01                   0.01                   0.01</code></pre>
+<pre class="r"><code>layout(matrix(1:9, ncol = 3))
+plot(glau_gamb)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-2-1.png" width="672" /><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code>cat(&quot;Covariates that should enter the model as determined by gamboost:&quot;)</code></pre>
+<pre><code>## Covariates that should enter the model as determined by gamboost:</code></pre>
+<pre class="r"><code># extract(glau_gamb,what=&#39;variable.names&#39;)
+var_names  &lt;- unname(extract(glau_gamb,what=&#39;variable.names&#39;))
+var_names</code></pre>
+<pre><code>##  [1] &quot;as&quot;   &quot;abrs&quot; &quot;hic&quot;  &quot;mhcg&quot; &quot;mhcn&quot; &quot;mhci&quot; &quot;phcg&quot; &quot;phcn&quot; &quot;phci&quot; &quot;hvc&quot; 
+## [11] &quot;vass&quot; &quot;vars&quot; &quot;vari&quot; &quot;mdn&quot;  &quot;mdi&quot;  &quot;tms&quot;  &quot;tmi&quot;  &quot;mv&quot;</code></pre>
+<pre class="r"><code>#Using the variables indicated by gamboost, run a gam model to get summary data
+# phcg and phci seem smooth already
+glau_gam &lt;- gam(Class ~ s(as) + s(abrs)   + s(hic)  + s(mhcg)  + s(mhcn) + s(mhci)             +   phcg +  s(phcn)  + phci + s(hvc) + s(vass) + s(vars) + s(vari) +                   s(mdn) + s(mdi) + s(tms) +  s(tmi) + s(mv), 
+                data=GlaucomaM, family=binomial)
+
+summary(glau_gam)</code></pre>
+<pre><code>## 
+## Family: binomial 
+## Link function: logit 
+## 
+## Formula:
+## Class ~ s(as) + s(abrs) + s(hic) + s(mhcg) + s(mhcn) + s(mhci) + 
+##     phcg + s(phcn) + phci + s(hvc) + s(vass) + s(vars) + s(vari) + 
+##     s(mdn) + s(mdi) + s(tms) + s(tmi) + s(mv)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)    22.55    1581.67   0.014    0.989
+## phcg          512.85    7725.61   0.066    0.947
+## phci         -290.45    7534.66  -0.039    0.969
+## 
+## Approximate significance of smooth terms:
+##           edf Ref.df Chi.sq p-value
+## s(as)   2.095  2.179  0.019   0.995
+## s(abrs) 1.000  1.000  0.002   0.963
+## s(hic)  1.000  1.000  0.003   0.957
+## s(mhcg) 1.522  1.562  0.001   0.997
+## s(mhcn) 1.278  1.306  0.001   0.994
+## s(mhci) 2.684  2.771  0.002   1.000
+## s(phcn) 4.000  4.058  0.006   1.000
+## s(hvc)  5.579  5.643  0.020   1.000
+## s(vass) 1.000  1.000  0.031   0.861
+## s(vars) 1.000  1.000  0.002   0.961
+## s(vari) 2.761  2.828  0.013   0.999
+## s(mdn)  1.000  1.000  0.001   0.980
+## s(mdi)  1.000  1.000  0.003   0.957
+## s(tms)  1.000  1.000  0.000   0.995
+## s(tmi)  2.618  2.695  0.027   0.997
+## s(mv)   1.000  1.000  0.007   0.935
+## 
+## R-sq.(adj) =      1   Deviance explained =  100%
+## UBRE = -0.65774  Scale est. = 1         n = 196</code></pre>
+<p>Discussions:</p>
+<p>Covariates indicated by gamboost() were used to generate a gam model. The names are listed in the summary printed above. The summary also shows the probability of their influence (somewhat high) for suffering from glaucoma. I think with 100 percent of the deviance explained, there should be a concern that this model is extremely over-fitting.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Investigate the use of different types of scatterplot smoothers on the Hubble data from Chapter 6. (Hint: follow the example on men1500m data scattersmoothers page 199 of Handbook).</li>
+</ol>
+<pre class="r"><code>## GAM model
+library(&quot;HSAUR3&quot;)</code></pre>
+<pre><code>## Loading required package: tools</code></pre>
+<pre><code>## 
+## Attaching package: &#39;HSAUR3&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:TH.data&#39;:
+## 
+##     birds</code></pre>
+<pre class="r"><code>library(&quot;mgcv&quot;)
+library(&quot;GGally&quot;)
+library(&quot;mboost&quot;)
+library(&quot;rpart&quot;)
+library(&quot;wordcloud&quot;)</code></pre>
+<pre><code>## Loading required package: RColorBrewer</code></pre>
+<pre class="r"><code># data(&quot;bodyfat&quot;, package = &quot;TH.data&quot;)
+data(&quot;hubble&quot;, package = &quot;gamair&quot;)
+head(hubble)</code></pre>
+<pre><code>##     Galaxy    y     x
+## 1  NGC0300  133  2.00
+## 2  NGC0925  664  9.16
+## 3 NGC1326A 1794 16.14
+## 4  NGC1365 1594 17.95
+## 5  NGC1425 1473 21.88
+## 6  NGC2403  278  3.22</code></pre>
+<pre class="r"><code>sorted_value&lt;-hubble[order(hubble$x),]
+x &lt;- sorted_value$x
+y &lt;- sorted_value$y
+
+lowess_value &lt;- lowess(x, y)
+plot(y~x, data = sorted_value, xlab = &quot;x&quot;, ylab = &quot;y&quot;,main=&quot;base R: Lowess scatterplot smoother&quot;)
+lines(lowess_value, lty = 2)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot() + aes(x=x, y=y) + 
+  geom_point()+
+  geom_line(aes(x = lowess_value$x, y = lowess_value$y)) +
+    labs(title = &quot;ggplot: Lowess scatterplot smoother&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre class="r"><code>plot(y~x, data = sorted_value, xlab = &quot;x&quot;, ylab = &quot;y&quot;,main=&quot;base R: Cubic scatterplot smoother&quot;)
+cubic_value = gam(y ~ s(x, bs = &quot;cr&quot;), data = sorted_value)
+lines(sorted_value$x, predict(cubic_value), lty=6)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
+<pre class="r"><code>ggplot() + aes(x=x, y=y) + 
+  geom_point()+
+  geom_line(aes(x = sorted_value$x, y = predict(cubic_value))) +
+    labs(title = &quot;ggplot: Cubic scatterplot smoother&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-3-4.png" width="672" /></p>
+<pre class="r"><code>summary(cubic_value)</code></pre>
+<pre><code>## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## y ~ s(x, bs = &quot;cr&quot;)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   924.38      51.87   17.82 4.27e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##        edf Ref.df    F  p-value    
+## s(x) 2.148  2.648 26.8 2.88e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.754   Deviance explained = 77.7%
+## GCV =  74317  Scale est. = 64570     n = 24</code></pre>
+<pre class="r"><code>plot(y~x, data = sorted_value, xlab = &quot;x&quot;, ylab = &quot;y&quot;,main=&quot;base R: Quadratic model scatterplot smoother&quot;)
+lm_value = lm(y~x+I(x^2), data = sorted_value)
+lines(sorted_value$x, predict(lm_value))</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-3-5.png" width="672" /></p>
+<pre class="r"><code>ggplot() + aes(x=x, y=y) + 
+  geom_point()+
+  geom_line(aes(x = sorted_value$x, y = predict(lm_value))) +
+    labs(title = &quot;ggplot: Quadratic scatterplot smoother&quot;)</code></pre>
+<p><img src="/achalneupane.github.io/post/Generalized_Additive_Models_and_Spline_Models_files/figure-html/unnamed-chunk-3-6.png" width="672" /></p>
+<p>Discussions:</p>
+<p>The 3 different smoothers line shows that quadratic is higher than cubic and lowess, while cubic is higher than lowess. However, I am not sure if it would be logical to explain the smoother one fits better or not.</p>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/statistics/">Statistics</a>
+  
+  <a class="badge badge-light" href="/achalneupane.github.io/tags/modern-applied-statistics-i/">Modern Applied Statistics I</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/achalneupane.github.io/authors/achal-neupane/"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_ii/">Logistic Regression&amp;GLM-II</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/logistic_regression_glm_i/">Logistic Regression&amp;GLM-I</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/graphical_summary/">Graphical Summary</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/density_estimation/">Density Estimation</a></li>
+          
+          <li><a href="/achalneupane.github.io/post/resampling/">Resampling</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/achalneupane.github.io/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/achalneupane.github.io/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/achalneupane.github.io/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/achalneupane.github.io/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

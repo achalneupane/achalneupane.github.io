@@ -132,9 +132,9 @@
   <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+      <meta property="article:published_time" content="2019-07-15T17:26:23-05:00">
     
-    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+    <meta property="article:modified_time" content="2019-07-15T17:26:23-05:00">
   
 
   
@@ -376,8 +376,8 @@
 
 
 
-<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
-<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+<meta content="2019-07-15 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-07-15 17:26:23 -0500 CDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -402,7 +402,7 @@
     
       
     
-    <time>Aug 15, 2019</time>
+    <time>Jul 15, 2019</time>
   </span>
   
 
@@ -554,7 +554,7 @@
 <h1>Exercise 1.</h1>
 <p>Load the <code>ncaa2018.csv</code> data set and create histograms, QQ-norm and box-whisker plots for <code>ELO</code>. Add a title to each plot, identifying the data.</p>
 <pre class="r"><code>ncaa2018.dat = read.table(
-  &quot;/Users/owner1/Box/sdsu/statistical_programming_course/Week_7/ncaa2018.csv&quot;,
+  &quot;https://raw.githubusercontent.com/achalneupane/data/master/ncaa2018.csv&quot;,
   header = T,
   sep = &quot;,&quot;
 )
@@ -601,28 +601,28 @@ library(moments)
 
 norm.sample.kurt &lt;- kurtosis(norm.sample, na.rm = TRUE)
 norm.sample.kurt</code></pre>
-<pre><code>## [1] 3.158252</code></pre>
+<pre><code>## [1] 3.021838</code></pre>
 <pre class="r"><code>dcauchy.1000.kurt &lt;- kurtosis(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.kurt</code></pre>
-<pre><code>## [1] 960.7892</code></pre>
+<pre><code>## [1] 738.9989</code></pre>
 <pre class="r"><code>dweibull.1000.kurt &lt;- kurtosis(dweibull.1000, na.rm = TRUE)
 dweibull.1000.kurt</code></pre>
-<pre><code>## [1] 5.526771</code></pre>
+<pre><code>## [1] 4.200549</code></pre>
 <pre class="r"><code>rexp.1000.kurt &lt;- kurtosis(rexp.1000, na.rm = TRUE)
 rexp.1000.kurt</code></pre>
-<pre><code>## [1] 5.380965</code></pre>
+<pre><code>## [1] 4.822286</code></pre>
 <pre class="r"><code>norm.sample.skew &lt;- skewness(norm.sample, na.rm = TRUE)
 norm.sample.skew</code></pre>
-<pre><code>## [1] -0.1114391</code></pre>
+<pre><code>## [1] -0.07906608</code></pre>
 <pre class="r"><code>dcauchy.1000.skew &lt;- skewness(dcauchy.1000, na.rm = TRUE)
 dcauchy.1000.skew</code></pre>
-<pre><code>## [1] 30.68432</code></pre>
+<pre><code>## [1] 25.7455</code></pre>
 <pre class="r"><code>dweibull.1000.skew &lt;- skewness(dweibull.1000, na.rm = TRUE)
 dweibull.1000.skew</code></pre>
-<pre><code>## [1] 1.294582</code></pre>
+<pre><code>## [1] 1.010605</code></pre>
 <pre class="r"><code>rexp.1000.skew &lt;- skewness(rexp.1000, na.rm = TRUE)
 rexp.1000.skew</code></pre>
-<pre><code>## [1] 0.1439096</code></pre>
+<pre><code>## [1] 0.04160438</code></pre>
 </div>
 <div id="part-b-1" class="section level2">
 <h2>Part b</h2>
@@ -747,7 +747,7 @@ plot.histograms &lt;- function(dat, vec, main, xlab){
 }
 
 # now read the file
-hidalgo.dat = read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_course/Week_9/hidalgo.dat&quot;,
+hidalgo.dat = read.table(&quot;https://raw.githubusercontent.com/achalneupane/data/master/hidalgo.dat&quot;,
                    header = T,
                    sep = &quot;,&quot;
 )</code></pre>
@@ -757,8 +757,8 @@ hidalgo.dat = read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_co
 <p>Test your function with the <code>hidalgo</code> data set (see below), using bin numbers 12, 36, and 60. You should be able to call your function with something like</p>
 <pre class="r"><code>plot.histograms(hidalgo.dat[,1],c(12,36,60), main=&quot;1872 Hidalgo issue&quot;,xlab= &quot;Thickness (mm)&quot;)</code></pre>
 <pre><code>## $breaks
-##  [1] 0.060 0.065 0.070 0.075 0.080 0.085 0.090 0.095 0.100 0.105 0.110
-## [12] 0.115 0.120 0.125 0.130 0.135
+##  [1] 0.060 0.065 0.070 0.075 0.080 0.085 0.090 0.095 0.100 0.105 0.110 0.115
+## [13] 0.120 0.125 0.130 0.135
 ## 
 ## $counts
 ##  [1]   3  35  93 131  45  24  19  35  31  32  15   8   7   5   1
@@ -781,14 +781,13 @@ hidalgo.dat = read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_co
 ## attr(,&quot;class&quot;)
 ## [1] &quot;histogram&quot;</code></pre>
 <pre><code>## $breaks
-##  [1] 0.064 0.066 0.068 0.070 0.072 0.074 0.076 0.078 0.080 0.082 0.084
-## [12] 0.086 0.088 0.090 0.092 0.094 0.096 0.098 0.100 0.102 0.104 0.106
-## [23] 0.108 0.110 0.112 0.114 0.116 0.118 0.120 0.122 0.124 0.126 0.128
-## [34] 0.130 0.132
+##  [1] 0.064 0.066 0.068 0.070 0.072 0.074 0.076 0.078 0.080 0.082 0.084 0.086
+## [13] 0.088 0.090 0.092 0.094 0.096 0.098 0.100 0.102 0.104 0.106 0.108 0.110
+## [25] 0.112 0.114 0.116 0.118 0.120 0.122 0.124 0.126 0.128 0.130 0.132
 ## 
 ## $counts
-##  [1]  4  1 33 52 21 38 34 79 33 10  4  3 19  8  9  5 12 20 17  9  9 10 18
-## [24]  9  3  3  1  7  3  2  2  1  4  1
+##  [1]  4  1 33 52 21 38 34 79 33 10  4  3 19  8  9  5 12 20 17  9  9 10 18  9  3
+## [26]  3  1  7  3  2  2  1  4  1
 ## 
 ## $density
 ##  [1]  4.132231  1.033058 34.090909 53.719008 21.694215 39.256198 35.123967
@@ -798,10 +797,9 @@ hidalgo.dat = read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_co
 ## [29]  3.099174  2.066116  2.066116  1.033058  4.132231  1.033058
 ## 
 ## $mids
-##  [1] 0.065 0.067 0.069 0.071 0.073 0.075 0.077 0.079 0.081 0.083 0.085
-## [12] 0.087 0.089 0.091 0.093 0.095 0.097 0.099 0.101 0.103 0.105 0.107
-## [23] 0.109 0.111 0.113 0.115 0.117 0.119 0.121 0.123 0.125 0.127 0.129
-## [34] 0.131
+##  [1] 0.065 0.067 0.069 0.071 0.073 0.075 0.077 0.079 0.081 0.083 0.085 0.087
+## [13] 0.089 0.091 0.093 0.095 0.097 0.099 0.101 0.103 0.105 0.107 0.109 0.111
+## [25] 0.113 0.115 0.117 0.119 0.121 0.123 0.125 0.127 0.129 0.131
 ## 
 ## $xname
 ## [1] &quot;dat&quot;
@@ -813,18 +811,17 @@ hidalgo.dat = read.table(&quot;/Users/owner1/Box/sdsu/statistical_programming_co
 ## [1] &quot;histogram&quot;</code></pre>
 <p><img src="/achalneupane.github.io/post/Additional_Graphs_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre><code>## $breaks
-##  [1] 0.064 0.065 0.066 0.067 0.068 0.069 0.070 0.071 0.072 0.073 0.074
-## [12] 0.075 0.076 0.077 0.078 0.079 0.080 0.081 0.082 0.083 0.084 0.085
-## [23] 0.086 0.087 0.088 0.089 0.090 0.091 0.092 0.093 0.094 0.095 0.096
-## [34] 0.097 0.098 0.099 0.100 0.101 0.102 0.103 0.104 0.105 0.106 0.107
-## [45] 0.108 0.109 0.110 0.111 0.112 0.113 0.114 0.115 0.116 0.117 0.118
-## [56] 0.119 0.120 0.121 0.122 0.123 0.124 0.125 0.126 0.127 0.128 0.129
-## [67] 0.130 0.131
+##  [1] 0.064 0.065 0.066 0.067 0.068 0.069 0.070 0.071 0.072 0.073 0.074 0.075
+## [13] 0.076 0.077 0.078 0.079 0.080 0.081 0.082 0.083 0.084 0.085 0.086 0.087
+## [25] 0.088 0.089 0.090 0.091 0.092 0.093 0.094 0.095 0.096 0.097 0.098 0.099
+## [37] 0.100 0.101 0.102 0.103 0.104 0.105 0.106 0.107 0.108 0.109 0.110 0.111
+## [49] 0.112 0.113 0.114 0.115 0.116 0.117 0.118 0.119 0.120 0.121 0.122 0.123
+## [61] 0.124 0.125 0.126 0.127 0.128 0.129 0.130 0.131
 ## 
 ## $counts
-##  [1]  3  1  0  1  7 26 20 32 11 10 20 18 11 23 42 37 15 18  7  3  2  2  1
-## [24]  2 10  9  3  5  6  3  2  3  7  5  5 15  9  8  7  2  5  4  3  7  7 11
-## [47]  4  5  0  3  3  0  1  0  4  3  1  2  2  0  2  0  0  1  3  1  1
+##  [1]  3  1  0  1  7 26 20 32 11 10 20 18 11 23 42 37 15 18  7  3  2  2  1  2 10
+## [26]  9  3  5  6  3  2  3  7  5  5 15  9  8  7  2  5  4  3  7  7 11  4  5  0  3
+## [51]  3  0  1  0  4  3  1  2  2  0  2  0  0  1  3  1  1
 ## 
 ## $density
 ##  [1]  6.198347  2.066116  0.000000  2.066116 14.462810 53.719008 41.322314
@@ -1095,11 +1092,11 @@ qqline(residuals(Assumption2.lm))</code></pre>
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          <li><a href="/achalneupane.github.io/post/final_assignment/">Final assignment</a></li>
           
-          <li><a href="/achalneupane.github.io/post/calculations/">Calculations</a></li>
+          <li><a href="/achalneupane.github.io/post/midterm_project/">Midterm data analysis</a></li>
           
-          <li><a href="/achalneupane.github.io/post/control_structures/">Control Structures</a></li>
+          <li><a href="/achalneupane.github.io/post/processing_text/">Processing text</a></li>
           
           <li><a href="/achalneupane.github.io/post/data_manipulation/">Data manipulation</a></li>
           

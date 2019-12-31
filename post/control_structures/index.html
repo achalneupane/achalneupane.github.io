@@ -132,9 +132,9 @@
   <meta property="twitter:image" content="/achalneupane.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-08-15T17:26:23-05:00">
+      <meta property="article:published_time" content="2019-06-05T17:26:23-05:00">
     
-    <meta property="article:modified_time" content="2019-08-15T17:26:23-05:00">
+    <meta property="article:modified_time" content="2019-06-05T17:26:23-05:00">
   
 
   
@@ -376,8 +376,8 @@
 
 
 
-<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="datePublished">
-<meta content="2019-08-15 17:26:23 -0500 CDT" itemprop="dateModified">
+<meta content="2019-06-05 17:26:23 -0500 CDT" itemprop="datePublished">
+<meta content="2019-06-05 17:26:23 -0500 CDT" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -402,7 +402,7 @@
     
       
     
-    <time>Aug 15, 2019</time>
+    <time>Jun 5, 2019</time>
   </span>
   
 
@@ -968,9 +968,9 @@ h0 &lt;- 0.1 # spaced by 0.1
 # Xi = x_0+h
 X0 &lt;- seq(x0,xn,h0)
 X0</code></pre>
-<pre><code>##  [1] -2.0 -1.9 -1.8 -1.7 -1.6 -1.5 -1.4 -1.3 -1.2 -1.1 -1.0 -0.9 -0.8 -0.7
-## [15] -0.6 -0.5 -0.4 -0.3 -0.2 -0.1  0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7
-## [29]  0.8  0.9  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0</code></pre>
+<pre><code>##  [1] -2.0 -1.9 -1.8 -1.7 -1.6 -1.5 -1.4 -1.3 -1.2 -1.1 -1.0 -0.9 -0.8 -0.7 -0.6
+## [16] -0.5 -0.4 -0.3 -0.2 -0.1  0.0  0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9
+## [31]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0</code></pre>
 <pre class="r"><code>L0 &lt;- sum(X0)
 L0</code></pre>
 <pre><code>## [1] 4.662937e-15</code></pre>
@@ -1086,27 +1086,23 @@ out &lt;- smart.pois(x_a[i], lambda)
 smart.poisson.probability.x_a &lt;- c(smart.poisson.probability.x_a, out)
 }
 smart.poisson.probability.x_a</code></pre>
-<pre><code>##   [1]          NA          NA          NA          NA          NA
-##   [6]          NA          NA          NA          NA          NA
-##  [11]          NA          NA          NA          NA          NA
-##  [16]          NA          NA          NA          NA          NA
-##  [21]          NA          NA          NA          NA          NA
-##  [26]          NA          NA          NA          NA          NA
-##  [31]          NA          NA          NA          NA          NA
-##  [36]          NA          NA          NA          NA          NA
-##  [41]          NA          NA          NA          NA          NA
-##  [46]          NA          NA          NA          NA          NA
-##  [51] 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441
-##  [56] 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441
-##  [61] 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441
-##  [66] 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441
-##  [71] 0.183939721 0.183939721 0.183939721 0.183939721 0.183939721
-##  [76] 0.183939721 0.183939721 0.183939721 0.183939721 0.183939721
-##  [81] 0.061313240 0.061313240 0.061313240 0.061313240 0.061313240
-##  [86] 0.061313240 0.061313240 0.061313240 0.061313240 0.061313240
-##  [91] 0.015328310 0.015328310 0.015328310 0.015328310 0.015328310
-##  [96] 0.015328310 0.015328310 0.015328310 0.015328310 0.015328310
-## [101] 0.003065662</code></pre>
+<pre><code>##   [1]          NA          NA          NA          NA          NA          NA
+##   [7]          NA          NA          NA          NA          NA          NA
+##  [13]          NA          NA          NA          NA          NA          NA
+##  [19]          NA          NA          NA          NA          NA          NA
+##  [25]          NA          NA          NA          NA          NA          NA
+##  [31]          NA          NA          NA          NA          NA          NA
+##  [37]          NA          NA          NA          NA          NA          NA
+##  [43]          NA          NA          NA          NA          NA          NA
+##  [49]          NA          NA 0.367879441 0.367879441 0.367879441 0.367879441
+##  [55] 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441
+##  [61] 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441 0.367879441
+##  [67] 0.367879441 0.367879441 0.367879441 0.367879441 0.183939721 0.183939721
+##  [73] 0.183939721 0.183939721 0.183939721 0.183939721 0.183939721 0.183939721
+##  [79] 0.183939721 0.183939721 0.061313240 0.061313240 0.061313240 0.061313240
+##  [85] 0.061313240 0.061313240 0.061313240 0.061313240 0.061313240 0.061313240
+##  [91] 0.015328310 0.015328310 0.015328310 0.015328310 0.015328310 0.015328310
+##  [97] 0.015328310 0.015328310 0.015328310 0.015328310 0.003065662</code></pre>
 <pre class="r"><code>norm.pdf &lt;- function(x,mu=0,sigma=1){
   l&lt;-1/(sigma*sqrt(pi*2))*exp(-((x-mu)^2)/(2*sigma^2))
   return(l)
@@ -1260,15 +1256,13 @@ dpois(-1, 12)</code></pre>
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/achalneupane.github.io/post/additional_graphs/">Additional graphs</a></li>
-          
-          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
+          <li><a href="/achalneupane.github.io/post/functions/">Functions</a></li>
           
           <li><a href="/achalneupane.github.io/post/calculations/">Calculations</a></li>
           
-          <li><a href="/achalneupane.github.io/post/data_manipulation/">Data manipulation</a></li>
+          <li><a href="/achalneupane.github.io/post/arrays/">Arrays</a></li>
           
-          <li><a href="/achalneupane.github.io/post/data_tables/">Data tables</a></li>
+          <li><a href="/achalneupane.github.io/post/getting_started/">Getting Started</a></li>
           
         </ul>
       </div>

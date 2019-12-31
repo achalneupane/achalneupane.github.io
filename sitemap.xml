@@ -4,135 +4,110 @@
   
   <url>
     <loc>/achalneupane.github.io/authors/achal-neupane/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/achalneupane.github.io/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/achalneupane.github.io/authors/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/post/density_estimation/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/graphical_summary/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/logistic_regression_glm_i/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/logistic_regression_glm_ii/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/achalneupane.github.io/tags/modern-applied-statistics-i/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/achalneupane.github.io/post/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
   </url>
   
   <url>
     <loc>/achalneupane.github.io/tags/r/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>/achalneupane.github.io/post/stat_601_final/</loc>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/achalneupane.github.io/tags/statistics/</loc>
-    <lastmod>2019-10-01T17:26:23-05:00</lastmod>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/achalneupane.github.io/tags/</loc>
+    <lastmod>2019-11-18T17:26:23-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_ii/</loc>
+    <lastmod>2019-11-08T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/longitudinal_data_analysis_and_mixed_models_i/</loc>
+    <lastmod>2019-10-28T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/quantile_regression/</loc>
+    <lastmod>2019-10-18T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/survival_analysis/</loc>
+    <lastmod>2019-10-11T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/generalized_additive_models_and_spline_models/</loc>
     <lastmod>2019-10-01T17:26:23-05:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/post/final_assignment/</loc>
-    <lastmod>2019-09-15T17:26:23-05:00</lastmod>
+    <loc>/achalneupane.github.io/post/logistic_regression_glm_ii/</loc>
+    <lastmod>2019-09-21T17:26:23-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/tags/statistical_programming/</loc>
-    <lastmod>2019-09-15T17:26:23-05:00</lastmod>
-    <priority>0</priority>
+    <loc>/achalneupane.github.io/post/logistic_regression_glm_i/</loc>
+    <lastmod>2019-09-18T17:26:23-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/post/midterm_project/</loc>
+    <loc>/achalneupane.github.io/post/graphical_summary/</loc>
+    <lastmod>2019-09-10T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/density_estimation/</loc>
     <lastmod>2019-09-01T17:26:23-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/achalneupane.github.io/post/additional_graphs/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/arrays/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/calculations/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/control_structures/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/data_manipulation/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/data_tables/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/functions/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/getting_started/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/achalneupane.github.io/post/processing_text/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/achalneupane.github.io/post/resampling/</loc>
-    <lastmod>2019-08-15T17:26:23-05:00</lastmod>
+    <lastmod>2019-08-18T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/tags/statistical_programming/</loc>
+    <lastmod>2019-08-18T17:26:23-05:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -189,6 +164,61 @@
   <url>
     <loc>/achalneupane.github.io/talk/</loc>
     <lastmod>2019-07-24T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/additional_graphs/</loc>
+    <lastmod>2019-07-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/final_assignment/</loc>
+    <lastmod>2019-07-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/midterm_project/</loc>
+    <lastmod>2019-06-21T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/processing_text/</loc>
+    <lastmod>2019-06-15T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/data_manipulation/</loc>
+    <lastmod>2019-06-12T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/data_tables/</loc>
+    <lastmod>2019-06-08T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/control_structures/</loc>
+    <lastmod>2019-06-05T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/functions/</loc>
+    <lastmod>2019-05-30T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/calculations/</loc>
+    <lastmod>2019-05-25T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/arrays/</loc>
+    <lastmod>2019-05-20T17:26:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/achalneupane.github.io/post/getting_started/</loc>
+    <lastmod>2019-05-15T17:26:23-05:00</lastmod>
   </url>
   
   <url>

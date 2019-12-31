@@ -1,0 +1,366 @@
+---
+Authors: ["**Achal Neupane**"]
+title: "STAT_601_Final"
+date: 2019-11-18T17:26:23-05:00
+draft: false
+output: html_document
+tags:
+- R
+- Statistics
+- Modern Applied Statistics I
+summary: Statistics series
+---
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+Final Projects (Fall 2019)- Statistics 601. Due on December 18, 2019 at 5 pm central time.
+
+Work on this exam by yourself and be sure to reference any material you use on your exam. Only discuss the exam with me, Ms. Fuglsby, or Ms. Hajebi and not the other students in the class. 
+Do two of the following three problems.  Turn in one pdf and RMD file for each problem clearly labeling which problems you have chosen to do.
+1: The data shown in schizophrenia.csv were collected in a follow-up study of women patients with schizophrenia and summarized in Davis (2002), Statistical Methods for the Analysis of Repeated Measurements, Springer, New York. The binary response recorded at 0, 2, 6, 8 and 10 months after hospitalization was thought disorder (absent or present). The single covariate is the factor indicating whether a patient had suffered early or late onset of her condition (age of onset less than 20 years or age of onset 20 years or above). The question of interest is whether the course of the illness differs between patients with early and late onset? Investigate the question of interest. 
+i)	Provide a two to three-page write-up (including graphs) explaining your analysis of the experiment and the conclusions you can draw from it.  
+ii)	As a secondary component provide annotated code that replicates your analysis.
+Make sure to discuss any concerns about the modeling assumptions used in your analysis.
+The .csv file has the following variables.
+subject
+- the patient ID, a factor with levels 1 to 44.
+onset
+-	the time of onset of the disease, a factor with levels < 20 yrs and > 20 yrs.
+disorder
+-	whether thought disorder was absent or present, the response variable.
+month
+-	month after hospitalization.
+
+Please note that you may have already explored this dataset in the class. Even so, please do a complete and extended analysis answering the questions, with the focus of writing and explaining the what you have found in your analysis.
+
+
+For this analysis, first I splitted the schizophrenia data into younger and  older patients percentage.
+```{r}
+library(dplyr)
+schizophrenia2 <- read.csv("https://raw.githubusercontent.com/achalneupane/data/master/schizophrenia.csv", header = TRUE, sep =",")
+
+cat("Calculating percentage data")
+younger_percentage <- c( nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 0 & disorder == "present"))) / 
+                           nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 0))),
+                         nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 2 & disorder == "present"))) / 
+                           nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 2))),
+                         nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 6 & disorder == "present"))) / 
+                           nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 6))),
+                         nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 8 & disorder == "present"))) / 
+                           nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 8))),
+                         nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 10 & disorder == "present"))) / 
+                           nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 10))))
+
+older_percentage <- c( nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 0 & disorder == "present"))) / 
+                         nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 0))),
+                       nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 2 & disorder == "present"))) / 
+                         nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 2))),
+                       nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 6 & disorder == "present"))) / 
+                         nrow(subset(schizophrenia2, (onset == "< 20 yrs" & month == 6))),
+                       nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 8 & disorder == "present"))) / 
+                         nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 8))),
+                       nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 10 & disorder == "present"))) / 
+                         nrow(subset(schizophrenia2, (onset == "> 20 yrs" & month == 10))))
+
+younger_percentage %>% summary() %>% as.matrix() %>% t() %>% knitr::kable(caption = "Summary statistics for presence of younger onset data")
+
+older_percentage %>% summary() %>% as.matrix() %>% t() %>% knitr::kable(caption = "Summary statistics for presence of older onset data")
+
+
+plot(x = seq(1:5), y=younger_percentage, type="l", col=1, xaxt="n", ylim=c(0,0.8),
+     xlab="Months", ylab="Percent present", main = "Percent present by age at Onset")
+lines(older_percentage, col=4)
+legend("topright", legend=c("Percent present at Onset < 20 years", "Percent Present at Onset > 20 years"), 
+       col=   c("1", "4"), lty = c(1, 1))
+axis(side=1, at=seq(1:5), labels = c(0, 2, 6, 8, 10))
+axis(side=2, at=seq(1:11), labels = c(0, 0.1, .2, .3, .4, .5, .6, .7, .8, .9, 1))
+
+```
+
+  
+From this analysis, we see that for the older-onset population, the mean and the median of the percentage of `presence of schizophrenia` are lower. Looking at the percentage plot, it appears that at each sample date (in months) the percentage is lower in the older-onset population. 
+Looking at the graph of the precentages, it looks like the precentage is lower in the older-onset popullation at every sample date (in months). Both of these seem to indicate that the question is worth investigating more closely.
+The mosaic plot shows an increase of 'absence' for both populations, through 8 months. Then, a light diminishing of absences at 10 months.
+
+
+We can then use GEE approach to further investigate the data.
+
+```{r,echo=FALSE}
+library(lme4)
+library(MuMIn)
+library(geepack)
+library("vcd")
+library("gee")
+library(printr)
+library(dplyr)
+schiz <- subset(schizophrenia2, month > "0")
+schiz$baseline <- rep(subset(schizophrenia2, month =="0")$disorder, rep(4,44))
+schiz$ndisorder <- as.numeric(schiz$disorder == "present")
+schiz$month <- schiz$month[, drop = TRUE]
+
+
+resp_sub_gee1 <- geeglm(ndisorder ~ onset + month + baseline,
+                        data = schiz, family = "binomial", id = subject,
+                        corstr = "independence")
+
+
+
+resp_sub_gee2 <- geeglm(ndisorder ~ onset + month + baseline,
+                        data = schiz, family = "binomial", id = subject,
+                        corstr = "exchangeable")
+
+
+
+resp_sub_gee3 <- geeglm(ndisorder ~ onset + month + baseline,
+                        data = schiz, family = "binomial", id = subject,
+                        corstr = "unstructured")
+
+knitr::kable(QIC(resp_sub_gee1), caption = "QIC from GEE Independent (identity)")
+
+knitr::kable(QIC(resp_sub_gee2), caption = "QIC from GEE Exchangeable")
+knitr::kable(QIC(resp_sub_gee3), caption = "QIC from GEE Unstructured")
+
+```
+
+In exchangeable and unstructured model, the QIC score is the lowest. So for the selection of model, either model can be a good choice. However, comparing parameters such as CIC, QICu and QICC, I think the exchangeable model seems better.
+
+
+Additionally, we can also use linear mixed effects model (lmer) and develop different models by selecting different variables, and then compare our models. 
+
+```{r,echo=FALSE}
+
+schiz_glm <- glm(ndisorder ~ onset + baseline + month, data = schiz, family = "binomial")
+
+# LMER
+schiz_lmer1 <- lmer(ndisorder ~ onset + month + baseline +  (1 | subject), data = schiz,  REML = FALSE, na.action = na.omit)
+schiz_lmer2 <- lmer(ndisorder ~ onset + month + baseline +  (month | subject), data = schiz,  REML = FALSE, na.action = na.omit)
+schiz_lmer3 <- lmer(ndisorder ~ onset + month + baseline + month*onset +  (1 | subject), data = schiz,  REML = FALSE, na.action = na.omit)
+schiz_lmer4 <- lmer(ndisorder ~ onset + month + baseline + month*onset +  (month | subject), data = schiz,  REML = FALSE, na.action = na.omit)
+print("Without interaction term:")
+print(paste("BIC: Fixed Slope : ", BIC(schiz_lmer1)))
+print(paste("BIC: Random Slope: ", BIC(schiz_lmer2)))
+print("With interaction term: month v. onset:")
+print(paste("BIC: Fixed Slope : ", BIC(schiz_lmer3)))
+print(paste("BIC: Random Slope: ", BIC(schiz_lmer4)))
+```
+
+
+To see whether which models works best in our case, we can do model comparison with ANOVA.
+  
+  ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+cat("Fixed Slope v. Random Slope (no intaction term)")
+anova(schiz_lmer1, schiz_lmer2) # .
+cat("Interaction Term v. No Interaction Term (fixed slope)")
+anova(schiz_lmer1, schiz_lmer3) # 
+cat("Fixed Slope, No interaction Term v. Random Slope, With interaction term")
+anova(schiz_lmer1, schiz_lmer4) # 
+cat("Random Slope, No interaction term v. Fixed Slope, With interaction term")
+anova(schiz_lmer2, schiz_lmer3) # *
+cat("No interaction term v. Interaction term (random slope)")
+anova(schiz_lmer2, schiz_lmer4) # 
+cat("Fixed Slope v. Random Slope (with intaction term)")
+anova(schiz_lmer3, schiz_lmer4) # .
+```   
+
+The model with a fixed effect and no interaction term has the lowest BIC score. This would be an indicator that the concept of contact is not likely to add much to the template if anything. The most significant difference based on ANOVA analysis is between random slope, no interaction term and fixed slope, with interaction term (fourth table). This is indicated with a p-score of 0.025 i.e., [P<0.05].
+
+
+
+
+
+2. (Vole Data)- Consider the “microtus" dataset in the “Flury" library in R. 
+Background from Airoldi_Flury_Salvioni_JTheorBiol_1995: Discrimination Between Two Species of Microtus using both Classified and Unclassified Observations.
+“1. Introduction 
+Microtus subterraneus and M. multiplex are now considered to be two distinct species (Niethammer, 1982; Krapp, 1982), contrary to the older view of Ellerman & Morrison-Scott (1951). The two species differ in the number of chromosomes: 2n=52 or 54 for M. subterraneus, and 2n=46 or 48 for M. multiplex. Hybrids from the laboratory have reduced fertility (Meylan, 1972), and hybrids from the field, whose karyotypes would be clearly recognizable, have never been found (Krapp, 1982). 
+The geographic ranges of distribution of M. subterraneus and M. multiplex overlap to some extent in the Alps of southern Switzerland and northern Italy (Niethammer, 1982; Krapp, 1982). M. subterraneus is smaller than M. multiplex in most measurements, and occurs at elevations from 1000 m to over 2000 m, except in the western part of its range (for example, Belgium and Brittany), where it is found in lower elevations. M. multiplex is found at similar elevations, but also at altitudes from 200–300 m south of the Alps (Ticino, Toscana). 
+The two chromosomal types of M. subterraneus can be crossed in the laboratory (Meylan, 1970, 1972), but no hybrids have so far been found in the field. In M. multiplex, the two chromosomal types show a distinct distribution range, but they are morphologically indistinguishable, and a hybrid has been found in the field (Storch & Winking, 1977). 
+No reliable criteria based on cranial morphology have been found to distinguish the two species. Saint Girons (1971) pointed out a difference in the sutures of the posterior parts of the premaxillary and nasal bones compared to the frontal one, but this criterion does not work well in many cases. For both paleontological and biogeographical research it would be useful to have a good rule for discriminating between the two species, because much of the data available are in form of skull remains, either fossilized or from owl pellets. 
+The present study was initiated by a data collection consisting of eight morphometric variables measured by one of the authors (Salvioni) using a Nikon measure-scope (accuracy 1/1000 mm) and dial calipers (accuracy 1/100 mm). The sample consists of 288 specimens collected mostly in Central Europe (Alps and Jura mountains) and in Toscana. One peculiar aspect of this data set is that the chromosomes of 89 specimens were analyzed to identify the species. Only the morphometric characteristics are available for the remaining 199 specimens…”
+
+Develop a model from the 89 specimens that you can use to predict the group membership of the remaining 199 specimens’. 
+a)	Explain your GLM and assess the quality of the fit with the classified observations.   
+You may want to use Cross Validation to predict the accuracy of your model.
+b)	Provide a two to three-page write-up (including graphs) explaining your analysis of the dataset and your recommendations on the usefulness of your predictions. 
+c)	Provide predictions for the unclassified observations. 		
+d)	As a secondary component provide annotated code that replicates your analysis.
+
+The microtus data set for this final contains 288 observations. Only 89 of these obs are classified as either Subterraneus or Multiplex. The other 199 obs are unknown. The data set has 8 variables that are all measurements of the two possible species. The objective of this final project will be to predict the species of the unknown obs by modeling the 89 classified obs.
+
+
+The microtus dataset for this final assignement has 288 rows and 9 columns. We are using 89 of these observations which are labeled as either Subterraneus or Multiplex and the rest of the 199 observartions are unknown. We are splitting our data into known and unknown groups for prediction purposes.
+```{r,echo=FALSE,warning=FALSE}
+library(HSAUR2)
+library(HSAUR)
+library(MASS)
+library(Flury)
+library(Rcmdr)
+
+library(pROC)
+
+
+
+data(microtus)
+mc=microtus
+class(mc$Group)
+
+# making 0,1,2 groups
+mc$Group=as.numeric(mc$Group)-1
+
+# First, I divide the datatset in a Known (known) and Unknown(uk) groups.
+
+# Unknown Subset Construction
+uk=subset(mc,Group==2)
+
+known=subset(mc,Group!=2)
+# known$Group <- as.numeric(known$Group)
+# # we can check the correlation of each pairs 
+# plot(known[,c(2:9)])
+# cor(known[,c(2:9)])
+
+# we can check the correlation of each pairs of microtus dataset
+library(GGally)
+# ggpairs(known, columns = 1:9, ggplot2::aes(colour=Group))
+ggpairs(microtus, columns = 1:9, ggplot2::aes(colour=Group))
+# I made a pairs of plot of the microtus (known) groups. The lower left plots show that all variables seem to have some positive correlation. 
+```
+
+First, we check the relationship between the variables in our data using ggpairs plot where different classes are shown in different colours. Based on this plot (looking at the lower left points), we can say that the all of these variables are somewhat correlated which can be confirmed by their corresponding values in the upper right. Another interesting aspect of this plot is the density distribution which shows us the distribution of suberraneus, multiplex and the unknown groups, and also whether the variables shown here appear similar or different.
+
+```{r}
+
+# ############################
+# Now we do logistic regression of our Model followed by AIC and p value checking
+
+
+model=glm(Group~M1Left+Height+Foramen,data=known,family=binomial)
+AIC(model)
+summary(model)
+# MSE of the model
+MSE.glm <- mean((predict(model, newdata = known, type = "response")-known$Group)^2)
+MSE.glm
+
+cat("Cross validation with 10 fold: ")
+library(boot)
+(cv.err.10 <- mean(cv.glm(known, model, K = 10)$delta))
+
+```
+
+My logistic regression model (GLM) with formula `Group~M1Left+Height+Foramen` has an MSE(Mean square error) of 0.036 which was quite similar to the error values by Cross validation with 10 fold (0.051). The AIC calculated for this model was 29.09982. I then used stepwise regression below to enquire whether this model(and variables in the model) was the best model I could choose from. 
+
+Now, we can also construct the classification tree by selecting all variables. 
+
+```{r}
+library(rpart)
+library(party)
+# library(caret)
+# model <- train(
+#   factor(Group) ~., data = known, method = "ctree2",
+#   trControl = trainControl("cv", number = 10),
+#   tuneGrid = expand.grid(maxdepth = 3, mincriterion = 0.95 )
+#   )
+# 
+# plot(model$finalModel)
+
+p1.1.tree <- rpart(Group~.,data=known,control = rpart.control( minsplit = 10))
+
+library(party)
+library(partykit)
+
+plot(as.party(p1.1.tree),
+     tp_args = list(id = FALSE))
+
+# # Make predictions on the test data
+# library(dplyr)
+# predicted.classes <- model %>% predict(uk)
+```
+
+In above figure, using a tree, I want to see what variables are being chosen. These results seemed to follow along with the summary results from the model seleted below with step regression which is why the step model seems better than my GLM above. 
+
+
+```{r}
+require(randomForest)
+fit=randomForest(factor(Group)~.,data=known)
+varImpPlot(fit)
+
+```
+
+Here, based on random forest model, I want to see what variables are being chosen. Based on this, Foramen seems to be the least iportant while M1left seems to the most important variables. Here, Mean DecreaseinGini is the average (mean) of a variable's total decrease in node impurity, weighted by the proportion of samples reaching that node in each individual decision tree in the random forest. A higher Mean Decrease in Gini indicates higher variable importance. 
+
+
+In an attempt to improve selection of variables in my model above, I performed a stepwise selection of all variables. This process determined that the lowest AIC (27.70) was found when using  `M1Left + M3Left + Foramen + Length + Height`. This model indicates that the omission of Foramen and Length as in my original model is not a good idea. Nonetheless the error for this model is even smaller (0.027) than what we had for original model, and with a much improved cross validated error of .048. 
+
+```{r}
+#use stepwise regression for the glm
+step_known <- step(glm(Group ~., data = known, family = "binomial"), direction="both")
+# step_known <- step(glm(Group ~., data = known, family = "binomial"),trace=F, direction="both")
+
+#extract the formula with the lowest aic
+form_known <- formula(step_known)
+form_known
+
+
+model_step <- glm(Group ~ M1Left + M3Left + Foramen + Length + Height, data=known,family=binomial)
+AIC(model_step)
+summary(model_step)
+# MSE from step regression best model
+MSE.glm_step <- mean((predict(model_step, newdata = known, type = "response")-known$Group)^2)
+MSE.glm_step
+cat("Cross validation with 10 fold: ")
+(cv.err_step.10 <- mean(cv.glm(known, model_step, K = 10)$delta))
+
+```
+
+Now finally, the best model that was selected after step regression will be used to predict the rest of the data set that is unclassified (the unknown data: uk). The AIC for this model was 27.70 which is smaller (thus better) than our original model. Also, the MSE for this model was only 0.027 which is smaller (thus better) than our original model. Additionally, the cross validation error was 048 which is a bit higher than our MSE for this model and, but still better than the CV of our orignal model. Anyway, I will be selcting this model with AIC 0.27 from obtained step regression for the prediction purpose.
+
+
+The specific observation after predictions using the model will be shown below. I will also show a table of count of each species class at the bottom. 
+
+
+```{r}
+##################################################
+# ### ROC curve
+# # source: https://thestatsgeek.com/2014/05/05/area-under-the-roc-curve-assessing-discrimination-in-logistic-regression/
+# model=glm(Group~M1Left+Height+Foramen, data=known, family=binomial)
+# pred=predict(model,data=known, type="response")
+# (roc(known$Group,pred))$auc ## this gives the area under curve
+# plot(roc(known$Group,pred))
+
+#######################
+## Final Model
+uk=subset(mc,Group==2)
+known=subset(mc,Group!=2)
+
+# Using chosen model from stepwise regression
+Final_formula=Group~M1Left+M2Left+M3Left+Foramen+Height
+model=glm(Final_formula,data=known,family=binomial)
+pred=predict(model,newdata=uk,type="response")
+summary(model)
+for(j in 1:nrow(uk)){
+  if(pred[j]<0.5)
+  {uk[j,1]="multiplex"}
+  if(pred[j]>=0.5){uk[j,1]="subterraneous"}
+}
+
+cat("This is the first 6 rows of the predictions for unclassified observations")
+head(uk,6) 
+
+cat("Count of predicted class:")
+table(uk$Group)
+
+# ## decouple the predictions 
+# uk_multi=subset(uk, Group=="multiplex")
+# uk_subten=subset(uk, Group=="subterraneous")
+# 
+# nrow(uk_multi) ## number of samples predicted as multiplex
+# nrow(uk_subten) ## number of samples predicted as subterraneous
+# 
+# rownames(uk_multi) ## sample numbers of the multiplex classified 
+# rownames(uk_subten) ## sample numbers of the subterraneous classified 
+############################################################################
+
+```
+
+
+
