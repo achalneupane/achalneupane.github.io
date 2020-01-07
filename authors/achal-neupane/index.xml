@@ -6867,11 +6867,11 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
   # bootstrap estimate of the mean
   star.bar.theta &amp;lt;- mean (star.theta.rep)
   star.bar.theta&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.08608043&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.08608038&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.mean &amp;lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006995937&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  bstraps &amp;lt;- c()
   for (i in 1:1000) {
     bsample &amp;lt;- sample(y, length(y), replace=T)
@@ -6884,7 +6884,7 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.median &amp;lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006995937&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-d.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part d.&lt;/h3&gt;
@@ -6907,9 +6907,9 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jackknife.stderr.median&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006995937&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.0006995937&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
@@ -6971,13 +6971,13 @@ Calculate jackknife and bootstrap estimates for &lt;span class=&#34;math inline&
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] -5.698913e-05
+## [1] -3.979976e-05
 ## 
 ## $cv
-## [1] -0.009590144
+## [1] -0.00663203
 ## 
 ## $standard_error_bootstrap
-## [1] 0.005942468&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.006001143&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -7132,8 +7132,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 0.86381149 1.17363567 0.68276096 0.94147744 0.08228989 2.48381922
-##  [7] 0.58573056 2.14515954 0.14909735 0.93775304&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 2.1244133 2.0804274 0.2769392 2.3313564 1.5388445 0.2999365 0.7825215
+##  [8] 2.4445278 0.7377934 0.2932752&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -7163,8 +7163,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 2.2605232 1.9288097 1.5556757 0.7906361 0.4302580 0.5429718 0.1382361
-##  [8] 1.2495719 5.0247098 1.9534699&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 3.44507977 0.94367828 0.94121551 0.83887293 0.03820642 0.04714557
+##  [7] 1.65091690 0.38516132 0.03399200 2.36358890&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -7175,14 +7175,22 @@ sum(F_ratio &amp;gt; tt[[1]][[&amp;quot;F value&amp;quot;]][1])&lt;/code&gt;&lt;
 &lt;p&gt;I think having more number of permutations help in getting better statistics for these data.&lt;/p&gt;
 &lt;p&gt;Comments:
 Ex 3. For the bootstrap, something like&lt;/p&gt;
-&lt;p&gt;weights &amp;lt;- unique(elo.dat&lt;span class=&#34;math inline&#34;&gt;\(Weight) for (i in 1:samples) { weight.samples &amp;lt;- sample(weights,replace=TRUE) elo.sub &amp;lt;- c() for(w in weight.samples) { elo.sub &amp;lt;- elo.dat[(elo.dat\)&lt;/span&gt;Weight == w),]
-}&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# weights &amp;lt;- unique(elo.dat$Weight)
+# for (i in 1:samples) {
+# weight.samples &amp;lt;- sample(weights,replace=TRUE)
+# elo.sub &amp;lt;- c()
+# for(w in weight.samples) {
+# elo.sub &amp;lt;- elo.dat[(elo.dat$Weight == w),]
+# }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;It is a harder exercise, because we need to respect the sampling method of the original data, and for these data, wrestlers are grouped by weight class, so we need to sample weight classes. Similarly, for Ex 4, we want to sample Price observations within Week groups, so&lt;/p&gt;
-&lt;p&gt;weeks &amp;lt;- unique(pumpkins.dat&lt;span class=&#34;math inline&#34;&gt;\(Week) for(i in 1:10000) {  for(week in weeks) {  mask &amp;lt;- pumpkins.dat\)&lt;/span&gt;Week==week
-pumpkins.dat&lt;span class=&#34;math inline&#34;&gt;\(Price[mask] &amp;lt;- sample(pumpkins.dat\)&lt;/span&gt;Price[mask])
-}
-pumpkins.dat&lt;span class=&#34;math inline&#34;&gt;\(Price[mask] &amp;lt;-sample(pumpkins.dat\)&lt;/span&gt;Price[mask])
-}&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# weeks &amp;lt;- unique(pumpkins.dat$Week)
+# for(i in 1:10000) {
+#   for(week in weeks) {
+#     mask &amp;lt;- pumpkins.dat$Week==week
+#     pumpkins.dat$Price[mask] &amp;lt;- sample(pumpkins.dat$Price[mask])
+# }
+#     pumpkins.dat$Price[mask] &amp;lt;-sample(pumpkins.dat$Price[mask])
+#   }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Consider if Ex 4 had been executed as a randomized complete block design, with Week as block. You would have independently randomized and applied treatment (Class) to each experimental unit within the block. We need to do the same thing with the bootstrap.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

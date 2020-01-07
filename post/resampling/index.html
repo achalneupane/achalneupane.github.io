@@ -649,11 +649,11 @@ jackknife.stderr.mean</code></pre>
   # bootstrap estimate of the mean
   star.bar.theta &lt;- mean (star.theta.rep)
   star.bar.theta</code></pre>
-<pre><code>## [1] 0.08608043</code></pre>
+<pre><code>## [1] 0.08608038</code></pre>
 <pre class="r"><code>  # BS estimate of standard error for mean
   se.boot.mean &lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean</code></pre>
-<pre><code>## [1] 0.000682605</code></pre>
+<pre><code>## [1] 0.0006995937</code></pre>
 <pre class="r"><code>  bstraps &lt;- c()
   for (i in 1:1000) {
     bsample &lt;- sample(y, length(y), replace=T)
@@ -666,7 +666,7 @@ jackknife.stderr.mean</code></pre>
 <pre class="r"><code>  # BS estimate of standard error for mean
   se.boot.median &lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median</code></pre>
-<pre><code>## [1] 0.000682605</code></pre>
+<pre><code>## [1] 0.0006995937</code></pre>
 </div>
 <div id="part-d." class="section level3">
 <h3>Part d.</h3>
@@ -689,9 +689,9 @@ jackknife.stderr.mean</code></pre>
 <pre class="r"><code>jackknife.stderr.median</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>se.boot.mean</code></pre>
-<pre><code>## [1] 0.000682605</code></pre>
+<pre><code>## [1] 0.0006995937</code></pre>
 <pre class="r"><code>se.boot.median</code></pre>
-<pre><code>## [1] 0.000682605</code></pre>
+<pre><code>## [1] 0.0006995937</code></pre>
 </div>
 </div>
 <div id="exercise-2." class="section level1">
@@ -753,13 +753,13 @@ Calculate jackknife and bootstrap estimates for <span class="math inline">\(\wid
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] -5.698913e-05
+## [1] -3.979976e-05
 ## 
 ## $cv
-## [1] -0.009590144
+## [1] -0.00663203
 ## 
 ## $standard_error_bootstrap
-## [1] 0.005942468</code></pre>
+## [1] 0.006001143</code></pre>
 </div>
 </div>
 <div id="exercise-3" class="section level1">
@@ -914,8 +914,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]</code></pre>
-<pre><code>##  [1] 0.86381149 1.17363567 0.68276096 0.94147744 0.08228989 2.48381922
-##  [7] 0.58573056 2.14515954 0.14909735 0.93775304</code></pre>
+<pre><code>##  [1] 2.1244133 2.0804274 0.2769392 2.3313564 1.5388445 0.2999365 0.7825215
+##  [8] 2.4445278 0.7377934 0.2932752</code></pre>
 <pre class="r"><code># Distribution of F-ratio
 hist(F_ratio)</code></pre>
 <p><img src="/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
@@ -945,8 +945,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]</code></pre>
-<pre><code>##  [1] 2.2605232 1.9288097 1.5556757 0.7906361 0.4302580 0.5429718 0.1382361
-##  [8] 1.2495719 5.0247098 1.9534699</code></pre>
+<pre><code>##  [1] 3.44507977 0.94367828 0.94121551 0.83887293 0.03820642 0.04714557
+##  [7] 1.65091690 0.38516132 0.03399200 2.36358890</code></pre>
 <pre class="r"><code># Distribution of F-ratio
 hist(F_ratio)</code></pre>
 <p><img src="/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
@@ -957,14 +957,22 @@ sum(F_ratio &gt; tt[[1]][[&quot;F value&quot;]][1])</code></pre>
 <p>I think having more number of permutations help in getting better statistics for these data.</p>
 <p>Comments:
 Ex 3. For the bootstrap, something like</p>
-<p>weights &lt;- unique(elo.dat<span class="math inline">\(Weight) for (i in 1:samples) { weight.samples &lt;- sample(weights,replace=TRUE) elo.sub &lt;- c() for(w in weight.samples) { elo.sub &lt;- elo.dat[(elo.dat\)</span>Weight == w),]
-}</p>
+<pre class="r"><code># weights &lt;- unique(elo.dat$Weight)
+# for (i in 1:samples) {
+# weight.samples &lt;- sample(weights,replace=TRUE)
+# elo.sub &lt;- c()
+# for(w in weight.samples) {
+# elo.sub &lt;- elo.dat[(elo.dat$Weight == w),]
+# }</code></pre>
 <p>It is a harder exercise, because we need to respect the sampling method of the original data, and for these data, wrestlers are grouped by weight class, so we need to sample weight classes. Similarly, for Ex 4, we want to sample Price observations within Week groups, so</p>
-<p>weeks &lt;- unique(pumpkins.dat<span class="math inline">\(Week) for(i in 1:10000) {  for(week in weeks) {  mask &lt;- pumpkins.dat\)</span>Week==week
-pumpkins.dat<span class="math inline">\(Price[mask] &lt;- sample(pumpkins.dat\)</span>Price[mask])
-}
-pumpkins.dat<span class="math inline">\(Price[mask] &lt;-sample(pumpkins.dat\)</span>Price[mask])
-}</p>
+<pre class="r"><code># weeks &lt;- unique(pumpkins.dat$Week)
+# for(i in 1:10000) {
+#   for(week in weeks) {
+#     mask &lt;- pumpkins.dat$Week==week
+#     pumpkins.dat$Price[mask] &lt;- sample(pumpkins.dat$Price[mask])
+# }
+#     pumpkins.dat$Price[mask] &lt;-sample(pumpkins.dat$Price[mask])
+#   }</code></pre>
 <p>Consider if Ex 4 had been executed as a randomized complete block design, with Week as block. You would have independently randomized and applied treatment (Class) to each experimental unit within the block. We need to do the same thing with the bootstrap.</p>
 </div>
 </div>
