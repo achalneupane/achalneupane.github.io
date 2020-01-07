@@ -82,7 +82,7 @@
   
   
   
-  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.3072054fc61fe865aa34bcb366de141d.css">
+  <link rel="stylesheet" href="/achalneupane.github.io/css/academic.min.c66516cf97186fe7fa872ca1f0e4401a.css">
 
   
 
@@ -649,11 +649,11 @@ jackknife.stderr.mean</code></pre>
   # bootstrap estimate of the mean
   star.bar.theta &lt;- mean (star.theta.rep)
   star.bar.theta</code></pre>
-<pre><code>## [1] 0.08608903</code></pre>
+<pre><code>## [1] 0.08608043</code></pre>
 <pre class="r"><code>  # BS estimate of standard error for mean
   se.boot.mean &lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean</code></pre>
-<pre><code>## [1] 0.0006715704</code></pre>
+<pre><code>## [1] 0.000682605</code></pre>
 <pre class="r"><code>  bstraps &lt;- c()
   for (i in 1:1000) {
     bsample &lt;- sample(y, length(y), replace=T)
@@ -666,7 +666,7 @@ jackknife.stderr.mean</code></pre>
 <pre class="r"><code>  # BS estimate of standard error for mean
   se.boot.median &lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median</code></pre>
-<pre><code>## [1] 0.0006715704</code></pre>
+<pre><code>## [1] 0.000682605</code></pre>
 </div>
 <div id="part-d." class="section level3">
 <h3>Part d.</h3>
@@ -689,9 +689,9 @@ jackknife.stderr.mean</code></pre>
 <pre class="r"><code>jackknife.stderr.median</code></pre>
 <pre><code>## [1] 0</code></pre>
 <pre class="r"><code>se.boot.mean</code></pre>
-<pre><code>## [1] 0.0006715704</code></pre>
+<pre><code>## [1] 0.000682605</code></pre>
 <pre class="r"><code>se.boot.median</code></pre>
-<pre><code>## [1] 0.0006715704</code></pre>
+<pre><code>## [1] 0.000682605</code></pre>
 </div>
 </div>
 <div id="exercise-2." class="section level1">
@@ -753,13 +753,13 @@ Calculate jackknife and bootstrap estimates for <span class="math inline">\(\wid
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] -0.000204354
+## [1] -5.698913e-05
 ## 
 ## $cv
-## [1] -0.03371384
+## [1] -0.009590144
 ## 
 ## $standard_error_bootstrap
-## [1] 0.006061426</code></pre>
+## [1] 0.005942468</code></pre>
 </div>
 </div>
 <div id="exercise-3" class="section level1">
@@ -914,8 +914,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]</code></pre>
-<pre><code>##  [1] 4.16161486 0.69671325 1.38049072 0.74068580 0.07683598 0.70792231
-##  [7] 1.21110343 0.49387700 1.33360773 3.19540938</code></pre>
+<pre><code>##  [1] 0.86381149 1.17363567 0.68276096 0.94147744 0.08228989 2.48381922
+##  [7] 0.58573056 2.14515954 0.14909735 0.93775304</code></pre>
 <pre class="r"><code># Distribution of F-ratio
 hist(F_ratio)</code></pre>
 <p><img src="/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
@@ -945,8 +945,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]</code></pre>
-<pre><code>##  [1] 0.3341739 1.8332347 0.2162528 0.5687652 0.9283558 3.0491414 0.9716676
-##  [8] 0.1792787 1.4972060 0.1746379</code></pre>
+<pre><code>##  [1] 2.2605232 1.9288097 1.5556757 0.7906361 0.4302580 0.5429718 0.1382361
+##  [8] 1.2495719 5.0247098 1.9534699</code></pre>
 <pre class="r"><code># Distribution of F-ratio
 hist(F_ratio)</code></pre>
 <p><img src="/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
@@ -1179,7 +1179,7 @@ pumpkins.dat<span class="math inline">\(Price[mask] &lt;-sample(pumpkins.dat\)</
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2019 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

@@ -6867,11 +6867,11 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
   # bootstrap estimate of the mean
   star.bar.theta &amp;lt;- mean (star.theta.rep)
   star.bar.theta&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.08608903&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.08608043&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.mean &amp;lt;- sd(star.theta.rep - mean(star.theta.rep))
   se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006715704&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  bstraps &amp;lt;- c()
   for (i in 1:1000) {
     bsample &amp;lt;- sample(y, length(y), replace=T)
@@ -6884,7 +6884,7 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  # BS estimate of standard error for mean
   se.boot.median &amp;lt;- sd(star.theta.rep - median(star.theta.rep))
   se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006715704&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-d.&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Part d.&lt;/h3&gt;
@@ -6907,9 +6907,9 @@ jackknife.stderr.mean&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jackknife.stderr.median&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.mean&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006715704&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;se.boot.median&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.0006715704&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.000682605&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-2.&#34; class=&#34;section level1&#34;&gt;
@@ -6971,13 +6971,13 @@ Calculate jackknife and bootstrap estimates for &lt;span class=&#34;math inline&
 ## [1] 0.9992862
 ## 
 ## $bias
-## [1] -0.000204354
+## [1] -5.698913e-05
 ## 
 ## $cv
-## [1] -0.03371384
+## [1] -0.009590144
 ## 
 ## $standard_error_bootstrap
-## [1] 0.006061426&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.005942468&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;exercise-3&#34; class=&#34;section level1&#34;&gt;
@@ -7132,8 +7132,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 4.16161486 0.69671325 1.38049072 0.74068580 0.07683598 0.70792231
-##  [7] 1.21110343 0.49387700 1.33360773 3.19540938&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 0.86381149 1.17363567 0.68276096 0.94147744 0.08228989 2.48381922
+##  [7] 0.58573056 2.14515954 0.14909735 0.93775304&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -7163,8 +7163,8 @@ for(i in 1:B) {
 }
 
 F_ratio[1:10]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 0.3341739 1.8332347 0.2162528 0.5687652 0.9283558 3.0491414 0.9716676
-##  [8] 0.1792787 1.4972060 0.1746379&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 2.2605232 1.9288097 1.5556757 0.7906361 0.4302580 0.5429718 0.1382361
+##  [8] 1.2495719 5.0247098 1.9534699&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Distribution of F-ratio
 hist(F_ratio)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/achalneupane.github.io/achalneupane.github.io/post/Resampling_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
